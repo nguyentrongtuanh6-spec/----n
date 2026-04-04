@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đăng nhập - AURORA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:"Be Vietnam Pro",Arial,sans-serif;
+  background:#f2f2f2;
+  color:#1f1f1f;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.topbar{
+  background:#f28f9f;
+  color:#fff;
+  text-align:center;
+  padding:7px 10px;
+  font-size:11px;
+  font-weight:500;
+}
+
+.header{
+  background:#fff;
+  padding:16px 120px 12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:38px;
+  letter-spacing:1px;
+  font-family:Georgia,"Times New Roman",serif;
+}
+
+.logo img{
+  display:block;
+  width:150px;
+  height:auto;
+}
+
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+.search-box{
+  position:relative;
+}
+
+.search-box input{
+  width:220px;
+  height:34px;
+  border:1px solid #cbcbcb;
+  padding:0 34px 0 10px;
+  border-radius:2px;
+  font-size:12px;
+  outline:none;
+}
+
+.search-box input:focus{
+  border-color:#f28f9f;
+}
+
+.search-box i{
+  position:absolute;
+  right:10px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#505050;
+  font-size:13px;
+}
+
+.icon-group{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  color:#2a2a2a;
+}
+
+.icon-group i{
+  font-size:19px;
+  cursor:pointer;
+}
+
+.nav{
+  background:#f28f9f;
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:30px;
+  min-height:44px;
+  padding:0 20px;
+}
+
+.nav a{
+  font-size:12px;
+  white-space:nowrap;
+}
+
+.auth-wrap{
+  width:100%;
+  max-width:560px;
+  margin:56px auto 0;
+  padding:0 40px;
+  text-align:center;
+}
+
+.auth-wrap h2{
+  font-size:38px;
+  font-weight:600;
+  margin-bottom:14px;
+}
+
+.auth-desc{
+  color:#666;
+  font-size:13px;
+  margin-bottom:38px;
+}
+
+.input-group{
+  text-align:left;
+  margin-bottom:22px;
+}
+
+.input-group label{
+  display:block;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1px;
+  margin-bottom:10px;
+}
+
+.input-group input{
+  width:100%;
+  border:none;
+  border-bottom:1px solid #d4d4d4;
+  background:transparent;
+  padding:0 0 12px;
+  font-size:14px;
+  outline:none;
+}
+
+.input-group input::placeholder{
+  color:#c8c8c8;
+}
+
+.input-group input:focus{
+  border-bottom-color:#f28f9f;
+}
+
+.forgot{
+  text-align:left;
+  margin-top:-8px;
+  margin-bottom:28px;
+  color:#878787;
+  font-size:11px;
+  font-weight:600;
+}
+
+.btn{
+  width:100%;
+  border:none;
+  background:#f28f9f;
+  color:#fff;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:2px;
+  padding:15px;
+  cursor:pointer;
+  transition:opacity .2s ease;
+}
+
+.btn:hover{
+  opacity:.9;
+}
+
+.divider{
+  color:#a8a8a8;
+  margin:18px 0 16px;
+  font-size:13px;
+  letter-spacing:1px;
+  font-weight:500;
+}
+
+.divider span{
+  font-size:13px;
+}
+
+.social{
+  display:flex;
+  gap:14px;
+  margin-bottom:18px;
+}
+
+.social button{
+  flex:1;
+  border:1px solid #e3e3e3;
+  background:#fff;
+  height:42px;
+  font-size:13px;
+  font-weight:600;
+  color:#3f3f3f;
+  cursor:pointer;
+}
+
+.social .google i{
+  color:#4285f4;
+  margin-right:8px;
+}
+
+.social .facebook i{
+  color:#1877f2;
+  margin-right:8px;
+}
+
+.register-link{
+  color:#8f8f8f;
+  font-size:13px;
+}
+
+.register-link a{
+  color:#f28f9f;
+  font-weight:600;
+}
+
+.error{
+  color:#d82929;
+  min-height:20px;
+  margin-top:10px;
+  font-size:12px;
+}
+
+.footer{
+  margin-top:58px;
+  padding:48px 110px;
+  background:#ececec;
+  display:grid;
+  grid-template-columns:1.2fr 1fr 1fr 1fr;
+  gap:34px;
+  align-items:start;
+}
+
+.footer .title{
+  font-size:41px;
+  font-family:Georgia,"Times New Roman",serif;
+  margin-bottom:16px;
+}
+
+.footer .title img{
+  display:block;
+  width:170px;
+  height:auto;
+}
+
+.footer h4{
+  font-size:24px;
+  margin-bottom:16px;
+  font-weight:600;
+}
+
+.footer p{
+  font-size:16px;
+  color:#262626;
+  line-height:1.5;
+  margin-bottom:4px;
+}
+
+.contact-item{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+}
+
+.contact-item i{
+  margin-top:8px;
+}
+
+.newsletter p{
+  margin-bottom:12px;
+}
+
+.newsletter input{
+  width:100%;
+  border:1px solid #d4d4d4;
+  background:#f4f4f4;
+  height:45px;
+  border-radius:8px;
+  padding:0 16px;
+  font-size:14px;
+  margin-bottom:12px;
+}
+
+.newsletter button{
+  width:100%;
+  border:none;
+  border-radius:8px;
+  background:#f28f9f;
+  color:#fff;
+  height:46px;
+  font-size:13px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+@media (max-width:1024px){
+  .header{
+    padding:14px 32px;
+  }
+
+  .nav{
+    flex-wrap:wrap;
+    gap:16px;
+    padding:12px 16px;
+  }
+
+  .footer{
+    grid-template-columns:1fr 1fr;
+    padding:36px 32px;
+  }
+}
+
+@media (max-width:640px){
+  .header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
+  }
+
+  .search-box input{
+    width:180px;
+  }
+
+  .auth-wrap{
+    padding:0 18px;
+  }
+
+  .auth-wrap h2,
+  .footer h4,
+  .footer p,
+  .divider,
+  .divider span,
+  .footer .title{
+    font-size:inherit;
+  }
+
+  .footer{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+  <div class="topbar">Quyền lợi dành cho khách hàng mới</div>
+
+  <header class="header">
+    <div class="logo">
+      <a href="./trangdangnhap.html" aria-label="AURORA Home">
+        <img src="./ảnh/Ảnh chụp màn hình/logo.png" alt="AURORA">
+      </a>
+    </div>
+
+    <div class="header-right">
+      <div class="search-box">
+        <input type="text" placeholder="Bạn muốn tìm gì?">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+
+      <div class="icon-group">
+        <i class="fa-regular fa-heart" title="Yêu thích"></i>
+        <i class="fa-solid fa-location-dot" title="Cửa hàng"></i>
+        <i class="fa-regular fa-user" title="Tài khoản"></i>
+        <i class="fa-solid fa-bag-shopping" title="Giỏ hàng"></i>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav">
+    <a href="#">Bộ sưu tập mới</a>
+    <a href="#">Trang sức đôi</a>
+    <a href="#">Khuyến mãi</a>
+    <a href="#">Phụ kiện</a>
+    <a href="#">Bông tai</a>
+    <a href="#">Dây chuyền</a>
+    <a href="#">Nhẫn</a>
+    <a href="#">Giới thiệu</a>
+  </nav>
+
+  <main class="auth-wrap">
+    <h2>Đăng nhập</h2>
+    <p class="auth-desc">Chào mừng bạn quay lại với không gian tuyệt tác.</p>
+
+    <div class="input-group">
+      <label for="email">EMAIL</label>
+      <input id="email" type="email" placeholder="example@aurelia.vn">
+    </div>
+
+    <div class="input-group">
+      <label for="password">MẬT KHẨU</label>
+      <input id="password" type="password" placeholder="......">
+    </div>
+
+    <div class="forgot">QUÊN MẬT KHẨU?</div>
+
+    <button class="btn" onclick="login()">ĐĂNG NHẬP</button>
+
+    <div class="divider"><span>HOẶC TIẾP TỤC VỚI</span></div>
+
+    <div class="social">
+      <button class="google"><i class="fa-brands fa-google"></i>GOOGLE</button>
+      <button class="facebook"><i class="fa-brands fa-facebook-f"></i>FACEBOOK</button>
+    </div>
+
+    <div class="register-link">Chưa có tài khoản? <a href="./trangdangki.html">Đăng ký ngay</a></div>
+    <div id="error" class="error"></div>
+  </main>
+
+  <footer class="footer">
+    <div>
+      <div class="title">
+        <img src="./ảnh/Ảnh chụp màn hình/logo.png" alt="AURORA">
+      </div>
+      <p class="contact-item"><i class="fa-solid fa-phone"></i>1900 8888</p>
+      <p class="contact-item"><i class="fa-solid fa-location-dot"></i>Biển Hồ 10A, Vinhomes Ocean Park, Gia Lâm, Hà Nội</p>
+    </div>
+
+    <div>
+      <h4>Dịch vụ khách hàng</h4>
+      <p>Điều khoản và điều kiện</p>
+      <p>Chính sách đổi trả và bảo hành</p>
+      <p>Chính sách vận chuyển</p>
+      <p>Hướng dẫn bảo quản trang sức</p>
+    </div>
+
+    <div>
+      <h4>Thông tin chung</h4>
+      <p>Liên hệ</p>
+      <p>Tin tức</p>
+    </div>
+
+    <div class="newsletter">
+      <p>Đăng ký để nhận thông báo mới nhất về các bộ sưu tập và ưu đãi.</p>
+      <input type="email" placeholder="Nhập email của bạn">
+      <button>Đăng ký ngay</button>
+    </div>
+  </footer>
+
+<script>
+window.addEventListener("DOMContentLoaded", function(){
+  const params = new URLSearchParams(window.location.search);
+  const emailFromRegister = params.get("email");
+
+  if(emailFromRegister){
+    document.getElementById("email").value = emailFromRegister;
+  }
+});
+
+function login(){
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+  const error = document.getElementById("error");
+
+  error.textContent = "";
+
+  if(!email || !password){
+    error.textContent = "PHẢI NHẬP ĐỦ CÁC THÔNG TIN";
+    return;
+  }
+
+  const storedUserRaw = localStorage.getItem("auroraUser");
+  if(storedUserRaw){
+    const storedUser = JSON.parse(storedUserRaw);
+    if(storedUser.email !== email || storedUser.password !== password){
+      error.textContent = "EMAIL HOẶC MẬT KHẨU KHÔNG ĐÚNG.";
+      return;
+    }
+  }
+
+  alert("Đăng nhập thành công!");
+}
+</script>
+</body>
+</html>
