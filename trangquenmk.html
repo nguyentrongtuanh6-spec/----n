@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Đăng nhập - AURORA</title>
+<title>Quên mật khẩu - AURORA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -168,15 +168,6 @@ a{
   border-bottom-color:#f28f9f;
 }
 
-.forgot{
-  text-align:left;
-  margin-top:-8px;
-  margin-bottom:28px;
-  color:#878787;
-  font-size:11px;
-  font-weight:600;
-}
-
 .btn{
   width:100%;
   border:none;
@@ -188,57 +179,21 @@ a{
   padding:15px;
   cursor:pointer;
   transition:opacity .2s ease;
+  margin-top:20px;
 }
 
 .btn:hover{
   opacity:.9;
 }
 
-.divider{
-  color:#a8a8a8;
-  margin:18px 0 16px;
-  font-size:13px;
-  letter-spacing:1px;
-  font-weight:500;
-}
-
-.divider span{
-  font-size:13px;
-}
-
-.social{
-  display:flex;
-  gap:14px;
-  margin-bottom:18px;
-}
-
-.social button{
-  flex:1;
-  border:1px solid #e3e3e3;
-  background:#fff;
-  height:42px;
-  font-size:13px;
-  font-weight:600;
-  color:#3f3f3f;
-  cursor:pointer;
-}
-
-.social .google i{
-  color:#4285f4;
-  margin-right:8px;
-}
-
-.social .facebook i{
-  color:#1877f2;
-  margin-right:8px;
-}
-
-.register-link{
+.switch-link{
+  margin-top:16px;
+  text-align:center;
   color:#8f8f8f;
   font-size:13px;
 }
 
-.register-link a{
+.switch-link a{
   color:#f28f9f;
   font-weight:600;
 }
@@ -248,6 +203,15 @@ a{
   min-height:20px;
   margin-top:10px;
   font-size:12px;
+  text-align:center;
+}
+
+.success{
+  color:#28a745;
+  min-height:20px;
+  margin-top:10px;
+  font-size:12px;
+  text-align:center;
 }
 
 .footer{
@@ -361,15 +325,6 @@ a{
     padding:0 18px;
   }
 
-  .auth-wrap h2,
-  .footer h4,
-  .footer p,
-  .divider,
-  .divider span,
-  .footer .title{
-    font-size:inherit;
-  }
-
   .footer{
     grid-template-columns:1fr;
   }
@@ -414,7 +369,7 @@ a{
   </nav>
 
   <main class="auth-wrap">
-    <h2>Đăng nhập</h2>
+    <h2>Quên mật khẩu</h2>
     <p class="auth-desc">Chào mừng bạn quay lại với không gian tuyệt tác.</p>
 
     <div class="input-group">
@@ -423,22 +378,18 @@ a{
     </div>
 
     <div class="input-group">
-      <label for="password">MẬT KHẨU</label>
-      <input id="password" type="password" placeholder="......">
+      <label for="newPassword">NHẬP MẬT KHẨU MỚI</label>
+      <input id="newPassword" type="password" placeholder="........">
     </div>
 
-    <div class="forgot"><a href="./trangquenmk.html">QUÊN MẬT KHẨU?</a></div>
-
-    <button class="btn" onclick="login()">ĐĂNG NHẬP</button>
-
-    <div class="divider"><span>HOẶC TIẾP TỤC VỚI</span></div>
-
-    <div class="social">
-      <button class="google"><i class="fa-brands fa-google"></i>GOOGLE</button>
-      <button class="facebook"><i class="fa-brands fa-facebook-f"></i>FACEBOOK</button>
+    <div class="input-group">
+      <label for="confirmNewPassword">NHẬP MÃ OTP</label>
+      <input id="confirmNewPassword" type="password" placeholder="........">
     </div>
 
-    <div class="register-link">Chưa có tài khoản? <a href="./trangdangki.html">Đăng ký ngay</a></div>
+    <button class="btn" onclick="resetPassword()">ĐĂNG NHẬP</button>
+
+    <div class="switch-link">Chưa có tài khoản? <a href="./trangdangki.html">Đăng ký ngay</a></div>
     <div id="error" class="error"></div>
   </main>
 
@@ -474,37 +425,52 @@ a{
   </footer>
 
 <script>
-window.addEventListener("DOMContentLoaded", function(){
-  const params = new URLSearchParams(window.location.search);
-  const emailFromRegister = params.get("email");
-
-  if(emailFromRegister){
-    document.getElementById("email").value = emailFromRegister;
-  }
-});
-
-function login(){
+function resetPassword(){
   const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value;
+  const newPassword = document.getElementById("newPassword").value;
+  const confirmPassword = document.getElementById("confirmNewPassword").value;
   const error = document.getElementById("error");
 
   error.textContent = "";
 
-  if(!email || !password){
-    error.textContent = "PHẢI NHẬP ĐỦ CÁC THÔNG TIN";
+  if(!email || !newPassword || !confirmPassword){
+    error.textContent = "VUI LÒNG NHẬP ĐẦY ĐỦ THÔNG TIN.";
+    return;
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if(!emailRegex.test(email)){
+    error.textContent = "EMAIL KHÔNG HỢP LỆ.";
     return;
   }
 
   const storedUserRaw = localStorage.getItem("auroraUser");
-  if(storedUserRaw){
-    const storedUser = JSON.parse(storedUserRaw);
-    if(storedUser.email !== email || storedUser.password !== password){
-      error.textContent = "EMAIL HOẶC MẬT KHẨU KHÔNG ĐÚNG.";
-      return;
-    }
+  if(!storedUserRaw){
+    error.textContent = "EMAIL KHÔNG ĐƯỢC ĐĂNG KÝ.";
+    return;
   }
 
-  alert("Đăng nhập thành công!");
+  const storedUser = JSON.parse(storedUserRaw);
+  if(storedUser.email !== email){
+    error.textContent = "EMAIL KHÔNG ĐƯỢC ĐĂNG KÝ.";
+    return;
+  }
+
+  if(newPassword.length < 6){
+    error.textContent = "MẬT KHẨU PHẢI TỪ 6 KÝ TỰ TRỞ LÊN.";
+    return;
+  }
+
+  if(newPassword !== confirmPassword){
+    error.textContent = "MẬT KHẨU XÁC NHẬN KHÔNG KHỚP.";
+    return;
+  }
+
+  storedUser.password = newPassword;
+  localStorage.setItem("auroraUser", JSON.stringify(storedUser));
+
+  alert("Mật khẩu đã được cập nhật thành công!");
+  window.location.href = "./trangdangnhap.html?email=" + encodeURIComponent(email);
 }
 </script>
 </body>
