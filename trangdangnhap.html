@@ -194,6 +194,25 @@ a{
   opacity:.9;
 }
 
+.guest-btn{
+  width:100%;
+  border:1px solid #f28f9f;
+  background:#fff;
+  color:#f28f9f;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1px;
+  padding:14px;
+  cursor:pointer;
+  margin-top:12px;
+}
+
+.guest-note{
+  margin-top:10px;
+  color:#8f8f8f;
+  font-size:13px;
+}
+
 .divider{
   color:#a8a8a8;
   margin:18px 0 16px;
@@ -252,17 +271,25 @@ a{
 
 .footer{
   margin-top:58px;
-  padding:48px 110px;
+  padding:48px 110px 42px;
   background:#ececec;
+}
+
+.footer-top{
   display:grid;
   grid-template-columns:1.2fr 1fr 1fr 1fr;
   gap:34px;
   align-items:start;
 }
 
+.footer-bottom{
+  margin-top:28px;
+  display:flex;
+  align-items:flex-start;
+  gap:34px;
+}
+
 .footer .title{
-  font-size:41px;
-  font-family:Georgia,"Times New Roman",serif;
   margin-bottom:16px;
 }
 
@@ -273,15 +300,15 @@ a{
 }
 
 .footer h4{
-  font-size:24px;
-  margin-bottom:16px;
+  font-size:18px;
+  margin-bottom:10px;
   font-weight:600;
 }
 
 .footer p{
-  font-size:16px;
+  font-size:13px;
   color:#262626;
-  line-height:1.5;
+  line-height:1.45;
   margin-bottom:4px;
 }
 
@@ -292,14 +319,32 @@ a{
 }
 
 .contact-item i{
-  margin-top:8px;
+  margin-top:6px;
 }
 
 .bct-logo{
-  width:190px;
+  width:260px;
   max-width:100%;
   height:auto;
-  margin-top:12px;
+}
+
+.about-us h5{
+  font-size:16px;
+  font-weight:600;
+  margin-bottom:10px;
+  border-bottom:1px solid #d8bfc5;
+  display:inline-block;
+  line-height:1.15;
+}
+
+.social-footer{
+  display:flex;
+  gap:18px;
+}
+
+.social-footer a{
+  font-size:22px;
+  color:#111;
 }
 
 .newsletter p{
@@ -324,7 +369,7 @@ a{
   background:#f28f9f;
   color:#fff;
   height:46px;
-  font-size:13px;
+  font-size:14px;
   font-weight:600;
   cursor:pointer;
 }
@@ -341,8 +386,15 @@ a{
   }
 
   .footer{
-    grid-template-columns:1fr 1fr;
     padding:36px 32px;
+  }
+
+  .footer-top{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .footer-bottom{
+    margin-top:20px;
   }
 }
 
@@ -362,16 +414,18 @@ a{
   }
 
   .auth-wrap h2,
-  .footer h4,
-  .footer p,
   .divider,
-  .divider span,
-  .footer .title{
+  .divider span{
     font-size:inherit;
   }
 
-  .footer{
+  .footer-top{
     grid-template-columns:1fr;
+  }
+
+  .footer-bottom{
+    flex-direction:column;
+    gap:16px;
   }
 }
 </style>
@@ -430,6 +484,7 @@ a{
     <div class="forgot"><a href="./trangquenmk.html">QUÊN MẬT KHẨU?</a></div>
 
     <button class="btn" onclick="login()">ĐĂNG NHẬP</button>
+    <button class="guest-btn" onclick="guestAccess()">XEM SẢN PHẨM NGAY</button>
 
     <div class="divider"><span>HOẶC TIẾP TỤC VỚI</span></div>
 
@@ -439,37 +494,51 @@ a{
     </div>
 
     <div class="register-link">Chưa có tài khoản? <a href="./trangdangki.html">Đăng ký ngay</a></div>
+    <div class="guest-note">Bạn vẫn có thể xem trang chủ và sản phẩm mà không cần đăng ký.</div>
     <div id="error" class="error"></div>
   </main>
 
   <footer class="footer">
-    <div>
-      <div class="title">
-        <img src="./ảnh/Ảnh chụp màn hình/logo.png" alt="AURORA">
+    <div class="footer-top">
+      <div>
+        <div class="title">
+          <img src="./ảnh/Ảnh chụp màn hình/logo.png" alt="AURORA">
+        </div>
+        <p class="contact-item"><i class="fa-solid fa-phone"></i>1900 8888</p>
+        <p class="contact-item"><i class="fa-solid fa-location-dot"></i>Biển Hồ 10A, Vinhomes Ocean Park, Gia Lâm, Hà Nội</p>
       </div>
-      <p class="contact-item"><i class="fa-solid fa-phone"></i>1900 8888</p>
-      <p class="contact-item"><i class="fa-solid fa-location-dot"></i>Biển Hồ 10A, Vinhomes Ocean Park, Gia Lâm, Hà Nội</p>
+
+      <div>
+        <h4>Dịch vụ khách hàng</h4>
+        <p>Điều khoản và điều kiện</p>
+        <p>Chính sách đổi trả và bảo hành</p>
+        <p>Chính sách vận chuyển</p>
+        <p>Hướng dẫn bảo quản trang sức</p>
+      </div>
+
+      <div>
+        <h4>Thông tin chung</h4>
+        <p>Liên hệ</p>
+        <p>Tin tức</p>
+      </div>
+
+      <div class="newsletter">
+        <p>Đăng ký để nhận thông báo mới nhất về các bộ sưu tập và ưu đãi.</p>
+        <input type="email" placeholder="Nhập email của bạn">
+        <button>Đăng ký ngay</button>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
       <img class="bct-logo" src="./ảnh/Ảnh chụp màn hình/logo-congthuong.png" alt="Đã thông báo Bộ Công Thương">
-    </div>
-
-    <div>
-      <h4>Dịch vụ khách hàng</h4>
-      <p>Điều khoản và điều kiện</p>
-      <p>Chính sách đổi trả và bảo hành</p>
-      <p>Chính sách vận chuyển</p>
-      <p>Hướng dẫn bảo quản trang sức</p>
-    </div>
-
-    <div>
-      <h4>Thông tin chung</h4>
-      <p>Liên hệ</p>
-      <p>Tin tức</p>
-    </div>
-
-    <div class="newsletter">
-      <p>Đăng ký để nhận thông báo mới nhất về các bộ sưu tập và ưu đãi.</p>
-      <input type="email" placeholder="Nhập email của bạn">
-      <button>Đăng ký ngay</button>
+      <div class="about-us">
+        <h5>Về chúng tôi</h5>
+        <div class="social-footer">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#" aria-label="Youtube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
     </div>
   </footer>
 
@@ -505,6 +574,14 @@ function login(){
   }
 
   alert("Đăng nhập thành công!");
+  sessionStorage.setItem("auroraAccess", "member");
+  window.location.href = "./trangchu.html";
+}
+
+function guestAccess(){
+  sessionStorage.setItem("auroraAccess", "guest");
+  localStorage.removeItem("auroraUserTemp");
+  window.location.href = "./trangchu.html";
 }
 </script>
 </body>
