@@ -23,4 +23,13 @@ window.addEventListener("DOMContentLoaded", function () {
     welcomeBar.textContent =
       "Bạn đang xem với vai trò khách. Vẫn có thể khám phá toàn bộ sản phẩm tại AURORA.";
   }
+
+  // Wishlist functionality
+  const wishlistBtns = document.querySelectorAll(".wishlist-btn");
+  wishlistBtns.forEach((btn) => {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      this.classList.toggle("active");
+    });
+  });
 });
