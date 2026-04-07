@@ -16,7 +16,7 @@ a {
 }
 
 .container {
-  width: 1040px;
+  width: 1180px;
   max-width: calc(100% - 40px);
   margin: 0 auto;
 }
