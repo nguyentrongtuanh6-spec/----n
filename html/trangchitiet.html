@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AURORA - Chi tiết sản phẩm</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/trangchu.css" />
+    <link rel="stylesheet" href="../css/trangchitiet.css" />
+  </head>
+  <body>
+    <div class="topbar">Ưu đãi thành viên mới: giảm 20% cho đơn đầu tiên</div>
+
+    <header>
+      <div class="container header-main">
+        <a href="./trangchu.html" class="logo" aria-label="AURORA Home"
+          ><img src="../ảnh/Ảnh chụp màn hình/logo.png" alt="AURORA"
+        /></a>
+
+        <div class="search-box">
+          <input type="text" placeholder="Bạn muốn tìm gì?" />
+          <span class="search-icon"
+            ><i class="fa-solid fa-magnifying-glass"></i
+          ></span>
+        </div>
+
+        <div class="header-icons">
+          <a href="#" title="Yêu thích"><i class="fa-regular fa-heart"></i></a>
+          <a href="#" title="Cửa hàng"
+            ><i class="fa-solid fa-location-dot"></i
+          ></a>
+          <a href="./trangdangnhap.html" title="Tài khoản"
+            ><i class="fa-regular fa-user"></i
+          ></a>
+          <a href="#" title="Giỏ hàng"
+            ><i class="fa-solid fa-bag-shopping"></i
+          ></a>
+        </div>
+      </div>
+
+      <nav>
+        <div class="container">
+          <ul class="nav-menu">
+            <li><a href="#">Bộ sưu tập mới</a></li>
+            <li><a href="#">Trang sức đôi</a></li>
+            <li><a href="#">Khuyến mãi</a></li>
+            <li><a href="#">Phụ kiện</a></li>
+            <li><a href="#">Bông tai</a></li>
+            <li><a href="#">Dây chuyền</a></li>
+            <li><a href="#">Nhẫn</a></li>
+            <li><a href="#">Tin tức</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container product-detail-page">
+      <div class="breadcrumb">
+        <a href="./trangchu.html">TRANG CHỦ</a> <span>›</span>
+        <a href="./trangchu.html">SẢN PHẨM</a> <span>›</span>
+        XEM CHI TIẾT
+      </div>
+
+      <section class="detail-top">
+        <div class="gallery">
+          <div class="main-image-wrap">
+            <img id="mainProductImage" src="" alt="" />
+          </div>
+
+          <div class="thumbnail-list" id="thumbnailList">
+            <!-- Dynamic thumbs go here -->
+          </div>
+        </div>
+
+        <div class="product-summary">
+          <h1 id="productName">Tên sản phẩm</h1>
+          <div class="sku">Mã sản phẩm</div>
+
+          <div class="rating-row">
+            <div class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-stroke"></i>
+            </div>
+            <span>(80 đánh giá)</span>
+          </div>
+
+          <p class="description" id="productDescription">
+            Mô tả sản phẩm...
+          </p>
+
+          <p class="note-text">
+            Lưu ý: Nếu bạn yêu cầu khắc tên, vui lòng liên hệ để được hỗ trợ
+          </p>
+
+          <div class="price" id="productPrice">0</div>
+
+          <div class="qty-row">
+            <span>Số lượng</span>
+            <div class="qty-control">
+              <button type="button" id="decreaseQty">-</button>
+              <input id="productQty" type="number" min="1" value="1" />
+              <button type="button" id="increaseQty">+</button>
+            </div>
+          </div>
+
+          <div class="action-row">
+            <button class="btn-buy" type="button">MUA NGAY</button>
+            <button class="btn-contact" type="button">LIÊN HỆ</button>
+          </div>
+
+          <div class="policy-box">
+            <button class="policy-head" type="button" id="togglePolicy">
+              <span>CHÍNH SÁCH VẬN CHUYỂN</span>
+              <i class="fa-solid fa-angle-down"></i>
+            </button>
+            <div class="policy-body" id="policyBody">
+              Miễn phí giao hàng toàn quốc cho đơn hàng trên 5.000.000 đ. Thời
+              gian giao hàng từ 2-4 ngày làm việc. Bảo hiểm 100% giá trị sản
+              phẩm trong quá trình vận chuyển.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="service-list">
+        <article class="service-item">
+          <div class="service-icon"><i class="fa-solid fa-rotate-left"></i></div>
+          <h3>Hoàn tiền nếu không hài lòng</h3>
+          <p>Chúng tôi cam kết hoàn trả 100% giá trị đơn hàng nếu sản phẩm không đúng như mô tả.</p>
+        </article>
+        <article class="service-item">
+          <div class="service-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
+          <h3>10 ngày đổi trả tận nơi</h3>
+          <p>Hỗ trợ đổi trả sản phẩm hoàn toàn miễn phí tại nhà trong vòng 10 ngày.</p>
+        </article>
+        <article class="service-item">
+          <div class="service-icon"><i class="fa-regular fa-gem"></i></div>
+          <h3>Cam kết chất lượng sản phẩm</h3>
+          <p>Tất cả sản phẩm đều được kiểm định nghiêm ngặt, đảm bảo nguồn gốc.</p>
+        </article>
+        <article class="service-item">
+          <div class="service-icon"><i class="fa-solid fa-truck-fast"></i></div>
+          <h3>Free Ship toàn quốc từ 498k</h3>
+          <p>Miễn phí vận chuyển cho mọi đơn hàng có giá trị từ 498.000đ trở lên.</p>
+        </article>
+        <article class="service-item">
+          <div class="service-icon"><i class="fa-solid fa-money-bill-wave"></i></div>
+          <h3>Kiểm tra trước khi thanh toán</h3>
+          <p>Bạn hoàn toàn có thể mở hộp kiểm tra sản phẩm ưng ý rồi mới thanh toán.</p>
+        </article>
+        <article class="service-item">
+          <div class="service-icon"><i class="fa-solid fa-briefcase"></i></div>
+          <h3>Bảo hành 12 tháng tận nơi</h3>
+          <p>Chế độ bảo hành chính hãng kéo dài 12 tháng với đội ngũ kỹ thuật tận tâm.</p>
+        </article>
+      </section>
+
+      <section class="spec-section">
+        <h2>Thông số sản phẩm</h2>
+        <div class="spec-grid">
+          <div class="spec-col">
+            <div class="spec-row"><span>Loại:</span><strong>Nhẫn</strong></div>
+            <div class="spec-row"><span>Màu sắc:</span><strong>Bạc</strong></div>
+            <div class="spec-row"><span>Chất liệu:</span><strong>Bạc 925</strong></div>
+          </div>
+          <div class="spec-divider"></div>
+          <div class="spec-col">
+            <div class="spec-row"><span>Đá:</span><strong>Moissanite</strong></div>
+            <div class="spec-row"><span>Giới tính:</span><strong>Nam</strong></div>
+            <div class="spec-row"><span>Độ hoàn thiện:</span><strong>Xuất sắc</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="review-section">
+        <div class="review-left">
+          <h3>Đánh giá nhận xét</h3>
+          <div class="rating-bars">
+            <div class="bar-row"><span>5</span><div class="bar active"></div></div>
+            <div class="bar-row"><span>4</span><div class="bar"></div></div>
+            <div class="bar-row"><span>3</span><div class="bar"></div></div>
+            <div class="bar-row"><span>2</span><div class="bar"></div></div>
+            <div class="bar-row"><span>1</span><div class="bar"></div></div>
+          </div>
+          <button type="button" class="btn-write-review">Viết đánh giá của bạn</button>
+        </div>
+
+        <div class="review-right">
+          <article class="review-card">
+            <div class="review-head">
+              <div class="user-info">
+                <div class="avatar">QH</div>
+                <div>
+                  <h4>Quang Huy</h4>
+                  <span>Đã mua hàng - 30 ngày trước</span>
+                </div>
+              </div>
+              <div class="stars text-pink">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+            <p>Lúc đầu cũng hơi lo vì mua trang sức online, nhưng khi nhận được giấy kiểm định bạc và đá đi kèm thì mình hoàn toàn yên tâm. Nhân viên cskh cực kỳ tận tâm, trả lời mọi thắc mắc của mình . Một trải nghiệm mua sắm tuyệt vời!</p>
+          </article>
+          <article class="review-card hidden">
+            <div class="review-head">
+              <div class="user-info">
+                <div class="avatar">TV</div>
+                <div>
+                  <h4>Thế Vinh</h4>
+                  <span>Đã mua hàng - 12 ngày trước</span>
+                </div>
+              </div>
+              <div class="stars text-pink">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+            <p>Nhẫn đeo rất vừa tay, shop tư vấn size cực kỹ bằng bảng hướng dẫn Online. Giao hàng nhanh chỉ trong 2 ngày tại khu vực Hà Nội. Rất hài lòng với sự chuyên nghiệp của Aurora!</p>
+          </article>
+          <article class="review-card hidden">
+            <div class="review-head">
+              <div class="user-info">
+                <div class="avatar">MA</div>
+                <div>
+                  <h4>Minh Anh</h4>
+                  <span>Đã mua hàng - 7 ngày trước</span>
+                </div>
+              </div>
+              <div class="stars text-pink">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+            <p>Sản phẩm thực tế còn đẹp hơn trong ảnh nhiều. Độ lấp lánh của đá Moissanite làm mình thực sự bất ngờ, đi tiệc dưới ánh đèn thì đúng là cực phẩm. Sẽ ủng hộ thêm bộ sưu tập bông tai sắp tới.</p>
+          </article>
+          <article class="review-card hidden">
+            <div class="review-head">
+              <div class="user-info">
+                <div class="avatar">HT</div>
+                <div>
+                  <h4>Hoài Thương</h4>
+                  <span>Đã mua hàng - 3 ngày trước</span>
+                </div>
+              </div>
+              <div class="stars text-pink">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+            <p>Mua tặng chồng nhân dịp kỷ niệm ngày cưới, anh ấy khen mãi. Đóng gói hộp gỗ rất sang trọng, có đầy đủ giấy tờ kiểm định đi kèm nên cực kỳ yên tâm khi mua làm quà tặng.</p>
+          </article>
+          <button type="button" id="loadMoreReviews" class="more-review">Xem thêm nhận xét <i class="fa-solid fa-angle-down"></i></button>
+        </div>
+      </section>
+
+      <section class="related-section">
+        <h2>Bạn có thể thích</h2>
+        <div class="related-grid" id="relatedGrid">
+          <!-- Dynamic related products -->
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="footer-logo">
+              <img src="../ảnh/Ảnh chụp màn hình/logo.png" alt="AURORA" />
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-phone"></i>1900 8888
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-location-dot"></i>Biệt thự 10A, Vinhomes
+              Ocean Park, Gia Lâm, Hà Nội
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Dịch vụ khách hàng</h4>
+            <ul>
+              <li>Điều khoản và điều kiện</li>
+              <li>Chính sách đổi trả và bảo hành</li>
+              <li>Chính sách vận chuyển</li>
+              <li>Hướng dẫn bảo quản trang sức</li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Thông tin chung</h4>
+            <ul>
+              <li>Liên hệ</li>
+              <li>Tin tức</li>
+              <li>Về chúng tôi</li>
+            </ul>
+          </div>
+
+          <div class="footer-col newsletter">
+            <h4>Đăng ký để nhận thông báo</h4>
+            <p>
+              Đăng ký để nhận thông báo mới nhất về các bộ sưu tập và ưu đãi.
+            </p>
+            <input type="email" placeholder="Nhập email của bạn" />
+            <button>Đăng ký ngay</button>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <img
+            class="bct-logo"
+            src="../ảnh/Ảnh chụp màn hình/logo-congthuong.png"
+            alt="Đã thông báo Bộ Công Thương"
+          />
+          <div class="about-us">
+            <h5>Về chúng tôi</h5>
+            <div class="socials">
+              <a href="#" aria-label="Facebook"
+                ><i class="fa-brands fa-facebook"></i
+              ></a>
+              <a href="#" aria-label="TikTok"
+                ><i class="fa-brands fa-tiktok"></i
+              ></a>
+              <a href="#" aria-label="Youtube"
+                ><i class="fa-brands fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/data-products.js"></script>
+    <script src="../js/trangchitiet.js"></script>
+  </body>
+</html>

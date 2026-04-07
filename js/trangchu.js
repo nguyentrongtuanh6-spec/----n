@@ -32,4 +32,29 @@ window.addEventListener("DOMContentLoaded", function () {
       this.classList.toggle("active");
     });
   });
+
+  // --- RENDERING DYNAMIC PRODUCTS ---
+  function renderProducts(containerId, category) {
+    const grid = document.getElementById(containerId);
+    if (grid && window.productData) {
+      const filtered = window.productData.filter(p => p.category === category);
+      if (filtered.length > 0) {
+        grid.innerHTML = filtered.map(product => `
+          <a href="./trangchitiet.html?id=${product.id}" class="product-card">
+            <div class="product-thumb">
+              <img src="${product.image}" alt="${product.name}" />
+            </div>
+            <div class="product-info">
+              <div class="product-name">${product.name}</div>
+              <div class="price">${product.price}</div>
+            </div>
+          </a>
+        `).join("");
+      }
+    }
+  }
+
+  renderProducts("coupleProductGrid", "couple");
+  renderProducts("favoriteProductGrid", "favorite");
+  renderProducts("customProductGrid", "custom");
 });
