@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AURORA - Bộ lọc bông tai</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/trangchu.css" />
+    <link rel="stylesheet" href="../css/tranglocbongtai.css" />
+  </head>
+  <body>
+    <div class="topbar">Quyền lợi dành cho khách hàng mới</div>
+    <header>
+      <div class="container header-main">
+        <a href="./trangchu.html" class="logo" aria-label="AURORA Home"><img src="../ảnh/Ảnh chụp màn hình/logo.png" alt="AURORA" /></a>
+        <div class="search-box"><input type="text" id="searchInput" placeholder="Bạn muốn tìm gì?" /><span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span></div>
+        <div class="header-icons"><a href="#" title="Yêu thích"><i class="fa-regular fa-heart"></i></a><a href="#" title="Cửa hàng"><i class="fa-solid fa-location-dot"></i></a><a href="./trangdangnhap.html" title="Tài khoản"><i class="fa-regular fa-user"></i></a><a href="#" title="Giỏ hàng"><i class="fa-solid fa-bag-shopping"></i></a></div>
+      </div>
+      <nav>
+        <div class="container">
+          <ul class="nav-menu">
+            <li><a href="#">Bộ sưu tập mới</a></li>
+            <li><a href="#">Trang sức đôi</a></li>
+            <li><a href="#">Khuyến mãi</a></li>
+            <li><a href="./tranglocnhannam.html">Nhẫn</a></li>
+            <li><a href="./tranglocdaychuyen.html">Dây chuyền</a></li>
+            <li><a href="./tranglocbongtai.html">Bông tai</a></li>
+            <li><a href="./tranglocvongtay.html">Vòng tay</a></li>
+            <li><a href="./trangloccharm.html">Charm</a></li>
+            <li><a href="#">Giới thiệu</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container male-catalog-page">
+      <aside class="male-filter-sidebar">
+        <section class="male-filter-block">
+          <h3>Danh mục</h3>
+          <ul id="categoryList" class="male-category-list">
+            <li><button class="male-category-btn" type="button" data-category="ring"><span>Nhẫn</span><span class="count">42</span></button></li>
+            <li><button class="male-category-btn" type="button" data-category="necklace"><span>Dây Chuyền</span><span class="count">128</span></button></li>
+            <li><button class="male-category-btn active" type="button" data-category="earring"><span>Bông Tai</span><span class="count">84</span></button></li>
+            <li><button class="male-category-btn" type="button" data-category="bracelet"><span>Vòng Tay</span><span class="count">56</span></button></li>
+            <li><button class="male-category-btn" type="button" data-category="charm"><span>Charm</span><span class="count">32</span></button></li>
+          </ul>
+        </section>
+        <section class="male-filter-block"><h3>Khoảng giá</h3><div class="range-row"><span>0đ</span><span id="maxPriceLabel">100.000.000đ</span></div><input type="range" id="priceRange" min="0" max="100000000" value="100000000" step="100000" /></section>
+        <section class="male-filter-block"><h3>Giới tính</h3><label class="checkbox-line"><input type="checkbox" name="gender" value="Nam" /> Nam</label><label class="checkbox-line"><input type="checkbox" name="gender" value="Nữ" checked /> Nữ</label><label class="checkbox-line"><input type="checkbox" name="gender" value="Cặp đôi" /> Cặp đôi</label></section>
+        <section class="male-filter-block"><h3>Đánh giá</h3><button class="rating-btn active" data-rating="0" type="button">Tất cả</button><button class="rating-btn rating-stars-btn" data-rating="4" type="button"><span class="rating-stars">★★★★☆</span><span class="rating-text">trở lên</span></button></section>
+        <section class="male-filter-block"><h3>Trạng thái</h3><label class="switch-line"><input type="checkbox" id="inStockOnly" checked /><span class="switch-slider"></span><span>Chỉ còn hàng</span></label></section>
+      </aside>
+      <section class="male-product-panel">
+        <div class="panel-head"><h1 id="filterTitle">Sản phẩm Bông tai</h1><div class="head-right"><span id="resultCount">0 sản phẩm</span><select id="sortSelect"><option value="popular">Nổi bật</option><option value="priceAsc">Giá tăng dần</option><option value="priceDesc">Giá giảm dần</option></select></div></div>
+        <div class="catalog-grid" id="filterProductGrid"></div><div class="pagination" id="paginationWrap"></div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col"><div class="footer-logo"><img src="../ảnh/Ảnh chụp màn hình/logo.png" alt="AURORA" /></div><div class="contact-item"><i class="fa-solid fa-phone"></i>1900 8888</div><div class="contact-item"><i class="fa-solid fa-location-dot"></i>Biệt thự 10A, Vinhomes Ocean Park, Gia Lâm, Hà Nội</div></div>
+          <div class="footer-col"><h4>Dịch vụ khách hàng</h4><ul><li>Điều khoản và điều kiện</li><li>Chính sách đổi trả và bảo hành</li><li>Chính sách vận chuyển</li><li>Hướng dẫn bảo quản trang sức</li></ul></div>
+          <div class="footer-col"><h4>Thông tin chung</h4><ul><li>Liên hệ</li><li>Tin tức</li><li>Về chúng tôi</li></ul></div>
+          <div class="footer-col newsletter"><h4>Đăng ký để nhận thông báo</h4><p>Đăng ký để nhận thông báo mới nhất về các bộ sưu tập và ưu đãi.</p><input type="email" placeholder="Nhập email của bạn" /><button>Đăng ký ngay</button></div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/tranglocbongtai.js"></script>
+  </body>
+</html>
