@@ -14,6 +14,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="../css/global.css" />
     <link rel="stylesheet" href="../css/trangchu.css" />
   </head>
   <body>
@@ -49,16 +50,14 @@
       <nav>
         <div class="container">
           <ul class="nav-menu">
-           <li><a href="#">Bộ sưu tập mới</a></li>
+            <li><a href="#">Bộ sưu tập mới</a></li>
             <li><a href="#">Trang sức đôi</a></li>
             <li><a href="#">Khuyến mãi</a></li>
-            <li><a href="./tranglocsanpham.html">Nhẫn</a></li>
-            <li><a href="./tranglocdaychuyen.html">Dây chuyền</a></li>
-            <li><a href="./tranglocbongtai.html">Bông tai</a></li>
-            <li><a href="./tranglocvongtay.html">Vòng tay</a></li>
-            <li><a href="./trangloccharm.html">Charm</a></li>
+            <li><a href="#">Phụ kiện</a></li>
+            <li><a href="#">Bông tai</a></li>
+            <li><a href="#">Dây chuyền</a></li>
+            <li><a href="#">Nhẫn</a></li>
             <li><a href="#">Tin tức</a></li>
-            <li><a href="./tranggioithieu.html">Giới thiệu</a></li>
           </ul>
         </div>
       </nav>
@@ -66,29 +65,24 @@
 
     <section class="hero">
       <div class="container hero-wrap">
-        <div class="hero-text">
-          <h1>Bộ vòng<br />chuẩn "Style"</h1>
-          <p>Tiết kiệm đến <span>20%</span></p>
-          <a href="#" class="hero-btn">MUA NGAY</a>
-        </div>
-
         <div class="hero-image">
           <img
-            src="https://images.unsplash.com/photo-1619119069152-a2b331eb392a?q=80&w=1200&auto=format&fit=crop"
-            alt="Banner trang sức"
+            src="/ảnh/Ảnh chụp màn hình/banner_revise.jpg"
+            alt="Bộ vòng chuẩn Style - Tiết kiệm đến 20%"
           />
         </div>
       </div>
     </section>
 
     <main class="container">
-      <section class="section section-box"> 
-        <div class="mini-label">Sản phẩm dành cho cặp đôi</div> 
+      <section class="section section-box">
+        <div class="mini-label">Sản phẩm dành cho cặp đôi</div>
 
-        <div class="product-grid-4">
-          <div class="product-card">
+        <div class="product-grid-4" id="coupleProductGrid">
+          <a href="./trangchitiet.html?id=1" class="product-card">
             <div class="product-thumb">
-              <img src="/ảnh/Ảnh chụp màn hình/2.png"
+              <img
+                src="/ảnh/Ảnh chụp màn hình/2.png"
                 alt="Nhẫn cặp đôi bạc đính đá phong cách hiện đại AURORA"
               />
             </div>
@@ -98,9 +92,9 @@
               </div>
               <div class="price">1.641.000đ</div>
             </div>
-          </div>
+          </a>
 
-          <div class="product-card">
+          <a href="./trangchitiet.html?id=2" class="product-card">
             <div class="product-thumb">
               <img
                 src="/ảnh/Ảnh chụp màn hình/3.png"
@@ -113,13 +107,13 @@
               </div>
               <div class="price">1.582.000đ</div>
             </div>
-          </div>
+          </a>
 
-          <div class="product-card">
+          <a href="./trangchitiet.html?id=3" class="product-card">
             <div class="product-thumb">
               <img
                 src="/ảnh/Ảnh chụp màn hình/4.png"
-                alt="Dây chuyền bạc đôi đính đá tròn cao cấp AURORA" 
+                alt="Dây chuyền bạc đôi đính đá tròn cao cấp AURORA"
               />
             </div>
             <div class="product-info">
@@ -128,7 +122,7 @@
               </div>
               <div class="price">2.060.000đ</div>
             </div>
-          </div>
+          </a>
 
           <div class="product-card">
             <div class="product-thumb">
@@ -147,7 +141,7 @@
         </div>
 
         <div class="view-wrap">
-          <a href="./tranglocsanpham.html" class="view-more">Xem thêm</a>
+          <a href="#" class="view-more">Xem thêm</a>
         </div>
       </section>
 
@@ -157,60 +151,42 @@
         <div class="product-grid-6">
           <div class="category-card">
             <div class="category-thumb">
-              <img
-                src="/ảnh/Ảnh chụp màn hình/49.png"
-                alt=""
-              />
+              <img src="/ảnh/Ảnh chụp màn hình/49.png" alt="" />
             </div>
             <div class="category-name">Vòng lắc</div>
           </div>
 
           <div class="category-card">
             <div class="category-thumb">
-              <img
-                src="/ảnh/Ảnh chụp màn hình/50.png"
-                alt=""
-              />
+              <img src="/ảnh/Ảnh chụp màn hình/50.png" alt="" />
             </div>
             <div class="category-name">Charm</div>
           </div>
 
           <div class="category-card">
             <div class="category-thumb">
-              <img
-                src="/ảnh/Ảnh chụp màn hình/51.png"
-                alt=""
-              />
+              <img src="/ảnh/Ảnh chụp màn hình/51.png" alt="" />
             </div>
             <div class="category-name">Vòng tay</div>
           </div>
 
           <div class="category-card">
             <div class="category-thumb">
-              <img
-                src="/ảnh/Ảnh chụp màn hình/52.png"
-                alt=""
-              />
+              <img src="/ảnh/Ảnh chụp màn hình/52.png" alt="" />
             </div>
             <div class="category-name">Nhẫn</div>
           </div>
 
           <div class="category-card">
             <div class="category-thumb">
-              <img
-                src="/ảnh/Ảnh chụp màn hình/35.png"
-                alt=""
-              />
+              <img src="/ảnh/Ảnh chụp màn hình/35.png" alt="" />
             </div>
             <div class="category-name">Dây chuyền</div>
           </div>
 
           <div class="category-card">
             <div class="category-thumb">
-              <img
-                src="/ảnh/Ảnh chụp màn hình/53.png"
-                alt=""
-              />
+              <img src="/ảnh/Ảnh chụp màn hình/53.png" alt="" />
             </div>
             <div class="category-name">Khuyên tai</div>
           </div>
@@ -220,13 +196,10 @@
       <section class="section section-box">
         <h2 class="section-title">Sản phẩm được yêu thích nhất</h2>
 
-        <div class="product-grid-4">
+        <div class="product-grid-4" id="favoriteProductGrid">
           <div class="product-card">
             <div class="product-thumb">
-              <img
-                src="/ảnh/Ảnh chụp màn hình/6.png"
-                alt=""
-              />
+              <img src="/ảnh/Ảnh chụp màn hình/6.png" alt="" />
             </div>
             <div class="product-info">
               <div class="product-name">
@@ -238,10 +211,7 @@
 
           <div class="product-card">
             <div class="product-thumb">
-              <img
-                src="/ảnh/Ảnh chụp màn hình/7.png"
-                alt=""
-              />
+              <img src="/ảnh/Ảnh chụp màn hình/7.png" alt="" />
             </div>
             <div class="product-info">
               <div class="product-name">
@@ -253,10 +223,7 @@
 
           <div class="product-card">
             <div class="product-thumb">
-              <img
-                src="/ảnh/Ảnh chụp màn hình/8.png"
-                alt=""
-              />
+              <img src="/ảnh/Ảnh chụp màn hình/8.png" alt="" />
             </div>
             <div class="product-info">
               <div class="product-name">
@@ -268,10 +235,7 @@
 
           <div class="product-card">
             <div class="product-thumb">
-              <img
-                src="/ảnh/Ảnh chụp màn hình/9.png"
-                alt=""
-              />
+              <img src="/ảnh/Ảnh chụp màn hình/9.png" alt="" />
             </div>
             <div class="product-info">
               <div class="product-name">
@@ -283,10 +247,7 @@
 
           <div class="product-card">
             <div class="product-thumb">
-              <img
-                src="/ảnh/Ảnh chụp màn hình/10.png"
-                alt=""
-              />
+              <img src="/ảnh/Ảnh chụp màn hình/10.png" alt="" />
             </div>
             <div class="product-info">
               <div class="product-name">
@@ -298,10 +259,7 @@
 
           <div class="product-card">
             <div class="product-thumb">
-              <img
-                src="/ảnh/Ảnh chụp màn hình/11.png"
-                alt=""
-              />
+              <img src="/ảnh/Ảnh chụp màn hình/11.png" alt="" />
             </div>
             <div class="product-info">
               <div class="product-name">
@@ -434,7 +392,7 @@
 
         <h3 class="custom-subtitle">Vòng của bạn</h3>
 
-        <div class="custom-products">
+        <div class="custom-products" id="customProductGrid">
           <div class="product-card">
             <div class="product-thumb">
               <img
@@ -555,18 +513,10 @@
     </main>
 
     <section class="brand-banner">
-      <div class="content">
-        <div class="brand-banner-text">
-          <h2>AURORA - Trang Sức Cao Cấp</h2>
-          <p>
-            Đến với Aurora, trang sức không chỉ là một phụ kiện - đó là hiện
-            thân của niềm đam mê, tình yêu của chúng tôi, và cuối cùng, là món
-            quà của Aurora dành cho bạn
-          </p>
-        </div>
+      <div class="content container">
         <img
-          src="../ảnh/Ảnh chụp màn hình/61.png"
-          alt="AURORA banner"
+          src="../ảnh/Ảnh chụp màn hình/Group 43.png"
+          alt="AURORA - Trang sức cao cấp"
         />
       </div>
     </section>
@@ -640,6 +590,7 @@
       </div>
     </footer>
 
+    <script src="../js/data-products.js"></script>
     <script src="../js/trangchu.js"></script>
   </body>
 </html>
