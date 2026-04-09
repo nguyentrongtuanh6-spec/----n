@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard - AURORA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    />
+    <link rel="stylesheet" href="../css/thongkeadm.css" />
+  </head>
+  <body>
+    <div class="admin-layout">
+      <aside class="sidebar">
+        <div class="sidebar-logo-wrap">
+          <a href="./trangchu.html" class="logo" aria-label="AURORA Home"
+            ><img src="../ảnh/Ảnh chụp màn hình/logo.png" alt="AURORA"
+          /></a>
+        </div>
+
+        <nav class="menu-list" aria-label="menu quản trị">
+          <a class="menu-item active" href="#">
+            <span class="material-symbols-outlined">dashboard</span>
+            <span>Tổng quan</span>
+          </a>
+          <a class="menu-item" href="#">
+            <span class="material-symbols-outlined">deployed_code</span>
+            <span>Đơn hàng</span>
+          </a>
+          <a class="menu-item" href="#">
+            <span class="material-symbols-outlined">diamond</span>
+            <span>Sản phẩm</span>
+          </a>
+          <a class="menu-item" href="#">
+            <span class="material-symbols-outlined">group</span>
+            <span>Khách hàng</span>
+          </a>
+          <a class="menu-item" href="#">
+            <span class="material-symbols-outlined">article</span>
+            <span>Quản lý bài đăng</span>
+          </a>
+          <a class="menu-item" href="#">
+            <span class="material-symbols-outlined">badge</span>
+            <span>Quản lý nhân viên</span>
+          </a>
+          <a class="menu-item" href="#">
+            <span class="material-symbols-outlined">support_agent</span>
+            <span>Chăm sóc khách hàng</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-bottom-links">
+          <a class="menu-item" href="#">
+            <span class="material-symbols-outlined">help</span>
+            <span>Hỗ trợ</span>
+          </a>
+          <a class="menu-item" href="#">
+            <span class="material-symbols-outlined">logout</span>
+            <span>Đăng xuất</span>
+          </a>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div class="search-wrap">
+            <span class="material-symbols-outlined">search</span>
+            <input type="text" placeholder="Tìm kiếm đơn hàng, khách hàng..." />
+          </div>
+          <div class="topbar-actions">
+            <button class="icon-btn" type="button" aria-label="Thông báo">
+              <span class="material-symbols-outlined">notifications</span>
+            </button>
+            <button class="icon-btn" type="button" aria-label="Cài đặt">
+              <span class="material-symbols-outlined">settings</span>
+            </button>
+          </div>
+        </header>
+
+        <section class="dashboard-head">
+          <div>
+            <h2>Tổng quan hệ thống</h2>
+            <p id="updatedTime">
+              Dữ liệu kinh doanh cập nhật đến 15:42 AM hôm nay.
+            </p>
+          </div>
+          <button class="filter-btn" type="button">
+            <span class="material-symbols-outlined">calendar_month</span>
+            <span>15 Ngày qua</span>
+            <span class="material-symbols-outlined">expand_more</span>
+          </button>
+        </section>
+
+        <section class="stats-grid">
+          <article class="stat-card">
+            <div class="stat-top">
+              <div class="stat-icon mint">
+                <span class="material-symbols-outlined">payments</span>
+              </div>
+              <span class="stat-growth positive">+12.5%</span>
+            </div>
+            <p>Doanh thu tháng</p>
+            <h3>50.000.000đ</h3>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-top">
+              <div class="stat-icon neutral">
+                <span class="material-symbols-outlined">shopping_cart</span>
+              </div>
+              <span class="stat-growth positive">+8.2%</span>
+            </div>
+            <p>Đơn hàng mới</p>
+            <h3>42</h3>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-top">
+              <div class="stat-icon gray">
+                <span class="material-symbols-outlined">person_add</span>
+              </div>
+              <span class="stat-growth">+30</span>
+            </div>
+            <p>Khách hàng mới</p>
+            <h3>108</h3>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-top">
+              <div class="stat-icon danger">
+                <span class="material-symbols-outlined">inventory_2</span>
+              </div>
+              <span class="stat-badge">Cần nhập</span>
+            </div>
+            <p>Sắp hết hàng</p>
+            <h3>12 mẫu</h3>
+          </article>
+        </section>
+
+        <section class="chart-grid">
+          <article class="panel-card">
+            <div class="panel-head">
+              <h3>Xu hướng doanh thu</h3>
+              <span>Đơn vị: Triệu VND</span>
+            </div>
+
+            <div class="mini-bars" aria-hidden="true">
+              <div class="bar" style="--h: 44%"></div>
+              <div class="bar" style="--h: 30%"></div>
+              <div class="bar" style="--h: 30%"></div>
+              <div class="bar active" style="--h: 64%"></div>
+              <div class="bar" style="--h: 30%"></div>
+              <div class="bar" style="--h: 50%"></div>
+              <div class="bar" style="--h: 74%"></div>
+            </div>
+            <div class="mini-labels">
+              <span>T2</span>
+              <span>T3</span>
+              <span>T4</span>
+              <span>T5</span>
+              <span>T6</span>
+              <span>T7</span>
+              <span>CN</span>
+            </div>
+          </article>
+
+          <article class="panel-card donut-panel">
+            <div class="panel-head">
+              <h3>Phân tích đơn hàng</h3>
+              <a href="#">Xem chi tiết</a>
+            </div>
+
+            <div class="donut-wrap">
+              <div class="donut" data-percent="75">
+                <div class="donut-inner">
+                  <strong>18</strong>
+                  <span>TỔNG ĐƠN</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="legend-row">
+              <div class="legend-item">
+                <span class="dot done"></span>
+                <p>Đã hoàn tất<br /><strong>(75%)</strong></p>
+              </div>
+              <div class="legend-item">
+                <span class="dot processing"></span>
+                <p>Đang xử lý<br /><strong>(25%)</strong></p>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="orders-card">
+          <div class="orders-head">
+            <h3>Đơn hàng gần đây</h3>
+            <a href="#">Xem tất cả</a>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Mã đơn hàng</th>
+                  <th>Khách hàng</th>
+                  <th>Sản phẩm</th>
+                  <th>Ngày đặt</th>
+                  <th>Giá trị</th>
+                  <th>Trạng thái</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#YL-8902</td>
+                  <td class="customer-cell">
+                    <span class="avatar">NV</span>
+                    Nguyễn Văn Hưng
+                  </td>
+                  <td>Bông tai nữ ngọc trai AURORA…</td>
+                  <td>12/02/2026</td>
+                  <td class="amount">5.500.000đ</td>
+                  <td><span class="status done">Hoàn tất</span></td>
+                </tr>
+                <tr>
+                  <td>#LJ-8903</td>
+                  <td class="customer-cell">
+                    <span class="avatar">LT</span>
+                    Lê Thị Thùy
+                  </td>
+                  <td>Vòng Cổ Ngọc Trai,…</td>
+                  <td>01/11/2025</td>
+                  <td class="amount">6.000.000đ</td>
+                  <td><span class="status processing">Đang xử lý</span></td>
+                </tr>
+                <tr>
+                  <td>#LJ-8905</td>
+                  <td class="customer-cell">
+                    <span class="avatar">PM</span>
+                    Phạm Minh Tú
+                  </td>
+                  <td>Lắc tay Charm Vàng 999.9(24K) Rước Lộc AURORA</td>
+                  <td>11/12/2025</td>
+                  <td class="amount">7.200.000đ</td>
+                  <td><span class="status canceled">Đã hủy</span></td>
+                </tr>
+                <tr>
+                  <td>#LJ-8904</td>
+                  <td class="customer-cell">
+                    <span class="avatar">TA</span>
+                    Trần Anh Tuấn
+                  </td>
+                  <td>Bông Tai Vàng Trắng,…</td>
+                  <td>05/12/2025</td>
+                  <td class="amount">12.000.000đ</td>
+                  <td><span class="status done">Hoàn tất</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="../js/thongkeadm.js"></script>
+  </body>
+</html>
