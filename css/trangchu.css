@@ -126,6 +126,12 @@ nav {
   opacity: 0.85;
 }
 
+.nav-menu a.active {
+  color: #402833;
+  font-weight: 700;
+  text-decoration: none;
+}
+
 .hero {
   background: #fff;
   margin-top: 12px;
