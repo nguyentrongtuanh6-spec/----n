@@ -1,0 +1,166 @@
+body {
+  background: #efefef;
+}
+
+.care-main {
+  background: #efefef;
+  padding: 12px 0 36px;
+}
+
+.care-wrap {
+  width: min(1180px, calc(100% - 40px));
+  max-width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.care-breadcrumb {
+  margin: 12px 0 14px;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #888;
+}
+
+.care-breadcrumb a {
+  color: #222;
+  font-weight: 500;
+}
+
+.care-breadcrumb .current {
+  color: #222;
+  font-weight: 700;
+}
+
+.care-breadcrumb .sep {
+  margin: 0 7px;
+}
+
+.care-title-wrap {
+  margin: 2px 0 22px;
+  text-align: center;
+}
+
+.care-title-wrap,
+.care-article {
+  width: min(920px, 100%);
+  max-width: min(920px, 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.care-title-main-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+}
+
+.care-title-line {
+  width: 220px;
+  height: 1px;
+  background: #2f2f2f;
+  flex: 0 0 220px;
+}
+
+.care-title-main {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1f1f1f;
+  text-align: center;
+  margin: 0;
+}
+
+.care-title-sub {
+  margin-top: 4px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1f1f1f;
+}
+
+.care-article {
+  color: #000;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.care-article p {
+  margin: 0 0 10px;
+}
+
+.care-article .section-label {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.care-article .q-title,
+.care-article .h-title {
+  font-weight: 700;
+}
+
+.care-list,
+.care-dash,
+.care-bullet {
+  margin: 0 0 10px;
+  padding-left: 24px;
+}
+
+.care-list li,
+.care-dash li,
+.care-bullet li {
+  margin-bottom: 3px;
+}
+
+.care-dash {
+  list-style: none;
+  padding-left: 0;
+}
+
+.care-dash li::before {
+  content: "– ";
+}
+
+@media (max-width: 1200px) {
+  .care-title-main {
+    font-size: 24px;
+  }
+
+  .care-title-sub {
+    font-size: 17px;
+  }
+
+  .care-article {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .care-wrap {
+    width: calc(100% - 24px);
+    max-width: calc(100% - 24px);
+  }
+
+  .care-title-main-row {
+    gap: 10px;
+  }
+
+  .care-title-line {
+    width: 78px;
+    flex-basis: 78px;
+  }
+
+  .care-title-main {
+    font-size: 20px;
+  }
+
+  .care-title-sub {
+    margin-top: 3px;
+    font-size: 16px;
+  }
+
+  .care-article {
+    font-size: 13px;
+    line-height: 1.62;
+  }
+}

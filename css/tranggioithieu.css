@@ -14,19 +14,33 @@ body {
 
 .intro-breadcrumb {
   font-size: 11px;
-  color: #222;
+  color: #666;
   text-transform: uppercase;
   letter-spacing: 0.4px;
   margin: 8px 0 18px;
 }
 
 .intro-breadcrumb a {
-  color: #222;
+  color: #727272;
+  font-weight: 500;
+  transition: color 0.2s ease, font-weight 0.2s ease;
+}
+
+.intro-breadcrumb a:hover,
+.intro-breadcrumb a:focus,
+.intro-breadcrumb a:active {
+  color: #1f1f1f;
+  font-weight: 700;
 }
 
 .intro-breadcrumb .sep {
   margin: 0 6px;
   color: #666;
+}
+
+.intro-breadcrumb .current {
+  color: #1f1f1f;
+  font-weight: 700;
 }
 
 .intro-heading {
@@ -73,9 +87,9 @@ body {
   width: 100%;
   max-width: 980px;
   margin: 0 auto;
-  color: #171717;
-  font-size: 29px;
-  line-height: 1.62;
+  color: #000;
+  font-size: 14px;
+  line-height: 1.55;
 }
 
 .intro-block {
@@ -99,7 +113,7 @@ body {
 
 @media (max-width: 1200px) {
   .intro-content {
-    font-size: 20px;
+    font-size: 14px;
   }
 
   .intro-heading h1 {
@@ -109,8 +123,8 @@ body {
 
 @media (max-width: 768px) {
   .intro-content {
-    font-size: 15px;
-    line-height: 1.65;
+    font-size: 13px;
+    line-height: 1.62;
   }
 
   .intro-heading {
