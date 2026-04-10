@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html class="light" lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Quản lý Sản phẩm - AURORA</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/quanlysanpham.css" />
+    <script src="../js/quanlysanpham-tailwind.js"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body class="bg-surface text-on-surface antialiased overflow-x-hidden">
+    <aside
+      class="h-screen w-72 fixed left-0 top-0 z-50 bg-[#fbf9f8] dark:bg-stone-950 flex flex-col border-r border-stone-200/10 p-6 font-manrope text-sm font-medium"
+    >
+      <div class="mb-10 px-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-primary flex items-center justify-center rounded-lg shadow-sm">
+            <span class="material-symbols-outlined text-on-primary">diamond</span>
+          </div>
+          <div>
+            <h2 class="text-lg font-black tracking-widest text-stone-900 dark:text-stone-50 uppercase">AURORA Admin</h2>
+            <p class="text-[10px] tracking-widest text-stone-400 uppercase">High-End Jewelry</p>
+          </div>
+        </div>
+      </div>
+
+      <nav class="flex-1 space-y-1">
+        <a class="flex items-center gap-3 text-stone-500 dark:text-stone-400 px-4 py-3 hover:text-stone-900 dark:hover:text-stone-50 hover:bg-stone-100/80 dark:hover:bg-stone-800/80 transition-all duration-200 ease-in-out hover:translate-x-1" href="./thongkeadm.html">
+          <span class="material-symbols-outlined">dashboard</span>
+          <span>Tổng quan</span>
+        </a>
+        <a class="flex items-center gap-3 text-stone-500 dark:text-stone-400 px-4 py-3 hover:text-stone-900 dark:hover:text-stone-50 hover:bg-stone-100/80 dark:hover:bg-stone-800/80 transition-all duration-200 ease-in-out hover:translate-x-1" href="./quanlydonhang.html">
+          <span class="material-symbols-outlined">shopping_bag</span>
+          <span>Đơn hàng</span>
+        </a>
+        <a class="flex items-center gap-3 text-stone-900 dark:text-stone-50 bg-stone-200/40 dark:bg-stone-800/40 rounded-lg px-4 py-3 font-semibold transition-all duration-200 ease-in-out hover:translate-x-1" href="./quanlysanpham.html">
+          <span class="material-symbols-outlined">diamond</span>
+          <span>Sản phẩm</span>
+        </a>
+        <a class="flex items-center gap-3 text-stone-500 dark:text-stone-400 px-4 py-3 hover:text-stone-900 dark:hover:text-stone-50 hover:bg-stone-100/80 dark:hover:bg-stone-800/80 transition-all duration-200 ease-in-out hover:translate-x-1" href="./quanlykhachhang.html">
+          <span class="material-symbols-outlined">group</span>
+          <span>Khách hàng</span>
+        </a>
+        <a class="flex items-center gap-3 text-stone-500 dark:text-stone-400 px-4 py-3 hover:text-stone-900 dark:hover:text-stone-50 hover:bg-stone-100/80 dark:hover:bg-stone-800/80 transition-all duration-200 ease-in-out hover:translate-x-1" href="./quanlybaiviet.html">
+          <span class="material-symbols-outlined">article</span>
+          <span>Quản lý bài viết</span>
+        </a>
+        <a class="flex items-center gap-3 text-stone-500 dark:text-stone-400 px-4 py-3 hover:text-stone-900 dark:hover:text-stone-50 hover:bg-stone-100/80 dark:hover:bg-stone-800/80 transition-all duration-200 ease-in-out hover:translate-x-1" href="./quanlynhanvien.html">
+          <span class="material-symbols-outlined">badge</span>
+          <span>Quản lý nhân viên</span>
+        </a>
+        <a class="flex items-center gap-3 text-stone-500 dark:text-stone-400 px-4 py-3 hover:text-stone-900 dark:hover:text-stone-50 hover:bg-stone-100/80 dark:hover:bg-stone-800/80 transition-all duration-200 ease-in-out hover:translate-x-1" href="#">
+          <span class="material-symbols-outlined">settings</span>
+          <span>Cài đặt</span>
+        </a>
+      </nav>
+
+      <div class="mt-auto pt-6 border-t border-stone-200/10 space-y-1">
+        <button id="sidebarAddProductBtn" class="w-full mb-4 py-3 px-4 bg-primary text-on-primary rounded-lg text-xs font-bold tracking-wider uppercase hover:bg-primary-dim transition-colors shadow-sm">Tạo sản phẩm mới</button>
+        <a class="flex items-center gap-3 text-stone-500 px-4 py-2 hover:text-stone-900 transition-all" href="#">
+          <span class="material-symbols-outlined">help</span>
+          <span>Hỗ trợ</span>
+        </a>
+        <a class="flex items-center gap-3 text-stone-500 px-4 py-2 hover:text-stone-900 transition-all" href="#" id="logoutLink">
+          <span class="material-symbols-outlined">logout</span>
+          <span>Đăng xuất</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="ml-72 min-h-screen flex flex-col">
+      <header class="fixed top-0 right-0 left-72 z-40 h-20 bg-[#fbf9f8]/80 backdrop-blur-xl flex justify-between items-center px-8 shadow-sm shadow-stone-200/50">
+        <div class="flex items-center gap-6 w-1/2">
+          <div class="relative w-full max-w-md">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 text-lg">search</span>
+            <input id="globalSearchInput" class="w-full bg-stone-100/50 border-none rounded-full py-2 pl-10 pr-4 text-sm focus:ring-1 focus:ring-primary/20 placeholder:text-stone-400" placeholder="Tìm kiếm đơn hàng, khách hàng..." type="text" />
+          </div>
+        </div>
+        <div class="flex items-center gap-5">
+          <button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-stone-100 transition-colors text-stone-600">
+            <span class="material-symbols-outlined">notifications</span>
+          </button>
+          <button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-stone-100 transition-colors text-stone-600">
+            <span class="material-symbols-outlined">settings</span>
+          </button>
+          <div class="h-8 w-px bg-stone-200 mx-2"></div>
+          <div class="flex items-center gap-3 pl-2">
+            <div class="text-right">
+              <p class="text-xs font-bold text-stone-900">Admin AURORA</p>
+              <p class="text-[10px] text-stone-500 uppercase tracking-tighter">Super Admin</p>
+            </div>
+            <img class="w-10 h-10 rounded-full border border-stone-200" src="https://ui-avatars.com/api/?name=Admin+Aurora&background=random" alt="Admin profile" />
+          </div>
+        </div>
+      </header>
+
+      <main class="mt-20 p-8 md:p-10 flex-1">
+        <div class="max-w-7xl mx-auto space-y-5">
+          <section class="flex items-end justify-between gap-4">
+            <div>
+              <h1 class="text-4xl font-headline font-extrabold tracking-tight mb-2">Quản lý sản phẩm</h1>
+              <p class="text-sm text-on-surface-variant">Điều chỉnh danh mục hàng hóa, theo dõi tồn kho và cập nhật giá bán cho hệ thống.</p>
+            </div>
+            <button id="addProductBtn" class="flex items-center gap-2 px-5 py-2.5 bg-rose-400 text-white rounded-lg text-sm font-semibold hover:bg-rose-500 transition-colors">
+              Thêm sản phẩm mới
+              <span class="material-symbols-outlined text-base">add</span>
+            </button>
+          </section>
+
+          <section class="grid grid-cols-1 md:grid-cols-4 gap-3">
+            <div class="md:col-span-2 relative">
+              <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 text-lg">search</span>
+              <input id="productSearch" class="w-full bg-surface-container-lowest border-none rounded-lg py-3 pl-10 pr-4 text-sm focus:ring-1 focus:ring-primary/20 placeholder:text-stone-400" placeholder="Tìm kiếm theo tên sản phẩm" type="text" />
+            </div>
+            <select id="categoryFilter" class="bg-surface-container-lowest rounded-lg border-none text-sm text-on-surface-variant">
+              <option>Tất cả danh mục</option>
+              <option>Nhẫn</option>
+              <option>Bông tai</option>
+              <option>Dây chuyền</option>
+              <option>Vòng tay</option>
+              <option>Charm</option>
+            </select>
+            <select id="stockFilter" class="bg-surface-container-lowest rounded-lg border-none text-sm text-on-surface-variant">
+              <option>Trạng thái kho</option>
+              <option>Còn hàng</option>
+              <option>Hết hàng</option>
+            </select>
+          </section>
+
+          <section class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse" id="productsTable">
+                <thead>
+                  <tr class="bg-surface-container-low">
+                    <th class="px-6 py-4 text-[10px] uppercase tracking-widest text-outline font-bold">Sản phẩm</th>
+                    <th class="px-6 py-4 text-[10px] uppercase tracking-widest text-outline font-bold text-right">Giá bán</th>
+                    <th class="px-6 py-4 text-[10px] uppercase tracking-widest text-outline font-bold text-center">Tồn kho</th>
+                    <th class="px-6 py-4 text-[10px] uppercase tracking-widest text-outline font-bold text-center">Trạng thái</th>
+                    <th class="px-6 py-4 text-[10px] uppercase tracking-widest text-outline font-bold text-right">Thao tác</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-surface-container-low text-sm">
+                  <tr data-id="SP001" data-category="Bông tai">
+                    <td class="px-6 py-4">
+                      <div class="flex items-center gap-3">
+                        <img class="w-12 h-12 rounded-md object-cover" src="https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?q=80&w=200&auto=format&fit=crop" alt="product" />
+                        <div>
+                          <button data-read class="font-semibold text-left hover:underline">Hạt charm bạc cỏ định dã hình đôi cánh thiên thần AURORA</button>
+                          <p class="text-[11px] text-on-surface-variant">Phiên bản giới hạn 2026</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 text-right font-bold">850.000đ</td>
+                    <td class="px-6 py-4 text-center">250</td>
+                    <td class="px-6 py-4 text-center"><span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-bold uppercase">Còn hàng</span></td>
+                    <td class="px-6 py-4 text-right space-x-1">
+                      <button data-action="edit" class="p-1.5 hover:bg-surface-container-low rounded-lg text-stone-400 hover:text-primary"><span class="material-symbols-outlined text-lg">edit</span></button>
+                      <button data-action="delete" class="p-1.5 hover:bg-error-container/20 rounded-lg text-stone-400 hover:text-error"><span class="material-symbols-outlined text-lg">delete</span></button>
+                    </td>
+                  </tr>
+                  <tr data-id="SP002" data-category="Nhẫn">
+                    <td class="px-6 py-4">
+                      <div class="flex items-center gap-3">
+                        <img class="w-12 h-12 rounded-md object-cover" src="https://images.unsplash.com/photo-1603974372039-adc49044b6bd?q=80&w=200&auto=format&fit=crop" alt="product" />
+                        <div>
+                          <button data-read class="font-semibold text-left hover:underline">Nhẫn bạc nữ đẹp đính đá hoa anh đào AURORA</button>
+                          <p class="text-[11px] text-on-surface-variant">Free size có thể chỉnh</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 text-right font-bold">412.000đ</td>
+                    <td class="px-6 py-4 text-center text-red-500">0</td>
+                    <td class="px-6 py-4 text-center"><span class="px-3 py-1 rounded-full bg-rose-100 text-rose-600 text-[10px] font-bold uppercase">Hết hàng</span></td>
+                    <td class="px-6 py-4 text-right space-x-1">
+                      <button data-action="edit" class="p-1.5 hover:bg-surface-container-low rounded-lg text-stone-400 hover:text-primary"><span class="material-symbols-outlined text-lg">edit</span></button>
+                      <button data-action="delete" class="p-1.5 hover:bg-error-container/20 rounded-lg text-stone-400 hover:text-error"><span class="material-symbols-outlined text-lg">delete</span></button>
+                    </td>
+                  </tr>
+                  <tr data-id="SP003" data-category="Dây chuyền">
+                    <td class="px-6 py-4">
+                      <div class="flex items-center gap-3">
+                        <img class="w-12 h-12 rounded-md object-cover" src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=200&auto=format&fit=crop" alt="product" />
+                        <div>
+                          <button data-read class="font-semibold text-left hover:underline">Dây chuyền bạc nữ đính đá trái tim</button>
+                          <p class="text-[11px] text-on-surface-variant">Bền màu, chống oxy hóa</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 text-right font-bold">3.200.000đ</td>
+                    <td class="px-6 py-4 text-center">210</td>
+                    <td class="px-6 py-4 text-center"><span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-bold uppercase">Còn hàng</span></td>
+                    <td class="px-6 py-4 text-right space-x-1">
+                      <button data-action="edit" class="p-1.5 hover:bg-surface-container-low rounded-lg text-stone-400 hover:text-primary"><span class="material-symbols-outlined text-lg">edit</span></button>
+                      <button data-action="delete" class="p-1.5 hover:bg-error-container/20 rounded-lg text-stone-400 hover:text-error"><span class="material-symbols-outlined text-lg">delete</span></button>
+                    </td>
+                  </tr>
+                  <tr data-id="SP004" data-category="Nhẫn">
+                    <td class="px-6 py-4">
+                      <div class="flex items-center gap-3">
+                        <img class="w-12 h-12 rounded-md object-cover" src="https://images.unsplash.com/photo-1608042314453-ae338d80c427?q=80&w=200&auto=format&fit=crop" alt="product" />
+                        <div>
+                          <button data-read class="font-semibold text-left hover:underline">Nhẫn cặp đôi bạc đính kim cương moissanite</button>
+                          <p class="text-[11px] text-on-surface-variant">Bản đối nam/nữ</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 text-right font-bold">1.641.000đ</td>
+                    <td class="px-6 py-4 text-center">180</td>
+                    <td class="px-6 py-4 text-center"><span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-bold uppercase">Còn hàng</span></td>
+                    <td class="px-6 py-4 text-right space-x-1">
+                      <button data-action="edit" class="p-1.5 hover:bg-surface-container-low rounded-lg text-stone-400 hover:text-primary"><span class="material-symbols-outlined text-lg">edit</span></button>
+                      <button data-action="delete" class="p-1.5 hover:bg-error-container/20 rounded-lg text-stone-400 hover:text-error"><span class="material-symbols-outlined text-lg">delete</span></button>
+                    </td>
+                  </tr>
+                  <tr data-id="SP005" data-category="Bông tai">
+                    <td class="px-6 py-4">
+                      <div class="flex items-center gap-3">
+                        <img class="w-12 h-12 rounded-md object-cover" src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=200&auto=format&fit=crop" alt="product" />
+                        <div>
+                          <button data-read class="font-semibold text-left hover:underline">Bông tai bạc nữ vòng trăng ngọc trai</button>
+                          <p class="text-[11px] text-on-surface-variant">Đính đá Cubic Zirconia</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 text-right font-bold">3.310.000đ</td>
+                    <td class="px-6 py-4 text-center text-red-500">0</td>
+                    <td class="px-6 py-4 text-center"><span class="px-3 py-1 rounded-full bg-rose-100 text-rose-600 text-[10px] font-bold uppercase">Hết hàng</span></td>
+                    <td class="px-6 py-4 text-right space-x-1">
+                      <button data-action="edit" class="p-1.5 hover:bg-surface-container-low rounded-lg text-stone-400 hover:text-primary"><span class="material-symbols-outlined text-lg">edit</span></button>
+                      <button data-action="delete" class="p-1.5 hover:bg-error-container/20 rounded-lg text-stone-400 hover:text-error"><span class="material-symbols-outlined text-lg">delete</span></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <footer class="px-6 py-4 bg-surface-container-lowest flex items-center justify-between border-t border-surface-container-low">
+              <p id="productSummary" class="text-xs text-on-surface-variant">Hiển thị 1-5 trên 5 sản phẩm</p>
+              <div id="productPagination" class="flex items-center gap-2"></div>
+            </footer>
+          </section>
+
+          <section class="flex justify-end">
+            <button id="exportProductBtn" class="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-lg text-sm hover:bg-surface-container-high transition-colors">
+              <span class="material-symbols-outlined text-lg">download</span>
+              Xuất CSV sản phẩm
+            </button>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="../js/quanlysanpham.js"></script>
+  </body>
+</html>
