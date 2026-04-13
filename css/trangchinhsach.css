@@ -1,0 +1,166 @@
+body {
+  background: #efefef;
+}
+
+.policy-main {
+  background: #efefef;
+  padding: 12px 0 36px;
+}
+
+.policy-wrap {
+  width: min(1180px, calc(100% - 40px));
+  max-width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.policy-breadcrumb {
+  margin: 12px 0 14px;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #888;
+}
+
+.policy-breadcrumb a {
+  color: #222;
+  font-weight: 500;
+}
+
+.policy-breadcrumb .current {
+  color: #222;
+  font-weight: 700;
+}
+
+.policy-breadcrumb .sep {
+  margin: 0 7px;
+}
+
+.policy-title-wrap {
+  margin: 2px 0 22px;
+  text-align: center;
+}
+
+.policy-title-wrap,
+.policy-article {
+  width: min(920px, 100%);
+  max-width: min(920px, 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.policy-title-main-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+}
+
+.policy-title-line {
+  width: 180px;
+  height: 1px;
+  background: #2f2f2f;
+  flex: 0 0 180px;
+}
+
+.policy-title-main {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1f1f1f;
+  text-align: center;
+  margin: 0;
+}
+
+.policy-title-sub {
+  margin-top: 4px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1f1f1f;
+}
+
+.policy-article {
+  color: #000;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.policy-article p {
+  margin: 0 0 10px;
+}
+
+.policy-article .section-label {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.policy-article .q-title,
+.policy-article .h-title {
+  font-weight: 700;
+}
+
+.policy-list,
+.policy-dash,
+.policy-bullet {
+  margin: 0 0 10px;
+  padding-left: 24px;
+}
+
+.policy-list li,
+.policy-dash li,
+.policy-bullet li {
+  margin-bottom: 3px;
+}
+
+.policy-dash {
+  list-style: none;
+  padding-left: 0;
+}
+
+.policy-dash li::before {
+  content: "– ";
+}
+
+@media (max-width: 1200px) {
+  .policy-title-main {
+    font-size: 24px;
+  }
+
+  .policy-title-sub {
+    font-size: 17px;
+  }
+
+  .policy-article {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .policy-wrap {
+    width: calc(100% - 24px);
+    max-width: calc(100% - 24px);
+  }
+
+  .policy-title-main-row {
+    gap: 10px;
+  }
+
+  .policy-title-line {
+    width: 62px;
+    flex-basis: 62px;
+  }
+
+  .policy-title-main {
+    font-size: 20px;
+  }
+
+  .policy-title-sub {
+    margin-top: 3px;
+    font-size: 16px;
+  }
+
+  .policy-article {
+    font-size: 13px;
+    line-height: 1.62;
+  }
+}
