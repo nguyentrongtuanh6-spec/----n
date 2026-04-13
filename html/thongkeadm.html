@@ -1,271 +1,418 @@
-<!doctype html>
-<html lang="vi">
+<!DOCTYPE html>
+<html class="light" lang="vi">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin Dashboard - AURORA</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Thống kê Admin - AURORA</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link
-      rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
     />
-    <link rel="stylesheet" href="../css/thongkeadm.css" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-error": "#fff7f6",
+              "primary-fixed": "#e5e2e1",
+              "secondary-fixed-dim": "#d5d4d4",
+              "secondary": "#5f5f5f",
+              "inverse-surface": "#0e0e0e",
+              "surface-container-highest": "#e2e2e3",
+              "tertiary": "#486272",
+              "on-surface": "#303333",
+              "on-secondary-container": "#515252",
+              "surface-container-lowest": "#ffffff",
+              "on-primary-container": "#525151",
+              "primary-fixed-dim": "#d6d4d3",
+              "on-tertiary-container": "#3e5868",
+              "on-primary-fixed-variant": "#5c5b5b",
+              "on-background": "#303333",
+              "on-tertiary": "#f4faff",
+              "tertiary-fixed-dim": "#c2def0",
+              "tertiary-container": "#d0ecff",
+              "on-secondary-fixed": "#3f3f3f",
+              "inverse-on-surface": "#9e9d9c",
+              "primary": "#5f5e5e",
+              "outline-variant": "#b1b2b2",
+              "outline": "#797b7b",
+              "tertiary-fixed": "#d0ecff",
+              "surface-dim": "#d9dada",
+              "on-tertiary-fixed-variant": "#486272",
+              "on-primary-fixed": "#403f3f",
+              "surface-container-low": "#f5f3f3",
+              "on-secondary": "#faf8f8",
+              "surface": "#fbf9f8",
+              "primary-dim": "#535252",
+              "on-secondary-fixed-variant": "#5b5b5b",
+              "on-error-container": "#752121",
+              "inverse-primary": "#ffffff",
+              "surface-variant": "#e2e2e3",
+              "background": "#fbf9f8",
+              "on-surface-variant": "#5d5f60",
+              "error-container": "#fe8983",
+              "error-dim": "#4e0309",
+              "primary-container": "#e5e2e1",
+              "secondary-container": "#e4e2e2",
+              "surface-container": "#eeeeed",
+              "secondary-dim": "#535353",
+              "error": "#9f403d",
+              "tertiary-dim": "#3c5666",
+              "surface-tint": "#5f5e5e",
+              "secondary-fixed": "#e4e2e2",
+              "surface-bright": "#fbf9f8",
+              "on-primary": "#faf7f6",
+              "on-tertiary-fixed": "#2c4655",
+              "surface-container-high": "#e8e8e8"
+            },
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Inter"],
+              label: ["Inter"]
+            }
+          }
+        }
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+        vertical-align: middle;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      h1,
+      h2,
+      h3,
+      .font-manrope {
+        font-family: "Manrope", sans-serif;
+      }
+    </style>
   </head>
-  <body>
-    <div class="admin-layout">
-      <aside class="sidebar">
-        <div class="sidebar-logo-wrap">
-          <a href="./trangchu.html" class="logo" aria-label="AURORA Home"
-            ><img src="../ảnh/Ảnh chụp màn hình/logo.png" alt="AURORA"
-          /></a>
-        </div>
-
-        <nav class="menu-list" aria-label="menu quản trị">
-          <a class="menu-item active" href="#">
-            <span class="material-symbols-outlined">dashboard</span>
-            <span>Tổng quan</span>
-          </a>
-          <a class="menu-item" href="#">
-            <span class="material-symbols-outlined">deployed_code</span>
-            <span>Đơn hàng</span>
-          </a>
-          <a class="menu-item" href="#">
-            <span class="material-symbols-outlined">diamond</span>
-            <span>Sản phẩm</span>
-          </a>
-          <a class="menu-item" href="#">
-            <span class="material-symbols-outlined">group</span>
-            <span>Khách hàng</span>
-          </a>
-          <a class="menu-item" href="#">
-            <span class="material-symbols-outlined">article</span>
-            <span>Quản lý bài đăng</span>
-          </a>
-          <a class="menu-item" href="#">
-            <span class="material-symbols-outlined">badge</span>
-            <span>Quản lý nhân viên</span>
-          </a>
-          <a class="menu-item" href="#">
-            <span class="material-symbols-outlined">support_agent</span>
-            <span>Chăm sóc khách hàng</span>
-          </a>
-        </nav>
-
-        <div class="sidebar-bottom-links">
-          <a class="menu-item" href="#">
-            <span class="material-symbols-outlined">help</span>
-            <span>Hỗ trợ</span>
-          </a>
-          <a class="menu-item" href="#">
-            <span class="material-symbols-outlined">logout</span>
-            <span>Đăng xuất</span>
-          </a>
-        </div>
-      </aside>
-
-      <main class="main-panel">
-        <header class="topbar">
-          <div class="search-wrap">
-            <span class="material-symbols-outlined">search</span>
-            <input type="text" placeholder="Tìm kiếm đơn hàng, khách hàng..." />
+  <body class="bg-surface text-on-surface antialiased overflow-x-hidden">
+    <aside
+      class="h-screen w-72 fixed left-0 top-0 z-50 bg-[#fbf9f8] dark:bg-stone-950 flex flex-col border-r border-stone-200/10 p-6 font-manrope text-sm font-medium"
+    >
+      <div class="mb-10 px-4">
+        <div class="flex items-center gap-3">
+          <div
+            class="w-10 h-10 bg-primary flex items-center justify-center rounded-lg shadow-sm"
+          >
+            <span class="material-symbols-outlined text-on-primary">diamond</span>
           </div>
-          <div class="topbar-actions">
-            <button class="icon-btn" type="button" aria-label="Thông báo">
-              <span class="material-symbols-outlined">notifications</span>
-            </button>
-            <button class="icon-btn" type="button" aria-label="Cài đặt">
-              <span class="material-symbols-outlined">settings</span>
-            </button>
-          </div>
-        </header>
-
-        <section class="dashboard-head">
           <div>
-            <h2>Tổng quan hệ thống</h2>
-            <p id="updatedTime">
-              Dữ liệu kinh doanh cập nhật đến 15:42 AM hôm nay.
+            <h2
+              class="text-lg font-black tracking-widest text-stone-900 dark:text-stone-50 uppercase"
+            >
+              AURORA Admin
+            </h2>
+            <p class="text-[10px] tracking-widest text-stone-400 uppercase">
+              High-End Jewelry
             </p>
           </div>
-          <button class="filter-btn" type="button">
-            <span class="material-symbols-outlined">calendar_month</span>
-            <span>15 Ngày qua</span>
-            <span class="material-symbols-outlined">expand_more</span>
+        </div>
+      </div>
+
+      <nav class="flex-1 space-y-1">
+        <a
+          class="flex items-center gap-3 text-stone-900 dark:text-stone-50 bg-stone-200/40 dark:bg-stone-800/40 rounded-lg px-4 py-3 font-semibold transition-all duration-200 ease-in-out hover:translate-x-1"
+          href="./thongkeadm.html"
+        >
+          <span class="material-symbols-outlined">dashboard</span>
+          <span>Tổng quan</span>
+        </a>
+        <a
+          class="flex items-center gap-3 text-stone-500 dark:text-stone-400 px-4 py-3 hover:text-stone-900 dark:hover:text-stone-50 hover:bg-stone-100/80 dark:hover:bg-stone-800/80 transition-all duration-200 ease-in-out hover:translate-x-1"
+          href="./quanlydonhang.html"
+        >
+          <span class="material-symbols-outlined">shopping_bag</span>
+          <span>Đơn hàng</span>
+        </a>
+        <a
+          class="flex items-center gap-3 text-stone-500 dark:text-stone-400 px-4 py-3 hover:text-stone-900 dark:hover:text-stone-50 hover:bg-stone-100/80 dark:hover:bg-stone-800/80 transition-all duration-200 ease-in-out hover:translate-x-1"
+          href="./quanlysanpham.html"
+        >
+          <span class="material-symbols-outlined">diamond</span>
+          <span>Sản phẩm</span>
+        </a>
+        <a
+          class="flex items-center gap-3 text-stone-500 dark:text-stone-400 px-4 py-3 hover:text-stone-900 dark:hover:text-stone-50 hover:bg-stone-100/80 dark:hover:bg-stone-800/80 transition-all duration-200 ease-in-out hover:translate-x-1"
+          href="./quanlykhachhang.html"
+        >
+          <span class="material-symbols-outlined">group</span>
+          <span>Khách hàng</span>
+        </a>
+        <a
+          class="flex items-center gap-3 text-stone-500 dark:text-stone-400 px-4 py-3 hover:text-stone-900 dark:hover:text-stone-50 hover:bg-stone-100/80 dark:hover:bg-stone-800/80 transition-all duration-200 ease-in-out hover:translate-x-1"
+          href="./quanlybaiviet.html"
+        >
+          <span class="material-symbols-outlined">article</span>
+          <span>Quản lý bài viết</span>
+        </a>
+        <a
+          class="flex items-center gap-3 text-stone-500 dark:text-stone-400 px-4 py-3 hover:text-stone-900 dark:hover:text-stone-50 hover:bg-stone-100/80 dark:hover:bg-stone-800/80 transition-all duration-200 ease-in-out hover:translate-x-1"
+          href="./quanlynhanvien.html"
+        >
+          <span class="material-symbols-outlined">badge</span>
+          <span>Quản lý nhân viên</span>
+        </a>
+        <a
+          class="flex items-center gap-3 text-stone-500 dark:text-stone-400 px-4 py-3 hover:text-stone-900 dark:hover:text-stone-50 hover:bg-stone-100/80 dark:hover:bg-stone-800/80 transition-all duration-200 ease-in-out hover:translate-x-1"
+          href="#"
+        >
+          <span class="material-symbols-outlined">settings</span>
+          <span>Cài đặt</span>
+        </a>
+      </nav>
+
+      <div class="mt-auto pt-6 border-t border-stone-200/10 space-y-1">
+        <button
+          class="w-full mb-4 py-3 px-4 bg-primary text-on-primary rounded-lg text-xs font-bold tracking-wider uppercase hover:bg-primary-dim transition-colors shadow-sm"
+        >
+          Tạo sản phẩm mới
+        </button>
+        <a
+          class="flex items-center gap-3 text-stone-500 px-4 py-2 hover:text-stone-900 transition-all"
+          href="#"
+        >
+          <span class="material-symbols-outlined">help</span>
+          <span>Hỗ trợ</span>
+        </a>
+        <a
+          class="flex items-center gap-3 text-stone-500 px-4 py-2 hover:text-stone-900 transition-all"
+          href="#"
+        >
+          <span class="material-symbols-outlined">logout</span>
+          <span>Đăng xuất</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="ml-72 min-h-screen flex flex-col">
+      <header
+        class="fixed top-0 right-0 left-72 z-40 h-20 bg-[#fbf9f8]/80 backdrop-blur-xl flex justify-between items-center px-8 shadow-sm shadow-stone-200/50"
+      >
+        <div class="flex items-center gap-6 w-1/2">
+          <div class="relative w-full max-w-md">
+            <span
+              class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 text-lg"
+              >search</span
+            >
+            <input
+              class="w-full bg-stone-100/50 border-none rounded-full py-2 pl-10 pr-4 text-sm focus:ring-1 focus:ring-primary/20 placeholder:text-stone-400"
+              placeholder="Tìm kiếm đơn hàng, khách hàng..."
+              type="text"
+            />
+          </div>
+        </div>
+        <div class="flex items-center gap-5">
+          <button
+            class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-stone-100 transition-colors text-stone-600"
+          >
+            <span class="material-symbols-outlined">notifications</span>
           </button>
-        </section>
+          <button
+            class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-stone-100 transition-colors text-stone-600"
+          >
+            <span class="material-symbols-outlined">settings</span>
+          </button>
+          <div class="h-8 w-px bg-stone-200 mx-2"></div>
+          <div class="flex items-center gap-3 pl-2">
+            <div class="text-right">
+              <p class="text-xs font-bold text-stone-900">Admin AURORA</p>
+              <p class="text-[10px] text-stone-500 uppercase tracking-tighter">
+                Super Admin
+              </p>
+            </div>
+            <img
+              class="w-10 h-10 rounded-full border border-stone-200"
+              src="https://ui-avatars.com/api/?name=Admin+Aurora&background=random"
+              alt="Admin profile"
+            />
+          </div>
+        </div>
+      </header>
 
-        <section class="stats-grid">
-          <article class="stat-card">
-            <div class="stat-top">
-              <div class="stat-icon mint">
-                <span class="material-symbols-outlined">payments</span>
+      <main class="mt-20 p-8 md:p-10 flex-1">
+        <div class="max-w-7xl mx-auto space-y-6">
+          <section class="flex items-start justify-between gap-4">
+            <div>
+              <h1 class="text-4xl font-headline font-extrabold tracking-tight">
+                Tổng quan hệ thống
+              </h1>
+              <p class="text-sm text-on-surface-variant" id="updatedTime">
+                Dữ liệu kinh doanh cập nhật đến --:-- hôm nay.
+              </p>
+            </div>
+            <button
+              id="periodBtn"
+              class="inline-flex items-center gap-2 h-10 px-4 rounded-lg bg-surface-container-low text-sm text-on-surface"
+            >
+              <span class="material-symbols-outlined text-lg">calendar_month</span>
+              <span id="periodLabel">15 Ngày qua</span>
+              <span class="material-symbols-outlined text-base">expand_more</span>
+            </button>
+          </section>
+
+          <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+            <article class="bg-surface-container-lowest rounded-xl p-5 shadow-sm">
+              <div class="flex justify-between items-center mb-4">
+                <div class="w-8 h-8 rounded bg-emerald-100 text-emerald-700 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-base">payments</span>
+                </div>
+                <span class="text-xs text-emerald-600 font-bold">+12.5%</span>
               </div>
-              <span class="stat-growth positive">+12.5%</span>
-            </div>
-            <p>Doanh thu tháng</p>
-            <h3>50.000.000đ</h3>
-          </article>
+              <p class="text-sm text-on-surface-variant mb-2">Doanh thu tháng</p>
+              <h3 class="text-4xl font-black tracking-tight">50.000.000₫</h3>
+            </article>
 
-          <article class="stat-card">
-            <div class="stat-top">
-              <div class="stat-icon neutral">
-                <span class="material-symbols-outlined">shopping_cart</span>
+            <article class="bg-surface-container-lowest rounded-xl p-5 shadow-sm">
+              <div class="flex justify-between items-center mb-4">
+                <div class="w-8 h-8 rounded bg-stone-100 text-stone-700 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-base">shopping_cart</span>
+                </div>
+                <span class="text-xs text-emerald-600 font-bold">+8.2%</span>
               </div>
-              <span class="stat-growth positive">+8.2%</span>
-            </div>
-            <p>Đơn hàng mới</p>
-            <h3>42</h3>
-          </article>
+              <p class="text-sm text-on-surface-variant mb-2">Đơn hàng mới</p>
+              <h3 class="text-4xl font-black tracking-tight">42</h3>
+            </article>
 
-          <article class="stat-card">
-            <div class="stat-top">
-              <div class="stat-icon gray">
-                <span class="material-symbols-outlined">person_add</span>
+            <article class="bg-surface-container-lowest rounded-xl p-5 shadow-sm">
+              <div class="flex justify-between items-center mb-4">
+                <div class="w-8 h-8 rounded bg-stone-100 text-stone-700 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-base">person_add</span>
+                </div>
+                <span class="text-xs text-on-surface font-bold">+30</span>
               </div>
-              <span class="stat-growth">+30</span>
-            </div>
-            <p>Khách hàng mới</p>
-            <h3>108</h3>
-          </article>
+              <p class="text-sm text-on-surface-variant mb-2">Khách hàng mới</p>
+              <h3 class="text-4xl font-black tracking-tight">108</h3>
+            </article>
 
-          <article class="stat-card">
-            <div class="stat-top">
-              <div class="stat-icon danger">
-                <span class="material-symbols-outlined">inventory_2</span>
+            <article class="bg-surface-container-lowest rounded-xl p-5 shadow-sm">
+              <div class="flex justify-between items-center mb-4">
+                <div class="w-8 h-8 rounded bg-red-600 text-white flex items-center justify-center">
+                  <span class="material-symbols-outlined text-base">inventory_2</span>
+                </div>
+                <span class="text-xs bg-red-100 text-red-600 px-2 py-1 rounded-md font-bold">CẦN NHẬP</span>
               </div>
-              <span class="stat-badge">Cần nhập</span>
-            </div>
-            <p>Sắp hết hàng</p>
-            <h3>12 mẫu</h3>
-          </article>
-        </section>
+              <p class="text-sm text-on-surface-variant mb-2">Sắp hết hàng</p>
+              <h3 class="text-4xl font-black tracking-tight">12 mẫu</h3>
+            </article>
+          </section>
 
-        <section class="chart-grid">
-          <article class="panel-card">
-            <div class="panel-head">
-              <h3>Xu hướng doanh thu</h3>
-              <span>Đơn vị: Triệu VND</span>
-            </div>
+          <section class="grid grid-cols-1 xl:grid-cols-2 gap-4">
+            <article class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+              <div class="flex justify-between items-center mb-5">
+                <h3 class="font-bold text-xl">Xu hướng doanh thu</h3>
+                <span class="text-xs text-on-surface-variant">Đơn vị: Triệu VND</span>
+              </div>
+              <div class="h-40 flex items-end gap-2">
+                <div class="flex-1 bg-surface-container-low rounded-t-md" style="height:55%"></div>
+                <div class="flex-1 bg-surface-container-low rounded-t-md" style="height:38%"></div>
+                <div class="flex-1 bg-surface-container-low rounded-t-md" style="height:18%"></div>
+                <div class="flex-1 bg-blue-500 rounded-t-md" style="height:78%"></div>
+                <div class="flex-1 bg-surface-container-low rounded-t-md" style="height:38%"></div>
+                <div class="flex-1 bg-surface-container-low rounded-t-md" style="height:60%"></div>
+                <div class="flex-1 bg-surface-container-low rounded-t-md" style="height:92%"></div>
+              </div>
+              <div class="grid grid-cols-7 text-xs text-on-surface-variant mt-3 text-center">
+                <span>T2</span><span>T3</span><span>T4</span><span>T5</span><span>T6</span><span>T7</span><span>CN</span>
+              </div>
+            </article>
 
-            <div class="mini-bars" aria-hidden="true">
-              <div class="bar" style="--h: 44%"></div>
-              <div class="bar" style="--h: 30%"></div>
-              <div class="bar" style="--h: 30%"></div>
-              <div class="bar active" style="--h: 64%"></div>
-              <div class="bar" style="--h: 30%"></div>
-              <div class="bar" style="--h: 50%"></div>
-              <div class="bar" style="--h: 74%"></div>
-            </div>
-            <div class="mini-labels">
-              <span>T2</span>
-              <span>T3</span>
-              <span>T4</span>
-              <span>T5</span>
-              <span>T6</span>
-              <span>T7</span>
-              <span>CN</span>
-            </div>
-          </article>
-
-          <article class="panel-card donut-panel">
-            <div class="panel-head">
-              <h3>Phân tích đơn hàng</h3>
-              <a href="#">Xem chi tiết</a>
-            </div>
-
-            <div class="donut-wrap">
-              <div class="donut" data-percent="75">
-                <div class="donut-inner">
-                  <strong>18</strong>
-                  <span>TỔNG ĐƠN</span>
+            <article class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+              <div class="flex justify-between items-center mb-3">
+                <h3 class="font-bold text-xl">Phân tích đơn hàng</h3>
+                <a class="text-xs font-semibold text-blue-700" href="#">Xem chi tiết</a>
+              </div>
+              <div class="flex items-center justify-center py-2">
+                <div class="relative w-48 h-48 rounded-full" style="background:conic-gradient(#245ac7 0 270deg,#e6ebf2 270deg 360deg)">
+                  <div class="absolute inset-4 bg-surface-container-lowest rounded-full flex flex-col items-center justify-center">
+                    <span class="text-4xl font-black">18</span>
+                    <span class="text-[10px] uppercase text-on-surface-variant font-semibold tracking-wider">Tổng đơn</span>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            <div class="legend-row">
-              <div class="legend-item">
-                <span class="dot done"></span>
-                <p>Đã hoàn tất<br /><strong>(75%)</strong></p>
+              <div class="grid grid-cols-2 gap-4 mt-4 text-xs">
+                <div class="flex items-center gap-2 text-on-surface-variant">
+                  <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
+                  <span>Đã hoàn tất (75%)</span>
+                </div>
+                <div class="flex items-center gap-2 text-on-surface-variant">
+                  <span class="w-2.5 h-2.5 rounded-full bg-slate-300"></span>
+                  <span>Đang xử lý (25%)</span>
+                </div>
               </div>
-              <div class="legend-item">
-                <span class="dot processing"></span>
-                <p>Đang xử lý<br /><strong>(25%)</strong></p>
-              </div>
+            </article>
+          </section>
+
+          <section class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
+            <div class="px-6 py-4 flex justify-between items-center border-b border-surface-container-low">
+              <h3 class="font-bold text-xl">Đơn hàng gần đây</h3>
+              <a class="text-sm font-semibold" href="#">Xem tất cả</a>
             </div>
-          </article>
-        </section>
-
-        <section class="orders-card">
-          <div class="orders-head">
-            <h3>Đơn hàng gần đây</h3>
-            <a href="#">Xem tất cả</a>
-          </div>
-
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>Mã đơn hàng</th>
-                  <th>Khách hàng</th>
-                  <th>Sản phẩm</th>
-                  <th>Ngày đặt</th>
-                  <th>Giá trị</th>
-                  <th>Trạng thái</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>#YL-8902</td>
-                  <td class="customer-cell">
-                    <span class="avatar">NV</span>
-                    Nguyễn Văn Hưng
-                  </td>
-                  <td>Bông tai nữ ngọc trai AURORA…</td>
-                  <td>12/02/2026</td>
-                  <td class="amount">5.500.000đ</td>
-                  <td><span class="status done">Hoàn tất</span></td>
-                </tr>
-                <tr>
-                  <td>#LJ-8903</td>
-                  <td class="customer-cell">
-                    <span class="avatar">LT</span>
-                    Lê Thị Thùy
-                  </td>
-                  <td>Vòng Cổ Ngọc Trai,…</td>
-                  <td>01/11/2025</td>
-                  <td class="amount">6.000.000đ</td>
-                  <td><span class="status processing">Đang xử lý</span></td>
-                </tr>
-                <tr>
-                  <td>#LJ-8905</td>
-                  <td class="customer-cell">
-                    <span class="avatar">PM</span>
-                    Phạm Minh Tú
-                  </td>
-                  <td>Lắc tay Charm Vàng 999.9(24K) Rước Lộc AURORA</td>
-                  <td>11/12/2025</td>
-                  <td class="amount">7.200.000đ</td>
-                  <td><span class="status canceled">Đã hủy</span></td>
-                </tr>
-                <tr>
-                  <td>#LJ-8904</td>
-                  <td class="customer-cell">
-                    <span class="avatar">TA</span>
-                    Trần Anh Tuấn
-                  </td>
-                  <td>Bông Tai Vàng Trắng,…</td>
-                  <td>05/12/2025</td>
-                  <td class="amount">12.000.000đ</td>
-                  <td><span class="status done">Hoàn tất</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="bg-surface-container-low">
+                    <th class="px-6 py-4 text-[10px] uppercase tracking-widest text-outline font-bold">Mã đơn hàng</th>
+                    <th class="px-6 py-4 text-[10px] uppercase tracking-widest text-outline font-bold">Khách hàng</th>
+                    <th class="px-6 py-4 text-[10px] uppercase tracking-widest text-outline font-bold">Sản phẩm</th>
+                    <th class="px-6 py-4 text-[10px] uppercase tracking-widest text-outline font-bold">Ngày đặt</th>
+                    <th class="px-6 py-4 text-[10px] uppercase tracking-widest text-outline font-bold text-right">Giá trị</th>
+                    <th class="px-6 py-4 text-[10px] uppercase tracking-widest text-outline font-bold text-center">Trạng thái</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-surface-container-low text-sm">
+                  <tr>
+                    <td class="px-6 py-4 font-semibold">#XL-8902</td>
+                    <td class="px-6 py-4">Nguyễn Văn Hùng</td>
+                    <td class="px-6 py-4">Bông tai nữ ngọc trai AURORA...</td>
+                    <td class="px-6 py-4">12/02/2026</td>
+                    <td class="px-6 py-4 text-right font-bold">5.500.000₫</td>
+                    <td class="px-6 py-4 text-center"><span class="px-3 py-1 rounded-full bg-rose-100 text-rose-600 text-[11px] font-bold">Hoàn tất</span></td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 font-semibold">#LJ-8903</td>
+                    <td class="px-6 py-4">Lê Thị Thùy</td>
+                    <td class="px-6 py-4">Vòng cổ ngọc trai...</td>
+                    <td class="px-6 py-4">01/11/2025</td>
+                    <td class="px-6 py-4 text-right font-bold">6.000.000₫</td>
+                    <td class="px-6 py-4 text-center"><span class="px-3 py-1 rounded-full bg-amber-100 text-amber-700 text-[11px] font-bold">Đang xử lý</span></td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 font-semibold">#LJ-8905</td>
+                    <td class="px-6 py-4">Phạm Minh Tú</td>
+                    <td class="px-6 py-4">Lắc tay charm vàng 999.9...</td>
+                    <td class="px-6 py-4">11/12/2025</td>
+                    <td class="px-6 py-4 text-right font-bold">7.200.000₫</td>
+                    <td class="px-6 py-4 text-center"><span class="px-3 py-1 rounded-full bg-stone-200 text-stone-600 text-[11px] font-bold">Đã hủy</span></td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 font-semibold">#LJ-8904</td>
+                    <td class="px-6 py-4">Trần Anh Tuấn</td>
+                    <td class="px-6 py-4">Bông tai vòng trắng...</td>
+                    <td class="px-6 py-4">05/12/2025</td>
+                    <td class="px-6 py-4 text-right font-bold">12.000.000₫</td>
+                    <td class="px-6 py-4 text-center"><span class="px-3 py-1 rounded-full bg-rose-100 text-rose-600 text-[11px] font-bold">Hoàn tất</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="px-6 py-4 border-t border-surface-container-low flex items-center justify-center gap-3">
+              <button class="w-9 h-9 rounded bg-surface-container-low hover:bg-surface-container-high"><span class="material-symbols-outlined">chevron_left</span></button>
+              <span class="text-sm text-on-surface-variant">53 / 70</span>
+              <button class="w-9 h-9 rounded bg-surface-container-low hover:bg-surface-container-high"><span class="material-symbols-outlined">chevron_right</span></button>
+            </div>
+          </section>
+        </div>
       </main>
     </div>
 
