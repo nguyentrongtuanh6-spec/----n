@@ -171,10 +171,31 @@ window.addEventListener("DOMContentLoaded", function () {
     this.style.display = "none"; // Ẩn nút sau khi đã hiện hết
   });
 
-  const likeButtons = document.querySelectorAll(".like-btn");
-  likeButtons.forEach((button) => {
-    button.addEventListener("click", function () {
-      this.classList.toggle("active");
+  // --- XỬ LÝ YÊU THÍCH (WISHLIST) ---
+  const wishlistBtn = document.getElementById("wishlistBtn");
+  if (wishlistBtn && product) {
+    const user = JSON.parse(localStorage.getItem("auroraUser") || "{}");
+    const isWishlisted = window.AuroraDB ? window.AuroraDB.getAll()?.wishlists?.[user.email]?.includes(String(product.id)) : false;
+    
+    const icon = wishlistBtn.querySelector("i");
+    if (isWishlisted) {
+      icon.classList.replace("fa-regular", "fa-solid");
+      wishlistBtn.classList.add("active");
+    }
+
+    wishlistBtn.addEventListener("click", function() {
+      if (window.AuroraDB) {
+        const added = window.AuroraDB.toggleWishlist(product.id);
+        if (added) {
+          icon.classList.replace("fa-regular", "fa-solid");
+          wishlistBtn.classList.add("active");
+        } else {
+          icon.classList.replace("fa-solid", "fa-regular");
+          wishlistBtn.classList.remove("active");
+        }
+      } else {
+        alert("Bạn cần đăng nhập để sử dụng tính năng này!");
+      }
     });
-  });
+  }
 });

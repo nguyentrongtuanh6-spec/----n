@@ -30,7 +30,7 @@ window.addEventListener("DOMContentLoaded", function () {
   });
 
   // --- RENDERING DYNAMIC PRODUCTS ---
-  function renderProducts(containerId, category) {
+  function renderProducts(containerId, category, showAll = false) {
     const grid = document.getElementById(containerId);
     if (!grid) return;
 
@@ -53,22 +53,50 @@ window.addEventListener("DOMContentLoaded", function () {
     }
 
     if (filtered.length > 0) {
-        grid.innerHTML = filtered
-          .slice(0, 8) // Hiển thị tối đa 8 sản phẩm mỗi mục
-          .map(
-            (product) => `
-          <a href="./trangchitiet.html?id=${product.id}" class="product-card">
-            <div class="product-thumb">
-              <img src="${product.image}" alt="${product.name}" />
-            </div>
-            <div class="product-info">
-              <div class="product-name">${product.name}</div>
-              <div class="price">${typeof product.price === 'number' ? product.price.toLocaleString('vi-VN') + 'đ' : product.price}</div>
-            </div>
-          </a>
-        `
+        const displayProducts = showAll ? filtered : filtered.slice(0, 8);
+        grid.innerHTML = displayProducts.map(
+          (product) => {
+              const isWishlisted = window.AuroraDB ? window.AuroraDB.getAll()?.wishlists?.[JSON.parse(localStorage.getItem("auroraUser") || "{}").email]?.includes(String(product.id)) : false;
+              return `
+              <div class="product-card">
+                <a href="./trangchitiet.html?id=${product.id}" class="product-link">
+                  <div class="product-thumb">
+                    <img src="${product.image}" alt="${product.name}" />
+                  </div>
+                  <div class="product-info">
+                    <div class="product-name">${product.name}</div>
+                    <div class="price">${typeof product.price === 'number' ? product.price.toLocaleString('vi-VN') + 'đ' : product.price}</div>
+                  </div>
+                </a>
+                <button class="wishlist-btn ${isWishlisted ? 'active' : ''}" data-id="${product.id}" style="z-index: 50;">
+                  <i class="${isWishlisted ? 'fa-solid' : 'fa-regular'} fa-heart" style="pointer-events: none;"></i>
+                </button>
+              </div>
+            `;
+            }
           )
           .join("");
+
+        // Gán sự kiện cho các nút Wishlist mới tạo
+        grid.querySelectorAll(".wishlist-btn").forEach(btn => {
+            btn.addEventListener("click", function(e) {
+                e.preventDefault();
+                const id = this.dataset.id;
+                if (window.AuroraDB) {
+                    const added = window.AuroraDB.toggleWishlist(id);
+                    const icon = this.querySelector("i");
+                    if (added) {
+                        this.classList.add("active");
+                        icon.classList.replace("fa-regular", "fa-solid");
+                    } else {
+                        this.classList.remove("active");
+                        icon.classList.replace("fa-solid", "fa-regular");
+                    }
+                } else {
+                    alert("Bạn cần đăng nhập để sử dụng tính năng này!");
+                }
+            });
+        });
     }
   }
 
@@ -104,6 +132,20 @@ window.addEventListener("DOMContentLoaded", function () {
     button.addEventListener("click", function (event) {
       event.preventDefault();
       redirectToFilter("all");
+    });
+  });
+
+  // --- QUẢN LÝ NÚT XEM THÊM (HIỆN THÊM SẢN PHẨM TẠI CHỖ) ---
+  document.querySelectorAll(".view-more").forEach(btn => {
+    btn.addEventListener("click", function(e) {
+      if (this.classList.contains('js-dynamic-load')) {
+        e.preventDefault();
+        const category = this.dataset.category;
+        const gridId = this.dataset.grid;
+        // Gọi lại hàm render nhưng không giới hạn 8 sản phẩm
+        renderProducts(gridId, category, true); 
+        this.style.display = "none"; // Ẩn nút sau khi đã hiện hết
+      }
     });
   });
 

@@ -75,6 +75,36 @@
       const data = this.getAll();
       data.products = data.products.filter(p => String(p.id) !== String(id));
       this.save(data);
+    },
+
+    // --- QUẢN LÝ YÊU THÍCH (WISHLIST) ---
+    getWishlist: function() {
+      const user = JSON.parse(localStorage.getItem("auroraUser") || "{}");
+      if (!user.email) return [];
+      const data = this.getAll();
+      const userWishlist = data.wishlists?.[user.email] || [];
+      return data.products.filter(p => userWishlist.includes(String(p.id)));
+    },
+
+    toggleWishlist: function(productId) {
+      const user = JSON.parse(localStorage.getItem("auroraUser") || "{}");
+      if (!user.email) return false;
+      
+      const data = this.getAll();
+      if (!data.wishlists) data.wishlists = {};
+      if (!data.wishlists[user.email]) data.wishlists[user.email] = [];
+      
+      const pid = String(productId);
+      const index = data.wishlists[user.email].indexOf(pid);
+      
+      if (index === -1) {
+        data.wishlists[user.email].push(pid);
+      } else {
+        data.wishlists[user.email].splice(index, 1);
+      }
+      
+      this.save(data);
+      return index === -1; // Trả về true nếu là thêm vào, false nếu là bỏ ra
     }
   };
 

@@ -259,8 +259,8 @@ nav {
   gap: 16px;
 }
 
-.product-card,
-.category-card {
+.product-card {
+  position: relative;
   background: #fafafa;
   border-radius: 6px;
   overflow: hidden;
@@ -272,6 +272,14 @@ nav {
 .category-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.category-card {
+  background: #fafafa;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: 0.3s;
+  border: 1px solid #eee;
 }
 
 .product-thumb {
