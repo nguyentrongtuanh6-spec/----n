@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hủy đơn hàng - AURORA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <link rel="stylesheet" href="../css/trangchu.css" />
+  <link rel="stylesheet" href="../css/huydonhang.css" />
+</head>
+<body>
+  <div class="topbar">Ưu đãi thành viên mới: giảm 20% cho đơn đầu tiên</div>
+
+  <header>
+    <div class="container header-main">
+      <a href="./trangchu.html" class="logo" aria-label="AURORA Home"
+        ><img src="../ảnh/Ảnh chụp màn hình/logo.png" alt="AURORA"
+      /></a>
+
+      <div class="search-box">
+        <input type="text" placeholder="Bạn muốn tìm gì?" />
+        <span class="search-icon"
+          ><i class="fa-solid fa-magnifying-glass"></i
+        ></span>
+      </div>
+
+      <div class="header-icons">
+        <a href="#" title="Yêu thích"><i class="fa-regular fa-heart"></i></a>
+        <a href="#" title="Cửa hàng"><i class="fa-solid fa-location-dot"></i></a>
+        <a href="./trangdangnhap.html" title="Tài khoản"><i class="fa-regular fa-user"></i></a>
+        <a href="#" title="Giỏ hàng"><i class="fa-solid fa-bag-shopping"></i></a>
+      </div>
+    </div>
+
+    <nav>
+      <div class="container">
+        <ul class="nav-menu">
+          <li><a href="#">Bộ sưu tập mới</a></li>
+          <li><a href="#">Trang sức đôi</a></li>
+          <li><a href="#">Khuyến mãi</a></li>
+          <li><a href="./tranglocnhannam.html">Nhẫn</a></li>
+          <li><a href="./tranglocdaychuyen.html">Dây chuyền</a></li>
+          <li><a href="./tranglocbongtai.html">Bông tai</a></li>
+          <li><a href="./tranglocvongtay.html">Vòng tay</a></li>
+          <li><a href="./trangloccharm.html">Charm</a></li>
+          <li><a href="#">Tin tức</a></li>
+          <li><a href="./tranggioithieu.html">Giới thiệu</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <div class="cancel-order-wrap">
+        <h1 class="page-title">Hủy Đơn Hàng</h1>
+        <p class="page-desc">Quý khách vui lòng nhập mã đơn hàng để tiến hành thủ tục hủy đơn.</p>
+
+        <div class="cancel-form-box">
+          <div class="search-section">
+            <div class="input-group">
+              <label for="orderIdInput">Mã đơn hàng</label>
+              <div class="input-with-button">
+                <input type="text" id="orderIdInput" placeholder="Nhập mã đơn hàng (Ví dụ: AUR-12345)" />
+                <button id="searchOrderBtn">Kiểm tra</button>
+              </div>
+            </div>
+          </div>
+
+          <div id="orderDetails" class="order-details-card hidden">
+            <div class="card-header">
+              <h3>Chi tiết đơn hàng <span id="displayOrderId"></span></h3>
+              <span class="status-badge" id="displayOrderStatus">Đang xử lý</span>
+            </div>
+            
+            <div class="product-list" id="orderItemsList">
+              <!-- Dữ liệu giả sẽ được chèn ở đây -->
+            </div>
+
+            <div class="order-info-footer">
+              <div class="info-row">
+                <span>Ngày đặt hàng:</span>
+                <span id="displayOrderDate">--/--/----</span>
+              </div>
+              <div class="info-row total">
+                <span>Tổng tiền thanh toán:</span>
+                <span id="displayOrderTotal">0đ</span>
+              </div>
+            </div>
+
+            <div class="cancellation-reason">
+              <h4>Lý do hủy đơn hàng</h4>
+              <div class="reason-options">
+                <label class="radio-item">
+                  <input type="radio" name="cancelReason" value="Thay đổi ý định">
+                  <span>Tôi muốn thay đổi ý định mua hàng</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="cancelReason" value="Tìm thấy giá rẻ hơn">
+                  <span>Tôi tìm thấy sản phẩm tương tự với giá rẻ hơn</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="cancelReason" value="Thời gian giao hàng lâu">
+                  <span>Thời gian giao hàng dự kiến quá lâu</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="cancelReason" value="Sai thông tin">
+                  <span>Nhập sai thông tin giao hàng hoặc thanh toán</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="cancelReason" value="Khác" id="reasonOther">
+                  <span>Lý do khác</span>
+                </label>
+              </div>
+              <textarea id="otherReasonText" placeholder="Vui lòng chia sẻ thêm lý do của quý khách..." class="hidden"></textarea>
+            </div>
+
+            <div class="action-buttons">
+              <button id="confirmCancelBtn" class="btn-confirm-cancel">Xác nhận hủy đơn hàng</button>
+              <a href="./trangchu.html" class="btn-back">Quay lại trang chủ</a>
+            </div>
+          </div>
+
+          <div id="statusMessage" class="status-message hidden">
+            <!-- Thông báo thành công/thất bại -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <img src="../ảnh/Ảnh chụp màn hình/logo.png" alt="AURORA" />
+          </div>
+          <div class="contact-item">
+            <i class="fa-solid fa-phone"></i>1900 8888
+          </div>
+          <div class="contact-item">
+            <i class="fa-solid fa-location-dot"></i>Biệt thự 10A, Vinhomes
+            Ocean Park, Gia Lâm, Hà Nội
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Dịch vụ khách hàng</h4>
+          <ul>
+            <li><a href="./trangdieukhoan.html">Điều khoản và điều kiện</a></li>
+            <li><a href="./trangchinhsach.html">Chính sách đổi trả và bảo hành</a></li>
+            <li><a href="./trangchinhsach.html">Chính sách vận chuyển</a></li>
+            <li><a href="./tranghuongdanbaoquan.html">Hướng dẫn bảo quản trang sức</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Thông tin chung</h4>
+          <ul>
+            <li><a href="./lienhe.html">Liên hệ</a></li>
+            <li>Tin tức</li>
+            <li>Về chúng tôi</li>
+          </ul>
+        </div>
+
+        <div class="footer-col newsletter">
+          <h4>Đăng ký để nhận thông báo</h4>
+          <p>
+            Đăng ký để nhận thông báo mới nhất về các bộ sưu tập và ưu đãi.
+          </p>
+          <input type="email" placeholder="Nhập email của bạn" />
+          <button>Đăng ký ngay</button>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <img
+          class="bct-logo"
+          src="../ảnh/Ảnh chụp màn hình/logo-congthuong.png"
+          alt="Đã thông báo Bộ Công Thương"
+        />
+        <div class="about-us">
+          <h5>Về chúng tôi</h5>
+          <div class="socials">
+            <a href="#" aria-label="Facebook"
+              ><i class="fa-brands fa-facebook"></i
+            ></a>
+            <a href="#" aria-label="TikTok"
+              ><i class="fa-brands fa-tiktok"></i
+            ></a>
+            <a href="#" aria-label="Youtube"
+              ><i class="fa-brands fa-youtube"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/huydonhang.js"></script>
+</body>
+</html>

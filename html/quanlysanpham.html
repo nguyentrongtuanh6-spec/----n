@@ -13,8 +13,9 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../css/quanlysanpham.css" />
-    <script src="../js/quanlysanpham-tailwind.js"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="../js/quanlysanpham-tailwind.js"></script>
+    <script src="../js/db.js"></script>
   </head>
   <body class="bg-surface text-on-surface antialiased overflow-x-hidden">
     <aside
@@ -122,11 +123,14 @@
             </div>
             <select id="categoryFilter" class="bg-surface-container-lowest rounded-lg border-none text-sm text-on-surface-variant">
               <option>Tất cả danh mục</option>
-              <option>Nhẫn</option>
-              <option>Bông tai</option>
-              <option>Dây chuyền</option>
-              <option>Vòng tay</option>
-              <option>Charm</option>
+              <option value="couple">Sản phẩm cặp đôi (Home)</option>
+              <option value="favorite">Yêu thích nhất (Home)</option>
+              <option value="custom">Sáng tạo (Home)</option>
+              <option value="Nhẫn">Nhẫn</option>
+              <option value="Bông tai">Bông tai</option>
+              <option value="Dây chuyền">Dây chuyền</option>
+              <option value="Vòng tay">Vòng tay</option>
+              <option value="Charm">Charm</option>
             </select>
             <select id="stockFilter" class="bg-surface-container-lowest rounded-lg border-none text-sm text-on-surface-variant">
               <option>Trạng thái kho</option>
@@ -257,6 +261,7 @@
       </main>
     </div>
 
+    <script src="../js/db.js"></script>
     <script src="../js/quanlysanpham.js"></script>
   </body>
 </html>

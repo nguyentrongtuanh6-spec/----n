@@ -1,0 +1,368 @@
+/* CSS cho trang Hủy đơn hàng - Aurora */
+.main-content {
+  padding: 60px 0;
+  background: #f9f9f9;
+  min-height: 60vh;
+}
+
+.cancel-order-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.page-desc {
+  text-align: center;
+  color: #666;
+  margin-bottom: 40px;
+  font-size: 16px;
+}
+
+.cancel-form-box {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+  padding: 40px;
+}
+
+.search-section {
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #eee;
+}
+
+.input-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.input-with-button {
+  display: flex;
+  gap: 12px;
+}
+
+.input-with-button input {
+  flex: 1;
+  height: 46px;
+  padding: 0 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-with-button input:focus {
+  border-color: #f28f9f;
+}
+
+.input-with-button button {
+  padding: 0 24px;
+  background: #222;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.input-with-button button:hover {
+  background: #444;
+}
+
+/* Order Details Card */
+.order-details-card {
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.card-header h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.status-badge.pending { background: #fff8e1; color: #ffa000; }
+.status-badge.cancelled { background: #ffebee; color: #f44336; }
+.status-badge.processing { background: #e3f2fd; color: #2196f3; }
+.status-badge.success { background: #e8f5e9; color: #4caf50; }
+
+.product-list {
+  background: #fafafa;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.product-item {
+  display: flex;
+  gap: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.product-item:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.product-item img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.product-meta {
+  flex: 1;
+}
+
+.product-meta h5 {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.product-meta p {
+  font-size: 13px;
+  color: #888;
+}
+
+.product-price {
+  font-weight: 600;
+  color: #f28f9f;
+  font-size: 14px;
+}
+
+.order-info-footer {
+  margin-bottom: 30px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.info-row.total {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+  font-size: 18px;
+  font-weight: 700;
+  color: #222;
+}
+
+.info-row.total span:last-child {
+  color: #f28f9f;
+}
+
+.cancellation-reason {
+  margin-bottom: 30px;
+  background: #fff9fa;
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px dashed #f28f9f;
+}
+
+.cancellation-reason h4 {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.reason-options {
+  display: grid;
+  gap: 12px;
+}
+
+.radio-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #444;
+}
+
+.radio-item input {
+  accent-color: #f28f9f;
+}
+
+#otherReasonText {
+  width: 100%;
+  height: 100px;
+  margin-top: 15px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  font-family: inherit;
+  font-size: 14px;
+  resize: none;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.btn-confirm-cancel {
+  height: 50px;
+  background: #f28f9f;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-confirm-cancel:hover {
+  background: #e07a8a;
+}
+
+.btn-back {
+  text-align: center;
+  font-size: 14px;
+  color: #888;
+  text-decoration: underline;
+}
+
+.status-message {
+  text-align: center;
+  padding: 30px;
+}
+
+/* Custom Alert System */
+.custom-alert-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+.custom-alert-box {
+  background: #fff;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 16px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.alert-icon {
+  width: 60px;
+  height: 60px;
+  background: #fff5f6;
+  color: #f28f9f;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin: 0 auto 20px;
+}
+
+.alert-icon.error {
+  background: #fdf2f2;
+  color: #f44336;
+}
+
+.alert-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 12px;
+}
+
+.alert-message {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.btn-alert-close {
+  width: 100%;
+  height: 44px;
+  background: #222;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-alert-close:hover {
+  background: #444;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 600px) {
+  .cancel-form-box {
+    padding: 20px;
+  }
+  
+  .input-with-button {
+    flex-direction: column;
+  }
+  
+  .page-title {
+    font-size: 24px;
+  }
+}

@@ -19,18 +19,37 @@ function login() {
     return;
   }
 
+  // --- LOGIC ĐĂNG NHẬP ADMIN ---
+  if (email === "admin@aurora.vn" && password === "admin") {
+    alert("Đăng nhập QUẢN TRỊ VIÊN thành công!");
+    sessionStorage.setItem("auroraAccess", "admin");
+    window.location.href = "./thongkeadm.html";
+    return;
+  }
+
+  // --- LOGIC ĐĂNG NHẬP MEMBER ---
   const storedUserRaw = localStorage.getItem("auroraUser");
   if (storedUserRaw) {
     const storedUser = JSON.parse(storedUserRaw);
-    if (storedUser.email !== email || storedUser.password !== password) {
-      error.textContent = "EMAIL HOẶC MẬT KHẨU KHÔNG ĐÚNG.";
-      return;
+    if (storedUser.email === email && storedUser.password === password) {
+       alert("Đăng nhập thành công!");
+       sessionStorage.setItem("auroraAccess", "member");
+       window.location.href = "./trangchu.html";
+       return;
     }
   }
 
-  alert("Đăng nhập thành công!");
-  sessionStorage.setItem("auroraAccess", "member");
-  window.location.href = "./trangchu.html";
+  // Tài khoản test mặc định cho Nguyễn Minh Quân
+  if (email === "quan.nm@example.com" && password === "123") {
+    const defaultUser = { fullName: "Nguyễn Minh Quân", email: "quan.nm@example.com", password: "123" };
+    localStorage.setItem("auroraUser", JSON.stringify(defaultUser));
+    alert("Đăng nhập tài khoản Test thành công!");
+    sessionStorage.setItem("auroraAccess", "member");
+    window.location.href = "./trangchu.html";
+    return;
+  }
+
+  error.textContent = "EMAIL HOẶC MẬT KHẨU KHÔNG ĐÚNG.";
 }
 
 function guestAccess() {

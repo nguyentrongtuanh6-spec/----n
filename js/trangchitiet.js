@@ -6,18 +6,35 @@ window.addEventListener("DOMContentLoaded", function () {
   const productDesc = document.querySelector(".product-summary .description");
   const thumbList = document.querySelector(".thumbnail-list");
 
-  // Xử lý dữ liệu từ URL ?id=...
+  // Xử lý dữ liệu từ Database (localStorage)
   const urlParams = new URLSearchParams(window.location.search);
   const productId = parseInt(urlParams.get("id"));
 
-  if (window.productData && !isNaN(productId)) {
-    const product = window.productData.find((p) => p.id === productId);
+  if (window.AuroraDB && !isNaN(productId)) {
+    const product = window.AuroraDB.getProductById(productId);
 
     if (product) {
       // Cập nhật thông tin text
       if (productName) productName.textContent = product.name;
       if (productPrice) productPrice.textContent = product.price;
       if (productDesc) productDesc.textContent = product.description;
+
+      // Cập nhật thông số sản phẩm
+      const specFields = {
+        specType: "type",
+        specColor: "color",
+        specMaterial: "material",
+        specStone: "stone",
+        specGender: "gender",
+        specFinish: "finish",
+      };
+
+      for (const [id, key] of Object.entries(specFields)) {
+        const el = document.getElementById(id);
+        if (el && product[key]) {
+          el.textContent = product[key];
+        }
+      }
 
       // Cập nhật ảnh chính
       if (mainImage) mainImage.src = product.image;

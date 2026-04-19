@@ -380,8 +380,10 @@ nav {
 }
 
 .custom-left img {
-  height: 540px;
-  border-radius: 8px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  transition: opacity 0.3s ease;
 }
 
 .sidebar-box {

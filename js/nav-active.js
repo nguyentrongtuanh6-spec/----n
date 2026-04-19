@@ -1,4 +1,14 @@
 window.addEventListener("DOMContentLoaded", function () {
+  const userIconLink = document.querySelector('a[title="Tài khoản"]');
+  if (userIconLink) {
+    const isLogged = localStorage.getItem("auroraUser");
+    if (isLogged) {
+      userIconLink.setAttribute("href", "./trangcanhan.html");
+    } else {
+      userIconLink.setAttribute("href", "./trangdangnhap.html");
+    }
+  }
+
   const navLinks = Array.from(document.querySelectorAll(".nav-menu a"));
   if (!navLinks.length) return;
 
@@ -13,6 +23,7 @@ window.addEventListener("DOMContentLoaded", function () {
     "tranglocvongtay.html": "vòng tay",
     "trangloccharm.html": "charm",
     "tranggioithieu.html": "giới thiệu",
+    "lienhe.html": "liên hệ",
   };
 
   const targetMenuText = pageToMenu[currentFile];

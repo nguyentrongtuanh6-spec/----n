@@ -6,7 +6,13 @@ const products = [
     price: "1.641.000đ",
     image: "../ảnh/Ảnh chụp màn hình/2.png",
     description: "Nhẫn cặp đôi bạc đính đá phong cách hiện đại AURORA mang đến sự kết nối tinh tế.",
-    images: ["../ảnh/Ảnh chụp màn hình/2.png", "../ảnh/Ảnh chụp màn hình/3.png"]
+    images: ["../ảnh/Ảnh chụp màn hình/2.png", "../ảnh/Ảnh chụp màn hình/3.png"],
+    type: "Nhẫn",
+    color: "Bạc",
+    material: "Bạc 925",
+    stone: "Moissanite",
+    gender: "Couple (Đôi)",
+    finish: "Xuất sắc"
   },
   {
     id: 2,
@@ -155,3 +161,8 @@ const products = [
 ];
 
 window.productData = products;
+
+// Khởi tạo Database nếu chưa có
+if (window.AuroraDB) {
+  window.AuroraDB.init(products);
+}

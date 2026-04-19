@@ -28,30 +28,12 @@ document.addEventListener("DOMContentLoaded", function () {
     return `${Number(value || 0).toLocaleString("vi-VN")}đ`;
   }
 
-  function parseRows() {
-    return Array.from(tbody.querySelectorAll("tr")).map((row) => {
-      const id = row.dataset.id || `SP${Date.now()}`;
-      const category = row.dataset.category || "Nhẫn";
-      const name = (row.querySelector("[data-read]")?.textContent || "").trim();
-      const subtitle = (row.querySelector("p")?.textContent || "").trim();
-      const image = row.querySelector("img")?.getAttribute("src") || "";
-      const price = parseCurrencyToNumber(
-        row.querySelector("td:nth-child(2)")?.textContent || "0",
-      );
-      const stock = Number(
-        (row.querySelector("td:nth-child(3)")?.textContent || "0").replace(
-          /[^\d]/g,
-          "",
-        ),
-      );
-      const status =
-        (row.querySelector("td:nth-child(4) span")?.textContent || "").trim() ||
-        (stock > 0 ? "Còn hàng" : "Hết hàng");
-      return { id, category, name, subtitle, image, price, stock, status };
-    });
+  // Load dữ liệu từ Database thay vì parse DOM
+  let products = window.AuroraDB ? window.AuroraDB.getProducts() : [];
+  if (products.length === 0) {
+    // Nếu DB trống, thử lấy từ data-products.js
+    products = window.productData || [];
   }
-
-  const products = parseRows();
 
   const state = {
     keyword: "",
@@ -137,13 +119,12 @@ document.addEventListener("DOMContentLoaded", function () {
           <label class="text-sm font-semibold">Mã sản phẩm
             <input name="id" class="mt-1 w-full rounded-lg border-stone-200" value="${product?.id || ""}" ${mode !== "create" ? "readonly" : ""} required />
           </label>
-          <label class="text-sm font-semibold">Danh mục
+          <label class="text-sm font-semibold">Danh mục hiển thị (Home)
             <select name="category" class="mt-1 w-full rounded-lg border-stone-200" ${isView ? "disabled" : ""}>
-              <option ${product?.category === "Nhẫn" ? "selected" : ""}>Nhẫn</option>
-              <option ${product?.category === "Bông tai" ? "selected" : ""}>Bông tai</option>
-              <option ${product?.category === "Dây chuyền" ? "selected" : ""}>Dây chuyền</option>
-              <option ${product?.category === "Vòng tay" ? "selected" : ""}>Vòng tay</option>
-              <option ${product?.category === "Charm" ? "selected" : ""}>Charm</option>
+              <option value="couple" ${product?.category === "couple" ? "selected" : ""}>Sản phẩm cặp đôi</option>
+              <option value="favorite" ${product?.category === "favorite" ? "selected" : ""}>Yêu thích nhất</option>
+              <option value="custom" ${product?.category === "custom" ? "selected" : ""}>Sáng tạo / Charm</option>
+              <option value="others" ${product?.category === "others" ? "selected" : ""}>Khác</option>
             </select>
           </label>
           <label class="text-sm font-semibold md:col-span-2">Tên sản phẩm
@@ -158,9 +139,60 @@ document.addEventListener("DOMContentLoaded", function () {
           <label class="text-sm font-semibold">Tồn kho
             <input name="stock" type="number" min="0" class="mt-1 w-full rounded-lg border-stone-200" value="${product?.stock ?? 0}" ${isView ? "readonly" : ""} required />
           </label>
-          <label class="text-sm font-semibold md:col-span-2">Link ảnh
-            <input name="image" class="mt-1 w-full rounded-lg border-stone-200" value="${product?.image || ""}" ${isView ? "readonly" : ""} />
-          </label>
+          <div class="md:col-span-2 grid grid-cols-2 gap-4 border-y border-stone-100 py-4 my-2">
+            <label class="text-sm font-semibold">Loại sản phẩm
+              <select name="type" class="mt-1 w-full rounded-lg border-stone-200" ${isView ? "disabled" : ""}>
+                <option ${product?.type === "Nhẫn" ? "selected" : ""}>Nhẫn</option>
+                <option ${product?.type === "Bông tai" ? "selected" : ""}>Bông tai</option>
+                <option ${product?.type === "Dây chuyền" ? "selected" : ""}>Dây chuyền</option>
+                <option ${product?.type === "Vòng tay" ? "selected" : ""}>Vòng tay</option>
+                <option ${product?.type === "Lắc chân" ? "selected" : ""}>Lắc chân</option>
+                <option ${product?.type === "Charm" ? "selected" : ""}>Charm</option>
+              </select>
+            </label>
+            <label class="text-sm font-semibold">Màu sắc
+              <input name="color" class="mt-1 w-full rounded-lg border-stone-200" value="${product?.color || ""}" ${isView ? "readonly" : ""} placeholder="VD: Bạc" />
+            </label>
+            <label class="text-sm font-semibold">Chất liệu
+              <input name="material" class="mt-1 w-full rounded-lg border-stone-200" value="${product?.material || ""}" ${isView ? "readonly" : ""} placeholder="VD: Bạc 925" />
+            </label>
+            <label class="text-sm font-semibold">Đá
+              <input name="stone" class="mt-1 w-full rounded-lg border-stone-200" value="${product?.stone || ""}" ${isView ? "readonly" : ""} placeholder="VD: Moissanite" />
+            </label>
+            <label class="text-sm font-semibold">Giới tính
+              <input name="gender" class="mt-1 w-full rounded-lg border-stone-200" value="${product?.gender || ""}" ${isView ? "readonly" : ""} placeholder="VD: Nam" />
+            </label>
+            <label class="text-sm font-semibold">Độ hoàn thiện
+              <input name="finish" class="mt-1 w-full rounded-lg border-stone-200" value="${product?.finish || ""}" ${isView ? "readonly" : ""} placeholder="VD: Xuất sắc" />
+            </label>
+          </div>
+          <div class="md:col-span-2 space-y-2">
+            <label class="text-sm font-semibold">Hình ảnh sản phẩm</label>
+            <div class="flex items-center gap-4">
+              <div id="imagePreview" class="w-16 h-16 rounded-lg bg-stone-100 border border-stone-200 overflow-hidden flex items-center justify-center">
+                ${product?.image ? `<img src="${product.image}" class="w-full h-full object-cover">` : '<span class="material-symbols-outlined text-stone-400">image</span>'}
+              </div>
+              <div class="flex-1">
+                <input type="file" id="imageFileInput" accept="image/*" class="hidden" ${isView ? "disabled" : ""} />
+                <button type="button" onclick="document.getElementById('imageFileInput').click()" class="px-4 py-2 border border-stone-200 rounded-lg text-sm font-medium hover:bg-stone-50 ${isView ? "hidden" : "block"}">
+                  Chọn ảnh từ máy tính
+                </button>
+                <p class="text-[11px] text-stone-500 mt-1">Lưu ý: Ảnh sẽ được lưu vào thư mục /ảnh/</p>
+              </div>
+            </div>
+            <input type="hidden" name="image" id="imagePath" value="${product?.image || ""}" />
+          </div>
+          <div class="md:col-span-2 space-y-2 border-t border-stone-100 pt-4">
+            <label class="text-sm font-semibold">Thư viện ảnh (Các góc sản phẩm)</label>
+            <div class="flex flex-wrap gap-3" id="galleryPreviewContainer">
+              ${(product?.images || []).map(img => `<div class="w-16 h-16 rounded-lg border border-stone-200 overflow-hidden"><img src="${img}" class="w-full h-full object-cover"></div>`).join('')}
+              <button type="button" onclick="document.getElementById('galleryFileInput').click()" class="w-16 h-16 rounded-lg border-2 border-dashed border-stone-200 flex items-center justify-center text-stone-400 hover:border-primary hover:text-primary ${isView ? "hidden" : ""}">
+                <span class="material-symbols-outlined">add</span>
+              </button>
+            </div>
+            <input type="file" id="galleryFileInput" accept="image/*" multiple class="hidden" />
+            <input type="hidden" name="images" id="galleryPaths" value='${JSON.stringify(product?.images || [])}' />
+          </div>
           <div class="md:col-span-2 flex justify-end gap-3 mt-2">
             <button type="button" data-close class="px-4 py-2 rounded-lg bg-stone-100 hover:bg-stone-200">Đóng</button>
             ${isView ? "" : '<button type="submit" class="px-4 py-2 rounded-lg bg-primary text-on-primary hover:bg-primary-dim">Lưu</button>'}
@@ -180,6 +212,59 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     const form = modal.querySelector("#productForm");
+    const imageFileInput = modal.querySelector("#imageFileInput");
+    const imagePreview = modal.querySelector("#imagePreview");
+    const imagePathInput = modal.querySelector("#imagePath");
+
+    if (imageFileInput && !isView) {
+      imageFileInput.addEventListener("change", function (e) {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (event) {
+            imagePreview.innerHTML = `<img src="${event.target.result}" class="w-full h-full object-cover">`;
+            // LƯU TOÀN BỘ DỮ LIỆU ẢNH (Base64) ĐỂ KHÔNG BỊ LỖI LINK
+            imagePathInput.value = event.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+    }
+
+    const galleryFileInput = modal.querySelector("#galleryFileInput");
+    const galleryPreviewContainer = modal.querySelector("#galleryPreviewContainer");
+    const galleryPathsInput = modal.querySelector("#galleryPaths");
+
+    if (galleryFileInput && !isView) {
+      galleryFileInput.addEventListener("change", function (e) {
+        const files = Array.from(e.target.files);
+        if (files.length > 0) {
+          const galleryData = JSON.parse(galleryPathsInput.value || "[]");
+          let loadedCount = 0;
+
+          files.forEach(file => {
+            const reader = new FileReader();
+            reader.onload = function (event) {
+              const base64 = event.target.result;
+              galleryData.push(base64);
+              
+              // Thêm preview mới
+              const div = document.createElement("div");
+              div.className = "w-16 h-16 rounded-lg border border-stone-200 overflow-hidden";
+              div.innerHTML = `<img src="${base64}" class="w-full h-full object-cover">`;
+              galleryPreviewContainer.insertBefore(div, galleryPreviewContainer.lastElementChild);
+              
+              loadedCount++;
+              if (loadedCount === files.length) {
+                galleryPathsInput.value = JSON.stringify(galleryData);
+              }
+            };
+            reader.readAsDataURL(file);
+          });
+        }
+      });
+    }
+
     if (form && !isView) {
       form.addEventListener("submit", function (event) {
         event.preventDefault();
@@ -192,34 +277,34 @@ document.addEventListener("DOMContentLoaded", function () {
           subtitle: String(formData.get("subtitle") || "").trim(),
           price: Number(formData.get("price") || 0),
           stock: Number(formData.get("stock") || 0),
-          image:
-            String(formData.get("image") || "").trim() ||
-            "https://images.unsplash.com/photo-1617038220319-276d3cfab638?q=80&w=200&auto=format&fit=crop",
+          type: String(formData.get("type") || "").trim(),
+          color: String(formData.get("color") || "").trim(),
+          material: String(formData.get("material") || "").trim(),
+          stone: String(formData.get("stone") || "").trim(),
+          gender: String(formData.get("gender") || "").trim(),
+          finish: String(formData.get("finish") || "").trim(),
+          image: String(formData.get("image") || "").trim(),
+          images: JSON.parse(formData.get("images") || "[]"),
         };
 
-        if (!payload.id || !payload.name) {
-          alert("Vui lòng nhập mã và tên sản phẩm.");
-          return;
-        }
-
-        payload.status = payload.stock > 0 ? "Còn hàng" : "Hết hàng";
-
         if (mode === "create") {
-          const duplicate = products.some(
-            (item) => item.id.toLowerCase() === payload.id.toLowerCase(),
-          );
-          if (duplicate) {
-            alert("Mã sản phẩm đã tồn tại.");
-            return;
+          if (window.AuroraDB) {
+            window.AuroraDB.addProduct(payload);
+          } else {
+            products.unshift(payload);
           }
-          products.unshift(payload);
           state.page = 1;
         } else if (mode === "edit" && product) {
-          const idx = products.findIndex((item) => item.id === product.id);
-          if (idx >= 0) {
-            products[idx] = { ...products[idx], ...payload, id: product.id };
+          if (window.AuroraDB) {
+            window.AuroraDB.updateProduct(product.id, payload);
+          } else {
+            const idx = products.findIndex((item) => String(item.id) === String(product.id));
+            if (idx >= 0) products[idx] = { ...payload, id: product.id };
           }
         }
+
+        // Refresh dữ liệu local
+        if (window.AuroraDB) products = window.AuroraDB.getProducts();
 
         closeModal();
         render();
@@ -246,11 +331,13 @@ document.addEventListener("DOMContentLoaded", function () {
   function rowTemplate(item) {
     const statusClass =
       statusClassMap[item.status] || "bg-stone-200 text-stone-600";
+    const placeholder = "https://images.unsplash.com/photo-1617038220319-276d3cfab638?q=80&w=200&auto=format&fit=crop";
+    const imageSrc = item.image || placeholder;
     return `
       <tr data-id="${item.id}" data-category="${item.category}">
         <td class="px-6 py-4">
           <div class="flex items-center gap-3">
-            <img class="w-12 h-12 rounded-md object-cover" src="${item.image}" alt="product" />
+            <img class="w-12 h-12 rounded-md object-cover" src="${imageSrc}" alt="product" />
             <div>
               <button data-read class="font-semibold text-left hover:underline">${item.name}</button>
               <p class="text-[11px] text-on-surface-variant">${item.subtitle || ""}</p>
@@ -327,7 +414,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!row) return;
 
     const id = row.dataset.id;
-    const product = products.find((item) => item.id === id);
+    const product = products.find((item) => String(item.id) === String(id));
     if (!product) return;
 
     if (readBtn) {
@@ -347,11 +434,14 @@ document.addEventListener("DOMContentLoaded", function () {
       const confirmed = confirm(`Bạn có chắc muốn xóa sản phẩm ${product.id}?`);
       if (!confirmed) return;
 
-      const index = products.findIndex((item) => item.id === product.id);
-      if (index >= 0) {
-        products.splice(index, 1);
-        render();
+      if (window.AuroraDB) {
+        window.AuroraDB.deleteProduct(product.id);
+        products = window.AuroraDB.getProducts();
+      } else {
+        const index = products.findIndex((item) => String(item.id) === String(product.id));
+        if (index >= 0) products.splice(index, 1);
       }
+      render();
     }
   });
 
