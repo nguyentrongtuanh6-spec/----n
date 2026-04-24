@@ -1,21 +1,34 @@
 window.addEventListener("DOMContentLoaded", function () {
-  const userIconLink = document.querySelector('a[title="Tài khoản"]');
+  var userIconLink = document.querySelector('.header-icons a[title*="i kho"]');
   if (userIconLink) {
-    const isLogged = localStorage.getItem("auroraUser");
-    if (isLogged) {
-      userIconLink.setAttribute("href", "./trangcanhan.html");
-    } else {
-      userIconLink.setAttribute("href", "./trangdangnhap.html");
-    }
+    var isLogged = localStorage.getItem("auroraUser");
+    userIconLink.setAttribute(
+      "href",
+      isLogged ? "./trangcanhan.html" : "./trangdangnhap.html"
+    );
   }
 
-  const navLinks = Array.from(document.querySelectorAll(".nav-menu a"));
+  var navLinks = Array.from(document.querySelectorAll(".nav-menu a"));
   if (!navLinks.length) return;
 
-  const currentPath = window.location.pathname.replace(/\\/g, "/").toLowerCase();
-  const currentFile = currentPath.split("/").pop() || "";
+  var currentPath = window.location.pathname.replace(/\\/g, "/").toLowerCase();
+  var currentFile = currentPath.split("/").pop() || "";
 
-  const pageToMenu = {
+  navLinks.forEach(function (link) {
+    link.classList.remove("active");
+  });
+
+  var exactMatch = navLinks.find(function (link) {
+    var href = (link.getAttribute("href") || "").toLowerCase();
+    return currentFile && href.endsWith(currentFile);
+  });
+
+  if (exactMatch) {
+    exactMatch.classList.add("active");
+    return;
+  }
+
+  var pageToMenu = {
     "tranglocnhannam.html": "nhẫn",
     "tranglocnhannu.html": "nhẫn",
     "tranglocdaychuyen.html": "dây chuyền",
@@ -23,18 +36,17 @@ window.addEventListener("DOMContentLoaded", function () {
     "tranglocvongtay.html": "vòng tay",
     "trangloccharm.html": "charm",
     "tranggioithieu.html": "giới thiệu",
-    "lienhe.html": "liên hệ",
+    "trangsucbo.html": "trang sức bộ",
+    "trangsucdoi.html": "trang sức đôi"
   };
 
-  const targetMenuText = pageToMenu[currentFile];
+  var targetMenuText = pageToMenu[currentFile];
   if (!targetMenuText) return;
 
   navLinks.forEach(function (link) {
-    const label = (link.textContent || "").trim().toLowerCase();
+    var label = (link.textContent || "").trim().toLowerCase();
     if (label === targetMenuText) {
       link.classList.add("active");
-    } else {
-      link.classList.remove("active");
     }
   });
 });

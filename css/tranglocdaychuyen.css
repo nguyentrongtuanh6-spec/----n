@@ -191,7 +191,9 @@ body {
 }
 
 .panel-head h1 {
-  font-size: 44px;
+  font-size: 26px;
+  line-height: 1.2;
+  font-weight: 700;
 }
 
 .head-right {

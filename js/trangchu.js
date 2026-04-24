@@ -56,7 +56,7 @@ window.addEventListener("DOMContentLoaded", function () {
         const displayProducts = showAll ? filtered : filtered.slice(0, 8);
         grid.innerHTML = displayProducts.map(
           (product) => {
-              const isWishlisted = window.AuroraDB ? window.AuroraDB.getAll()?.wishlists?.[JSON.parse(localStorage.getItem("auroraUser") || "{}").email]?.includes(String(product.id)) : false;
+              const isWishlisted = window.AuroraDB ? window.AuroraDB.isWishlisted(product.id) : false;
               return `
               <div class="product-card">
                 <a href="./trangchitiet.html?id=${product.id}" class="product-link">

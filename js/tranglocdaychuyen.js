@@ -65,6 +65,10 @@ window.addEventListener("DOMContentLoaded", function () {
     state.selectedGender = activeValue || null;
   }
 
+  function isWishlisted(productId) {
+    return window.AuroraDB ? window.AuroraDB.isWishlisted(productId) : false;
+  }
+
   function initCategoryButtons() {
     const buttons = categoryList?.querySelectorAll(".male-category-btn") || [];
     buttons.forEach(function (button) {
@@ -129,10 +133,12 @@ window.addEventListener("DOMContentLoaded", function () {
       button.addEventListener("click", function (event) {
         event.preventDefault();
         event.stopPropagation();
-        this.classList.toggle("active");
+        if (!window.AuroraDB) return;
+        const added = window.AuroraDB.toggleWishlist(this.dataset.id);
+        this.classList.toggle("active", added);
         const icon = this.querySelector("i");
         if (!icon) return;
-        if (this.classList.contains("active")) {
+        if (added) {
           icon.classList.remove("fa-regular");
           icon.classList.add("fa-solid");
         } else {
@@ -143,10 +149,27 @@ window.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  function ensureMinimumDisplayItems(items) {
+    if (!items.length || items.length >= 9) {
+      return items;
+    }
+
+    const displayItems = [...items];
+    let index = 0;
+
+    while (displayItems.length < 9) {
+      displayItems.push(items[index % items.length]);
+      index += 1;
+    }
+
+    return displayItems;
+  }
+
   function render() {
     const filtered = applyFilterAndSort();
     const start = (state.page - 1) * state.pageSize;
     const currentItems = filtered.slice(start, start + state.pageSize);
+    const displayItems = ensureMinimumDisplayItems(currentItems);
 
     if (filterTitle) filterTitle.textContent = "Sản phẩm " + titleMap.necklace;
     if (resultCount) resultCount.textContent = filtered.length + " sản phẩm";
@@ -155,13 +178,14 @@ window.addEventListener("DOMContentLoaded", function () {
       if (currentItems.length === 0) {
         grid.innerHTML = "<p>Không tìm thấy sản phẩm phù hợp.</p>";
       } else {
-        grid.innerHTML = currentItems
+        grid.innerHTML = displayItems
           .map(function (product) {
+            const wishlisted = isWishlisted(product.id);
             return `
               <a href="./trangchitiet.html?id=${product.detailId}" class="catalog-card">
                 <div class="catalog-thumb">
                   ${product.discount ? `<span class="discount-badge">${product.discount}</span>` : ""}
-                  <span class="wishlist-mini"><i class="fa-regular fa-heart"></i></span>
+                  <span class="wishlist-mini ${wishlisted ? "active" : ""}" data-id="${product.id}"><i class="${wishlisted ? "fa-solid" : "fa-regular"} fa-heart"></i></span>
                   <img src="${product.image}" alt="${product.name}" />
                 </div>
                 <div class="catalog-info">

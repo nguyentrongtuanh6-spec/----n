@@ -34,6 +34,7 @@ window.addEventListener("DOMContentLoaded", function () {
   function parsePrice(priceText) { return Number(String(priceText).replace(/[^\d]/g, "")); }
   function formatPrice(value) { return new Intl.NumberFormat("vi-VN").format(value) + "đ"; }
   function syncGenderSelection(activeValue) { genderInputs.forEach(function (input) { input.checked = input.value === activeValue; }); state.selectedGender = activeValue || null; }
+  function isWishlisted(productId) { return window.AuroraDB ? window.AuroraDB.isWishlisted(productId) : false; }
   function initCategoryButtons() { (categoryList?.querySelectorAll(".male-category-btn") || []).forEach(function (button) { button.addEventListener("click", function () { const target = pageRoutes[this.dataset.category || "charm"]; if (target) window.location.href = target; }); }); }
 
   function applyFilterAndSort() {
@@ -68,28 +69,46 @@ window.addEventListener("DOMContentLoaded", function () {
       button.addEventListener("click", function (event) {
         event.preventDefault();
         event.stopPropagation();
-        this.classList.toggle("active");
+        if (!window.AuroraDB) return;
+        const added = window.AuroraDB.toggleWishlist(this.dataset.id);
+        this.classList.toggle("active", added);
         const icon = this.querySelector("i");
         if (!icon) return;
-        icon.classList.toggle("fa-solid");
-        icon.classList.toggle("fa-regular");
+        icon.classList.toggle("fa-solid", added);
+        icon.classList.toggle("fa-regular", !added);
       });
     });
+  }
+
+  function ensureMinimumDisplayItems(items) {
+    if (!items.length || items.length >= 9) return items;
+
+    const displayItems = [...items];
+    let index = 0;
+
+    while (displayItems.length < 9) {
+      displayItems.push(items[index % items.length]);
+      index += 1;
+    }
+
+    return displayItems;
   }
 
   function render() {
     const filtered = applyFilterAndSort();
     const start = (state.page - 1) * state.pageSize;
     const currentItems = filtered.slice(start, start + state.pageSize);
+    const displayItems = ensureMinimumDisplayItems(currentItems);
     if (filterTitle) filterTitle.textContent = "Sản phẩm Charm";
     if (resultCount) resultCount.textContent = filtered.length + " sản phẩm";
     if (grid) {
       if (currentItems.length === 0) grid.innerHTML = "<p>Không tìm thấy sản phẩm phù hợp.</p>";
       else {
-        grid.innerHTML = currentItems.map(function (product) {
+        grid.innerHTML = displayItems.map(function (product) {
+          const wishlisted = isWishlisted(product.id);
           return `
           <a href="./trangchitiet.html?id=${product.detailId}" class="catalog-card">
-            <div class="catalog-thumb">${product.discount ? `<span class="discount-badge">${product.discount}</span>` : ""}<span class="wishlist-mini"><i class="fa-regular fa-heart"></i></span><img src="${product.image}" alt="${product.name}" /></div>
+            <div class="catalog-thumb">${product.discount ? `<span class="discount-badge">${product.discount}</span>` : ""}<span class="wishlist-mini ${wishlisted ? "active" : ""}" data-id="${product.id}"><i class="${wishlisted ? "fa-solid" : "fa-regular"} fa-heart"></i></span><img src="${product.image}" alt="${product.name}" /></div>
             <div class="catalog-info"><div class="catalog-name">${product.name}</div><div class="catalog-price">${product.price}</div></div>
           </a>`;
         }).join("");

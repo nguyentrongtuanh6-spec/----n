@@ -174,8 +174,7 @@ window.addEventListener("DOMContentLoaded", function () {
   // --- XỬ LÝ YÊU THÍCH (WISHLIST) ---
   const wishlistBtn = document.getElementById("wishlistBtn");
   if (wishlistBtn && product) {
-    const user = JSON.parse(localStorage.getItem("auroraUser") || "{}");
-    const isWishlisted = window.AuroraDB ? window.AuroraDB.getAll()?.wishlists?.[user.email]?.includes(String(product.id)) : false;
+    const isWishlisted = window.AuroraDB ? window.AuroraDB.isWishlisted(product.id) : false;
     
     const icon = wishlistBtn.querySelector("i");
     if (isWishlisted) {
