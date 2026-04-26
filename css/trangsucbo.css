@@ -169,25 +169,22 @@ body {
 
 .set-card {
   overflow: hidden;
-  border: 1px solid #efefef;
-  border-radius: 6px;
-  background: #fafafa;
+  border: 1px solid #f0f0f0;
+  border-radius: 12px;
+  background: #fff;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .set-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
 .set-card-thumb {
   position: relative;
-  height: 230px;
-  padding: 12px;
-  background:
-    radial-gradient(circle at top left, rgba(255, 240, 232, 0.95), transparent 32%),
-    radial-gradient(circle at bottom right, rgba(232, 240, 255, 0.9), transparent 30%),
-    linear-gradient(145deg, #fbfbfb 0%, #f1f1f1 100%);
+  height: 280px;
+  padding: 0;
+  background: #f9f9f9;
 }
 
 .set-card-thumb img {
@@ -196,75 +193,63 @@ body {
   object-fit: cover;
 }
 
+.set-card-heart {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+  width: 28px;
+  height: 28px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ddd;
+  font-size: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.set-card-heart:hover {
+  color: #f28f9f;
+  transform: scale(1.1);
+}
+
 .set-card-badge {
   position: absolute;
   top: 12px;
   left: 12px;
   z-index: 2;
-  padding: 5px 9px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.95);
-  color: #666;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  padding: 5px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #888;
+  font-size: 10px;
+  font-weight: 600;
   text-transform: uppercase;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
-}
-
-.set-card-placeholder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  width: 100%;
-  height: 100%;
-  border: 2px dashed #d6d6d6;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.72);
-  text-align: center;
-  color: #555;
-  padding: 18px;
-}
-
-.set-card-placeholder i {
-  font-size: 28px;
-  color: #a5a5a5;
-}
-
-.set-card-placeholder strong {
-  font-size: 14px;
-  color: #333;
-  font-weight: 500;
-}
-
-.set-card-placeholder span {
-  max-width: 180px;
-  line-height: 1.45;
-  font-size: 11px;
-  color: #6f6f6f;
 }
 
 .set-card-info {
-  padding: 12px;
+  padding: 16px 12px;
   text-align: center;
-  background: #f7f7f7;
+  background: #fff;
 }
 
 .set-card-info h3 {
-  min-height: 40px;
-  margin: 0 0 8px;
+  min-height: 38px;
+  margin: 0 0 10px;
   color: #444;
   font-size: 13px;
-  line-height: 1.45;
-  font-weight: 500;
+  line-height: 1.4;
+  font-weight: 400;
 }
 
 .set-card-info p {
   margin: 0;
-  color: #ef6b7d;
-  font-size: 15px;
+  color: #f28f9f;
+  font-size: 18px;
   font-weight: 700;
 }
 
