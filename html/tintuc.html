@@ -66,18 +66,8 @@
                 <span class="subtitle">Aurora Jewelry</span>
             </div>
 
-            <section class="featured-article">
-                <div class="featured-image">
-                    <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=2000&auto=format&fit=crop"
-                        alt="Xu hướng Trang sức 2026" />
-                </div>
-                <div class="featured-content">
-                    <span class="label">XU HƯỚNG TIÊU ĐIỂM</span>
-                    <h2>Xu hướng Trang sức 2026</h2>
-                    <p>Khám phá sự giao thoa giữa nghệ thuật thủ công truyền thống và ngôn ngữ thiết kế đương đại trong
-                        bộ sưu tập mới nhất.</p>
-                    <a href="#" class="btn-read-more">XEM BÀI VIẾT +</a>
-                </div>
+            <section class="featured-article" id="featuredArticle">
+                <!-- Featured news will be rendered here by JS -->
             </section>
 
             <div class="news-filter-bar">
@@ -93,65 +83,9 @@
                 </div>
             </div>
 
-            <div class="news-grid">
-                <div class="news-card">
-                    <div class="news-card-thumb">
-                        <img src="../ảnh/Ảnh chụp màn hình/61.png" alt="Nghệ thuật chế tác thủ công" />
-                    </div>
-                    <div class="news-card-meta">07 THÁNG 6, 2025</div>
-                    <h3 class="news-card-title">Nghệ thuật chế tác thủ công: Từ bản vẽ đến kiệt tác</h3>
-                    <p class="news-card-desc">Hành trình thầm lặng phía sau mỗi sản phẩm của Aurora. Tìm hiểu kỹ thuật
-                        chạm khắc và đính đá thủ công.</p>
-                </div>
-
-                <div class="news-card">
-                    <div class="news-card-thumb">
-                        <img src="../ảnh/Ảnh chụp màn hình/62.png" alt="Trang sức mùa hè" />
-                    </div>
-                    <div class="news-card-meta">06 THÁNG 6, 2025</div>
-                    <h3 class="news-card-title">Trang sức mùa hè – trang sức cho những chuyến đi</h3>
-                    <p class="news-card-desc">Khám phá các sắc màu tươi mới, rực rỡ và cá tính để làm nổi bật sự sang
-                        trọng và thu hút của bạn trong mùa hè 2025.</p>
-                </div>
-
-                <div class="news-card">
-                    <div class="news-card-thumb">
-                        <img src="../ảnh/Ảnh chụp màn hình/63.png" alt="Trang sức tỏa sáng" />
-                    </div>
-                    <div class="news-card-meta">02 THÁNG 6, 2025</div>
-                    <h3 class="news-card-title">Trang sức tỏa sáng cùng phong cách sống thượng lưu</h3>
-                    <p class="news-card-desc">Trang sức tỏa sáng cùng phong cách sống thượng lưu - định nghĩa lại phong
-                        cách thời trang sống cá nhân và phong cách sống lịch lãm nhất.</p>
-                </div>
-
-                <div class="news-card">
-                    <div class="news-card-thumb">
-                        <img src="../ảnh/Ảnh chụp màn hình/64.png" alt="VALENTINE 2025" />
-                    </div>
-                    <div class="news-card-meta">01 THÁNG 2, 2025</div>
-                    <h3 class="news-card-title">VALENTINE 2025 – TRAO YÊU THƯƠNG, TẶNG TRANG SỨC</h3>
-                    <p class="news-card-desc">Valentine là dịp hoàn hảo để bạn thể hiện tình yêu bằng những món trang
-                        sức cao cấp. Từ ngày 10/02/2025, Aurora ưu đãi đặc biệt lên đến 1.000.000đ.</p>
-                </div>
-
-                <div class="news-card">
-                    <div class="news-card-thumb">
-                        <img src="../ảnh/Ảnh chụp màn hình/65.png" alt="Bộ Sưu Tập Nhẫn Cưới SEAL OF LOVE" />
-                    </div>
-                    <div class="news-card-meta">15 THÁNG 10, 2024</div>
-                    <h3 class="news-card-title">Bộ Sưu Tập Nhẫn Cưới SEAL OF LOVE</h3>
-                    <p class="news-card-desc">Sản phẩm được chế tác hoàn toàn thủ công, tỉ mỉ đến từng chi tiết.</p>
-                </div>
-
-                <div class="news-card">
-                    <div class="news-card-thumb">
-                        <img src="../ảnh/Ảnh chụp màn hình/66.png" alt="ƯU ĐÃI ĐÓN XUÂN" />
-                    </div>
-                    <div class="news-card-meta">02 THÁNG 01, 2024</div>
-                    <h3 class="news-card-title">ƯU ĐÃI ĐÓN XUÂN: MUA TRANG SỨC MỚI – TẶNG CHARM VÀNG MAY MẮN</h3>
-                    <p class="news-card-desc">Chào mừng bạn đến với dịp mừng tết Giáp Thìn với những ưu đãi đặc biệt
-                        dành tặng cho bạn.</p>
-                </div>
+            <div class="news-grid" id="newsGrid">
+                <!-- News cards will be rendered here by JS -->
+            </div>
             </div>
 
             <div class="pagination">
@@ -222,6 +156,8 @@
 
     <script src="../js/db.js"></script>
     <script src="../js/data-products.js"></script>
+    <script src="../js/data-news.js"></script>
+    <script src="../js/tintuc.js"></script>
     <script src="../js/nav-active.js"></script>
 </body>
 

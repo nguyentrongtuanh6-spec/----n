@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("auroraUser", JSON.stringify(updatedUser));
     
     // Hiển thị thông báo
-    alert("Cập nhật thành công!");
+    Aurora.showAlert("Cập nhật thành công", "Thông tin cá nhân của bạn đã được lưu lại.", "success");
 
     // Cập nhật lại hiển thị sidebar
     document.getElementById("userNameDisplay").textContent = name;
@@ -68,8 +68,15 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // --- 3. XỬ LÝ ĐĂNG XUẤT ---
-  logoutBtn.addEventListener("click", function () {
-    if (confirm("Quý khách có chắc chắn muốn đăng xuất không?")) {
+  logoutBtn.addEventListener("click", async function () {
+    const isConfirmed = await Aurora.showConfirm(
+      "Đăng xuất",
+      "Quý khách có chắc chắn muốn đăng xuất không?",
+      "Đăng xuất",
+      "Hủy"
+    );
+
+    if (isConfirmed) {
       localStorage.removeItem("auroraUser");
       sessionStorage.removeItem("auroraAccess");
       window.location.href = "./trangchu.html";
