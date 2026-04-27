@@ -5,6 +5,7 @@
 
 (function() {
   const DB_NAME = "aurora_db";
+  const FALLBACK_WISHLIST_KEY = "favoriteProductIds";
 
   const AuroraDB = {
     // --- KHỞI TẠO DỮ LIỆU ---
@@ -78,23 +79,63 @@
     },
 
     // --- QUẢN LÝ YÊU THÍCH (WISHLIST) ---
+    getWishlistIds: function() {
+      const user = JSON.parse(localStorage.getItem("auroraUser") || "{}");
+      if (!user.email) {
+        try {
+          return JSON.parse(localStorage.getItem(FALLBACK_WISHLIST_KEY)) || [];
+        } catch {
+          return [];
+        }
+      }
+
+      const data = this.getAll();
+      return data.wishlists?.[user.email] || [];
+    },
+
     getWishlist: function() {
       const user = JSON.parse(localStorage.getItem("auroraUser") || "{}");
+      const wishlistIds = this.getWishlistIds().map(String);
+
       if (!user.email) return [];
       const data = this.getAll();
-      const userWishlist = data.wishlists?.[user.email] || [];
-      return data.products.filter(p => userWishlist.includes(String(p.id)));
+      return data.products.filter(p => wishlistIds.includes(String(p.id)));
+    },
+
+    isWishlisted: function(productId) {
+      const pid = String(productId);
+      return this.getWishlistIds().map(String).includes(pid);
     },
 
     toggleWishlist: function(productId) {
       const user = JSON.parse(localStorage.getItem("auroraUser") || "{}");
-      if (!user.email) return false;
+      const pid = String(productId);
+
+      if (!user.email) {
+        let ids = [];
+        try {
+          ids = JSON.parse(localStorage.getItem(FALLBACK_WISHLIST_KEY)) || [];
+        } catch {
+          ids = [];
+        }
+
+        ids = ids.map(String);
+        const index = ids.indexOf(pid);
+
+        if (index === -1) {
+          ids.push(pid);
+        } else {
+          ids.splice(index, 1);
+        }
+
+        localStorage.setItem(FALLBACK_WISHLIST_KEY, JSON.stringify(ids));
+        return index === -1;
+      }
       
       const data = this.getAll();
       if (!data.wishlists) data.wishlists = {};
       if (!data.wishlists[user.email]) data.wishlists[user.email] = [];
       
-      const pid = String(productId);
       const index = data.wishlists[user.email].indexOf(pid);
       
       if (index === -1) {

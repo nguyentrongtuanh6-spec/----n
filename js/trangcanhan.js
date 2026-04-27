@@ -3,6 +3,20 @@
  */
 
 document.addEventListener("DOMContentLoaded", function () {
+    // Hiển thị số lượng sản phẩm yêu thích từ localStorage
+    function updateFavoriteCount() {
+      let count = 0;
+      try {
+        const ids = JSON.parse(localStorage.getItem('favoriteProductIds'));
+        if (Array.isArray(ids)) count = ids.length;
+      } catch {}
+      const el = document.getElementById('favoriteCount');
+      if (el) el.textContent = count;
+    }
+    updateFavoriteCount();
+    window.addEventListener('storage', updateFavoriteCount);
+    // Nếu có thao tác thêm/bớt yêu thích ở trang khác, reload lại số này khi quay lại
+    document.addEventListener('visibilitychange', function() { if (!document.hidden) updateFavoriteCount(); });
   const profileForm = document.getElementById("profileForm");
   const logoutBtn = document.getElementById("logoutBtn");
 

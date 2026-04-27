@@ -471,6 +471,10 @@ window.addEventListener("DOMContentLoaded", function () {
     state.selectedGenders = new Set([activeValue]);
   }
 
+  function isWishlisted(productId) {
+    return window.AuroraDB ? window.AuroraDB.isWishlisted(productId) : false;
+  }
+
   function initCategoryButtons() {
     if (!categoryList) return;
     const buttons = categoryList.querySelectorAll(".category-btn");
@@ -545,12 +549,14 @@ window.addEventListener("DOMContentLoaded", function () {
         event.preventDefault();
         event.stopPropagation();
 
-        this.classList.toggle("active");
+        if (!window.AuroraDB) return;
+        const added = window.AuroraDB.toggleWishlist(this.dataset.id);
+        this.classList.toggle("active", added);
 
         const icon = this.querySelector("i");
         if (!icon) return;
 
-        if (this.classList.contains("active")) {
+        if (added) {
           icon.classList.remove("fa-regular");
           icon.classList.add("fa-solid");
         } else {
@@ -579,11 +585,12 @@ window.addEventListener("DOMContentLoaded", function () {
       } else {
         grid.innerHTML = currentItems
           .map(function (product) {
+            const wishlisted = isWishlisted(product.id);
             return `
               <a href="./trangchitiet.html?id=${product.detailId || 1}" class="catalog-card">
                 <div class="catalog-thumb">
                   ${product.discount ? `<span class="discount-badge">${product.discount}</span>` : ""}
-                  <span class="wishlist-mini"><i class="fa-regular fa-heart"></i></span>
+                  <span class="wishlist-mini ${wishlisted ? "active" : ""}" data-id="${product.id}"><i class="${wishlisted ? "fa-solid" : "fa-regular"} fa-heart"></i></span>
                   <img src="${product.image}" alt="${product.name}" />
                 </div>
                 <div class="catalog-info">

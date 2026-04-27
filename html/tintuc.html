@@ -1,66 +1,164 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tin tức | Aurora Jewelry</title>
-    <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/trangchinhsach.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/trangchu.css" />
+    <link rel="stylesheet" href="../css/tintuc.css" />
 </head>
+
 <body>
-    <!-- ...existing header/navbar code... -->
-    <div class="container">
-        <nav class="breadcrumb">
-            <a href="trangchu.html">Trang chủ</a> &gt; Tin tức
+    <div class="topbar">Ưu đãi thành viên mới: giảm 20% cho đơn đầu tiên</div>
+
+    <header>
+        <div class="container header-main">
+            <a href="./trangchu.html" class="logo" aria-label="AURORA Home">
+                <img src="../ảnh/Ảnh chụp màn hình/logo.png" alt="AURORA" />
+            </a>
+
+            <div class="search-box">
+                <input type="text" placeholder="Bạn muốn tìm gì?" />
+                <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+            </div>
+
+            <div class="header-icons">
+                <a href="./trangyeuthich.html" title="Yêu thích"><i class="fa-regular fa-heart"></i></a>
+                <a href="#" title="Cửa hàng"><i class="fa-solid fa-location-dot"></i></a>
+                <a href="./trangdangnhap.html" title="Tài khoản"><i class="fa-regular fa-user"></i></a>
+                <a href="#" title="Giỏ hàng"><i class="fa-solid fa-bag-shopping"></i></a>
+            </div>
+        </div>
+
+        <nav>
+            <div class="container">
+                <ul class="nav-menu">
+                    <li><a href="#">Bộ sưu tập mới</a></li>
+                    <li><a href="./trangsucbo.html">Trang sức bộ</a></li>
+                    <li><a href="./trangsucdoi.html">Trang sức đôi</a></li>
+                    <li><a href="#">Khuyến mãi</a></li>
+                    <li><a href="./tranglocnhannam.html">Nhẫn</a></li>
+                    <li><a href="./tranglocdaychuyen.html">Dây chuyền</a></li>
+                    <li><a href="./tranglocbongtai.html">Bông tai</a></li>
+                    <li><a href="./tranglocvongtay.html">Vòng tay</a></li>
+                    <li><a href="./trangloccharm.html">Charm</a></li>
+                    <li><a href="./tintuc.html" class="active">Tin tức</a></li>
+                    <li><a href="./tranggioithieu.html">Giới thiệu</a></li>
+                </ul>
+            </div>
         </nav>
-        <h1 class="news-title">TIN TỨC <br><span>Aurora Jewelry</span></h1>
-        <div class="news-featured">
-            <img src="../ảnh/Ảnh chụp màn hình/featured-news.jpg" alt="Xu hướng Trang sức 2026" style="width:100%;max-width:400px;">
-            <div class="news-featured-content">
-                <h2>Xu hướng Trang sức 2026</h2>
-                <p>Khám phá sự giao thoa giữa nghệ thuật thủ công truyền thống và ngôn ngữ thiết kế đương đại trong bộ sưu tập mới nhất.</p>
-                <a href="#">Xem bài viết &rarr;</a>
+    </header>
+
+    <main class="news-page">
+        <div class="container">
+            <nav class="breadcrumb"><a href="trangchu.html">TRANG CHỦ</a> <span class="sep">-</span> <span
+                    class="current">TIN TỨC</span></nav>
+
+            <div class="news-header">
+                <h1>TIN TỨC</h1>
+                <span class="subtitle">Aurora Jewelry</span>
+            </div>
+
+            <section class="featured-article" id="featuredArticle">
+                <!-- Featured news will be rendered here by JS -->
+            </section>
+
+            <div class="news-filter-bar">
+                <div class="news-tabs">
+                    <button class="tab-item active">TẤT CẢ</button>
+                    <button class="tab-item">SỰ KIỆN</button>
+                    <button class="tab-item">BỘ SƯU TẬP</button>
+                    <button class="tab-item">LÀM ĐẸP</button>
+                </div>
+                <div class="news-filter-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Tìm kiếm tin tức..." />
+                </div>
+            </div>
+
+            <div class="news-grid" id="newsGrid">
+                <!-- News cards will be rendered here by JS -->
+            </div>
+            </div>
+
+            <div class="pagination">
+                <span><i class="fa-solid fa-chevron-left"></i></span>
+                <span class="active">1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>...</span>
+                <span>10</span>
+                <span><i class="fa-solid fa-chevron-right"></i></span>
             </div>
         </div>
-        <div class="news-tabs">
-            <button class="active">Tất cả</button>
-            <button>Sự kiện</button>
-            <button>Bộ sưu tập</button>
-            <button>Làm đẹp</button>
-            <input type="text" placeholder="Tìm kiếm tin tức..." class="news-search">
-        </div>
-        <div class="news-list">
-            <!-- Mỗi bài viết là một khối .news-item -->
-            <div class="news-item">
-                <img src="../ảnh/Ảnh chụp màn hình/news1.jpg" alt="Nghệ thuật chế tác thủ công">
-                <h3>Nghệ thuật chế tác thủ công: Từ bản vẽ đến kiệt tác</h3>
-                <p>Hành trình thầm lặng phía sau mỗi sản phẩm của Aurora Lustre. Tìm hiểu kỹ thuật chạm khắc và đính đá thủ công.</p>
-                <span class="news-date">07 Tháng 6, 2025</span>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="../ảnh/Ảnh chụp màn hình/logo.png" alt="AURORA" />
+                    </div>
+                    <div class="contact-item"><i class="fa-solid fa-phone"></i>1900 8888</div>
+                    <div class="contact-item"><i class="fa-solid fa-location-dot"></i>Biệt thự 10A, Vinhomes Ocean Park,
+                        Gia Lâm, Hà Nội</div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Dịch vụ khách hàng</h4>
+                    <ul>
+                        <li><a href="./trangchinhsach.html">Điều khoản và điều kiện</a></li>
+                        <li><a href="./trangchinhsach.html">Chính sách đổi trả và bảo hành</a></li>
+                        <li><a href="./trangchinhsach.html">Chính sách vận chuyển</a></li>
+                        <li><a href="./tranghuongdanbaoquan.html">Hướng dẫn bảo quản trang sức</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Thông tin chung</h4>
+                    <ul>
+                        <li><a href="./lienhe.html">Liên hệ</a></li>
+                        <li><a href="./tintuc.html">Tin tức</a></li>
+                        <li><a href="./tranggioithieu.html">Về chúng tôi</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col newsletter">
+                    <h4>Đăng ký để nhận thông báo</h4>
+                    <p>Đăng ký để nhận thông báo mới nhất về các bộ sưu tập và ưu đãi.</p>
+                    <input type="email" placeholder="Nhập email của bạn" />
+                    <button>Đăng ký ngay</button>
+                </div>
             </div>
-            <div class="news-item">
-                <img src="../ảnh/Ảnh chụp màn hình/news2.jpg" alt="Trang sức mùa hè">
-                <h3>Trang sức mùa hè - trang sức cho những chuyến đi</h3>
-                <p>Khám phá các sắc màu tươi mới, rực rỡ và cá tính để làm nổi bật cá tính trong mùa hè 2025.</p>
-                <span class="news-date">06 Tháng 6, 2025</span>
+
+            <div class="footer-bottom">
+                <img class="bct-logo" src="../ảnh/Ảnh chụp màn hình/logo-congthuong.png"
+                    alt="Đã thông báo Bộ Công Thương" />
+                <div class="about-us">
+                    <h5>Về chúng tôi</h5>
+                    <div class="socials">
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#" aria-label="Youtube"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
             </div>
-            <div class="news-item">
-                <img src="../ảnh/Ảnh chụp màn hình/news3.jpg" alt="Trang sức tỏa sáng">
-                <h3>Trang sức tỏa sáng cùng phong cách sống thượng lưu</h3>
-                <p>Trang sức để tôn vinh những giá trị đỉnh cao – đẳng cấp không dành cho số đông.</p>
-                <span class="news-date">02 Tháng 6, 2025</span>
-            </div>
-            <!-- ...các bài viết khác... -->
         </div>
-        <div class="pagination">
-            <button>&lt;</button>
-            <button class="active">1</button>
-            <button>2</button>
-            <button>3</button>
-            <span>...</span>
-            <button>12</button>
-            <button>&gt;</button>
-        </div>
-    </div>
-    <!-- ...existing footer code... -->
+    </footer>
+
+    <script src="../js/db.js"></script>
+    <script src="../js/data-products.js"></script>
+    <script src="../js/data-news.js"></script>
+    <script src="../js/tintuc.js"></script>
+    <script src="../js/nav-active.js"></script>
 </body>
+
 </html>
