@@ -151,25 +151,5 @@ window.addEventListener("DOMContentLoaded", function () {
 
   renderProducts("coupleProductGrid", "couple");
   renderProducts("favoriteProductGrid", "favorite");
-  renderProducts("customProductGrid", "custom");
 
-  // --- HIỆU ỨNG HOVER THAY ĐỔI ẢNH CHÍNH (SÁNG TẠO) ---
-  const customMainImg = document.querySelector(".custom-left img");
-  const charmItems = document.querySelectorAll(".charm-item");
-
-  if (customMainImg && charmItems.length > 0) {
-    charmItems.forEach((item) => {
-      item.addEventListener("mouseenter", function () {
-        const newSrc = this.querySelector("img")?.src;
-        if (newSrc) {
-          // Thêm một chút hiệu ứng chuyển cảnh mượt mà
-          customMainImg.style.opacity = "0.5";
-          setTimeout(() => {
-            customMainImg.src = newSrc;
-            customMainImg.style.opacity = "1";
-          }, 150);
-        }
-      });
-    });
-  }
 });
