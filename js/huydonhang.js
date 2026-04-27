@@ -52,51 +52,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  // --- CUSTOM ALERT FUNCTION ---
   function showAlert(title, message, type = "success") {
-    // Create overlay
-    const overlay = document.createElement("div");
-    overlay.className = "custom-alert-overlay";
-    
-    // Create box
-    const box = document.createElement("div");
-    box.className = "custom-alert-box";
-    
-    // Icon mapping
-    const icon = type === "success" ? "fa-check" : "fa-exclamation";
-    
-    box.innerHTML = `
-      <div class="alert-icon ${type === "error" ? "error" : ""}">
-        <i class="fa-solid ${icon}"></i>
-      </div>
-      <div class="alert-title">${title}</div>
-      <div class="alert-message">${message}</div>
-      <button class="btn-alert-close">Đóng</button>
-    `;
-    
-    overlay.appendChild(box);
-    document.body.appendChild(overlay);
-    
-    // Lock scroll
-    document.body.style.overflow = "hidden";
-    
-    // Close logic
-    const closeBtn = box.querySelector(".btn-alert-close");
-    closeBtn.focus();
-    
-    const closeAlert = () => {
-      overlay.style.opacity = "0";
-      box.style.transform = "translateY(20px)";
-      setTimeout(() => {
-        document.body.removeChild(overlay);
-        document.body.style.overflow = "auto";
-      }, 300);
-    };
-    
-    closeBtn.addEventListener("click", closeAlert);
-    overlay.addEventListener("click", (e) => {
-      if (e.target === overlay) closeAlert();
-    });
+    Aurora.showAlert(title, message, type);
   }
 
   // 1. Xử lý tìm kiếm đơn hàng

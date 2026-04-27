@@ -157,6 +157,60 @@ const products = [
     image: "../ảnh/Ảnh chụp màn hình/34.png",
     description: "Mẫu vòng cổ phối charm linh hoạt theo phong cách riêng.",
     images: ["../ảnh/Ảnh chụp màn hình/34.png"]
+  },
+  {
+    id: 18,
+    category: "charm",
+    name: "Charm bạc nữ tinh tế cao cấp",
+    price: "660.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/1.png",
+    description: "Charm bạc nữ tinh tế cao cấp với thiết kế hiện đại, tỉ mỉ.",
+    images: ["../ảnh/Ảnh chụp màn hình/1.png"]
+  },
+  {
+    id: 19,
+    category: "charm",
+    name: "Charm trái tim nhỏ đính đá",
+    price: "450.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/54.png",
+    description: "Charm trái tim nhỏ đính đá mang thông điệp tình yêu ngọt ngào.",
+    images: ["../ảnh/Ảnh chụp màn hình/54.png"]
+  },
+  {
+    id: 20,
+    category: "charm",
+    name: "Charm trăng sao phối đá màu",
+    price: "220.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/55.png",
+    description: "Charm trăng sao phối đá màu tạo điểm nhấn huyền bí.",
+    images: ["../ảnh/Ảnh chụp màn hình/55.png"]
+  },
+  {
+    id: 21,
+    category: "charm",
+    name: "Charm bạc kiểu hiện đại AURORA",
+    price: "880.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/56.png",
+    description: "Charm bạc kiểu hiện đại AURORA tôn vinh vẻ đẹp cá nhân.",
+    images: ["../ảnh/Ảnh chụp màn hình/56.png"]
+  },
+  {
+    id: 22,
+    category: "charm",
+    name: "Charm bướm dịu dàng nữ tính",
+    price: "650.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/14.png",
+    description: "Charm bướm dịu dàng nữ tính cho sự uyển chuyển tự nhiên.",
+    images: ["../ảnh/Ảnh chụp màn hình/14.png"]
+  },
+  {
+    id: 23,
+    category: "charm",
+    name: "Charm hoa tuyết lấp lánh AURORA",
+    price: "1.243.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/15.png",
+    description: "Charm hoa tuyết lấp lánh AURORA cho mùa đông thêm rạng rỡ.",
+    images: ["../ảnh/Ảnh chụp màn hình/15.png"]
   }
 ];
 

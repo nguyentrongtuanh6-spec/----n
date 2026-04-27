@@ -15,18 +15,18 @@ window.addEventListener("DOMContentLoaded", function () {
   const pageRoutes = { ring: "./tranglocnhannam.html", necklace: "./tranglocdaychuyen.html", earring: "./tranglocbongtai.html", bracelet: "./tranglocvongtay.html", charm: "./trangloccharm.html" };
 
   const products = [
-    { id: 1101, detailId: 1, name: "Charm bạc nữ hình ngôi sao", image: "../ảnh/Ảnh chụp màn hình/1.png", price: "320.000đ", gender: "Nữ", rating: 4.5, inStock: true, order: 1 },
-    { id: 1102, detailId: 2, name: "Charm nam mặt khiên cá tính", image: "../ảnh/Ảnh chụp màn hình/54.png", price: "410.000đ", gender: "Nam", rating: 4.2, inStock: true, order: 2 },
-    { id: 1103, detailId: 3, name: "Charm nữ cánh bướm đá hồng", image: "../ảnh/Ảnh chụp màn hình/14.png", price: "365.000đ", gender: "Nữ", rating: 4.4, inStock: true, order: 3 },
-    { id: 1104, detailId: 4, name: "Charm nam hình lưỡi neo", image: "../ảnh/Ảnh chụp màn hình/55.png", price: "450.000đ", gender: "Nam", rating: 4.3, inStock: true, discount: "-2%", order: 4 },
-    { id: 1105, detailId: 5, name: "Charm nữ trái tim đôi AURORA", image: "../ảnh/Ảnh chụp màn hình/56.png", price: "390.000đ", gender: "Nữ", rating: 4.6, inStock: true, order: 5 },
-    { id: 1106, detailId: 6, name: "Charm nam mặt đá xanh", image: "../ảnh/Ảnh chụp màn hình/58.png", price: "520.000đ", gender: "Nam", rating: 4.5, inStock: true, order: 6 },
-    { id: 1107, detailId: 7, name: "Charm nữ hoa tuyết", image: "../ảnh/Ảnh chụp màn hình/15.png", price: "340.000đ", gender: "Nữ", rating: 4.1, inStock: true, order: 7 },
-    { id: 1108, detailId: 1, name: "Charm nam biểu tượng la bàn", image: "../ảnh/Ảnh chụp màn hình/7.png", price: "480.000đ", gender: "Nam", rating: 4.4, inStock: true, order: 8 },
-    { id: 1109, detailId: 2, name: "Charm nữ pha lê trong suốt", image: "../ảnh/Ảnh chụp màn hình/3.png", price: "365.000đ", gender: "Nữ", rating: 4.2, inStock: true, discount: "-6%", order: 9 },
-    { id: 1110, detailId: 3, name: "Charm nam chữ cái bạc", image: "../ảnh/Ảnh chụp màn hình/59.png", price: "300.000đ", gender: "Nam", rating: 4.0, inStock: true, order: 10 },
-    { id: 1111, detailId: 4, name: "Charm nữ giọt lệ xanh", image: "../ảnh/Ảnh chụp màn hình/2.png", price: "430.000đ", gender: "Nữ", rating: 4.3, inStock: true, order: 11 },
-    { id: 1112, detailId: 5, name: "Charm nam cổ điển viền nổi", image: "../ảnh/Ảnh chụp màn hình/10.png", price: "470.000đ", gender: "Nam", rating: 4.5, inStock: true, order: 12 }
+    { id: 1101, detailId: 18, name: "Charm bạc nữ hình ngôi sao", image: "../ảnh/Ảnh chụp màn hình/1.png", price: "320.000đ", gender: "Nữ", rating: 4.5, inStock: true, order: 1 },
+    { id: 1102, detailId: 19, name: "Charm nam mặt khiên cá tính", image: "../ảnh/Ảnh chụp màn hình/54.png", price: "410.000đ", gender: "Nam", rating: 4.2, inStock: true, order: 2 },
+    { id: 1103, detailId: 22, name: "Charm nữ cánh bướm đá hồng", image: "../ảnh/Ảnh chụp màn hình/14.png", price: "365.000đ", gender: "Nữ", rating: 4.4, inStock: true, order: 3 },
+    { id: 1104, detailId: 20, name: "Charm nam hình lưỡi neo", image: "../ảnh/Ảnh chụp màn hình/55.png", price: "450.000đ", gender: "Nam", rating: 4.3, inStock: true, discount: "-2%", order: 4 },
+    { id: 1105, detailId: 21, name: "Charm nữ trái tim đôi AURORA", image: "../ảnh/Ảnh chụp màn hình/56.png", price: "390.000đ", gender: "Nữ", rating: 4.6, inStock: true, order: 5 },
+    { id: 1106, detailId: 18, name: "Charm nam mặt đá xanh", image: "../ảnh/Ảnh chụp màn hình/58.png", price: "520.000đ", gender: "Nam", rating: 4.5, inStock: true, order: 6 },
+    { id: 1107, detailId: 23, name: "Charm nữ hoa tuyết", image: "../ảnh/Ảnh chụp màn hình/15.png", price: "340.000đ", gender: "Nữ", rating: 4.1, inStock: true, order: 7 },
+    { id: 1108, detailId: 18, name: "Charm nam biểu tượng la bàn", image: "../ảnh/Ảnh chụp màn hình/7.png", price: "480.000đ", gender: "Nam", rating: 4.4, inStock: true, order: 8 },
+    { id: 1109, detailId: 19, name: "Charm nữ pha lê trong suốt", image: "../ảnh/Ảnh chụp màn hình/3.png", price: "365.000đ", gender: "Nữ", rating: 4.2, inStock: true, discount: "-6%", order: 9 },
+    { id: 1110, detailId: 20, name: "Charm nam chữ cái bạc", image: "../ảnh/Ảnh chụp màn hình/59.png", price: "300.000đ", gender: "Nam", rating: 4.0, inStock: true, order: 10 },
+    { id: 1111, detailId: 21, name: "Charm nữ giọt lệ xanh", image: "../ảnh/Ảnh chụp màn hình/2.png", price: "430.000đ", gender: "Nữ", rating: 4.3, inStock: true, order: 11 },
+    { id: 1112, detailId: 22, name: "Charm nam cổ điển viền nổi", image: "../ảnh/Ảnh chụp màn hình/10.png", price: "470.000đ", gender: "Nam", rating: 4.5, inStock: true, order: 12 }
   ];
 
   const state = { maxPrice: Number(priceRange?.value || 100000000), minRating: 0, inStockOnly: inStockOnlyInput?.checked ?? true, selectedGender: null, searchKeyword: "", sort: sortSelect?.value || "popular", page: 1, pageSize: 12 };

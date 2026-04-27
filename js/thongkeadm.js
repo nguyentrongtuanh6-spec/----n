@@ -37,7 +37,11 @@ document.addEventListener("DOMContentLoaded", function () {
       periodIndex = (periodIndex + 1) % periods.length;
       periodLabel.textContent = periods[periodIndex];
 
-      alert(`Đã chuyển bộ lọc thời gian: ${periods[periodIndex]}`);
+      Aurora.showAlert(
+        "Thông báo",
+        `Đã chuyển bộ lọc thời gian: ${periods[periodIndex]}`,
+        "info"
+      );
     });
   }
 
@@ -54,9 +58,14 @@ document.addEventListener("DOMContentLoaded", function () {
     item.textContent.includes("Đăng xuất"),
   );
   if (logoutLink) {
-    logoutLink.addEventListener("click", function (event) {
+    logoutLink.addEventListener("click", async function (event) {
       event.preventDefault();
-      const confirmed = confirm("Bạn muốn đăng xuất khỏi trang quản trị?");
+      const confirmed = await Aurora.showConfirm(
+        "Đăng xuất",
+        "Bạn muốn đăng xuất khỏi trang quản trị?",
+        "Đăng xuất",
+        "Hủy"
+      );
       if (confirmed) {
         window.location.href = "./trangdangnhap.html";
       }
