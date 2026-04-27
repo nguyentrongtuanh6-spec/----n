@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chi tiết đơn hàng - AURORA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/trangchu.css" />
+  <link rel="stylesheet" href="../css/chitietdonhang.css" />
+</head>
+<body>
+  <div class="topbar">Ưu đãi thành viên mới: giảm 20% cho đơn đầu tiên</div>
+
+  <header>
+    <div class="container header-main">
+      <a href="./trangchu.html" class="logo" aria-label="AURORA Home"
+        ><img src="../ảnh/Ảnh chụp màn hình/logo.png" alt="AURORA"
+      /></a>
+
+      <div class="search-box">
+        <input type="text" placeholder="Bạn muốn tìm gì?" />
+        <span class="search-icon"
+          ><i class="fa-solid fa-magnifying-glass"></i
+        ></span>
+      </div>
+
+      <div class="header-icons">
+        <a href="#" title="Yêu thích"><i class="fa-regular fa-heart"></i></a>
+        <a href="#" title="Cửa hàng"><i class="fa-solid fa-location-dot"></i></a>
+        <a href="./trangdangnhap.html" title="Tài khoản"><i class="fa-regular fa-user"></i></a>
+        <a href="#" title="Giỏ hàng"><i class="fa-solid fa-bag-shopping"></i></a>
+      </div>
+    </div>
+
+    <nav>
+      <div class="container">
+        <ul class="nav-menu">
+          <li><a href="#">Bộ sưu tập mới</a></li>
+          <li><a href="#">Trang sức đôi</a></li>
+          <li><a href="#">Khuyến mãi</a></li>
+          <li><a href="./tranglocnhannam.html">Nhẫn</a></li>
+          <li><a href="./tranglocdaychuyen.html">Dây chuyền</a></li>
+          <li><a href="./tranglocbongtai.html">Bông tai</a></li>
+          <li><a href="./tranglocvongtay.html">Vòng tay</a></li>
+          <li><a href="./trangloccharm.html">Charm</a></li>
+          <li><a href="#">Tin tức</a></li>
+          <li><a href="./tranggioithieu.html">Giới thiệu</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="./trangchu.html">TRANG CHỦ</a> <span>/</span> <a href="./trangcanhan.html">TRANG CÁ NHÂN</a> <span>/</span> <span class="current">CHI TIẾT ĐƠN HÀNG</span>
+      </div>
+
+      <div class="order-detail-header">
+        <div class="order-meta">
+          <h1>Đơn hàng <span id="displayOrderId">#------</span></h1>
+          <p class="order-date">Ngày đặt: <span id="displayOrderDate">--/--/----</span></p>
+        </div>
+        <div class="order-status-box">
+          <span class="status-badge" id="displayOrderStatus">Chờ xác nhận</span>
+        </div>
+      </div>
+
+      <div class="order-detail-grid">
+        <!-- Left: Items -->
+        <div class="order-items-column">
+          <div class="detail-card">
+            <h2 class="card-title">Sản phẩm</h2>
+            <div class="product-list-detail" id="orderItemsList">
+              <!-- Render logic -->
+            </div>
+          </div>
+          
+          <div class="detail-card">
+              <h2 class="card-title">Địa chỉ nhận hàng</h2>
+              <div class="address-info">
+                  <p class="ship-name" id="shipName">Nguyễn Minh Quân</p>
+                  <p class="ship-phone" id="shipPhone">090 123 4567</p>
+                  <p class="ship-address" id="shipAddress">Số 10A, Đường Đại Dương, Vinhomes Ocean Park, Gia Lâm, Hà Nội</p>
+              </div>
+          </div>
+        </div>
+
+        <!-- Right: Summary -->
+        <div class="order-summary-column">
+          <div class="detail-card">
+            <h2 class="card-title">Tóm tắt đơn hàng</h2>
+            <div class="summary-rows">
+              <div class="summary-row">
+                <span>Tạm tính:</span>
+                <span id="displaySubtotal">0đ</span>
+              </div>
+              <div class="summary-row">
+                <span>Phí vận chuyển:</span>
+                <span>Miễn phí</span>
+              </div>
+              <div class="summary-row">
+                <span>Giảm giá:</span>
+                <span id="displayDiscount">0đ</span>
+              </div>
+              <div class="summary-row total">
+                <span>Tổng tiền:</span>
+                <span id="displayOrderTotal">0đ</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-card">
+            <h2 class="card-title">Thanh toán</h2>
+            <div class="payment-info">
+              <p><i class="fa-regular fa-credit-card"></i> Thanh toán bằng thẻ Visa (...4242)</p>
+              <p class="payment-status"><i class="fa-solid fa-circle-check"></i> Đã thanh toán</p>
+            </div>
+          </div>
+
+          <div class="order-actions">
+              <button id="cancelOrderBtn" class="btn-outline-danger hidden">Hủy đơn hàng</button>
+              <button id="trackOrderBtn" class="btn-primary">Theo dõi giao hàng</button>
+              <a href="./trangcanhan.html" class="btn-link">Quay lại</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="footer-logo">
+              <img src="../ảnh/Ảnh chụp màn hình/logo.png" alt="AURORA" />
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-phone"></i>1900 8888
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-location-dot"></i>Biệt thự 10A, Vinhomes
+              Ocean Park, Gia Lâm, Hà Nội
+            </div>
+          </div>
+  
+          <div class="footer-col">
+            <h4>Dịch vụ khách hàng</h4>
+            <ul>
+              <li><a href="./trangdieukhoan.html">Điều khoản và điều kiện</a></li>
+              <li><a href="./trangchinhsach.html">Chính sách đổi trả và bảo hành</a></li>
+              <li><a href="./trangchinhsach.html">Chính sách vận chuyển</a></li>
+              <li><a href="./tranghuongdanbaoquan.html">Hướng dẫn bảo quản trang sức</a></li>
+            </ul>
+          </div>
+  
+          <div class="footer-col newsletter">
+            <h4>Đăng ký để nhận thông báo</h4>
+            <p>
+              Đăng ký để nhận thông báo mới nhất về các bộ sưu tập và ưu đãi.
+            </p>
+            <input type="email" placeholder="Nhập email của bạn" />
+            <button>Đăng ký ngay</button>
+          </div>
+        </div>
+  
+        <div class="footer-bottom">
+          <img
+            class="bct-logo"
+            src="../ảnh/Ảnh chụp màn hình/logo-congthuong.png"
+            alt="Đã thông báo Bộ Công Thương"
+          />
+          <div class="about-us">
+            <h5>Về chúng tôi</h5>
+            <div class="socials">
+              <a href="#" aria-label="Facebook"
+                ><i class="fa-brands fa-facebook"></i
+              ></a>
+              <a href="#" aria-label="TikTok"
+                ><i class="fa-brands fa-tiktok"></i
+              ></a>
+              <a href="#" aria-label="Youtube"
+                ><i class="fa-brands fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <script src="../js/utils.js"></script>
+  <script src="../js/chitietdonhang.js"></script>
+</body>
+</html>

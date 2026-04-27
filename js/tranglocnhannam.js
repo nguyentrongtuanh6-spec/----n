@@ -436,6 +436,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
         if (!window.AuroraDB) return;
         const added = window.AuroraDB.toggleWishlist(this.dataset.id);
+
         this.classList.toggle("active", added);
 
         const icon = this.querySelector("i");

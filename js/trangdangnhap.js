@@ -21,7 +21,6 @@ function login() {
 
   // --- LOGIC ĐĂNG NHẬP ADMIN ---
   if (email === "admin@aurora.vn" && password === "admin") {
-    alert("Đăng nhập QUẢN TRỊ VIÊN thành công!");
     sessionStorage.setItem("auroraAccess", "admin");
     window.location.href = "./thongkeadm.html";
     return;
@@ -32,7 +31,6 @@ function login() {
   if (storedUserRaw) {
     const storedUser = JSON.parse(storedUserRaw);
     if (storedUser.email === email && storedUser.password === password) {
-       alert("Đăng nhập thành công!");
        sessionStorage.setItem("auroraAccess", "member");
        window.location.href = "./trangchu.html";
        return;
@@ -43,7 +41,6 @@ function login() {
   if (email === "quan.nm@example.com" && password === "123") {
     const defaultUser = { fullName: "Nguyễn Minh Quân", email: "quan.nm@example.com", password: "123" };
     localStorage.setItem("auroraUser", JSON.stringify(defaultUser));
-    alert("Đăng nhập tài khoản Test thành công!");
     sessionStorage.setItem("auroraAccess", "member");
     window.location.href = "./trangchu.html";
     return;

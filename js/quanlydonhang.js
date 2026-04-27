@@ -464,9 +464,14 @@ document.addEventListener("DOMContentLoaded", function () {
     item.textContent.includes("Đăng xuất"),
   );
   if (logoutLink) {
-    logoutLink.addEventListener("click", function (event) {
+    logoutLink.addEventListener("click", async function (event) {
       event.preventDefault();
-      const confirmed = confirm("Bạn muốn đăng xuất khỏi trang quản trị?");
+      const confirmed = await Aurora.showConfirm(
+        "Đăng xuất",
+        "Bạn muốn đăng xuất khỏi trang quản trị?",
+        "Đăng xuất",
+        "Hủy"
+      );
       if (confirmed) {
         window.location.href = "./trangdangnhap.html";
       }

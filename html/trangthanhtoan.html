@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán - AURORA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/trangchu.css">
+    <link rel="stylesheet" href="../css/tranggiohang.css">
+    <link rel="stylesheet" href="../css/trangthanhtoan.css">
+</head>
+<body>
+    <div class="topbar">Ưu đãi thành viên mới: giảm 20% cho đơn đầu tiên</div>
+
+    <header>
+        <div class="container header-main">
+            <a href="./trangchu.html" class="logo" aria-label="AURORA Home">
+                <img src="../ảnh/Ảnh chụp màn hình/logo.png" alt="AURORA">
+            </a>
+
+            <div class="search-box">
+                <input type="text" placeholder="Bạn muốn tìm gì?">
+                <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+            </div>
+
+            <div class="header-icons">
+                <a href="./trangyeuthich.html" title="Yêu thích"><i class="fa-regular fa-heart"></i></a>
+                <a href="#" title="Cửa hàng"><i class="fa-solid fa-location-dot"></i></a>
+                <a href="./trangdangnhap.html" title="Tài khoản"><i class="fa-regular fa-user"></i></a>
+                <a href="./tranggiohang.html" title="Giỏ hàng"><i class="fa-solid fa-bag-shopping"></i></a>
+            </div>
+        </div>
+
+        <nav>
+            <div class="container">
+                <ul class="nav-menu">
+                    <li><a href="#">Bộ sưu tập mới</a></li>
+                    <li><a href="./trangsucbo.html">Trang sức bộ</a></li>
+                    <li><a href="./trangsucdoi.html">Trang sức đôi</a></li>
+                    <li><a href="#">Khuyến mãi</a></li>
+                    <li><a href="./tranglocnhannam.html">Nhẫn</a></li>
+                    <li><a href="./tranglocdaychuyen.html">Dây chuyền</a></li>
+                    <li><a href="./tranglocbongtai.html">Bông tai</a></li>
+                    <li><a href="./tranglocvongtay.html">Vòng tay</a></li>
+                    <li><a href="./trangloccharm.html">Charm</a></li>
+                    <li><a href="./tintuc.html">Tin tức</a></li>
+                    <li><a href="./tranggioithieu.html">Giới thiệu</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="cart-breadcrumb">
+            <a href="./trangchu.html">TRANG CHỦ</a> > <a href="./tranggiohang.html">GIỎ HÀNG</a> > <strong>HOÀN TẤT ĐƠN HÀNG</strong>
+        </div>
+
+        <h1 class="checkout-title">Hoàn tất đơn hàng</h1>
+
+        <div class="checkout-page">
+            <div class="checkout-left">
+                <!-- Shipping Info -->
+                <section class="checkout-section">
+                    <h3>THÔNG TIN GIAO HÀNG</h3>
+                    <div class="form-group">
+                        <label>HỌ VÀ TÊN</label>
+                        <input type="text" placeholder="Nguyễn Minh Quân">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>SỐ ĐIỆN THOẠI</label>
+                            <input type="text" placeholder="090 123 4567">
+                        </div>
+                        <div class="form-group">
+                            <label>THÀNH PHỐ</label>
+                            <select>
+                                <option>Hồ Chí Minh</option>
+                                <option>Hà Nội</option>
+                                <option>Đà Nẵng</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>ĐỊA CHỈ CỤ THỂ</label>
+                        <input type="text" placeholder="Số nhà, tên đường, phường/xã">
+                    </div>
+                </section>
+
+                <!-- Shipping Method -->
+                <section class="checkout-section">
+                    <h3>ĐƠN VỊ VẬN CHUYỂN</h3>
+                    <div class="option-box active">
+                        <div class="option-info">
+                            <div class="option-radio"></div>
+                            <div class="option-text">
+                                <div class="option-details">
+                                    <h4>Vận chuyển Hỏa tốc</h4>
+                                    <p>Nhận hàng trong vòng 2h (Nội thành)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="option-price">Miễn phí</div>
+                    </div>
+                    <div class="option-box">
+                        <div class="option-info">
+                            <div class="option-radio"></div>
+                            <div class="option-text">
+                                <div class="option-details">
+                                    <h4>Vận chuyển Tiêu chuẩn</h4>
+                                    <p>Từ 2 - 4 ngày làm việc</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="option-price">Miễn phí</div>
+                    </div>
+                </section>
+
+                <!-- Payment Method -->
+                <section class="checkout-section">
+                    <h3>PHƯƠNG THỨC THANH TOÁN</h3>
+                    <div class="option-box active">
+                        <div class="option-info">
+                            <div class="option-radio"></div>
+                            <div class="option-text">
+                                <i class="fa-regular fa-credit-card"></i> Thẻ tín dụng / Ghi nợ
+                            </div>
+                        </div>
+                    </div>
+                    <div class="option-box">
+                        <div class="option-info">
+                            <div class="option-radio"></div>
+                            <div class="option-text">
+                                <i class="fa-solid fa-building-columns"></i> Chuyển khoản ngân hàng
+                            </div>
+                        </div>
+                    </div>
+                    <div class="option-box">
+                        <div class="option-info">
+                            <div class="option-radio"></div>
+                            <div class="option-text">
+                                <i class="fa-solid fa-wallet"></i> Ví điện tử
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="checkout-right">
+                <aside class="checkout-summary">
+                    <h3>Tóm tắt đơn hàng</h3>
+                    
+                    <div class="summary-items">
+                        <!-- Item 1 -->
+                        <div class="summary-item">
+                            <div class="summary-item-img">
+                                <img src="../ảnh/Ảnh chụp màn hình/35.png" alt="Item">
+                            </div>
+                            <div class="summary-item-info">
+                                <h4>Dây chuyền đôi bạc đính đá hình cá voi và bướm Brenna AURORA</h4>
+                                <p>Đá Cubic Zirconia • Độ dài: 45cm</p>
+                                <p>1.210.000đ</p>
+                            </div>
+                            <div class="summary-item-price">1.210.000đ</div>
+                        </div>
+                        
+                        <!-- Item 2 -->
+                        <div class="summary-item">
+                            <div class="summary-item-img">
+                                <img src="../ảnh/Ảnh chụp màn hình/2.png" alt="Item">
+                            </div>
+                            <div class="summary-item-info">
+                                <h4>Dây chuyền bạc nữ đính đá cỏ 4 lá AURORA</h4>
+                                <p>Đá Cubic Zirconia tự nhiên • Độ dài: 40cm</p>
+                                <p>1.900.000đ</p>
+                            </div>
+                            <div class="summary-item-price">1.900.000đ</div>
+                        </div>
+
+                        <!-- Add more items as needed -->
+                    </div>
+
+                    <div class="summary-calc">
+                        <div class="calc-row">
+                            <span>Tạm tính</span>
+                            <span>6.510.000đ</span>
+                        </div>
+                        <div class="calc-row">
+                            <span>Phí vận chuyển</span>
+                            <span>MIỄN PHÍ</span>
+                        </div>
+                        <div class="calc-row total">
+                            <span>Tổng cộng</span>
+                            <span class="total-price">6.510.000đ</span>
+                        </div>
+                    </div>
+
+                    <button class="btn-complete">HOÀN TẤT ĐẶT HÀNG</button>
+
+                    <div class="trust-badges-checkout">
+                        <div class="trust-badge">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>100% CHÍNH HÃNG</span>
+                        </div>
+                        <div class="trust-badge">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>BẢO HÀNH TRỌN ĐỜI</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="../ảnh/Ảnh chụp màn hình/logo.png" alt="AURORA">
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>1900 8888
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>Biệt thự 10A, Vinhomes Ocean Park, Gia Lâm, Hà Nội
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Dịch vụ khách hàng</h4>
+                    <ul>
+                        <li><a href="./trangdieukhoan.html">Điều khoản và điều kiện</a></li>
+                        <li><a href="./trangchinhsach.html">Chính sách đổi trả và bảo hành</a></li>
+                        <li><a href="./trangchinhsach.html">Chính sách vận chuyển</a></li>
+                        <li><a href="./tranghuongdanbaoquan.html">Hướng dẫn bảo quản trang sức</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Thông tin chung</h4>
+                    <ul>
+                        <li><a href="./lienhe.html">Liên hệ</a></li>
+                        <li><a href="./tintuc.html">Tin tức</a></li>
+                        <li><a href="./tranggioithieu.html">Về chúng tôi</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col newsletter">
+                    <h4>Đăng ký để nhận thông báo</h4>
+                    <p>Đăng ký để nhận thông báo mới nhất về các bộ sưu tập và ưu đãi.</p>
+                    <input type="email" placeholder="Nhập email của bạn">
+                    <button>Đăng ký ngay</button>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <img class="bct-logo" src="../ảnh/Ảnh chụp màn hình/logo-congthuong.png" alt="Đã thông báo Bộ Công Thương">
+                <div class="about-us">
+                    <h5>Về chúng tôi</h5>
+                    <div class="socials">
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#" aria-label="Youtube"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Success Modal -->
+    <div id="successModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h2>ĐẶT HÀNG THÀNH CÔNG!</h2>
+            <p>Cảm ơn bạn đã tin tưởng AURORA. Đơn hàng của bạn đã được tiếp nhận và đang trong quá trình xử lý.</p>
+            <button class="btn-modal" onclick="window.location.href='./trangchu.html'">Về trang chủ</button>
+        </div>
+    </div>
+
+    <script src="../js/db.js"></script>
+    <script src="../js/data-products.js"></script>
+    <script src="../js/nav-active.js"></script>
+    <script src="../js/trangthanhtoan.js"></script>
+</body>
+</html>

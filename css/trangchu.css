@@ -480,30 +480,6 @@ nav {
   border-color: #f49aaa;
 }
 
-.buy-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 12px;
-}
-
-.buy-buttons a {
-  display: inline-block;
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.btn-cart {
-  background: #f6a7b6;
-  color: #fff;
-}
-
-.btn-buy {
-  background: #f48fa4;
-  color: #fff;
-}
 
 /* Modern News Section */
 .news-grid-modern {
