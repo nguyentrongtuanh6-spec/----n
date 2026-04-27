@@ -74,28 +74,22 @@
         XEM CHI TIẾT
       </div>
 
-      <section class="product-detail-main">
-        <div class="gallery-modern">
-          <div class="thumbnail-column" id="thumbnailList">
-            <!-- Dynamic thumbnails -->
+      <section class="detail-top">
+        <div class="gallery">
+          <div class="main-image-wrap">
+            <img id="mainProductImage" src="" alt="" />
           </div>
-          <div class="main-image-viewport">
-            <img id="mainProductImage" src="" alt="Sản phẩm" />
-            <button class="zoom-btn"><i class="fa-solid fa-expand"></i></button>
+
+          <div class="thumbnail-list" id="thumbnailList">
+            <!-- Dynamic thumbs go here -->
           </div>
         </div>
 
         <div class="product-summary">
-          <div class="summary-header">
-            <div class="brand-tag">AURORA LUXURY</div>
-            <h1 id="productName">Tên sản phẩm</h1>
-            <div class="sku-row">
-              <span class="sku-label">Mã:</span>
-              <span id="productSku">AU-2025-01</span>
-            </div>
-          </div>
+          <h1 id="productName">Tên sản phẩm</h1>
+          <div class="sku">Mã sản phẩm</div>
 
-          <div class="rating-summary">
+          <div class="rating-row">
             <div class="stars">
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star"></i>
@@ -103,63 +97,45 @@
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star-half-stroke"></i>
             </div>
-            <span class="review-count">(120 nhận xét)</span>
-            <span class="divider">|</span>
-            <span class="sold-count">Đã bán 1.2k</span>
+            <span>(80 đánh giá)</span>
           </div>
 
-          <div class="price-container">
-            <span class="currency">đ</span>
-            <span class="price-value" id="productPrice">0</span>
-            <span class="original-price">0</span>
-          </div>
+          <p class="description" id="productDescription">
+            Mô tả sản phẩm...
+          </p>
 
-          <div class="short-desc" id="productDescription">
-            Mô tả sản phẩm sẽ được tải từ dữ liệu...
-          </div>
+          <p class="note-text">
+            Lưu ý: Nếu bạn yêu cầu khắc tên, vui lòng liên hệ để được hỗ trợ
+          </p>
 
-          <div class="purchase-options">
-            <div class="option-group">
-              <label>Số lượng</label>
-              <div class="qty-stepper">
-                <button type="button" id="decreaseQty">-</button>
-                <input id="productQty" type="number" min="1" value="1" readonly />
-                <button type="button" id="increaseQty">+</button>
-              </div>
-            </div>
+          <div class="price" id="productPrice">0</div>
 
-            <div class="main-actions">
-              <button class="btn-add-cart" type="button">
-                <i class="fa-solid fa-bag-shopping"></i> THÊM GIỎ HÀNG
-              </button>
-              <button class="btn-buy-now" type="button">MUA NGAY</button>
-              <button class="btn-wishlist-detail" type="button" id="wishlistBtn">
-                <i class="fa-regular fa-heart"></i>
-              </button>
+          <div class="qty-row">
+            <span>Số lượng</span>
+            <div class="qty-control">
+              <button type="button" id="decreaseQty">-</button>
+              <input id="productQty" type="number" min="1" value="1" />
+              <button type="button" id="increaseQty">+</button>
             </div>
           </div>
 
-          <div class="trust-badges">
-            <div class="badge-item">
-              <i class="fa-solid fa-shield-check"></i>
-              <span>Bảo hành chính hãng</span>
-            </div>
-            <div class="badge-item">
-              <i class="fa-solid fa-truck-fast"></i>
-              <span>Giao hàng thần tốc</span>
-            </div>
+          <div class="action-row">
+            <button class="btn-buy" type="button">MUA NGAY</button>
+            <button class="btn-contact" type="button">LIÊN HỆ</button>
+            <button class="btn-wishlist" type="button" id="wishlistBtn">
+              <i class="fa-regular fa-heart"></i>
+            </button>
           </div>
 
-          <div class="info-accordions">
-            <div class="accordion-item active" id="policyBox">
-              <button class="accordion-header" type="button" id="togglePolicy">
-                <span>CHÍNH SÁCH VẬN CHUYỂN & ĐỔI TRẢ</span>
-                <i class="fa-solid fa-chevron-down"></i>
-              </button>
-              <div class="accordion-content" id="policyBody">
-                <p>Miễn phí giao hàng toàn quốc cho đơn hàng trên 5.000.000 đ. Thời gian giao hàng từ 2-4 ngày làm việc. Bảo hiểm 100% giá trị sản phẩm trong quá trình vận chuyển.</p>
-                <p>Đổi trả linh hoạt trong vòng 10 ngày nếu có lỗi từ nhà sản xuất.</p>
-              </div>
+          <div class="policy-box">
+            <button class="policy-head" type="button" id="togglePolicy">
+              <span>CHÍNH SÁCH VẬN CHUYỂN</span>
+              <i class="fa-solid fa-angle-down"></i>
+            </button>
+            <div class="policy-body" id="policyBody">
+              Miễn phí giao hàng toàn quốc cho đơn hàng trên 5.000.000 đ. Thời
+              gian giao hàng từ 2-4 ngày làm việc. Bảo hiểm 100% giá trị sản
+              phẩm trong quá trình vận chuyển.
             </div>
           </div>
         </div>
@@ -206,6 +182,7 @@
             <div class="spec-row"><span>Màu sắc:</span><strong id="specColor">Bạc</strong></div>
             <div class="spec-row"><span>Chất liệu:</span><strong id="specMaterial">Bạc 925</strong></div>
           </div>
+          <div class="spec-divider"></div>
           <div class="spec-col">
             <div class="spec-row"><span>Đá:</span><strong id="specStone">Moissanite</strong></div>
             <div class="spec-row"><span>Giới tính:</span><strong id="specGender">Nam</strong></div>
