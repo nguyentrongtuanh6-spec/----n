@@ -458,17 +458,13 @@ window.addEventListener("DOMContentLoaded", function () {
     pageSize: 12,
   };
 
-  function syncGenderSelection(activeValue) {
+  function updateGenderSelection() {
+    state.selectedGenders = new Set();
     genderInputs.forEach(function (input) {
-      input.checked = input.value === activeValue;
+      if (input.checked) {
+        state.selectedGenders.add(input.value);
+      }
     });
-    if (!activeValue) {
-      state.selectedGenders = new Set(Array.from(genderInputs).map(function (input) {
-        return input.value;
-      }));
-      return;
-    }
-    state.selectedGenders = new Set([activeValue]);
   }
 
   function isWishlisted(productId) {
@@ -497,7 +493,7 @@ window.addEventListener("DOMContentLoaded", function () {
       const byCategory = product.category === state.activeCategory;
       const byPrice = parsePrice(product.price) <= state.maxPrice;
       const byStock = !state.inStockOnly || product.inStock;
-      const byGender = state.selectedGenders.has(product.gender);
+      const byGender = !state.selectedGenders || state.selectedGenders.size === 0 || state.selectedGenders.has(product.gender);
       const byRating = product.rating >= state.minRating;
       const byKeyword = product.name.toLowerCase().includes(state.searchKeyword.toLowerCase().trim());
       return byCategory && byPrice && byStock && byGender && byRating && byKeyword;
@@ -630,7 +626,7 @@ window.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  syncGenderSelection();
+  updateGenderSelection();
   initCategoryButtons();
   render();
 
@@ -655,7 +651,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
   genderInputs.forEach(function (input) {
     input.addEventListener("change", function () {
-      syncGenderSelection(this.value);
+      updateGenderSelection();
       state.page = 1;
       render();
     });

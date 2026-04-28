@@ -118,8 +118,22 @@ window.addEventListener("DOMContentLoaded", function () {
 }
 
   function redirectToFilter(category) {
-    const targetCategory = category || "all";
-    window.location.href = `./tranglocsanpham.html?category=${targetCategory}`;
+    const cat = String(category).toLowerCase();
+    if (cat.includes("couple")) {
+      window.location.href = "./trangsucdoi.html";
+    } else if (cat.includes("charm")) {
+      window.location.href = "./trangloccharm.html";
+    } else if (cat.includes("vòng") || cat.includes("lắc")) {
+      window.location.href = "./tranglocvongtay.html";
+    } else if (cat.includes("nhẫn")) {
+      window.location.href = "./tranglocnhannu.html";
+    } else if (cat.includes("dây") || cat.includes("chuyền")) {
+      window.location.href = "./tranglocdaychuyen.html";
+    } else if (cat.includes("khuyên") || cat.includes("tai") || cat.includes("bông")) {
+      window.location.href = "./tranglocbongtai.html";
+    } else {
+      window.location.href = "./trangsucbo.html";
+    }
   }
 
   document.querySelectorAll(".product-card").forEach((card) => {
@@ -135,13 +149,7 @@ window.addEventListener("DOMContentLoaded", function () {
     card.style.cursor = "pointer";
     card.addEventListener("click", function () {
       const name = this.querySelector(".category-name")?.textContent?.trim().toLowerCase();
-      if (name?.includes("đôi")) {
-        redirectToFilter("couple");
-      } else if (name?.includes("charm") || name?.includes("vòng") || name?.includes("dây")) {
-        redirectToFilter("custom");
-      } else {
-        redirectToFilter("favorite");
-      }
+      redirectToFilter(name);
     });
   });
 
@@ -150,6 +158,19 @@ window.addEventListener("DOMContentLoaded", function () {
       event.preventDefault();
       const category = this.dataset.category || "all";
       redirectToFilter(category);
+    });
+  });
+
+  // Charm hover preview logic
+  const charmItems = document.querySelectorAll(".charm-item");
+  const previewImg = document.getElementById("charmPreviewImg");
+
+  charmItems.forEach((item) => {
+    item.addEventListener("mouseenter", function () {
+      const newSrc = this.dataset.image;
+      if (newSrc && previewImg) {
+        previewImg.src = newSrc;
+      }
     });
   });
 

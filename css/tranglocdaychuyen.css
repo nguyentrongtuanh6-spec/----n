@@ -2,12 +2,14 @@ body {
   background: #efefef;
 }
 
-.container.male-catalog-page {
+.container.male-catalog-page,
+.container.catalog-page {
   width: min(1500px, calc(100% - 48px));
   max-width: min(1500px, calc(100% - 48px));
 }
 
-.male-catalog-page {
+.male-catalog-page,
+.catalog-page {
   display: grid;
   grid-template-columns: 260px 1fr;
   gap: 22px;
@@ -15,70 +17,97 @@ body {
 }
 
 .male-filter-sidebar,
-.male-product-panel {
+.filter-sidebar {
   background: #fff;
-  border-radius: 8px;
-}
-
-.male-filter-sidebar {
-  padding: 16px;
+  border-radius: 12px;
+  padding: 24px;
   align-self: start;
+  border: 1px solid #ececec;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
 }
 
-.male-filter-block + .male-filter-block {
-  margin-top: 18px;
+.male-product-panel,
+.product-panel {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid #ececec;
 }
 
-.male-filter-block h3 {
-  font-size: 30px;
-  margin-bottom: 10px;
+.male-filter-block + .male-filter-block,
+.filter-block + .filter-block {
+  margin-top: 24px;
+  border-top: 1px solid #f5f5f5;
+  padding-top: 20px;
 }
 
-.male-category-list {
+.male-filter-block h3,
+.filter-block h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: #222;
+}
+
+.male-category-list,
+.category-list {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.male-category-btn {
+.male-category-btn,
+.category-btn {
   width: 100%;
   border: 0;
   background: transparent;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 9px 10px;
-  border-radius: 8px;
+  padding: 8px 10px;
+  border-radius: 6px;
   cursor: pointer;
-  color: #222;
+  color: #444;
   position: relative;
-  font-size: 13px;
+  font-size: 14px;
+  transition: all 0.2s ease;
 }
 
-.male-category-btn .count {
-  color: #95a0b1;
+.male-category-btn:hover,
+.category-btn:hover {
+  background: #f9f9f9;
+  color: #ef6b7d;
+}
+
+.male-category-btn .count,
+.category-btn .count {
+  color: #b0b8c4;
   font-size: 12px;
 }
 
-.male-category-btn.active {
-  background: #fde6eb;
+.male-category-btn.active,
+.category-btn.active {
+  background: #fdf2f4;
+  color: #ef6b7d;
+  font-weight: 500;
 }
 
-.male-category-btn.active::before {
+.male-category-btn.active::before,
+.category-btn.active::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 6px;
-  bottom: 6px;
+  top: 8px;
+  bottom: 8px;
   width: 3px;
   border-radius: 99px;
-  background: #f48ea2;
+  background: #f28f9f;
 }
 
 .range-row {
   display: flex;
   justify-content: space-between;
-  font-size: 11px;
+  font-size: 12px;
   color: #6c7480;
   margin-bottom: 8px;
 }
@@ -86,63 +115,78 @@ body {
 #priceRange {
   width: 100%;
   accent-color: #f28f9f;
+  cursor: pointer;
 }
 
 .checkbox-line {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 13px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #444;
+  cursor: pointer;
 }
 
 .checkbox-line input {
-  margin-right: 8px;
+  margin-right: 10px;
   accent-color: #f28f9f;
+  cursor: pointer;
 }
 
 .rating-btn {
   width: 100%;
-  border: 1px solid #f2a1b0;
+  border: 1px solid #e5e5e5;
   background: #fff;
-  color: #ef6b7d;
-  padding: 10px 12px;
-  border-radius: 10px;
+  color: #555;
+  padding: 8px 12px;
+  border-radius: 8px;
   text-align: left;
-  font-size: 13px;
+  font-size: 14px;
   margin-bottom: 8px;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.rating-btn:hover {
+  border-color: #f28f9f;
+  color: #f28f9f;
 }
 
 .rating-btn.active {
-  background: #fff;
+  border-color: #f28f9f;
+  background: #fdf2f4;
+  color: #ef6b7d;
 }
 
 .rating-stars-btn {
   border: none;
-  padding: 2px 0;
+  padding: 0;
   margin: 0;
   width: auto;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 8px;
+  background: transparent;
 }
 
 .rating-stars {
   color: #f48ea2;
-  font-size: 30px;
-  letter-spacing: 2px;
-  line-height: 1;
+  font-size: 16px;
+  letter-spacing: 1px;
 }
 
 .rating-text {
-  color: #333;
-  font-size: 13px;
+  color: #555;
+  font-size: 14px;
 }
 
 .switch-line {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 13px;
+  gap: 10px;
+  font-size: 14px;
+  color: #444;
+  cursor: pointer;
 }
 
 .switch-line input {
@@ -168,7 +212,7 @@ body {
   border-radius: 50%;
   background: #fff;
   transition: 0.25s;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 .switch-line input:checked + .switch-slider {

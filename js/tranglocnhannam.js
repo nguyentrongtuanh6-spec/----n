@@ -348,11 +348,13 @@ window.addEventListener("DOMContentLoaded", function () {
     return new Intl.NumberFormat("vi-VN").format(value) + "đ";
   }
 
-  function syncGenderSelection(activeValue) {
+  function updateGenderSelection() {
+    state.selectedGenders = new Set();
     genderInputs.forEach(function (input) {
-      input.checked = input.value === activeValue;
+      if (input.checked) {
+        state.selectedGenders.add(input.value);
+      }
     });
-    state.selectedGender = activeValue || null;
   }
 
   function isWishlisted(productId) {
@@ -377,7 +379,7 @@ window.addEventListener("DOMContentLoaded", function () {
       const byCategory = product.category === state.activeCategory;
       const byPrice = parsePrice(product.price) <= state.maxPrice;
       const byStock = !state.inStockOnly || product.inStock;
-      const byGender = !state.selectedGender || product.gender === state.selectedGender;
+      const byGender = !state.selectedGenders || state.selectedGenders.size === 0 || state.selectedGenders.has(product.gender);
       const byRating = product.rating >= state.minRating;
       const byKeyword = product.name
         .toLowerCase()
@@ -496,7 +498,7 @@ window.addEventListener("DOMContentLoaded", function () {
     renderPagination(filtered.length);
   }
 
-  syncGenderSelection();
+  updateGenderSelection();
   initCategoryButtons();
   render();
 
@@ -521,7 +523,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
   genderInputs.forEach(function (input) {
     input.addEventListener("change", function () {
-      syncGenderSelection(this.value);
+      updateGenderSelection();
       state.page = 1;
       render();
     });

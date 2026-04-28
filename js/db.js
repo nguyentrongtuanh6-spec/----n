@@ -11,8 +11,8 @@
     // --- KHỞI TẠO DỮ LIỆU ---
     init: function (defaultProducts = []) {
       const existingData = this.getAll();
-      // Nếu chưa có data hoặc mảng products trống, thì mới khởi tạo
-      if (!localStorage.getItem(DB_NAME) || existingData.products.length === 0) {
+      
+      if (!localStorage.getItem(DB_NAME) || !existingData.products || existingData.products.length === 0) {
         const initialData = {
           products: defaultProducts,
           orders: [],
@@ -22,7 +22,27 @@
           }
         };
         this.save(initialData);
-        console.log("AuroraDB: Khởi tạo/Cập nhật database thành công.");
+        console.log("AuroraDB: Khởi tạo database thành công.");
+      } else {
+        // Nếu đã có data, kiểm tra xem có sản phẩm nào mới từ defaultProducts chưa có trong DB không
+        let updated = false;
+        defaultProducts.forEach(defProd => {
+          const exists = existingData.products.some(p => String(p.id) === String(defProd.id));
+          if (!exists) {
+            existingData.products.push(defProd);
+            updated = true;
+          }
+        });
+        
+        if (updated) {
+          // Cập nhật lastId nếu cần
+          const maxId = Math.max(...existingData.products.map(p => Number(p.id) || 0));
+          if (!existingData.settings) existingData.settings = {};
+          existingData.settings.lastId = Math.max(existingData.settings.lastId || 0, maxId);
+          
+          this.save(existingData);
+          console.log("AuroraDB: Cập nhật thêm sản phẩm mới thành công.");
+        }
       }
     },
 
