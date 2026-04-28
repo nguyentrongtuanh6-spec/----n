@@ -42,9 +42,10 @@
           <a href="./trangdangnhap.html" title="Tài khoản"
             ><i class="fa-regular fa-user"></i
           ></a>
-          <a href="#" title="Giỏ hàng"
-            ><i class="fa-solid fa-bag-shopping"></i
-          ></a>
+          <a href="./tranggiohang.html" title="Giỏ hàng" class="cart-icon-link">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cart-count">0</span>
+          </a>
         </div>
       </div>
 
@@ -121,7 +122,9 @@
 
           <div class="action-row">
             <button class="btn-buy" type="button">MUA NGAY</button>
-            <button class="btn-contact" type="button">LIÊN HỆ</button>
+            <button class="btn-add-cart" type="button" id="addToCartBtn">
+              <i class="fa-solid fa-cart-plus"></i> THÊM VÀO GIỎ
+            </button>
             <button class="btn-wishlist" type="button" id="wishlistBtn">
               <i class="fa-regular fa-heart"></i>
             </button>
@@ -356,6 +359,7 @@
 
     <script src="../js/db.js"></script>
     <script src="../js/data-products.js"></script>
+    <script src="../js/data-special.js"></script>
     <script src="../js/nav-active.js"></script>
     <script src="../js/trangchitiet.js"></script>
     <script src="../js/review-toggle.js"></script>

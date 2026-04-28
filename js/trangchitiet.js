@@ -90,6 +90,23 @@ window.addEventListener("DOMContentLoaded", function () {
         });
       }
 
+      // --- XỬ LÝ GIỎ HÀNG (CART) ---
+      const addToCartBtn = document.getElementById("addToCartBtn");
+      if (addToCartBtn) {
+        addToCartBtn.addEventListener("click", function() {
+          if (window.AuroraDB) {
+            const qty = getSafeQty();
+            window.AuroraDB.addToCart(product, qty);
+            
+            if (window.Aurora && window.Aurora.showAlert) {
+                window.Aurora.showAlert("Thành công", `Đã thêm ${qty} ${product.name} vào giỏ hàng.`, "success");
+            } else {
+                alert(`Đã thêm ${qty} sản phẩm vào giỏ hàng!`);
+            }
+          }
+        });
+      }
+
       // Render related products
       renderRelatedProducts(product);
     }

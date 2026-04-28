@@ -49,4 +49,18 @@ window.addEventListener("DOMContentLoaded", function () {
       link.classList.add("active");
     }
   });
+
+  // --- QUẢN LÝ GIỎ HÀNG (GLOBAL UPDATE) ---
+  function updateCartCount() {
+    const cartCountEl = document.querySelector(".cart-count");
+    if (cartCountEl && window.AuroraDB) {
+      const count = window.AuroraDB.getCartCount();
+      cartCountEl.textContent = count;
+      cartCountEl.style.display = count > 0 ? "flex" : "none";
+    }
+  }
+
+  updateCartCount();
+  window.addEventListener('cartUpdated', updateCartCount);
+  window.addEventListener('storage', updateCartCount);
 });

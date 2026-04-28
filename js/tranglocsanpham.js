@@ -591,6 +591,7 @@ window.addEventListener("DOMContentLoaded", function () {
                 <div class="catalog-thumb">
                   ${product.discount ? `<span class="discount-badge">${product.discount}</span>` : ""}
                   <span class="wishlist-mini ${wishlisted ? "active" : ""}" data-id="${product.id}"><i class="${wishlisted ? "fa-solid" : "fa-regular"} fa-heart"></i></span>
+                  <span class="add-cart-mini" data-id="${product.id}" title="Thêm vào giỏ"><i class="fa-solid fa-cart-plus"></i></span>
                   <img src="${product.image}" alt="${product.name}" />
                 </div>
                 <div class="catalog-info">
@@ -603,10 +604,35 @@ window.addEventListener("DOMContentLoaded", function () {
           .join("");
 
         bindWishlistButtons();
+        bindCartButtons();
       }
     }
 
     renderPagination(filtered.length);
+  }
+
+  function bindCartButtons() {
+    if (!grid) return;
+    grid.querySelectorAll(".add-cart-mini").forEach(button => {
+      button.addEventListener("click", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const id = this.dataset.id;
+        if (window.AuroraDB) {
+            // Find product in local list or global productData
+            const product = products.find(p => String(p.id) === String(id)) || 
+                           (window.productData && window.productData.find(p => String(p.id) === String(id)));
+            if (product) {
+                window.AuroraDB.addToCart(product, 1);
+                if (window.Aurora && window.Aurora.showAlert) {
+                    window.Aurora.showAlert("Thành công", `Đã thêm ${product.name} vào giỏ hàng.`, "success");
+                } else {
+                    alert("Đã thêm sản phẩm vào giỏ hàng!");
+                }
+            }
+        }
+      });
+    });
   }
 
   syncGenderSelection();

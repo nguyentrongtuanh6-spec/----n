@@ -53,7 +53,7 @@ window.addEventListener("DOMContentLoaded", function () {
     }
 
     if (filtered.length > 0) {
-        const displayProducts = showAll ? filtered : filtered.slice(0, 8);
+        const displayProducts = showAll ? filtered : filtered.slice(0, 4);
         grid.innerHTML = displayProducts.map(
           (product) => {
               const isWishlisted = window.AuroraDB ? window.AuroraDB.isWishlisted(product.id) : false;
@@ -70,6 +70,9 @@ window.addEventListener("DOMContentLoaded", function () {
                 </a>
                 <button class="wishlist-btn ${isWishlisted ? 'active' : ''}" data-id="${product.id}" style="z-index: 50;">
                   <i class="${isWishlisted ? 'fa-solid' : 'fa-regular'} fa-heart" style="pointer-events: none;"></i>
+                </button>
+                <button class="add-to-cart-btn" data-id="${product.id}" style="z-index: 50;" title="Thêm vào giỏ">
+                  <i class="fa-solid fa-cart-plus" style="pointer-events: none;"></i>
                 </button>
               </div>
             `;
@@ -97,8 +100,28 @@ window.addEventListener("DOMContentLoaded", function () {
                 }
             });
         });
+
+        // Gán sự kiện cho các nút Thêm vào giỏ
+        grid.querySelectorAll(".add-to-cart-btn").forEach(btn => {
+            btn.addEventListener("click", function(e) {
+                e.preventDefault();
+                const id = this.dataset.id;
+                if (window.AuroraDB) {
+                    const product = window.AuroraDB.getProductById(id);
+                    if (product) {
+                        window.AuroraDB.addToCart(product, 1);
+                        // Thông báo thành công (có thể dùng Aurora.showAlert nếu có utils.js)
+                        if (window.Aurora && window.Aurora.showAlert) {
+                            window.Aurora.showAlert("Thành công", `Đã thêm ${product.name} vào giỏ hàng.`, "success");
+                        } else {
+                            alert("Đã thêm sản phẩm vào giỏ hàng!");
+                        }
+                    }
+                }
+            });
+        });
     }
-  }
+}
 
   function redirectToFilter(category) {
     const targetCategory = category || "all";
@@ -131,21 +154,8 @@ window.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".view-more").forEach((button) => {
     button.addEventListener("click", function (event) {
       event.preventDefault();
-      redirectToFilter("all");
-    });
-  });
-
-  // --- QUẢN LÝ NÚT XEM THÊM (HIỆN THÊM SẢN PHẨM TẠI CHỖ) ---
-  document.querySelectorAll(".view-more").forEach(btn => {
-    btn.addEventListener("click", function(e) {
-      if (this.classList.contains('js-dynamic-load')) {
-        e.preventDefault();
-        const category = this.dataset.category;
-        const gridId = this.dataset.grid;
-        // Gọi lại hàm render nhưng không giới hạn 8 sản phẩm
-        renderProducts(gridId, category, true); 
-        this.style.display = "none"; // Ẩn nút sau khi đã hiện hết
-      }
+      const category = this.dataset.category || "all";
+      redirectToFilter(category);
     });
   });
 

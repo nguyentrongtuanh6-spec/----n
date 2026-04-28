@@ -175,6 +175,7 @@ body {
 }
 
 .btn-buy,
+.btn-add-cart,
 .btn-contact {
   height: 36px;
   border-radius: 7px;
@@ -182,6 +183,7 @@ body {
   font-weight: 600;
   border: 1px solid #111;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 .btn-buy {
@@ -189,6 +191,21 @@ body {
   background: #ff93a0;
   color: #fff;
   border: none;
+}
+
+.btn-add-cart {
+  flex: 1;
+  background: #333;
+  color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-add-cart:hover {
+  background: #000;
 }
 
 .btn-contact {

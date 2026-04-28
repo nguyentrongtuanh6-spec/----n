@@ -146,6 +146,61 @@
       
       this.save(data);
       return index === -1; // Trả về true nếu là thêm vào, false nếu là bỏ ra
+    },
+
+    // --- QUẢN LÝ GIỎ HÀNG (CART) ---
+    getCart: function () {
+      try {
+        return JSON.parse(localStorage.getItem("auroraCart")) || [];
+      } catch {
+        return [];
+      }
+    },
+
+    saveCart: function (cart) {
+      localStorage.setItem("auroraCart", JSON.stringify(cart));
+      // Dispatch event to update UI in other places if needed
+      window.dispatchEvent(new Event('cartUpdated'));
+    },
+
+    addToCart: function (product, qty = 1) {
+      if (!product) return;
+      const cart = this.getCart();
+      const existingProduct = cart.find(item => String(item.id) === String(product.id));
+
+      if (existingProduct) {
+        existingProduct.qty += qty;
+      } else {
+        cart.push({
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          image: product.image,
+          qty: qty
+        });
+      }
+      this.saveCart(cart);
+      return cart;
+    },
+
+    removeFromCart: function (productId) {
+      const cart = this.getCart().filter(item => String(item.id) !== String(productId));
+      this.saveCart(cart);
+      return cart;
+    },
+
+    updateCartQty: function (productId, qty) {
+      const cart = this.getCart();
+      const product = cart.find(item => String(item.id) === String(productId));
+      if (product) {
+        product.qty = Math.max(1, qty);
+        this.saveCart(cart);
+      }
+      return cart;
+    },
+
+    getCartCount: function () {
+      return this.getCart().reduce((sum, item) => sum + item.qty, 0);
     }
   };
 

@@ -41,9 +41,10 @@
           <a href="./trangdangnhap.html" title="Tài khoản"
             ><i class="fa-regular fa-user"></i
           ></a>
-          <a href="#" title="Giỏ hàng"
-            ><i class="fa-solid fa-bag-shopping"></i
-          ></a>
+          <a href="./tranggiohang.html" title="Giỏ hàng" class="cart-icon-link">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cart-count">0</span>
+          </a>
         </div>
       </div>
 
@@ -82,35 +83,51 @@
         <div class="mini-label">Sản phẩm dành cho cặp đôi</div>
 
         <div class="product-grid-4" id="coupleProductGrid">
-          <a href="./trangchitiet.html?id=1" class="product-card">
-            <div class="product-thumb">
-              <img
-                src="../ảnh/Ảnh chụp màn hình/2.png"
-                alt="Nhẫn cặp đôi bạc đính đá phong cách hiện đại AURORA"
-              />
-            </div>
-            <div class="product-info">
-              <div class="product-name">
-                Nhẫn cặp đôi bạc đính đá phong cách hiện đại AURORA
+          <div class="product-card">
+            <a href="./trangchitiet.html?id=1" class="product-link">
+              <div class="product-thumb">
+                <img
+                  src="../ảnh/Ảnh chụp màn hình/2.png"
+                  alt="Nhẫn cặp đôi bạc đính đá phong cách hiện đại AURORA"
+                />
               </div>
-              <div class="price">1.641.000đ</div>
-            </div>
-          </a>
+              <div class="product-info">
+                <div class="product-name">
+                  Nhẫn cặp đôi bạc đính đá phong cách hiện đại AURORA
+                </div>
+                <div class="price">1.641.000đ</div>
+              </div>
+            </a>
+            <button class="wishlist-btn" data-id="1">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <button class="add-to-cart-btn" data-id="1">
+              <i class="fa-solid fa-cart-plus"></i>
+            </button>
+          </div>
 
-          <a href="./trangchitiet.html?id=2" class="product-card">
-            <div class="product-thumb">
-              <img
-                src="../ảnh/Ảnh chụp màn hình/3.png"
-                alt="Lắc tay bạc cặp đôi thời thượng Love Forever"
-              />
-            </div>
-            <div class="product-info">
-              <div class="product-name">
-                Lắc tay bạc cặp đôi thời thượng Love Forever
+          <div class="product-card">
+            <a href="./trangchitiet.html?id=2" class="product-link">
+              <div class="product-thumb">
+                <img
+                  src="../ảnh/Ảnh chụp màn hình/3.png"
+                  alt="Lắc tay bạc cặp đôi thời thượng Love Forever"
+                />
               </div>
-              <div class="price">1.582.000đ</div>
-            </div>
-          </a>
+              <div class="product-info">
+                <div class="product-name">
+                  Lắc tay bạc cặp đôi thời thượng Love Forever
+                </div>
+                <div class="price">1.582.000đ</div>
+              </div>
+            </a>
+            <button class="wishlist-btn" data-id="2">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <button class="add-to-cart-btn" data-id="2">
+              <i class="fa-solid fa-cart-plus"></i>
+            </button>
+          </div>
 
           <a href="./trangchitiet.html?id=3" class="product-card">
             <div class="product-thumb">
@@ -127,24 +144,32 @@
             </div>
           </a>
 
-          <a href="./trangchitiet.html?id=4" class="product-card">
-            <div class="product-thumb">
-              <img
-                src="https://lili.vn/wp-content/uploads/2024/05/Day-chuyen-bac-doi-dinh-ngoc-bich-Hetian-dong-dieu-Mary-LILI_126122_3.jpg.webp"
-                alt="Dây chuyền đôi đính charm mặt trăng phong cách trẻ trung"
-              />
-            </div>
-            <div class="product-info">
-              <div class="product-name">
-                Dây chuyền đôi đính charm mặt trăng phong cách trẻ trung
+          <div class="product-card">
+            <a href="./trangchitiet.html?id=4" class="product-card">
+              <div class="product-thumb">
+                <img
+                  src="https://lili.vn/wp-content/uploads/2024/05/Day-chuyen-bac-doi-dinh-ngoc-bich-Hetian-dong-dieu-Mary-LILI_126122_3.jpg.webp"
+                  alt="Dây chuyền đôi đính charm mặt trăng phong cách trẻ trung"
+                />
               </div>
-              <div class="price">2.419.000đ</div>
-            </div>
-          </a>
+              <div class="product-info">
+                <div class="product-name">
+                  Dây chuyền đôi đính charm mặt trăng phong cách trẻ trung
+                </div>
+                <div class="price">2.419.000đ</div>
+              </div>
+            </a>
+            <button class="wishlist-btn" data-id="4">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <button class="add-to-cart-btn" data-id="4">
+              <i class="fa-solid fa-cart-plus"></i>
+            </button>
+          </div>
         </div>
 
         <div class="view-wrap">
-          <a href="#" class="view-more js-dynamic-load" data-grid="coupleProductGrid" data-category="couple">Xem thêm</a>
+          <a href="#" class="view-more" data-category="couple">Xem thêm</a>
         </div>
       </section>
 
@@ -302,6 +327,10 @@
             </div>
           </a>
         </div>
+
+        <div class="view-wrap">
+          <a href="#" class="view-more" data-category="favorite">Xem thêm</a>
+        </div>
       </section>
 
 
@@ -440,7 +469,9 @@
 
     <script src="../js/db.js"></script>
     <script src="../js/data-products.js"></script>
+    <script src="../js/data-special.js"></script>
     <script src="../js/nav-active.js"></script>
+    <script src="../js/utils.js"></script>
     <script src="../js/trangchu.js"></script>
   </body>
 </html>
