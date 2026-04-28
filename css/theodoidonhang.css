@@ -1,5 +1,12 @@
 .tracking-page {
-    padding: 40px 0 80px;
+    padding: 20px 0 80px;
+}
+
+.cart-breadcrumb {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 11px;
+    letter-spacing: 1px;
 }
 
 .tracking-title {
@@ -23,11 +30,9 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin: 60px 0;
+    margin: 80px auto 60px;
     position: relative;
     max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .tracking-status-bar::before {
@@ -88,11 +93,12 @@
 .order-id-badge {
     position: absolute;
     right: 0;
-    top: -20px;
+    top: -60px;
     background: #f9f9f9;
-    padding: 20px 30px;
+    padding: 15px 25px;
     border-left: 4px solid #333;
     text-align: left;
+    z-index: 5;
 }
 
 .order-id-badge span {
