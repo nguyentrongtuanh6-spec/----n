@@ -368,6 +368,23 @@
   color: #d32f2f;
 }
 
+.btn-table-cancel {
+  background: transparent;
+  border: 1px solid #ff5252;
+  color: #ff5252;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-table-cancel:hover {
+  background: #ff5252;
+  color: #fff;
+}
+
 .expand-table {
   text-align: center;
   margin-top: 15px;
