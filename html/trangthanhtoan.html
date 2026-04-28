@@ -31,7 +31,7 @@
                 <a href="./trangyeuthich.html" title="Yêu thích"><i class="fa-regular fa-heart"></i></a>
                 <a href="#" title="Cửa hàng"><i class="fa-solid fa-location-dot"></i></a>
                 <a href="./trangdangnhap.html" title="Tài khoản"><i class="fa-regular fa-user"></i></a>
-                <a href="./tranggiohang.html" title="Giỏ hàng"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count">0</span></a>
+                <a href="./tranggiohang.html" title="Giỏ hàng"><i class="fa-solid fa-bag-shopping"></i></a>
             </div>
         </div>
 
@@ -153,40 +153,14 @@
                 <aside class="checkout-summary">
                     <h3>Tóm tắt đơn hàng</h3>
                     
-                    <div class="summary-items">
-                        <!-- Item 1 -->
-                        <div class="summary-item">
-                            <div class="summary-item-img">
-                                <img src="../ảnh/Ảnh chụp màn hình/35.png" alt="Item">
-                            </div>
-                            <div class="summary-item-info">
-                                <h4>Dây chuyền đôi bạc đính đá hình cá voi và bướm Brenna AURORA</h4>
-                                <p>Đá Cubic Zirconia • Độ dài: 45cm</p>
-                                <p>1.210.000đ</p>
-                            </div>
-                            <div class="summary-item-price">1.210.000đ</div>
-                        </div>
-                        
-                        <!-- Item 2 -->
-                        <div class="summary-item">
-                            <div class="summary-item-img">
-                                <img src="../ảnh/Ảnh chụp màn hình/2.png" alt="Item">
-                            </div>
-                            <div class="summary-item-info">
-                                <h4>Dây chuyền bạc nữ đính đá cỏ 4 lá AURORA</h4>
-                                <p>Đá Cubic Zirconia tự nhiên • Độ dài: 40cm</p>
-                                <p>1.900.000đ</p>
-                            </div>
-                            <div class="summary-item-price">1.900.000đ</div>
-                        </div>
-
-                        <!-- Add more items as needed -->
+                    <div class="summary-items" id="checkoutItemsContainer">
+                        <!-- Sản phẩm sẽ được render tự động từ js -->
                     </div>
 
                     <div class="summary-calc">
                         <div class="calc-row">
                             <span>Tạm tính</span>
-                            <span>6.510.000đ</span>
+                            <span id="checkoutSubtotal">0đ</span>
                         </div>
                         <div class="calc-row">
                             <span>Phí vận chuyển</span>
@@ -194,7 +168,7 @@
                         </div>
                         <div class="calc-row total">
                             <span>Tổng cộng</span>
-                            <span class="total-price">6.510.000đ</span>
+                            <span class="total-price" id="checkoutTotal">0đ</span>
                         </div>
                     </div>
 
@@ -288,4 +262,5 @@
     <script src="../js/trangthanhtoan.js"></script>
 </body>
 </html>
+
 

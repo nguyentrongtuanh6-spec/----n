@@ -110,12 +110,6 @@ window.addEventListener("DOMContentLoaded", function () {
                     const product = window.AuroraDB.getProductById(id);
                     if (product) {
                         window.AuroraDB.addToCart(product, 1);
-                        // Thông báo thành công (có thể dùng Aurora.showAlert nếu có utils.js)
-                        if (window.Aurora && window.Aurora.showAlert) {
-                            window.Aurora.showAlert("Thành công", `Đã thêm ${product.name} vào giỏ hàng.`, "success");
-                        } else {
-                            alert("Đã thêm sản phẩm vào giỏ hàng!");
-                        }
                     }
                 }
             });

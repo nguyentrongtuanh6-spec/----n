@@ -97,12 +97,6 @@ window.addEventListener("DOMContentLoaded", function () {
           if (window.AuroraDB) {
             const qty = getSafeQty();
             window.AuroraDB.addToCart(product, qty);
-            
-            if (window.Aurora && window.Aurora.showAlert) {
-                window.Aurora.showAlert("Thành công", `Đã thêm ${qty} ${product.name} vào giỏ hàng.`, "success");
-            } else {
-                alert(`Đã thêm ${qty} sản phẩm vào giỏ hàng!`);
-            }
           }
         });
       }
