@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Xử lý lấy ID từ URL
   const urlParams = new URLSearchParams(window.location.search);
   const orderId = urlParams.get("id") || "AUR-12345";
+  const action = urlParams.get("action");
 
   // Mock data chuyên sâu cho chi tiết đơn hàng
   const ordersDatabase = {
@@ -84,6 +85,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (order) {
     renderOrderDetail(orderId, order);
+    
+    // Nếu action là cancel thì tự động mở modal hủy
+    if (action === "cancel" && order.status === "pending") {
+        setTimeout(() => {
+            cancelOrderBtn.click();
+        }, 300);
+    }
   }
 
   function renderOrderDetail(id, data) {
@@ -115,31 +123,71 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Xử lý nút hủy
-  cancelOrderBtn?.addEventListener("click", async function () {
-    const confirmed = await Aurora.showConfirm(
-      "Xác nhận hủy đơn",
-      "Bạn có chắc chắn muốn hủy đơn hàng này không? Hành động này không thể hoàn tác.",
-      "Hủy đơn hàng",
-      "Quay lại"
-    );
+  const cancelOrderModal = document.getElementById("cancelOrderModal");
+  const closeCancelModal = document.getElementById("closeCancelModal");
+  const submitCancelOrder = document.getElementById("submitCancelOrder");
+  const modalOtherReasonText = document.getElementById("modalOtherReasonText");
+  const reasonRadios = document.querySelectorAll('input[name="modalCancelReason"]');
 
-    if (confirmed) {
-      // Giả lập xử lý hủy
-      cancelOrderBtn.disabled = true;
-      cancelOrderBtn.textContent = "Đang xử lý...";
+  cancelOrderBtn?.addEventListener("click", function () {
+    cancelOrderModal.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  });
 
-      setTimeout(() => {
-        Aurora.showAlert(
-          "Thành công",
-          "Đơn hàng của bạn đã được hủy thành công.",
-          "success"
-        );
-        
-        // Cập nhật giao diện
-        displayOrderStatus.textContent = "Đã hủy";
-        displayOrderStatus.className = "status-badge cancelled";
-        cancelOrderBtn.classList.add("hidden");
-      }, 1500);
+  closeCancelModal?.addEventListener("click", function () {
+    cancelOrderModal.classList.add("hidden");
+    document.body.style.overflow = "auto";
+  });
+
+  // Toggle textarea cho lý do khác
+  reasonRadios.forEach(radio => {
+    radio.addEventListener("change", function () {
+      if (this.value === "Khác") {
+        modalOtherReasonText.classList.remove("hidden");
+        modalOtherReasonText.focus();
+      } else {
+        modalOtherReasonText.classList.add("hidden");
+      }
+    });
+  });
+
+  submitCancelOrder?.addEventListener("click", function () {
+    let selectedReason = "";
+    reasonRadios.forEach(radio => {
+      if (radio.checked) selectedReason = radio.value;
+    });
+
+    if (!selectedReason) {
+      Aurora.showAlert("Thông báo", "Vui lòng chọn lý do quý khách muốn hủy đơn hàng.", "error");
+      return;
+    }
+
+    // Giả lập xử lý hủy
+    submitCancelOrder.disabled = true;
+    submitCancelOrder.textContent = "Đang xử lý...";
+
+    setTimeout(() => {
+      cancelOrderModal.classList.add("hidden");
+      document.body.style.overflow = "auto";
+
+      Aurora.showAlert(
+        "Thành công",
+        "Đơn hàng của bạn đã được hủy thành công.",
+        "success"
+      );
+      
+      // Cập nhật giao diện
+      displayOrderStatus.textContent = "Đã hủy";
+      displayOrderStatus.className = "status-badge cancelled";
+      cancelOrderBtn.classList.add("hidden");
+    }, 1500);
+  });
+
+  // Đóng modal khi click ra ngoài
+  cancelOrderModal?.addEventListener("click", (e) => {
+    if (e.target === cancelOrderModal) {
+      cancelOrderModal.classList.add("hidden");
+      document.body.style.overflow = "auto";
     }
   });
 });

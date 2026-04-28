@@ -198,6 +198,48 @@
       </div>
     </footer>
 
+  <!-- Modal Hủy đơn hàng -->
+  <div id="cancelOrderModal" class="custom-alert-overlay hidden">
+    <div class="custom-alert-box modal-large">
+      <div class="alert-icon warning">
+        <i class="fa-solid fa-circle-exclamation"></i>
+      </div>
+      <div class="alert-title">Lý do hủy đơn hàng</div>
+      <div class="alert-message">Vui lòng chọn lý do quý khách muốn hủy đơn hàng này.</div>
+      
+      <div class="cancellation-reason-form">
+        <div class="reason-options">
+          <label class="radio-item">
+            <input type="radio" name="modalCancelReason" value="Thay đổi ý định">
+            <span>Tôi muốn thay đổi ý định mua hàng</span>
+          </label>
+          <label class="radio-item">
+            <input type="radio" name="modalCancelReason" value="Tìm thấy giá rẻ hơn">
+            <span>Tôi tìm thấy sản phẩm tương tự với giá rẻ hơn</span>
+          </label>
+          <label class="radio-item">
+            <input type="radio" name="modalCancelReason" value="Thời gian giao hàng lâu">
+            <span>Thời gian giao hàng dự kiến quá lâu</span>
+          </label>
+          <label class="radio-item">
+            <input type="radio" name="modalCancelReason" value="Sai thông tin">
+            <span>Nhập sai thông tin giao hàng hoặc thanh toán</span>
+          </label>
+          <label class="radio-item">
+            <input type="radio" name="modalCancelReason" value="Khác">
+            <span>Lý do khác</span>
+          </label>
+        </div>
+        <textarea id="modalOtherReasonText" placeholder="Vui lòng chia sẻ thêm lý do của quý khách..." class="hidden"></textarea>
+      </div>
+
+      <div class="alert-buttons">
+        <button class="btn-alert btn-alert-cancel" id="closeCancelModal">Quay lại</button>
+        <button class="btn-alert btn-alert-confirm" id="submitCancelOrder">Xác nhận hủy</button>
+      </div>
+    </div>
+  </div>
+
   <script src="../js/utils.js"></script>
   <script src="../js/chitietdonhang.js"></script>
 </body>

@@ -262,3 +262,61 @@
         gap: 15px;
     }
 }
+
+/* Modal Cancellation Styles */
+.modal-large {
+    max-width: 500px !important;
+    padding: 40px !important;
+}
+
+.cancellation-reason-form {
+    text-align: left;
+    margin: 24px 0;
+    padding: 20px;
+    background: #fff9fa;
+    border-radius: 12px;
+    border: 1px dashed #f28f9f;
+}
+
+.reason-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.radio-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #444;
+    transition: 0.2s;
+}
+
+.radio-item:hover {
+    color: #f28f9f;
+}
+
+.radio-item input {
+    accent-color: #f28f9f;
+    width: 18px;
+    height: 18px;
+}
+
+#modalOtherReasonText {
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    min-height: 80px;
+    font-size: 14px;
+    resize: none;
+    outline: none;
+    transition: 0.3s;
+}
+
+#modalOtherReasonText:focus {
+    border-color: #f28f9f;
+}
