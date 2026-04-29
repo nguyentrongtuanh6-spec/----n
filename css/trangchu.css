@@ -935,3 +935,350 @@ footer {
     padding: 14px 26px;
   }
 }
+
+/* ================================================
+   CHARM CREATIVE SECTION - FULL REDESIGN
+   ================================================ */
+
+.charm-creative-section {
+  padding: 50px 30px;
+  background: #fff;
+}
+
+/* Main 2-column layout: left 55%, right 45% */
+.charm-creative-layout {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  gap: 28px;
+  align-items: start;
+}
+
+/* ---- LEFT COLUMN ---- */
+.charm-left-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.charm-main-preview {
+  width: 100%;
+  height: 340px;
+  background: #f8f4f4;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  border: 1px solid #f0e8e8;
+}
+
+.charm-main-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.4s ease;
+}
+
+.charm-base-section {
+  background: #fafafa;
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid #f0f0f0;
+}
+
+.charm-base-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.charm-base-label i {
+  color: #f28f9f;
+}
+
+.charm-base-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.charm-base-card {
+  background: #fff;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  padding: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.charm-base-card:hover {
+  border-color: #f28f9f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(242,143,159,0.2);
+}
+
+.charm-base-card.active {
+  border-color: #f28f9f;
+  background: #fff5f6;
+}
+
+.charm-base-card.active::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 18px;
+  height: 18px;
+  background: #f28f9f url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 10'%3E%3Cpath d='M1 5l3 4 7-8' stroke='%23fff' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/10px no-repeat;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.charm-base-card img {
+  width: 100%;
+  height: 70px;
+  object-fit: contain;
+  margin-bottom: 6px;
+}
+
+.charm-base-card .base-name {
+  font-size: 10px;
+  color: #555;
+  font-weight: 500;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 26px;
+}
+
+.charm-base-card .base-price {
+  font-size: 11px;
+  font-weight: 700;
+  color: #f28f9f;
+  margin-top: 4px;
+}
+
+/* ---- RIGHT COLUMN ---- */
+.charm-right-col {
+  display: flex;
+  flex-direction: column;
+  height: 560px;
+  background: #fafafa;
+  border-radius: 16px;
+  border: 1px solid #f0f0f0;
+  overflow: hidden;
+}
+
+.charm-right-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px 12px;
+  border-bottom: 1px solid #f0f0f0;
+  background: #fff;
+  flex-shrink: 0;
+}
+
+.charm-right-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #222;
+}
+
+.charm-selected-badge {
+  background: #f28f9f;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  min-width: 72px;
+  text-align: center;
+}
+
+/* Scrollable charm grid */
+.charm-scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px;
+}
+
+.charm-scroll-area::-webkit-scrollbar { width: 5px; }
+.charm-scroll-area::-webkit-scrollbar-track { background: #f5f5f5; }
+.charm-scroll-area::-webkit-scrollbar-thumb { background: #f28f9f; border-radius: 4px; }
+
+.charm-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+/* Individual charm card */
+.charm-sel-card {
+  background: #fff;
+  border: 2px solid #eee;
+  border-radius: 12px;
+  padding: 10px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: center;
+  user-select: none;
+}
+
+.charm-sel-card:hover {
+  border-color: #f28f9f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(242,143,159,0.2);
+}
+
+.charm-sel-card.checked {
+  border-color: #f28f9f;
+  background: #fff5f6;
+}
+
+/* Custom checkbox top-right */
+.charm-sel-card .sel-check {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  z-index: 2;
+}
+
+.charm-sel-card.checked .sel-check {
+  background: #f28f9f;
+  border-color: #f28f9f;
+}
+
+.charm-sel-card.checked .sel-check::after {
+  content: '';
+  width: 10px;
+  height: 7px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 9'%3E%3Cpath d='M1 4l4 4 6-7' stroke='%23fff' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+
+.charm-sel-card img {
+  width: 100%;
+  height: 90px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+.charm-sel-card .sel-name {
+  font-size: 11px;
+  font-weight: 500;
+  color: #444;
+  line-height: 1.35;
+  height: 30px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.charm-sel-card .sel-price {
+  font-size: 12px;
+  font-weight: 700;
+  color: #f28f9f;
+  margin-top: 5px;
+}
+
+/* Action bar at bottom of right col */
+.charm-action-bar {
+  padding: 14px 18px;
+  border-top: 1px solid #f0f0f0;
+  background: #fff;
+  flex-shrink: 0;
+}
+
+.charm-total-price {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.charm-total-price strong {
+  color: #f28f9f;
+  font-size: 15px;
+}
+
+.charm-btn-group {
+  display: flex;
+  gap: 10px;
+}
+
+.charm-btn-cart,
+.charm-btn-buy {
+  flex: 1;
+  height: 44px;
+  border: none;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  transition: all 0.25s ease;
+}
+
+.charm-btn-cart {
+  background: #fff;
+  color: #f28f9f;
+  border: 2px solid #f28f9f;
+}
+
+.charm-btn-cart:hover {
+  background: #f28f9f;
+  color: #fff;
+}
+
+.charm-btn-buy {
+  background: linear-gradient(135deg, #f49aaa, #ef6b7d);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(242,107,125,0.3);
+}
+
+.charm-btn-buy:hover {
+  box-shadow: 0 6px 20px rgba(242,107,125,0.45);
+  transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .charm-creative-layout {
+    grid-template-columns: 1fr;
+  }
+  .charm-right-col {
+    height: auto;
+    min-height: 400px;
+  }
+  .charm-base-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .charm-base-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

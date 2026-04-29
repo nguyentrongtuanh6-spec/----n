@@ -68,8 +68,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
     function attachEvents() {
         container.querySelectorAll('.minus').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const id = btn.dataset.id;
+            btn.addEventListener('click', function() {
+                const id = this.dataset.id;
                 const cart = window.AuroraDB.getCart();
                 const item = cart.find(p => String(p.id) === String(id));
                 if (item && item.qty > 1) {
@@ -80,8 +80,8 @@ window.addEventListener('DOMContentLoaded', () => {
         });
 
         container.querySelectorAll('.plus').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const id = btn.dataset.id;
+            btn.addEventListener('click', function() {
+                const id = this.dataset.id;
                 const cart = window.AuroraDB.getCart();
                 const item = cart.find(p => String(p.id) === String(id));
                 if (item) {
@@ -92,12 +92,40 @@ window.addEventListener('DOMContentLoaded', () => {
         });
 
         container.querySelectorAll('.btn-remove').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const id = btn.dataset.id;
-                if (confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')) {
-                    window.AuroraDB.removeFromCart(id);
-                    renderCart();
-                }
+            btn.addEventListener('click', function() {
+                const id = this.dataset.id;
+                
+                Swal.fire({
+                    title: 'Xóa sản phẩm?',
+                    text: "Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#f49aaa',
+                    cancelButtonColor: '#aaa',
+                    confirmButtonText: 'Đồng ý',
+                    cancelButtonText: 'Hủy'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        console.log("Xóa sản phẩm id:", id);
+                        window.AuroraDB.removeFromCart(id);
+                        
+                        // DOM Update ngay lập tức để tránh delay
+                        const article = this.closest('.cart-item');
+                        if (article) article.remove();
+                        
+                        // Re-render để cập nhật tổng tiền và trạng thái giỏ trống
+                        renderCart();
+
+                        Swal.fire({
+                            title: 'Đã xóa!',
+                            text: 'Sản phẩm đã được xóa khỏi giỏ hàng.',
+                            icon: 'success',
+                            confirmButtonColor: '#f49aaa',
+                            timer: 1500,
+                            showConfirmButton: false
+                        });
+                    }
+                });
             });
         });
     }

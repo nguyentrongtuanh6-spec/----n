@@ -1,4 +1,4 @@
-const products = [
+﻿const products = [
   {
     id: 1,
     category: "couple",
@@ -216,7 +216,48 @@ const products = [
 
 window.productData = products;
 
-// Khởi tạo Database nếu chưa có
+
+// --- NEW CHARMS (101-120) ---
+products.push(
+  { id: 101, category: "charm", name: "Charm Cỏ 4 Lá May Mắn", price: "250.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm cỏ 4 lá mang lại may mắn." },
+  { id: 102, category: "charm", name: "Charm Ngôi Sao Hy Vọng", price: "200.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm ngôi sao sáng lấp lánh." },
+  { id: 103, category: "charm", name: "Charm Bướm Xinh", price: "300.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm hình bướm tinh xảo." },
+  { id: 104, category: "charm", name: "Charm Trái Tim Kim Cương", price: "450.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm trái tim đính đá lấp lánh." },
+  { id: 105, category: "charm", name: "Charm Hoa Hướng Dương", price: "280.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm hoa hướng dương rực rỡ." },
+  { id: 106, category: "charm", name: "Charm Đôi Cánh Thiên Thần", price: "350.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm đôi cánh thiên thần bình an." },
+  { id: 107, category: "charm", name: "Charm Vương Miện", price: "400.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm vương miện quyền quý." },
+  { id: 108, category: "charm", name: "Charm Chìa Khóa Tình Yêu", price: "320.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm chìa khóa mở cửa trái tim." },
+  { id: 109, category: "charm", name: "Charm Thỏ Trắng", price: "270.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm thỏ trắng dễ thương." },
+  { id: 110, category: "charm", name: "Charm Mặt Trăng Khuyết", price: "240.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm mặt trăng huyền bí." },
+  { id: 111, category: "charm", name: "Charm Gấu Bông", price: "290.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm gấu bông đáng yêu." },
+  { id: 112, category: "charm", name: "Charm Hoa Hồng Ân", price: "310.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm hoa hồng lãng mạn." },
+  { id: 113, category: "charm", name: "Charm Mũi Tên Tình Yêu", price: "260.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm mũi tên Cupid." },
+  { id: 114, category: "charm", name: "Charm Quả Cầu Tuyết", price: "380.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm quả cầu pha lê." },
+  { id: 115, category: "charm", name: "Charm Chuông Gió", price: "330.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm chuông ngân vang." },
+  { id: 116, category: "charm", name: "Charm Cá Heo", price: "280.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm cá heo thông minh." },
+  { id: 117, category: "charm", name: "Charm Pháo Hoa", price: "340.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm pháo hoa rực rỡ." },
+  { id: 118, category: "charm", name: "Charm Ánh Dương", price: "370.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm mặt trời tỏa nắng." },
+  { id: 119, category: "charm", name: "Charm Lá Phong", price: "230.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm lá phong mùa thu." },
+  { id: 120, category: "charm", name: "Charm Nơ Xinh", price: "250.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm chiếc nơ điệu đà." }
+);
+
+// --- NEW BASES (201-212) ---
+products.push(
+  { id: 201, category: "base", name: "Vòng Tay Bạc Trơn Cơ Bản", price: "500.000đ", image: "../ảnh/charm-gen/base-collection.png", description: "Vòng bạc 925 trơn thanh lịch." },
+  { id: 202, category: "base", name: "Vòng Tay Bạc Mắt Xích", price: "600.000đ", image: "../ảnh/charm-gen/base-collection.png", description: "Vòng mắt xích cá tính." },
+  { id: 203, category: "base", name: "Vòng Tay Bạc Cứng", price: "550.000đ", image: "../ảnh/charm-gen/base-collection.png", description: "Vòng kiềng bạc cứng cáp." },
+  { id: 204, category: "base", name: "Vòng Tay Bạc Dây Xoắn", price: "650.000đ", image: "../ảnh/charm-gen/base-collection.png", description: "Vòng dây xoắn độc đáo." },
+  { id: 205, category: "base", name: "Vòng Tay Bạc Nam Châm", price: "700.000đ", image: "../ảnh/charm-gen/base-collection.png", description: "Vòng khóa nam châm tiện lợi." },
+  { id: 206, category: "base", name: "Vòng Tay Vàng Trắng", price: "1.200.000đ", image: "../ảnh/charm-gen/base-collection.png", description: "Vòng mạ vàng trắng cao cấp." },
+  { id: 207, category: "base", name: "Dây Chuyền Bạc Sợi Mảnh", price: "400.000đ", image: "../ảnh/charm-gen/base-collection.png", description: "Dây chuyền mảnh nữ tính." },
+  { id: 208, category: "base", name: "Dây Chuyền Bạc Xích Tròn", price: "450.000đ", image: "../ảnh/charm-gen/base-collection.png", description: "Dây xích tròn thời trang." },
+  { id: 209, category: "base", name: "Dây Chuyền Bạc Ý", price: "500.000đ", image: "../ảnh/charm-gen/base-collection.png", description: "Dây chuyền bạc Ý 925." },
+  { id: 210, category: "base", name: "Dây Chuyền Bạc Chữ V", price: "550.000đ", image: "../ảnh/charm-gen/base-collection.png", description: "Dây thiết kế chữ V." },
+  { id: 211, category: "base", name: "Dây Chuyền Bạc Đính Bi", price: "600.000đ", image: "../ảnh/charm-gen/base-collection.png", description: "Dây chuyền điểm bi bạc." },
+  { id: 212, category: "base", name: "Dây Chuyền Mạ Vàng 14K", price: "900.000đ", image: "../ảnh/charm-gen/base-collection.png", description: "Dây mạ vàng 14K sang trọng." }
+);
+
 if (window.AuroraDB) {
   window.AuroraDB.init(products);
 }
+

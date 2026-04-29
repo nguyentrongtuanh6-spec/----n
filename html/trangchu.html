@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
@@ -331,39 +331,46 @@
           <a href="#" class="view-more" data-category="favorite">Xem thêm</a>
         </div>
       </section>
-      <section class="section section-box">
-        <h2 class="section-title">Sản phẩm tiêu biểu</h2>
-        <div class="custom-layout">
-          <div class="custom-left" id="charmPreviewBox">
-            <img src="../ảnh/Ảnh chụp màn hình/1.png" alt="Preview" id="charmPreviewImg" />
+      <!-- CHARM CREATIVE SECTION -->
+      <section class="section section-box charm-creative-section">
+        <h2 class="section-title">Sáng tạo theo cách của bạn</h2>
+        <div class="charm-creative-layout">
+          <!-- LEFT: Preview + Base selection -->
+          <div class="charm-left-col">
+            <div class="charm-main-preview">
+              <img src="../ảnh/charm-gen/charm-hero.png" alt="Preview" id="charmMainPreviewImg" />
+            </div>
+            <div class="charm-base-section">
+              <p class="charm-base-label"><i class="fa-solid fa-link"></i> Chọn vòng / dây chuyền:</p>
+              <div class="charm-base-grid" id="charmBaseGrid">
+                <!-- Rendered by JS -->
+              </div>
+            </div>
           </div>
-          <div class="sidebar-box">
-            <h3 class="sidebar-title">Bộ sưu tập Charm</h3>
-            <div class="charm-list">
-              <a href="./trangchitiet.html?id=18" class="charm-item" data-image="../ảnh/Ảnh chụp màn hình/1.png">
-                <img src="../ảnh/Ảnh chụp màn hình/1.png" alt="Charm bạc nữ tinh tế" />
-                <div class="info">
-                  <h4>Charm bạc nữ tinh tế</h4>
-                </div>
-              </a>
-              <a href="./trangchitiet.html?id=19" class="charm-item" data-image="../ảnh/Ảnh chụp màn hình/54.png">
-                <img src="../ảnh/Ảnh chụp màn hình/54.png" alt="Charm trái tim nhỏ" />
-                <div class="info">
-                  <h4>Charm trái tim nhỏ</h4>
-                </div>
-              </a>
-              <a href="./trangchitiet.html?id=20" class="charm-item" data-image="../ảnh/Ảnh chụp màn hình/55.png">
-                <img src="../ảnh/Ảnh chụp màn hình/55.png" alt="Charm trăng sao" />
-                <div class="info">
-                  <h4>Charm trăng sao</h4>
-                </div>
-              </a>
-              <a href="./trangchitiet.html?id=21" class="charm-item" data-image="../ảnh/Ảnh chụp màn hình/56.png">
-                <img src="../ảnh/Ảnh chụp màn hình/56.png" alt="Charm bạc hiện đại" />
-                <div class="info">
-                  <h4>Charm bạc hiện đại</h4>
-                </div>
-              </a>
+
+          <!-- RIGHT: Charm library with checkboxes -->
+          <div class="charm-right-col">
+            <div class="charm-right-header">
+              <h3 class="charm-right-title">Bộ sưu tập Charm</h3>
+              <span class="charm-selected-badge" id="charmSelectedCount">0 đã chọn</span>
+            </div>
+
+            <div class="charm-scroll-area">
+              <div class="charm-card-grid" id="charmCardGrid">
+                <!-- Rendered by JS -->
+              </div>
+            </div>
+
+            <div class="charm-action-bar">
+              <div class="charm-total-price" id="charmTotalPrice">Tổng cộng: <strong>0đ</strong></div>
+              <div class="charm-btn-group">
+                <button class="charm-btn-cart" id="charmAddToCartBtn">
+                  <i class="fa-solid fa-cart-shopping"></i> Thêm giỏ hàng
+                </button>
+                <button class="charm-btn-buy" id="charmBuyNowBtn">
+                  Mua ngay
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -509,4 +516,5 @@
     <script src="../js/trangchu.js"></script>
   </body>
 </html>
+
 

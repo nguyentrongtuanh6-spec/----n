@@ -171,14 +171,14 @@
     // --- QUẢN LÝ GIỎ HÀNG (CART) ---
     getCart: function () {
       try {
-        return JSON.parse(sessionStorage.getItem("auroraCart")) || [];
+        return JSON.parse(localStorage.getItem("auroraCart")) || [];
       } catch {
         return [];
       }
     },
 
     saveCart: function (cart) {
-      sessionStorage.setItem("auroraCart", JSON.stringify(cart));
+      localStorage.setItem("auroraCart", JSON.stringify(cart));
       // Dispatch event to update UI in other places if needed
       window.dispatchEvent(new Event('cartUpdated'));
     },
@@ -224,7 +224,7 @@
     },
 
     clearCart: function () {
-      sessionStorage.removeItem("auroraCart");
+      localStorage.removeItem("auroraCart");
       window.dispatchEvent(new Event('cartUpdated'));
     }
   };
