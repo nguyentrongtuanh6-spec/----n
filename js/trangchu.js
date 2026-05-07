@@ -30,7 +30,7 @@ window.addEventListener("DOMContentLoaded", function () {
   });
 
   // --- RENDERING DYNAMIC PRODUCTS ---
-  function renderProducts(containerId, category, showAll = false) {
+  function renderProducts(containerId, category, showAll = false, limit = 4) {
     const grid = document.getElementById(containerId);
     if (!grid) return;
 
@@ -46,14 +46,14 @@ window.addEventListener("DOMContentLoaded", function () {
     let filtered = allProducts.filter((p) => p.category === category);
     
     // NẾU BẠN VỪA THÊM SẢN PHẨM MỚI MÀ CHƯA CHỌN ĐÚNG NHÓM
-    // Chúng tôi sẽ lấy thêm các sản phẩm mới nhất để lấp đầy grid (để bạn thấy kết quả ngay)
+    // Chúng tôi sẽ lấy thêm các sản phẩm mới nhất để lấp đầy grid
     if (filtered.length < 4) {
         const others = allProducts.filter(p => p.category !== category).slice(0, 4 - filtered.length);
         filtered = [...filtered, ...others];
     }
 
     if (filtered.length > 0) {
-        const displayProducts = showAll ? filtered : filtered.slice(0, 4);
+        const displayProducts = showAll ? filtered : filtered.slice(0, limit);
         grid.innerHTML = displayProducts.map(
           (product) => {
               const isWishlisted = window.AuroraDB ? window.AuroraDB.isWishlisted(product.id) : false;
@@ -61,6 +61,7 @@ window.addEventListener("DOMContentLoaded", function () {
               <div class="product-card">
                 <a href="./trangchitiet.html?id=${product.id}" class="product-link">
                   <div class="product-thumb">
+                    ${product.discount ? `<div class="discount-badge">${product.discount}</div>` : ""}
                     <img src="${product.image}" alt="${product.name}" />
                   </div>
                   <div class="product-info">
@@ -178,36 +179,9 @@ window.addEventListener("DOMContentLoaded", function () {
 
     // Filter charms and bases
     const charms = allProducts.filter(p => p.category === "charm");
-    // Get some bases or default to rings/necklaces if 'base' is empty
     let bases = allProducts.filter(p => p.category === "base");
     if(bases.length === 0) bases = allProducts.filter(p => p.category === "couple" || p.category === "favorite").slice(0,4);
-
-    // Limit to 4 bases for UI
     bases = bases.slice(0, 4);
-
-    // Render Bases
-    charmBaseGrid.innerHTML = bases.map(base => `
-      <div class="charm-base-card" data-id="${base.id}" data-price="${parsePrice(base.price)}" data-image="${base.image}">
-        <img src="${base.image}" alt="${base.name}">
-        <div class="base-name">${base.name}</div>
-        <div class="base-price">${base.price}</div>
-      </div>
-    `).join("");
-
-    // Render Charms
-    charmCardGrid.innerHTML = charms.map(charm => `
-      <div class="charm-sel-card" data-id="${charm.id}" data-price="${parsePrice(charm.price)}" data-image="${charm.image}">
-        <div class="sel-check"></div>
-        <img src="${charm.image}" alt="${charm.name}">
-        <div class="sel-name">${charm.name}</div>
-        <div class="sel-price">${charm.price}</div>
-      </div>
-    `).join("");
-
-    // State
-    let selectedBaseId = null;
-    let selectedCharmIds = new Set();
-    let currentPreviewHover = null;
 
     function parsePrice(priceStr) {
       if(typeof priceStr === 'number') return priceStr;
@@ -217,6 +191,30 @@ window.addEventListener("DOMContentLoaded", function () {
     function formatPrice(num) {
       return num.toLocaleString('vi-VN') + 'đ';
     }
+
+    // Render Bases
+    charmBaseGrid.innerHTML = bases.map(base => `
+      <div class="charm-base-card" data-id="${base.id}" data-price="${parsePrice(base.price)}" data-image="${base.image}">
+        <img src="${base.image}" alt="${base.name}">
+        <div class="base-name">${base.name}</div>
+        <div class="base-price">${formatPrice(parsePrice(base.price))}</div>
+      </div>
+    `).join("");
+
+    // Render Charms
+    charmCardGrid.innerHTML = charms.map(charm => `
+      <div class="charm-sel-card" data-id="${charm.id}" data-price="${parsePrice(charm.price)}" data-image="${charm.image}">
+        <div class="sel-check"></div>
+        <img src="${charm.image}" alt="${charm.name}">
+        <div class="sel-name">${charm.name}</div>
+        <div class="sel-price">${formatPrice(parsePrice(charm.price))}</div>
+      </div>
+    `).join("");
+
+    // State
+    let selectedBaseId = null;
+    let selectedCharmIds = new Set();
+    let currentPreviewHover = null;
 
     function updateSummary() {
       let total = 0;
@@ -238,7 +236,6 @@ window.addEventListener("DOMContentLoaded", function () {
       selectedCountEl.textContent = `${count} đã chọn`;
       totalPriceEl.innerHTML = `Tổng cộng: <strong>${formatPrice(total)}</strong>`;
       
-      // Update preview based on base
       if(!currentPreviewHover && selectedBaseId) {
          const baseEl = document.querySelector(`.charm-base-card[data-id="${selectedBaseId}"]`);
          if(mainImg && baseEl) mainImg.src = baseEl.dataset.image;
@@ -328,7 +325,6 @@ window.addEventListener("DOMContentLoaded", function () {
           items.forEach(item => window.AuroraDB.addToCart(item, 1));
           alert(`Đã thêm ${items.length} sản phẩm vào giỏ hàng!`);
           
-          // Reset
           selectedBaseId = null;
           selectedCharmIds.clear();
           document.querySelectorAll(".charm-base-card").forEach(c => c.classList.remove("active"));
@@ -354,7 +350,100 @@ window.addEventListener("DOMContentLoaded", function () {
 
   initCharmCreative();
 
-  renderProducts("coupleProductGrid", "couple");
-  renderProducts("favoriteProductGrid", "favorite");
+  // --- SEARCH FUNCTIONALITY ---
+  const searchInput = document.getElementById("searchInput");
+  const searchSuggestions = document.getElementById("searchSuggestions");
+  const searchIcon = document.getElementById("searchIcon");
 
+  if (searchInput && searchSuggestions) {
+    searchInput.addEventListener("input", function () {
+      const query = this.value.trim().toLowerCase();
+      if (query.length < 1) {
+        searchSuggestions.style.display = "none";
+        return;
+      }
+
+      let allProducts = window.AuroraDB ? window.AuroraDB.getProducts() : [];
+      if (allProducts.length === 0) allProducts = window.productData || [];
+
+      const matches = allProducts.filter(p => 
+        p.name.toLowerCase().includes(query) || 
+        p.category.toLowerCase().includes(query) ||
+        (p.type && p.type.toLowerCase().includes(query))
+      ).slice(0, 10);
+
+      if (matches.length > 0) {
+        searchSuggestions.innerHTML = matches.map(p => `
+          <div class="suggestion-item" data-id="${p.id}">
+            <img src="${p.image}" alt="${p.name}">
+            <div class="suggestion-info">
+              <div class="suggestion-name">${p.name}</div>
+              <div class="suggestion-price">${typeof p.price === 'number' ? p.price.toLocaleString('vi-VN') + 'đ' : p.price}</div>
+            </div>
+          </div>
+        `).join("");
+        searchSuggestions.style.display = "block";
+      } else {
+        searchSuggestions.innerHTML = `<div style="padding: 10px; font-size: 11px; color: #999;">Không tìm thấy sản phẩm</div>`;
+        searchSuggestions.style.display = "block";
+      }
+    });
+
+    searchSuggestions.addEventListener("click", function (e) {
+      const item = e.target.closest(".suggestion-item");
+      if (item) {
+        const id = item.dataset.id;
+        window.location.href = `./trangchitiet.html?id=${id}`;
+      }
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!e.target.closest(".search-box")) {
+        searchSuggestions.style.display = "none";
+      }
+    });
+    
+    searchInput.addEventListener("keypress", function(e) {
+      if(e.key === 'Enter') {
+        const query = this.value.trim();
+        if(query) {
+           window.location.href = `./trangsucbo.html?search=${encodeURIComponent(query)}`;
+        }
+      }
+    });
+    
+    searchIcon?.addEventListener("click", () => {
+        const query = searchInput.value.trim();
+        if(query) window.location.href = `./trangsucbo.html?search=${encodeURIComponent(query)}`;
+    });
+  }
+
+  renderProducts("coupleProductGrid", "couple", false, 4);
+  renderProducts("favoriteProductGrid", "favorite", false, 8);
+
+  // --- RENDERING DYNAMIC NEWS ---
+  function renderNews() {
+    const newsGrid = document.querySelector(".news-grid-modern");
+    if (!newsGrid || !window.newsData) return;
+
+    // Lấy 3 tin tức đầu tiên từ newsData
+    const latestNews = window.newsData.slice(0, 3);
+
+    newsGrid.innerHTML = latestNews.map(news => `
+      <a href="./tintuc.html?id=${news.id}" class="news-card-modern">
+        <div class="news-image-wrap">
+          <img src="${news.image}" alt="${news.title}" />
+          <span class="news-tag">${news.category}</span>
+        </div>
+        <div class="news-info">
+          <div class="news-meta">${news.date}</div>
+          <h3 class="news-title-modern">${news.title}</h3>
+          <p class="news-excerpt">${news.desc}</p>
+          <span class="news-link">KHÁM PHÁ +</span>
+        </div>
+      </a>
+    `).join("");
+  }
+
+  renderNews();
 });

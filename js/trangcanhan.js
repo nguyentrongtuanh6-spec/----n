@@ -180,5 +180,49 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // --- 5. HIỂN THỊ DANH SÁCH ĐƠN HÀNG ---
+  function renderOrderHistory() {
+      const ordersTableBody = document.querySelector(".orders-table tbody");
+      if (!ordersTableBody || !window.AuroraDB) return;
+
+      const orders = window.AuroraDB.getOrders();
+      
+      if (orders.length === 0) return;
+
+      ordersTableBody.innerHTML = orders.map(order => {
+          const formattedDate = new Date(order.date).toLocaleDateString('vi-VN');
+          const productsText = order.items ? order.items.map(i => i.name).join(", ") : "Sản phẩm";
+          const totalText = typeof order.total === 'number' ? order.total.toLocaleString('vi-VN') + 'đ' : order.total;
+          
+          let statusTagClass = "pending";
+          const s = order.status.toLowerCase();
+          if (s.includes("đang giao")) statusTagClass = "shipping";
+          if (s.includes("đã giao") || s.includes("hoàn thành")) statusTagClass = "completed";
+          if (s.includes("hủy")) statusTagClass = "cancelled";
+          if (s.includes("hoàn trả")) statusTagClass = "returned";
+
+          const canCancel = (order.status === "Đang xử lý" || order.status === "Chờ xác nhận" || order.status === "Chờ xử lý");
+          const cancelBtn = canCancel 
+            ? `<button class="btn-table-cancel" onclick="event.stopPropagation(); window.location.href='./chitietdonhang.html?id=${order.id}&action=cancel'">Hủy đơn</button>`
+            : "";
+
+          return `
+            <tr onclick="location.href='./chitietdonhang.html?id=${order.id}'" style="cursor: pointer;">
+              <td>#${order.id}</td>
+              <td>${formattedDate}</td>
+              <td class="product-name-cell">${productsText}</td>
+              <td>${totalText}</td>
+              <td><span class="status-tag ${statusTagClass}">${order.status.toUpperCase()}</span></td>
+              <td>${cancelBtn}</td>
+            </tr>
+          `;
+      }).join("");
+      
+      // Cập nhật số lượng đơn hàng ở sidebar
+      const stats = document.querySelectorAll(".stat-item .stat-value");
+      if (stats.length > 0) stats[0].textContent = orders.length;
+  }
+
   renderWishlist();
+  renderOrderHistory();
 });

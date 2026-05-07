@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
@@ -27,10 +27,11 @@
         /></a>
 
         <div class="search-box">
-          <input type="text" placeholder="Bạn muốn tìm gì?" />
-          <span class="search-icon"
+          <input type="text" id="searchInput" placeholder="Bạn muốn tìm gì?" autocomplete="off" />
+          <span class="search-icon" id="searchIcon"
             ><i class="fa-solid fa-magnifying-glass"></i
           ></span>
+          <div id="searchSuggestions" class="search-suggestions"></div>
         </div>
 
         <div class="header-icons">
@@ -82,89 +83,7 @@
         <div class="mini-label">Sản phẩm dành cho cặp đôi</div>
 
         <div class="product-grid-4" id="coupleProductGrid">
-          <div class="product-card">
-            <a href="./trangchitiet.html?id=1" class="product-link">
-              <div class="product-thumb">
-                <img
-                  src="../ảnh/Ảnh chụp màn hình/2.png"
-                  alt="Nhẫn cặp đôi bạc đính đá phong cách hiện đại AURORA"
-                />
-              </div>
-              <div class="product-info">
-                <div class="product-name">
-                  Nhẫn cặp đôi bạc đính đá phong cách hiện đại AURORA
-                </div>
-                <div class="price">1.641.000đ</div>
-              </div>
-            </a>
-            <button class="wishlist-btn" data-id="1">
-              <i class="fa-regular fa-heart"></i>
-            </button>
-            <button class="add-to-cart-btn" data-id="1">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
-          </div>
-
-          <div class="product-card">
-            <a href="./trangchitiet.html?id=2" class="product-link">
-              <div class="product-thumb">
-                <img
-                  src="../ảnh/Ảnh chụp màn hình/3.png"
-                  alt="Lắc tay bạc cặp đôi thời thượng Love Forever"
-                />
-              </div>
-              <div class="product-info">
-                <div class="product-name">
-                  Lắc tay bạc cặp đôi thời thượng Love Forever
-                </div>
-                <div class="price">1.582.000đ</div>
-              </div>
-            </a>
-            <button class="wishlist-btn" data-id="2">
-              <i class="fa-regular fa-heart"></i>
-            </button>
-            <button class="add-to-cart-btn" data-id="2">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
-          </div>
-
-          <a href="./trangchitiet.html?id=3" class="product-card">
-            <div class="product-thumb">
-              <img
-                src="../ảnh/Ảnh chụp màn hình/4.png"
-                alt="Dây chuyền bạc đôi đính đá tròn cao cấp AURORA"
-              />
-            </div>
-            <div class="product-info">
-              <div class="product-name">
-                Dây chuyền bạc đôi đính đá tròn cao cấp AURORA
-              </div>
-              <div class="price">2.060.000đ</div>
-            </div>
-          </a>
-
-          <div class="product-card">
-            <a href="./trangchitiet.html?id=4" class="product-card">
-              <div class="product-thumb">
-                <img
-                  src="https://lili.vn/wp-content/uploads/2024/05/Day-chuyen-bac-doi-dinh-ngoc-bich-Hetian-dong-dieu-Mary-LILI_126122_3.jpg.webp"
-                  alt="Dây chuyền đôi đính charm mặt trăng phong cách trẻ trung"
-                />
-              </div>
-              <div class="product-info">
-                <div class="product-name">
-                  Dây chuyền đôi đính charm mặt trăng phong cách trẻ trung
-                </div>
-                <div class="price">2.419.000đ</div>
-              </div>
-            </a>
-            <button class="wishlist-btn" data-id="4">
-              <i class="fa-regular fa-heart"></i>
-            </button>
-            <button class="add-to-cart-btn" data-id="4">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
-          </div>
+          <!-- Rendered by JS -->
         </div>
 
         <div class="view-wrap">
@@ -224,113 +143,14 @@
         <h2 class="section-title">Sản phẩm được yêu thích nhất</h2>
 
         <div class="product-grid-4" id="favoriteProductGrid">
-          <a href="./trangchitiet.html?id=5" class="product-card">
-            <div class="product-thumb">
-              <img src="../ảnh/Ảnh chụp màn hình/6.png" alt="" />
-            </div>
-            <div class="product-info">
-              <div class="product-name">
-                Lắc tay bạc nữ đính pha lê tinh xảo kiểu bản mảnh AURORA
-              </div>
-              <div class="price">975.000đ</div>
-            </div>
-          </a>
-
-          <a href="./trangchitiet.html?id=6" class="product-card">
-            <div class="product-thumb">
-              <img src="../ảnh/Ảnh chụp màn hình/7.png" alt="" />
-            </div>
-            <div class="product-info">
-              <div class="product-name">
-                Lắc chân bạc nữ đính đá hình hoa mềm mại AURORA
-              </div>
-              <div class="price">799.000đ</div>
-            </div>
-          </a>
-
-          <a href="./trangchitiet.html?id=7" class="product-card">
-            <div class="product-thumb">
-              <img src="../ảnh/Ảnh chụp màn hình/8.png" alt="" />
-            </div>
-            <div class="product-info">
-              <div class="product-name">
-                Bông tai bạc nơ đính đá xanh sang trọng AURORA
-              </div>
-              <div class="price">1.041.000đ</div>
-            </div>
-          </a>
-
-          <a href="./trangchitiet.html?id=8" class="product-card">
-            <div class="product-thumb">
-              <img src="../ảnh/Ảnh chụp màn hình/9.png" alt="" />
-            </div>
-            <div class="product-info">
-              <div class="product-name">
-                Nhẫn bạc nơ đính kim cương mô phỏng tinh tế AURORA
-              </div>
-              <div class="price">1.299.000đ</div>
-            </div>
-          </a>
-
-          <a href="./trangchitiet.html?id=9" class="product-card">
-            <div class="product-thumb">
-              <img src="../ảnh/Ảnh chụp màn hình/10.png" alt="" />
-            </div>
-            <div class="product-info">
-              <div class="product-name">
-                Bộ trang sức đính đá đồng bộ hoa tuyết cá tính
-              </div>
-              <div class="price">1.255.000đ</div>
-            </div>
-          </a>
-
-          <a href="./trangchitiet.html?id=10" class="product-card">
-            <div class="product-thumb">
-              <img src="../ảnh/Ảnh chụp màn hình/11.png" alt="" />
-            </div>
-            <div class="product-info">
-              <div class="product-name">
-                Dây chuyền đá AURORA thiết kế thanh lịch
-              </div>
-              <div class="price">1.780.000đ</div>
-            </div>
-          </a>
-
-          <a href="./trangchitiet.html?id=11" class="product-card">
-            <div class="product-thumb">
-              <img
-                src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=900&auto=format&fit=crop"
-                alt=""
-              />
-            </div>
-            <div class="product-info">
-              <div class="product-name">
-                Dây chuyền bạc nữ đính đá hình thiên nga AURORA
-              </div>
-              <div class="price">1.030.000đ</div>
-            </div>
-          </a>
-
-          <a href="./trangchitiet.html?id=12" class="product-card">
-            <div class="product-thumb">
-              <img
-                src="https://images.unsplash.com/photo-1635767798638-3e25273a8236?q=80&w=900&auto=format&fit=crop"
-                alt=""
-              />
-            </div>
-            <div class="product-info">
-              <div class="product-name">
-                Bông tai bạc nữ đính đá AURORA thanh mảnh
-              </div>
-              <div class="price">850.000đ</div>
-            </div>
-          </a>
+          <!-- Rendered by JS -->
         </div>
 
         <div class="view-wrap">
           <a href="#" class="view-more" data-category="favorite">Xem thêm</a>
         </div>
       </section>
+
       <!-- CHARM CREATIVE SECTION -->
       <section class="section section-box charm-creative-section">
         <h2 class="section-title">Sáng tạo theo cách của bạn</h2>
@@ -379,53 +199,7 @@
       <section class="section section-box">
         <h2 class="section-title">Tin tức mới nhất</h2>
         <div class="news-grid-modern">
-          <a href="./tintuc.html" class="news-card-modern">
-            <div class="news-image-wrap">
-              <img
-                src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=2000&auto=format&fit=crop"
-                alt="Xu hướng Trang sức 2026"
-              />
-              <span class="news-tag">XU HƯỚNG</span>
-            </div>
-            <div class="news-info">
-              <div class="news-meta">25 THÁNG 12, 2025</div>
-              <h3 class="news-title-modern">Xu hướng Trang sức 2026: Giao thoa di sản & hiện đại</h3>
-              <p class="news-excerpt">Khám phá sự giao thoa giữa nghệ thuật thủ công truyền thống và ngôn ngữ thiết kế đương đại.</p>
-              <span class="news-link">KHÁM PHÁ +</span>
-            </div>
-          </a>
-
-          <a href="./tintuc.html" class="news-card-modern">
-            <div class="news-image-wrap">
-              <img
-                src="../ảnh/Ảnh chụp màn hình/61.png"
-                alt="Nghệ thuật chế tác thủ công"
-              />
-              <span class="news-tag">THỦ CÔNG</span>
-            </div>
-            <div class="news-info">
-              <div class="news-meta">07 THÁNG 6, 2025</div>
-              <h3 class="news-title-modern">Nghệ thuật chế tác: Từ bản vẽ đến kiệt tác tinh xảo</h3>
-              <p class="news-excerpt">Hành trình thầm lặng phía sau mỗi sản phẩm của Aurora, nơi bàn tay nghệ nhân lên tiếng.</p>
-              <span class="news-link">KHÁM PHÁ +</span>
-            </div>
-          </a>
-
-          <a href="./tintuc.html" class="news-card-modern">
-            <div class="news-image-wrap">
-              <img
-                src="../ảnh/Ảnh chụp màn hình/62.png"
-                alt="Trang sức mùa hè"
-              />
-              <span class="news-tag">BỘ SƯU TẬP</span>
-            </div>
-            <div class="news-info">
-              <div class="news-meta">06 THÁNG 6, 2025</div>
-              <h3 class="news-title-modern">Trang sức mùa hè – Khơi nguồn cảm hứng cho những chuyến đi</h3>
-              <p class="news-excerpt">Sắc màu tươi mới và cá tính để làm nổi bật sự sang trọng của bạn trong mùa hè này.</p>
-              <span class="news-link">KHÁM PHÁ +</span>
-            </div>
-          </a>
+          <!-- Tin tức được tải động từ js/data-news.js -->
         </div>
       </section>
     </main>
@@ -509,6 +283,7 @@
     </footer>
 
     <script src="../js/db.js"></script>
+    <script src="../js/data-news.js"></script>
     <script src="../js/data-products.js"></script>
     <script src="../js/data-special.js"></script>
     <script src="../js/nav-active.js"></script>
@@ -516,5 +291,3 @@
     <script src="../js/trangchu.js"></script>
   </body>
 </html>
-
-

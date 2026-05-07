@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", function () {
     modal.className =
       "fixed inset-0 z-[100] bg-black/40 flex items-center justify-center p-4";
     modal.innerHTML = `
-      <div class="w-full max-w-2xl bg-white rounded-2xl shadow-2xl p-6">
+      <div class="w-full max-w-2xl bg-white rounded-2xl p-6">
         <div class="flex items-center justify-between mb-5">
           <h3 class="text-2xl font-black">${title}</h3>
           <button type="button" data-close class="w-9 h-9 rounded-full hover:bg-stone-100"><span class="material-symbols-outlined">close</span></button>

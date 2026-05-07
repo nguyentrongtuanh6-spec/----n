@@ -64,17 +64,19 @@ body {
 
 .favorite-products-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
 .favorite-product-card {
-  border: 1px solid #ececec;
-  border-radius: 2px;
+  border: none;
+  border-radius: 12px;
   overflow: hidden;
   background: #fff;
-  display: block;
-  transition: 0.25s;
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%;
 }
 
 .favorite-product-card:hover {
@@ -84,8 +86,10 @@ body {
 
 .favorite-image-wrap {
   position: relative;
-  height: 250px;
-  background: #f5f5f5;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  background: #fff;
+  overflow: hidden;
 }
 
 .favorite-product-link {
@@ -136,21 +140,27 @@ body {
 
 .favorite-info {
   text-align: center;
-  padding: 10px 12px 14px;
+  padding: 16px 12px;
   background: #f7f7f7;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .favorite-info .name {
-  font-size: 12px;
-  line-height: 1.45;
-  min-height: 36px;
+  font-size: 13px;
+  line-height: 1.5;
+  min-height: 40px;
   color: #333;
+  margin-bottom: 6px;
+  font-weight: 500;
 }
 
 .favorite-info .price {
-  margin-top: 4px;
-  color: #ef6b7d;
-  font-size: 18px;
+  margin-top: auto;
+  color: #d63d3d;
+  font-size: 16px;
   font-weight: 700;
 }
 

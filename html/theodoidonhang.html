@@ -65,7 +65,12 @@
                 <p>Nhập thông tin để kiểm tra trạng thái hành trình đơn hàng của bạn</p>
             </div>
 
-            <div class="tracking-status-container" style="position: relative;">
+            <div class="tracking-status-container" id="trackingStatusContainer" style="position: relative; display: none;">
+                <div class="order-id-badge">
+                    <span>Mã đơn hàng</span>
+                    <h2 id="displayOrderId">#AUR-00000</h2>
+                </div>
+
                 <div class="tracking-status-bar">
                     <div class="status-step completed">
                         <div class="status-icon"><i class="fa-solid fa-check"></i></div>
@@ -97,10 +102,7 @@
                     </div>
                 </div>
 
-                <div class="order-id-badge">
-                    <span>MÃ ĐƠN HÀNG</span>
-                    <h2 id="displayOrderId">#LX-2849</h2>
-                </div>
+            </div>
             </div>
 
             <div class="tracking-grid">
@@ -149,9 +151,9 @@
                 </div>
 
                 <div class="tracking-right">
-                    <aside class="checkout-summary" style="background: #fcfcfc;">
+                    <aside class="checkout-summary" style="background: #fff; border: 1px solid #eee;">
                         <h3>TÓM TẮT ĐƠN HÀNG</h3>
-                        <div class="summary-items" style="border-bottom: 1px solid #eee; margin-bottom: 25px;">
+                        <div class="summary-items" id="orderItemsContainer" style="border-bottom: 1px solid #eee; margin-bottom: 25px;">
                             <div class="summary-item">
                                 <div class="summary-item-img">
                                     <img src="../ảnh/Ảnh chụp màn hình/35.png" alt="Item">
@@ -176,7 +178,7 @@
                             </div>
                         </div>
 
-                        <div class="summary-calc">
+                        <div class="summary-calc" id="orderCalcContainer">
                             <div class="calc-row">
                                 <span>Tạm tính</span>
                                 <span>6.510.000đ</span>
@@ -191,7 +193,7 @@
                             </div>
                         </div>
 
-                        <div class="tracking-actions">
+                        <div class="tracking-actions" id="trackingActions">
                             <a href="./trangchu.html" class="btn-back-shop">QUAY LẠI CỬA HÀNG</a>
                             <a href="./lienhe.html" class="btn-contact-support">LIÊN HỆ HỖ TRỢ</a>
                         </div>

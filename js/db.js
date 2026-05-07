@@ -15,7 +15,21 @@
       if (!localStorage.getItem(DB_NAME) || !existingData.products || existingData.products.length === 0) {
         const initialData = {
           products: defaultProducts,
-          orders: [],
+          orders: [
+            {
+              id: "AUR-12345",
+              date: new Date().toISOString(),
+              status: "Đang xử lý",
+              total: 2641000,
+              items: [
+                { name: "Nhẫn cặp đôi bạc đính đá AURORA", price: "1.641.000đ", image: "../ảnh/Ảnh chụp màn hình/2.png", qty: 1 },
+                { name: "Bông tai bạc nơ đính đá AURORA", price: "1.000.000đ", image: "../ảnh/Ảnh chụp màn hình/8.png", qty: 1 }
+              ],
+              customerName: "Nguyễn Minh Quân",
+              customerPhone: "0901234567",
+              customerAddress: "Vinhomes Ocean Park, Hà Nội"
+            }
+          ],
           users: [],
           settings: {
             lastId: defaultProducts.length > 0 ? Math.max(...defaultProducts.map(p => Number(p.id) || 0)) : 100
@@ -24,13 +38,24 @@
         this.save(initialData);
         console.log("AuroraDB: Khởi tạo database thành công.");
       } else {
-        // Nếu đã có data, kiểm tra xem có sản phẩm nào mới từ defaultProducts chưa có trong DB không
+        // Nếu đã có data, kiểm tra và cập nhật sản phẩm từ defaultProducts
         let updated = false;
         defaultProducts.forEach(defProd => {
-          const exists = existingData.products.some(p => String(p.id) === String(defProd.id));
-          if (!exists) {
+          const index = existingData.products.findIndex(p => String(p.id) === String(defProd.id));
+          if (index === -1) {
+            // Thêm mới nếu chưa có
             existingData.products.push(defProd);
             updated = true;
+          } else {
+            // Cập nhật nếu đã có (để phản ánh các thay đổi từ file js dữ liệu)
+            // Chỉ cập nhật nếu có sự khác biệt để tránh lưu liên tục
+            const currentProd = existingData.products[index];
+            const isDifferent = JSON.stringify(currentProd) !== JSON.stringify(defProd);
+            
+            if (isDifferent) {
+              existingData.products[index] = { ...currentProd, ...defProd };
+              updated = true;
+            }
           }
         });
         
@@ -41,7 +66,7 @@
           existingData.settings.lastId = Math.max(existingData.settings.lastId || 0, maxId);
           
           this.save(existingData);
-          console.log("AuroraDB: Cập nhật thêm sản phẩm mới thành công.");
+          console.log("AuroraDB: Cập nhật/Đồng bộ dữ liệu sản phẩm thành công.");
         }
       }
     },
@@ -226,6 +251,43 @@
     clearCart: function () {
       localStorage.removeItem("auroraCart");
       window.dispatchEvent(new Event('cartUpdated'));
+    },
+
+    // --- QUẢN LÝ ĐƠN HÀNG ---
+    getOrders: function () {
+      return this.getAll()?.orders || [];
+    },
+
+    getOrderById: function (id) {
+      const orders = this.getOrders();
+      return orders.find(o => String(o.id) === String(id) || String(o.id) === String(id).replace('#', ''));
+    },
+
+    saveOrder: function (orderData) {
+      const data = this.getAll();
+      if (!data.orders) data.orders = [];
+      
+      const newOrder = {
+        id: "AUR-" + Math.floor(10000 + Math.random() * 90000),
+        date: new Date().toISOString(),
+        status: "Đang xử lý",
+        ...orderData
+      };
+      
+      data.orders.unshift(newOrder);
+      this.save(data);
+      return newOrder;
+    },
+
+    updateOrderStatus: function (orderId, newStatus) {
+      const data = this.getAll();
+      const index = data.orders.findIndex(o => String(o.id) === String(orderId));
+      if (index !== -1) {
+        data.orders[index].status = newStatus;
+        this.save(data);
+        return true;
+      }
+      return false;
     }
   };
 

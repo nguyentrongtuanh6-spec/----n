@@ -12,47 +12,102 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="../css/global.css" />
   <link rel="stylesheet" href="../css/trangchu.css" />
-  <link rel="stylesheet" href="../css/trangsucbo.css" />
+  <link rel="stylesheet" href="../css/tranglocdaychuyen.css" />
+  <style>
+    .male-filter-sidebar, .male-product-panel {
+      border-radius: 12px !important; 
+      padding: 24px !important;
+      border: 1px solid #ececec !important;
+    }
+    
+    .male-category-btn.active {
+      background: #fdf2f4 !important;
+      color: #ef6b7d !important;
+      font-weight: 700 !important;
+    }
+
+    .male-category-btn.active::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      width: 3px;
+      border-radius: 99px;
+      background: #f28f9f;
+    }
+
+    .price-slider-container {
+      display: flex;
+      flex-direction: column;
+    }
+    .range-row-bottom {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      font-size: 12px;
+      color: #6c7480;
+    }
+
+    .rating-box-item {
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      padding: 8px 12px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+    }
+    .rating-box-item:hover {
+      border-color: #f28f9f;
+    }
+    .rating-box-item .stars {
+      color: #f48ea2;
+      font-size: 16px;
+    }
+    .rating-box-item .text {
+      color: #555;
+      font-size: 14px;
+    }
+    .all-ratings-btn {
+      background: #fdf2f4;
+      border: 1px solid #f28f9f;
+      border-radius: 8px;
+      padding: 10px;
+      color: #ef6b7d;
+      text-align: center;
+      font-size: 14px;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+  </style>
 </head>
 
 <body>
   <div class="topbar">Ưu đãi thành viên mới: giảm 20% cho đơn đầu tiên</div>
-
   <header>
     <div class="container header-main">
-      <a href="./trangchu.html" class="logo" aria-label="AURORA Home">
+      <a href="./trangchu.html" class="logo">
         <img src="../ảnh/Ảnh chụp màn hình/logo.png" alt="AURORA" />
       </a>
-
       <div class="search-box">
-        <input type="text" placeholder="Bạn muốn tìm gì?" />
-        <span class="search-icon">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </span>
+        <input type="text" id="searchInput" placeholder="Bạn muốn tìm gì?" />
+        <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
       </div>
-
       <div class="header-icons">
-        <a href="./trangyeuthich.html" title="Yêu thích">
-          <i class="fa-regular fa-heart"></i>
-        </a>
-        <a href="#" title="Cửa hàng">
-          <i class="fa-solid fa-location-dot"></i>
-        </a>
-        <a href="./trangdangnhap.html" title="Tài khoản">
-          <i class="fa-regular fa-user"></i>
-        </a>
-        <a href="./tranggiohang.html" title="Giỏ hàng" class="cart-icon-link">
-          <i class="fa-solid fa-bag-shopping"></i>
-          
-        </a>
+        <a href="./trangyeuthich.html"><i class="fa-regular fa-heart"></i></a>
+        <a href="#"><i class="fa-solid fa-location-dot"></i></a>
+        <a href="./trangdangnhap.html"><i class="fa-regular fa-user"></i></a>
+        <a href="./tranggiohang.html" class="cart-icon-link"><i class="fa-solid fa-bag-shopping"></i></a>
       </div>
     </div>
-
     <nav>
       <div class="container">
         <ul class="nav-menu">
           <li><a href="#">Bộ sưu tập mới</a></li>
-          <li><a href="./trangsucbo.html">Trang sức bộ</a></li>
+          <li><a href="./trangsucbo.html" class="active">Trang sức bộ</a></li>
           <li><a href="./trangsucdoi.html">Trang sức đôi</a></li>
           <li><a href="#">Khuyến mãi</a></li>
           <li><a href="./tranglocnhannam.html">Nhẫn</a></li>
@@ -67,233 +122,86 @@
     </nav>
   </header>
 
-  <main class="set-page container">
-    <div class="set-breadcrumb">
-      <a href="./trangchu.html">TRANG CHỦ</a> &gt; <span>TRANG SỨC BỘ</span>
+  <main class="container male-catalog-page">
+    <div class="male-breadcrumb">
+      <a href="./trangchu.html">TRANG CHỦ</a>
+      <span class="sep">›</span>
+      <span class="current">TRANG SỨC BỘ</span>
     </div>
 
-    <div class="set-layout">
-      <aside class="set-filter-sidebar">
-        <section class="set-filter-block">
-          <h3>Chất liệu</h3>
-          <label class="set-check-line"><input type="checkbox" checked /> Bạc 925</label>
-          <label class="set-check-line"><input type="checkbox" /> Vàng trắng</label>
-          <label class="set-check-line"><input type="checkbox" /> Đính đá CZ</label>
-        </section>
-
-        <section class="set-filter-block">
-          <h3>Giới tính</h3>
-          <label class="set-check-line"><input type="radio" name="bo-gender" checked /> Nữ</label>
-          <label class="set-check-line"><input type="radio" name="bo-gender" /> Unisex</label>
-        </section>
-
-        <section class="set-filter-block">
-          <h3>Khoảng giá</h3>
-          <label class="set-check-line"><input type="radio" name="bo-price" /> Dưới 1.000.000đ</label>
-          <label class="set-check-line"><input type="radio" name="bo-price" checked /> 1.000.000đ - 2.000.000đ</label>
-          <label class="set-check-line"><input type="radio" name="bo-price" /> Trên 2.000.000đ</label>
-        </section>
-
-        <section class="set-filter-block">
-          <h3>Từ khóa</h3>
-          <label class="set-filter-side-input">
-            <input type="text" placeholder="Từ khóa sản phẩm..." />
-          </label>
-        </section>
-
-        <section class="set-filter-block">
-          <h3>Sắp xếp</h3>
-          <label class="set-check-line"><input type="radio" name="bo-sort" checked /> Nổi bật</label>
-          <label class="set-check-line"><input type="radio" name="bo-sort" /> Giá tăng dần</label>
-          <label class="set-check-line"><input type="radio" name="bo-sort" /> Giá giảm dần</label>
-        </section>
-      </aside>
-
-      <section class="set-content-panel">
-        <section class="set-hero">
-          <h1 class="set-title">TRANG SỨC BỘ</h1>
-          <p class="set-subtitle">
-            Mẫu giao diện đồng bộ để bạn tự thay ảnh bộ trang sức sau này.
-          </p>
-        </section>
-
-        <section class="set-grid">
-          <!-- Sản phẩm 1 -->
-          <article class="set-card">
-            <div class="set-card-thumb">
-              <span class="set-card-badge">Ảnh mẫu</span>
-              <span class="set-card-heart"><i class="fa-regular fa-heart"></i></span>
-              <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop"
-                alt="Bộ trang sức bạc" />
-            </div>
-            <div class="set-card-info">
-              <h3>Bộ trang sức bạc đính đá phong cách thanh lịch</h3>
-              <p>1.650.000đ</p>
-            </div>
-          </article>
-
-          <!-- Sản phẩm 2 -->
-          <article class="set-card">
-            <div class="set-card-thumb">
-              <span class="set-card-badge">Ảnh mẫu</span>
-              <span class="set-card-heart"><i class="fa-regular fa-heart"></i></span>
-              <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800&auto=format&fit=crop"
-                alt="Bộ trang sức nữ" />
-            </div>
-            <div class="set-card-info">
-              <h3>Bộ trang sức nữ đính đá màu dịu nhẹ</h3>
-              <p>2.090.000đ</p>
-            </div>
-          </article>
-
-          <!-- Sản phẩm 3 -->
-          <article class="set-card">
-            <div class="set-card-thumb">
-              <span class="set-card-badge">Ảnh mẫu</span>
-              <span class="set-card-heart"><i class="fa-regular fa-heart"></i></span>
-              <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=800&auto=format&fit=crop"
-                alt="Bộ trang sức hoa tuyết" />
-            </div>
-            <div class="set-card-info">
-              <h3>Bộ trang sức hoa tuyết ánh bạc hiện đại</h3>
-              <p>1.780.000đ</p>
-            </div>
-          </article>
-
-          <!-- Sản phẩm 4 -->
-          <article class="set-card">
-            <div class="set-card-thumb">
-              <span class="set-card-badge">Ảnh mẫu</span>
-              <span class="set-card-heart"><i class="fa-regular fa-heart"></i></span>
-              <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop"
-                alt="Bộ trang sức zircon" />
-            </div>
-            <div class="set-card-info">
-              <h3>Bộ trang sức zircon thiết kế sang trọng</h3>
-              <p>2.250.000đ</p>
-            </div>
-          </article>
-
-          <!-- Sản phẩm 5 -->
-          <article class="set-card">
-            <div class="set-card-thumb">
-              <span class="set-card-badge">Ảnh mẫu</span>
-              <span class="set-card-heart"><i class="fa-regular fa-heart"></i></span>
-              <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=800&auto=format&fit=crop"
-                alt="Bộ trang sức tối giản" />
-            </div>
-            <div class="set-card-info">
-              <h3>Bộ trang sức bản mảnh phong cách tối giản</h3>
-              <p>1.440.000đ</p>
-            </div>
-          </article>
-
-          <!-- Sản phẩm 6 -->
-          <article class="set-card">
-            <div class="set-card-thumb">
-              <span class="set-card-badge">Ảnh mẫu</span>
-              <span class="set-card-heart"><i class="fa-regular fa-heart"></i></span>
-              <img src="https://images.unsplash.com/photo-1518131394553-8b94103126f4?q=80&w=800&auto=format&fit=crop"
-                alt="Bộ trang sức ngọc trai" />
-            </div>
-            <div class="set-card-info">
-              <h3>Bộ trang sức ngọc trai phối đá cao cấp</h3>
-              <p>1.930.000đ</p>
-            </div>
-          </article>
-
-          <!-- Sản phẩm 7 -->
-          <article class="set-card">
-            <div class="set-card-thumb">
-              <span class="set-card-badge">Ảnh mẫu</span>
-              <span class="set-card-heart"><i class="fa-regular fa-heart"></i></span>
-              <img src="https://images.unsplash.com/photo-1611085583191-a3b1a308c021?q=80&w=800&auto=format&fit=crop"
-                alt="Bộ trang sức đính charm" />
-            </div>
-            <div class="set-card-info">
-              <h3>Bộ trang sức đính charm tinh tế dịu dàng</h3>
-              <p>1.570.000đ</p>
-            </div>
-          </article>
-
-          <!-- Sản phẩm 8 -->
-          <article class="set-card">
-            <div class="set-card-thumb">
-              <span class="set-card-badge">Ảnh mẫu</span>
-              <span class="set-card-heart"><i class="fa-regular fa-heart"></i></span>
-              <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=800&auto=format&fit=crop"
-                alt="Bộ trang sức dáng hoa" />
-            </div>
-            <div class="set-card-info">
-              <h3>Bộ trang sức dáng hoa cho dịp tặng quà</h3>
-              <p>2.180.000đ</p>
-            </div>
-          </article>
-        </section>
+    <aside class="male-filter-sidebar">
+      <section class="male-filter-block">
+        <h3>Danh mục</h3>
+        <ul id="categoryList" class="male-category-list">
+          <li><button class="male-category-btn" data-category="ring"><span>Nhẫn</span><span class="count">42</span></button></li>
+          <li><button class="male-category-btn" data-category="necklace"><span>Dây Chuyền</span><span class="count">128</span></button></li>
+          <li><button class="male-category-btn" data-category="earring"><span>Bông Tai</span><span class="count">84</span></button></li>
+          <li><button class="male-category-btn" data-category="bracelet"><span>Vòng Tay</span><span class="count">56</span></button></li>
+          <li><button class="male-category-btn" data-category="charm"><span>Charm</span><span class="count">32</span></button></li>
+          <li><button class="male-category-btn active" data-category="set"><span>Trang sức bộ</span><span class="count">24</span></button></li>
+          <li><button class="male-category-btn" data-category="couple"><span>Trang sức đôi</span><span class="count">18</span></button></li>
+        </ul>
       </section>
+
+      <section class="male-filter-block">
+        <h3>Khoảng giá</h3>
+        <div class="price-slider-container">
+          <input type="range" id="priceRange" min="0" max="100000000" value="100000000" step="100000">
+          <div class="range-row-bottom">
+            <span>0đ</span>
+            <span id="maxPriceLabel">100.000.000đ</span>
+          </div>
+        </div>
       </section>
-    </div>
+
+      <section class="male-filter-block">
+        <h3>Giới tính</h3>
+        <label class="checkbox-line"><input type="checkbox" name="gender" value="Nam"> Nam</label>
+        <label class="checkbox-line"><input type="checkbox" name="gender" value="Nữ" checked> Nữ</label>
+        <label class="checkbox-line"><input type="checkbox" name="gender" value="Cặp đôi"> Cặp đôi</label>
+      </section>
+
+      <section class="male-filter-block">
+        <h3>Đánh giá</h3>
+        <div class="rating-box-item rating-btn" data-rating="4">
+          <span class="stars">★★★★☆</span>
+          <span class="text">trở lên</span>
+        </div>
+        <div class="all-ratings-btn rating-btn active" data-rating="0">
+          Tất cả đánh giá
+        </div>
+      </section>
+
+      <section class="male-filter-block">
+        <h3>Trạng thái</h3>
+        <label class="switch-line">
+          <input type="checkbox" id="inStockOnly" checked="">
+          <span class="switch-slider"></span>
+          <span>Chỉ còn hàng</span>
+        </label>
+      </section>
+    </aside>
+
+    <section class="male-product-panel">
+      <div class="panel-head">
+        <h1 id="filterTitle">TRANG SỨC BỘ</h1>
+        <div class="head-right">
+          <span id="resultCount">0 bộ sản phẩm</span>
+          <select id="sortSelect">
+            <option value="popular">Nổi bật</option>
+            <option value="priceAsc">Giá tăng dần</option>
+            <option value="priceDesc">Giá giảm dần</option>
+          </select>
+        </div>
+      </div>
+      <div class="catalog-grid" id="filterProductGrid"></div>
+      <div class="pagination" id="paginationWrap"></div>
+    </section>
   </main>
 
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <div class="footer-logo">
-            <img src="../ảnh/Ảnh chụp màn hình/logo.png" alt="AURORA" />
-          </div>
-          <div class="contact-item">
-            <i class="fa-solid fa-phone"></i>1900 8888
-          </div>
-          <div class="contact-item">
-            <i class="fa-solid fa-location-dot"></i>Biệt thự 10A, Vinhomes Ocean Park, Gia Lâm, Hà Nội
-          </div>
-        </div>
-
-        <div class="footer-col">
-          <h4>Dịch vụ khách hàng</h4>
-          <ul>
-            <li><a href="./trangdieukhoan.html">Điều khoản và điều kiện</a></li>
-            <li><a href="./trangchinhsach.html">Chính sách đổi trả và bảo hành</a></li>
-            <li><a href="./trangchinhsach.html">Chính sách vận chuyển</a></li>
-            <li><a href="./tranghuongdanbaoquan.html">Hướng dẫn bảo quản trang sức</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Thông tin chung</h4>
-          <ul>
-            <li><a href="./lienhe.html">Liên hệ</a></li>
-            <li><a href="./tintuc.html">Tin tức</a></li>
-            <li><a href="./tranggioithieu.html">Về chúng tôi</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col newsletter">
-          <h4>Đăng ký để nhận thông báo</h4>
-          <p>Đăng ký để nhận thông báo mới nhất về các bộ sưu tập và ưu đãi.</p>
-          <input type="email" placeholder="Nhập email của bạn" />
-          <button>Đăng ký ngay</button>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <img class="bct-logo" src="../ảnh/Ảnh chụp màn hình/logo-congthuong.png"
-          alt="Đã thông báo Bộ Công Thương" />
-        <div class="about-us">
-          <h5>Về chúng tôi</h5>
-          <div class="socials">
-            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-            <a href="#" aria-label="Youtube"><i class="fa-brands fa-youtube"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-
+  <script src="../js/db.js"></script>
   <script src="../js/nav-active.js"></script>
+  <script src="../js/trangsucbo.js"></script>
 </body>
 
 </html>
-

@@ -1,33 +1,19 @@
+@import url('./tranglocdaychuyen.css');
+
+.male-catalog-page {
+  row-gap: 4px !important; /* Reduce gap between breadcrumb and content */
+  padding-top: 10px !important; /* Reduce space at the top of the page */
+}
+
+.male-filter-sidebar,
+.male-product-panel {
+  padding-top: 18px !important; /* Bring internal content closer to the top edge */
+}
+
 body {
   background: #ffffff;
 }
 
-.set-page.container {
-  width: min(1600px, calc(100% - 52px));
-  max-width: min(1600px, calc(100% - 52px));
-  margin: 28px auto 56px;
-  padding: 0;
-}
-
-.set-layout {
-  display: grid;
-  grid-template-columns: 260px minmax(0, 1fr);
-  gap: 24px;
-  align-items: start;
-}
-
-.set-filter-sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.set-filter-block {
-  padding: 16px 14px;
-  border: 1px solid #e3e3e3;
-  border-radius: 6px;
-  background: #fff;
-}
 
 .set-filter-block h3 {
   margin: 0 0 12px;
@@ -101,20 +87,34 @@ body {
   min-width: 0;
 }
 
-.set-breadcrumb {
-  margin-bottom: 18px;
+.male-breadcrumb {
+  grid-column: 1 / -1;
   font-size: 11px;
-  letter-spacing: 0.04em;
+  color: #666;
   text-transform: uppercase;
-  color: #757575;
+  letter-spacing: 0.4px;
+  margin: 0 0 4px; /* Tighten margin even more */
 }
 
-.set-breadcrumb a {
-  color: #757575;
+.male-breadcrumb a {
+  color: #727272;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease, font-weight 0.2s ease;
 }
 
-.set-breadcrumb span {
-  color: #232323;
+.male-breadcrumb a:hover {
+  color: #1f1f1f;
+  font-weight: 700;
+}
+
+.male-breadcrumb .sep {
+  margin: 0 6px;
+  color: #666;
+}
+
+.male-breadcrumb .current {
+  color: #1f1f1f;
   font-weight: 700;
 }
 
@@ -169,10 +169,13 @@ body {
 
 .set-card {
   overflow: hidden;
-  border: 1px solid #f0f0f0;
+  border: none;
   border-radius: 12px;
   background: #fff;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .set-card:hover {
@@ -182,9 +185,11 @@ body {
 
 .set-card-thumb {
   position: relative;
-  height: 280px;
+  aspect-ratio: 1 / 1;
+  height: auto;
   padding: 0;
-  background: #f9f9f9;
+  background: #fff;
+  overflow: hidden;
 }
 
 .set-card-thumb img {
@@ -234,22 +239,26 @@ body {
 .set-card-info {
   padding: 16px 12px;
   text-align: center;
-  background: #fff;
+  background: #f7f7f7;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .set-card-info h3 {
   min-height: 38px;
   margin: 0 0 10px;
-  color: #444;
+  color: #333;
   font-size: 13px;
-  line-height: 1.4;
-  font-weight: 400;
+  line-height: 1.5;
+  font-weight: 500;
 }
 
 .set-card-info p {
-  margin: 0;
-  color: #f28f9f;
-  font-size: 18px;
+  margin: auto 0 0;
+  color: #d63d3d;
+  font-size: 16px;
   font-weight: 700;
 }
 

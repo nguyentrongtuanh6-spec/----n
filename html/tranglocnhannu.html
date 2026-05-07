@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AURORA - Bộ lọc sản phẩm</title>
+  <title>AURORA - Nhẫn nữ</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
@@ -12,30 +12,97 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="../css/global.css" />
   <link rel="stylesheet" href="../css/trangchu.css" />
-  <link rel="stylesheet" href="../css/tranglocsanpham.css" />
+  <link rel="stylesheet" href="../css/tranglocdaychuyen.css" />
+  <style>
+    .male-filter-sidebar, .male-product-panel {
+      border-radius: 12px !important; 
+      padding: 24px !important;
+      border: 1px solid #ececec !important;
+    }
+    
+    .male-category-btn.active {
+      background: #fdf2f4 !important;
+      color: #ef6b7d !important;
+      font-weight: 700 !important;
+    }
+
+    .male-category-btn.active::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      width: 3px;
+      border-radius: 99px;
+      background: #f28f9f;
+    }
+
+    .price-slider-container {
+      display: flex;
+      flex-direction: column;
+    }
+    .range-row-bottom {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      font-size: 12px;
+      color: #6c7480;
+    }
+
+    .rating-box-item {
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      padding: 8px 12px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+    }
+    .rating-box-item:hover {
+      border-color: #f28f9f;
+    }
+    .rating-box-item .stars {
+      color: #f48ea2;
+      font-size: 16px;
+    }
+    .rating-box-item .text {
+      color: #555;
+      font-size: 14px;
+    }
+    .all-ratings-btn {
+      background: #fdf2f4;
+      border: 1px solid #f28f9f;
+      border-radius: 8px;
+      padding: 10px;
+      color: #ef6b7d;
+      text-align: center;
+      font-size: 14px;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+  </style>
 </head>
 
 <body>
   <div class="topbar">Ưu đãi thành viên mới: giảm 20% cho đơn đầu tiên</div>
-
   <header>
     <div class="container header-main">
-      <a href="./trangchu.html" class="logo" aria-label="AURORA Home"><img src="../ảnh/Ảnh chụp màn hình/logo.png"
-          alt="AURORA" /></a>
-
+      <a href="./trangchu.html" class="logo">
+        <img src="../ảnh/Ảnh chụp màn hình/logo.png" alt="AURORA" />
+      </a>
       <div class="search-box">
         <input type="text" id="searchInput" placeholder="Bạn muốn tìm gì?" />
         <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
       </div>
-
       <div class="header-icons">
-        <a href="./trangyeuthich.html" title="Yêu thích"><i class="fa-regular fa-heart"></i></a>
-        <a href="#" title="Cửa hàng"><i class="fa-solid fa-location-dot"></i></a>
-        <a href="./trangdangnhap.html" title="Tài khoản"><i class="fa-regular fa-user"></i></a>
-        <a href="./tranggiohang.html" title="Giỏ hàng" class="cart-icon-link"><i class="fa-solid fa-bag-shopping"></i></a>
+        <a href="./trangyeuthich.html"><i class="fa-regular fa-heart"></i></a>
+        <a href="#"><i class="fa-solid fa-location-dot"></i></a>
+        <a href="./trangdangnhap.html"><i class="fa-regular fa-user"></i></a>
+        <a href="./tranggiohang.html" class="cart-icon-link"><i class="fa-solid fa-bag-shopping"></i></a>
       </div>
     </div>
-
     <nav>
       <div class="container">
         <ul class="nav-menu">
@@ -43,7 +110,7 @@
           <li><a href="./trangsucbo.html">Trang sức bộ</a></li>
           <li><a href="./trangsucdoi.html">Trang sức đôi</a></li>
           <li><a href="#">Khuyến mãi</a></li>
-          <li><a href="./tranglocnhannam.html">Nhẫn</a></li>
+          <li><a href="./tranglocnhannam.html" class="active">Nhẫn</a></li>
           <li><a href="./tranglocdaychuyen.html">Dây chuyền</a></li>
           <li><a href="./tranglocbongtai.html">Bông tai</a></li>
           <li><a href="./tranglocvongtay.html">Vòng tay</a></li>
@@ -55,88 +122,69 @@
     </nav>
   </header>
 
-  <main class="container catalog-page">
-    <div class="breadcrumb-filter">
+  <main class="container male-catalog-page">
+    <div class="male-breadcrumb">
       <a href="./trangchu.html">TRANG CHỦ</a>
-      <span>›</span>
-      <span class="current">BỘ LỌC</span>
+      <span class="sep">›</span>
+      <span class="current">SẢN PHẨM NHẪN</span>
     </div>
 
-    <aside class="filter-sidebar">
-      <section class="filter-block">
+    <aside class="male-filter-sidebar">
+      <section class="male-filter-block">
         <h3>Danh mục</h3>
-        <ul id="categoryList" class="category-list">
-          <li>
-            <button class="category-btn active" type="button" data-category="ring">
-              <span>Nhẫn</span>
-              <span class="count">42</span>
-            </button>
-          </li>
-          <li>
-            <button class="category-btn" type="button" data-category="necklace">
-              <span>Dây Chuyền</span>
-              <span class="count">128</span>
-            </button>
-          </li>
-          <li>
-            <button class="category-btn" type="button" data-category="earring">
-              <span>Bông Tai</span>
-              <span class="count">84</span>
-            </button>
-          </li>
-          <li>
-            <button class="category-btn" type="button" data-category="bracelet">
-              <span>Vòng Tay</span>
-              <span class="count">56</span>
-            </button>
-          </li>
-          <li>
-            <button class="category-btn" type="button" data-category="charm">
-              <span>Charm</span>
-              <span class="count">32</span>
-            </button>
-          </li>
+        <ul id="categoryList" class="male-category-list">
+          <li><button class="male-category-btn active" data-category="ring"><span>Nhẫn</span><span class="count">42</span></button></li>
+          <li><button class="male-category-btn" data-category="necklace"><span>Dây Chuyền</span><span class="count">128</span></button></li>
+          <li><button class="male-category-btn" data-category="earring"><span>Bông Tai</span><span class="count">84</span></button></li>
+          <li><button class="male-category-btn" data-category="bracelet"><span>Vòng Tay</span><span class="count">56</span></button></li>
+          <li><button class="male-category-btn" data-category="charm"><span>Charm</span><span class="count">32</span></button></li>
+          <li><button class="male-category-btn" data-category="set"><span>Trang sức bộ</span><span class="count">24</span></button></li>
+          <li><button class="male-category-btn" data-category="couple"><span>Trang sức đôi</span><span class="count">18</span></button></li>
         </ul>
       </section>
 
-      <section class="filter-block">
+      <section class="male-filter-block">
         <h3>Khoảng giá</h3>
-        <div class="range-row">
-          <span>0đ</span>
-          <span id="maxPriceLabel">1.500.000đ</span>
+        <div class="price-slider-container">
+          <input type="range" id="priceRange" min="0" max="100000000" value="100000000" step="100000">
+          <div class="range-row-bottom">
+            <span>0đ</span>
+            <span id="maxPriceLabel">100.000.000đ</span>
+          </div>
         </div>
-        <input type="range" id="priceRange" min="0" max="1500000" value="1500000" step="10000" />
       </section>
 
-      <section class="filter-block">
+      <section class="male-filter-block">
         <h3>Giới tính</h3>
-        <label class="checkbox-line"><input type="checkbox" name="gender" value="Nam" /> Nam</label>
-        <label class="checkbox-line"><input type="checkbox" name="gender" value="Nữ" checked /> Nữ</label>
-        <label class="checkbox-line"><input type="checkbox" name="gender" value="Cặp đôi" /> Cặp đôi</label>
+        <label class="checkbox-line"><input type="checkbox" name="gender" value="Nam"> Nam</label>
+        <label class="checkbox-line"><input type="checkbox" name="gender" value="Nữ" checked> Nữ</label>
+        <label class="checkbox-line"><input type="checkbox" name="gender" value="Cặp đôi"> Cặp đôi</label>
       </section>
 
-      <section class="filter-block">
+      <section class="male-filter-block">
         <h3>Đánh giá</h3>
-        <button class="rating-btn active" data-rating="0" type="button">Tất cả</button>
-        <button class="rating-btn rating-stars-btn" data-rating="4" type="button">
-          <span class="rating-stars">★★★★☆</span>
-          <span class="rating-text">trở lên</span>
-        </button>
+        <div class="rating-box-item rating-btn" data-rating="4">
+          <span class="stars">★★★★☆</span>
+          <span class="text">trở lên</span>
+        </div>
+        <div class="all-ratings-btn rating-btn active" data-rating="0">
+          Tất cả đánh giá
+        </div>
       </section>
 
-      <section class="filter-block">
+      <section class="male-filter-block">
         <h3>Trạng thái</h3>
         <label class="switch-line">
-          <input type="checkbox" id="inStockOnly" checked />
+          <input type="checkbox" id="inStockOnly" checked="">
           <span class="switch-slider"></span>
           <span>Chỉ còn hàng</span>
         </label>
       </section>
     </aside>
 
-    <section class="product-panel">
+    <section class="male-product-panel">
       <div class="panel-head">
-        <h1 id="filterTitle">Sản phẩm</h1>
+        <h1 id="filterTitle">SẢN PHẨM NHẪN</h1>
         <div class="head-right">
           <span id="resultCount">0 sản phẩm</span>
           <select id="sortSelect">
@@ -146,64 +194,14 @@
           </select>
         </div>
       </div>
-
       <div class="catalog-grid" id="filterProductGrid"></div>
-
       <div class="pagination" id="paginationWrap"></div>
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <div class="footer-logo">
-            <img src="../ảnh/Ảnh chụp màn hình/logo.png" alt="AURORA" />
-          </div>
-          <div class="contact-item">
-            <i class="fa-solid fa-phone"></i>1900 8888
-          </div>
-          <div class="contact-item">
-            <i class="fa-solid fa-location-dot"></i>Biệt thự 10A, Vinhomes
-            Ocean Park, Gia Lâm, Hà Nội
-          </div>
-        </div>
-
-        <div class="footer-col">
-          <h4>Dịch vụ khách hàng</h4>
-          <ul>
-            <li><a href="./trangdieukhoan.html">Điều khoản và điều kiện</a></li>
-            <li><a href="./trangchinhsach.html">Chính sách đổi trả và bảo hành</a></li>
-            <li><a href="./trangchinhsach.html">Chính sách vận chuyển</a></li>
-            <li><a href="./tranghuongdanbaoquan.html">Hướng dẫn bảo quản trang sức</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Thông tin chung</h4>
-          <ul>
-            <li><a href="./lienhe.html">Liên hệ</a></li>
-            <li><a href="./tintuc.html">Tin tức</a></li>
-            <li><a href="./tranggioithieu.html">Về chúng tôi</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col newsletter">
-          <h4>Đăng ký để nhận thông báo</h4>
-          <p>Đăng ký để nhận thông báo mới nhất về các bộ sưu tập và ưu đãi.</p>
-          <input type="email" placeholder="Nhập email của bạn" />
-          <button>Đăng ký ngay</button>
-        </div>
-      </div>
-    </div>
-  </footer>
-
   <script src="../js/db.js"></script>
-  <script src="../js/data-products.js"></script>
   <script src="../js/nav-active.js"></script>
-  <script src="../js/tranglocsanpham.js"></script>
+  <script src="../js/tranglocnhannam.js"></script>
 </body>
 
 </html>
-
-

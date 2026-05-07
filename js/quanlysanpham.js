@@ -25,7 +25,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function formatCurrency(value) {
-    return `${Number(value || 0).toLocaleString("vi-VN")}đ`;
+    const num = typeof value === "number" ? value : parseCurrencyToNumber(value);
+    return `${num.toLocaleString("vi-VN")}đ`;
   }
 
   // Load dữ liệu từ Database thay vì parse DOM
@@ -110,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
     modal.className =
       "fixed inset-0 z-[100] bg-black/40 flex items-center justify-center p-4";
     modal.innerHTML = `
-      <div class="w-full max-w-2xl bg-white rounded-2xl shadow-2xl p-6">
+      <div class="w-full max-w-2xl bg-white rounded-2xl p-6">
         <div class="flex items-center justify-between mb-5">
           <h3 class="text-2xl font-black">${title}</h3>
           <button type="button" data-close class="w-9 h-9 rounded-full hover:bg-stone-100"><span class="material-symbols-outlined">close</span></button>
@@ -123,7 +124,10 @@ document.addEventListener("DOMContentLoaded", function () {
             <select name="category" class="mt-1 w-full rounded-lg border-stone-200" ${isView ? "disabled" : ""}>
               <option value="couple" ${product?.category === "couple" ? "selected" : ""}>Sản phẩm cặp đôi</option>
               <option value="favorite" ${product?.category === "favorite" ? "selected" : ""}>Yêu thích nhất</option>
-              <option value="custom" ${product?.category === "custom" ? "selected" : ""}>Sáng tạo / Charm</option>
+              <option value="charm" ${product?.category === "charm" ? "selected" : ""}>Hạt Charm (Sáng tạo)</option>
+              <option value="base" ${product?.category === "base" ? "selected" : ""}>Sản phẩm nền (Vòng/Nhẫn)</option>
+              <option value="custom" ${product?.category === "custom" ? "selected" : ""}>Sáng tạo khác</option>
+              <option value="set" ${product?.category === "set" ? "selected" : ""}>Trang sức bộ</option>
               <option value="others" ${product?.category === "others" ? "selected" : ""}>Khác</option>
             </select>
           </label>
@@ -321,7 +325,9 @@ document.addEventListener("DOMContentLoaded", function () {
       const keywordOk = !state.keyword || keywordPool.includes(state.keyword);
       const categoryOk =
         state.category === "Tất cả danh mục" ||
-        item.category === state.category;
+        item.category === state.category ||
+        item.type === state.category ||
+        (item.name && item.name.includes(state.category));
       const stockOk =
         state.stock === "Trạng thái kho" || item.status === state.stock;
       return keywordOk && categoryOk && stockOk;
@@ -329,8 +335,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function rowTemplate(item) {
+    const stock = item.stock ?? 100;
+    const status = item.status || (stock > 0 ? "Còn hàng" : "Hết hàng");
     const statusClass =
-      statusClassMap[item.status] || "bg-stone-200 text-stone-600";
+      statusClassMap[status] || "bg-stone-200 text-stone-600";
     const placeholder = "https://images.unsplash.com/photo-1617038220319-276d3cfab638?q=80&w=200&auto=format&fit=crop";
     const imageSrc = item.image || placeholder;
     return `
@@ -345,8 +353,8 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
         </td>
         <td class="px-6 py-4 text-right font-bold">${formatCurrency(item.price)}</td>
-        <td class="px-6 py-4 text-center ${item.stock === 0 ? "text-red-500" : ""}">${item.stock}</td>
-        <td class="px-6 py-4 text-center"><span class="px-3 py-1 rounded-full ${statusClass} text-[10px] font-bold uppercase">${item.status}</span></td>
+        <td class="px-6 py-4 text-center ${stock === 0 ? "text-red-500" : ""}">${stock}</td>
+        <td class="px-6 py-4 text-center"><span class="px-3 py-1 rounded-full ${statusClass} text-[10px] font-bold uppercase">${status}</span></td>
         <td class="px-6 py-4 text-right space-x-1">
           <button data-action="edit" class="p-1.5 hover:bg-surface-container-low rounded-lg text-stone-400 hover:text-primary"><span class="material-symbols-outlined text-lg">edit</span></button>
           <button data-action="delete" class="p-1.5 hover:bg-error-container/20 rounded-lg text-stone-400 hover:text-error"><span class="material-symbols-outlined text-lg">delete</span></button>

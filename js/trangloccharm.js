@@ -12,30 +12,61 @@ window.addEventListener("DOMContentLoaded", function () {
   const filterTitle = document.getElementById("filterTitle");
   const paginationWrap = document.getElementById("paginationWrap");
 
-  const pageRoutes = { ring: "./tranglocnhannam.html", necklace: "./tranglocdaychuyen.html", earring: "./tranglocbongtai.html", bracelet: "./tranglocvongtay.html", charm: "./trangloccharm.html" };
+  const pageRoutes = {
+    ring: "./tranglocnhannam.html",
+    necklace: "./tranglocdaychuyen.html",
+    earring: "./tranglocbongtai.html",
+    bracelet: "./tranglocvongtay.html",
+    charm: "./trangloccharm.html",
+    set: "./trangsucbo.html",
+    couple: "./trangsucdoi.html"
+  };
 
-  const products = [
-    { id: 1101, detailId: 18, name: "Charm bạc nữ hình ngôi sao", image: "../ảnh/Ảnh chụp màn hình/1.png", price: "320.000đ", gender: "Nữ", rating: 4.5, inStock: true, order: 1 },
-    { id: 1102, detailId: 19, name: "Charm nam mặt khiên cá tính", image: "../ảnh/Ảnh chụp màn hình/54.png", price: "410.000đ", gender: "Nam", rating: 4.2, inStock: true, order: 2 },
-    { id: 1103, detailId: 22, name: "Charm nữ cánh bướm đá hồng", image: "../ảnh/Ảnh chụp màn hình/14.png", price: "365.000đ", gender: "Nữ", rating: 4.4, inStock: true, order: 3 },
-    { id: 1104, detailId: 20, name: "Charm nam hình lưỡi neo", image: "../ảnh/Ảnh chụp màn hình/55.png", price: "450.000đ", gender: "Nam", rating: 4.3, inStock: true, discount: "-2%", order: 4 },
-    { id: 1105, detailId: 21, name: "Charm nữ trái tim đôi AURORA", image: "../ảnh/Ảnh chụp màn hình/56.png", price: "390.000đ", gender: "Nữ", rating: 4.6, inStock: true, order: 5 },
-    { id: 1106, detailId: 18, name: "Charm nam mặt đá xanh", image: "../ảnh/Ảnh chụp màn hình/58.png", price: "520.000đ", gender: "Nam", rating: 4.5, inStock: true, order: 6 },
-    { id: 1107, detailId: 23, name: "Charm nữ hoa tuyết", image: "../ảnh/Ảnh chụp màn hình/15.png", price: "340.000đ", gender: "Nữ", rating: 4.1, inStock: true, order: 7 },
-    { id: 1108, detailId: 18, name: "Charm nam biểu tượng la bàn", image: "../ảnh/Ảnh chụp màn hình/7.png", price: "480.000đ", gender: "Nam", rating: 4.4, inStock: true, order: 8 },
-    { id: 1109, detailId: 19, name: "Charm nữ pha lê trong suốt", image: "../ảnh/Ảnh chụp màn hình/3.png", price: "365.000đ", gender: "Nữ", rating: 4.2, inStock: true, discount: "-6%", order: 9 },
-    { id: 1110, detailId: 20, name: "Charm nam chữ cái bạc", image: "../ảnh/Ảnh chụp màn hình/59.png", price: "300.000đ", gender: "Nam", rating: 4.0, inStock: true, order: 10 },
-    { id: 1111, detailId: 21, name: "Charm nữ giọt lệ xanh", image: "../ảnh/Ảnh chụp màn hình/2.png", price: "430.000đ", gender: "Nữ", rating: 4.3, inStock: true, order: 11 },
-    { id: 1112, detailId: 22, name: "Charm nam cổ điển viền nổi", image: "../ảnh/Ảnh chụp màn hình/10.png", price: "470.000đ", gender: "Nam", rating: 4.5, inStock: true, order: 12 }
+  // ============================================================
+  // DỮ LIỆU CHARM NỮ
+  // ============================================================
+  const femaleCharmsData = [
+    { id: 1101, detailId: 1, name: "Charm bạc nữ AURORA hình bông hoa", image: "../ảnh/Ảnh chụp màn hình/1.png", price: "250.000đ", gender: "Nữ", rating: 4.8, inStock: true, order: 1 },
+    { id: 1102, detailId: 2, name: "Charm bạc nữ đính đá Ruby Pink", image: "../ảnh/Ảnh chụp màn hình/2.png", price: "320.000đ", gender: "Nữ", rating: 4.5, inStock: true, order: 2 },
+    { id: 1103, detailId: 3, name: "Charm bạc nữ phong cách đáng yêu", image: "../ảnh/Ảnh chụp màn hình/3.png", price: "180.000đ", gender: "Nữ", rating: 4.7, inStock: true, order: 3 },
+    { id: 1113, detailId: 1, name: "Charm bạc nữ mặt trăng khuyết", image: "../ảnh/Ảnh chụp màn hình/4.png", price: "310.000đ", gender: "Nữ", rating: 4.4, inStock: true, order: 4 },
+    { id: 1115, detailId: 3, name: "Charm nữ hoa hướng dương", image: "../ảnh/Ảnh chụp màn hình/60.png", price: "420.000đ", gender: "Nữ", rating: 4.7, inStock: true, order: 5 },
+    { id: 1117, detailId: 1, name: "Charm bạc nữ hình mèo may mắn", image: "../ảnh/Ảnh chụp màn hình/67.png", price: "250.000đ", gender: "Nữ", rating: 4.6, inStock: true, order: 6 },
+    { id: 1118, detailId: 2, name: "Charm bạc nữ hình trái tim", image: "../ảnh/Ảnh chụp màn hình/68.png", price: "180.000đ", gender: "Nữ", rating: 4.5, inStock: true, order: 7 },
+    { id: 1120, detailId: 4, name: "Charm bạc nữ hình cỏ bốn lá", image: "../ảnh/Ảnh chụp màn hình/70.png", price: "280.000đ", gender: "Nữ", rating: 4.7, inStock: true, order: 8 },
+    { id: 1121, detailId: 1, name: "Charm bạc nữ hình vương miện", image: "../ảnh/Ảnh chụp màn hình/71.png", price: "450.000đ", gender: "Nữ", rating: 4.8, inStock: true, order: 9 }
   ];
 
-  const state = { maxPrice: Number(priceRange?.value || 100000000), minRating: 0, inStockOnly: inStockOnlyInput?.checked ?? true, selectedGender: null, searchKeyword: "", sort: sortSelect?.value || "popular", page: 1, pageSize: 12 };
+  // ============================================================
+  // DỮ LIỆU CHARM NAM
+  // ============================================================
+  const maleCharmsData = [
+    { id: 1104, detailId: 4, name: "Charm bạc nam kiểu dáng mạnh mẽ", image: "../ảnh/Ảnh chụp màn hình/11.png", price: "450.000đ", gender: "Nam", rating: 4.3, inStock: true, order: 10 },
+    { id: 1114, detailId: 2, name: "Charm nam hình mỏ neo bạc", image: "../ảnh/Ảnh chụp màn hình/9.png", price: "550.000đ", gender: "Nam", rating: 4.6, inStock: true, order: 11 },
+    { id: 1116, detailId: 4, name: "Charm nam phong cách Rock", image: "../ảnh/Ảnh chụp màn hình/11.png", price: "490.000đ", gender: "Nam", rating: 4.3, inStock: true, order: 12 },
+    { id: 1119, detailId: 3, name: "Charm bạc nam hình mỏ neo", image: "../ảnh/Ảnh chụp màn hình/69.png", price: "320.000đ", gender: "Nam", rating: 4.4, inStock: true, order: 13 }
+  ];
+
+  const products = [...femaleCharmsData, ...maleCharmsData];
+
+  const state = { maxPrice: Number(priceRange?.value || 100000000), minRating: 0, inStockOnly: inStockOnlyInput?.checked ?? true, selectedGender: null, searchKeyword: "", sort: sortSelect?.value || "popular", page: 1, pageSize: 15 };
 
   function parsePrice(priceText) { return Number(String(priceText).replace(/[^\d]/g, "")); }
   function formatPrice(value) { return new Intl.NumberFormat("vi-VN").format(value) + "đ"; }
-  function syncGenderSelection(activeValue) { genderInputs.forEach(function (input) { input.checked = input.value === activeValue; }); state.selectedGender = activeValue || null; }
+  function syncGenderSelection(activeValue) { if (genderInputs.length) { genderInputs.forEach(function (input) { input.checked = input.value === activeValue; }); } state.selectedGender = activeValue || null; }
   function isWishlisted(productId) { return window.AuroraDB ? window.AuroraDB.isWishlisted(productId) : false; }
-  function initCategoryButtons() { (categoryList?.querySelectorAll(".male-category-btn") || []).forEach(function (button) { button.addEventListener("click", function () { const target = pageRoutes[this.dataset.category || "charm"]; if (target) window.location.href = target; }); }); }
+
+  function initCategoryButtons() {
+    const buttons = categoryList?.querySelectorAll(".male-category-btn") || [];
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        const target = pageRoutes[this.dataset.category];
+        if (target) {
+          window.location.href = target;
+        }
+      });
+    });
+  }
 
   function applyFilterAndSort() {
     let filtered = products.filter(function (product) {
@@ -67,49 +98,39 @@ window.addEventListener("DOMContentLoaded", function () {
     if (!grid) return;
     grid.querySelectorAll(".wishlist-mini").forEach(function (button) {
       button.addEventListener("click", function (event) {
-        event.preventDefault();
-        event.stopPropagation();
+        event.preventDefault(); e.stopPropagation();
         if (!window.AuroraDB) return;
         const added = window.AuroraDB.toggleWishlist(this.dataset.id);
         this.classList.toggle("active", added);
         const icon = this.querySelector("i");
-        if (!icon) return;
-        icon.classList.toggle("fa-solid", added);
-        icon.classList.toggle("fa-regular", !added);
+        if (icon) { icon.classList.toggle("fa-solid", added); icon.classList.toggle("fa-regular", !added); }
       });
     });
-  }
-
-  function ensureMinimumDisplayItems(items) {
-    if (!items.length || items.length >= 9) return items;
-
-    const displayItems = [...items];
-    let index = 0;
-
-    while (displayItems.length < 9) {
-      displayItems.push(items[index % items.length]);
-      index += 1;
-    }
-
-    return displayItems;
   }
 
   function render() {
     const filtered = applyFilterAndSort();
     const start = (state.page - 1) * state.pageSize;
     const currentItems = filtered.slice(start, start + state.pageSize);
-    const displayItems = ensureMinimumDisplayItems(currentItems);
-    if (filterTitle) filterTitle.textContent = "Sản phẩm Charm";
+    
     if (resultCount) resultCount.textContent = filtered.length + " sản phẩm";
+    
     if (grid) {
       if (currentItems.length === 0) grid.innerHTML = "<p>Không tìm thấy sản phẩm phù hợp.</p>";
       else {
-        grid.innerHTML = displayItems.map(function (product) {
+        grid.innerHTML = currentItems.map(function (product) {
           const wishlisted = isWishlisted(product.id);
           return `
           <a href="./trangchitiet.html?id=${product.detailId}" class="catalog-card">
-            <div class="catalog-thumb">${product.discount ? `<span class="discount-badge">${product.discount}</span>` : ""}<span class="wishlist-mini ${wishlisted ? "active" : ""}" data-id="${product.id}"><i class="${wishlisted ? "fa-solid" : "fa-regular"} fa-heart"></i></span><img src="${product.image}" alt="${product.name}" /></div>
-            <div class="catalog-info"><div class="catalog-name">${product.name}</div><div class="catalog-price">${product.price}</div></div>
+            <div class="catalog-thumb">
+              ${product.discount ? `<span class="discount-badge">${product.discount}</span>` : ""}
+              <span class="wishlist-mini ${wishlisted ? "active" : ""}" data-id="${product.id}"><i class="${wishlisted ? "fa-solid" : "fa-regular"} fa-heart"></i></span>
+              <img src="${product.image}" alt="${product.name}" />
+            </div>
+            <div class="catalog-info">
+              <div class="catalog-name">${product.name}</div>
+              <div class="catalog-price">${product.price}</div>
+            </div>
           </a>`;
         }).join("");
         bindWishlistButtons();
@@ -121,6 +142,7 @@ window.addEventListener("DOMContentLoaded", function () {
   syncGenderSelection();
   initCategoryButtons();
   render();
+
   priceRange?.addEventListener("input", function () { state.maxPrice = Number(this.value); maxPriceLabel.textContent = formatPrice(state.maxPrice); state.page = 1; render(); });
   ratingButtons.forEach(function (button) { button.addEventListener("click", function () { ratingButtons.forEach(function (btn) { btn.classList.remove("active"); }); this.classList.add("active"); state.minRating = Number(this.dataset.rating || 0); state.page = 1; render(); }); });
   genderInputs.forEach(function (input) { input.addEventListener("change", function () { syncGenderSelection(this.value); state.page = 1; render(); }); });

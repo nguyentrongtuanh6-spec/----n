@@ -68,12 +68,12 @@
                     <h3>THÔNG TIN GIAO HÀNG</h3>
                     <div class="form-group">
                         <label>HỌ VÀ TÊN</label>
-                        <input type="text" placeholder="Nguyễn Minh Quân">
+                        <input type="text" id="customerName" placeholder="Nguyễn Minh Quân">
                     </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label>SỐ ĐIỆN THOẠI</label>
-                            <input type="text" placeholder="090 123 4567">
+                            <input type="text" id="customerPhone" placeholder="090 123 4567">
                         </div>
                         <div class="form-group">
                             <label>THÀNH PHỐ</label>
@@ -86,7 +86,7 @@
                     </div>
                     <div class="form-group">
                         <label>ĐỊA CHỈ CỤ THỂ</label>
-                        <input type="text" placeholder="Số nhà, tên đường, phường/xã">
+                        <input type="text" id="customerAddress" placeholder="Số nhà, tên đường, phường/xã">
                     </div>
                 </section>
 
@@ -251,8 +251,11 @@
                 <i class="fa-solid fa-check"></i>
             </div>
             <h2>ĐẶT HÀNG THÀNH CÔNG!</h2>
-            <p>Cảm ơn bạn đã tin tưởng AURORA. Đơn hàng của bạn đã được tiếp nhận và đang trong quá trình xử lý.</p>
-            <button class="btn-modal" onclick="window.location.href='./trangchu.html'">Về trang chủ</button>
+            <p>Cảm ơn bạn đã tin tưởng AURORA. Mã đơn hàng của bạn là: <strong id="newOrderId">#AUR----</strong></p>
+            <div class="modal-buttons" style="display: flex; gap: 10px; margin-top: 20px;">
+                <button class="btn-modal" onclick="window.location.href='./trangchu.html'" style="flex: 1; background: #eee; color: #333; border: 1px solid #ddd;">Về trang chủ</button>
+                <button class="btn-modal" id="btnGoToTracking" style="flex: 1;">Theo dõi ngay</button>
+            </div>
         </div>
     </div>
 

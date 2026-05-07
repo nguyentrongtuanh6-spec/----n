@@ -22,7 +22,7 @@ img {
 }
 
 .container {
-  width: 1180px;
+  width: 1320px;
   max-width: calc(100% - 40px);
   margin: 0 auto;
 }
@@ -1282,3 +1282,78 @@ footer {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+.discount-badge {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  background: #d63d3d;
+  color: #fff;
+  border-radius: 12px;
+  padding: 3px 8px;
+  font-size: 10px;
+  font-weight: 700;
+  z-index: 10;
+}
+
+/* Search Suggestions */
+.search-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #cbcbcb;
+  border-top: none;
+  z-index: 1000;
+  max-height: 300px;
+  overflow-y: auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: none;
+}
+
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  gap: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.2s;
+}
+
+.suggestion-item:last-child {
+  border-bottom: none;
+}
+
+.suggestion-item:hover {
+  background: #f9f9f9;
+}
+
+.suggestion-item img {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.suggestion-item .suggestion-info {
+  flex: 1;
+  overflow: hidden;
+}
+
+.suggestion-item .suggestion-name {
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #333;
+}
+
+.suggestion-item .suggestion-price {
+  font-size: 10px;
+  color: #f28f9f;
+  font-weight: 700;
+}
+

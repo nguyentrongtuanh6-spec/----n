@@ -18,6 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
     "Đã thanh toán": "bg-emerald-100 text-emerald-700",
     "Đang giao": "bg-sky-100 text-sky-700",
     "Chờ xử lý": "bg-amber-100 text-amber-700",
+    "Yêu cầu hoàn trả": "bg-rose-100 text-rose-700",
+    "Đã hoàn trả": "bg-stone-100 text-stone-700",
   };
 
   function parseInitialOrders() {
@@ -60,7 +62,27 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  const orders = parseInitialOrders();
+  function loadOrdersFromDB() {
+    let dbOrders = window.AuroraDB ? window.AuroraDB.getOrders() : [];
+    
+    // Map dữ liệu từ AuroraDB sang định dạng hiển thị của bảng
+    const mappedOrders = dbOrders.map(o => ({
+        id: o.id,
+        customerName: o.customerName || "Khách hàng",
+        customerEmail: o.customerEmail || o.customerPhone || "N/A",
+        product: o.items ? o.items.map(item => item.name).join(", ") : "Sản phẩm",
+        total: typeof o.total === 'number' ? o.total.toLocaleString('vi-VN') + 'đ' : o.total,
+        status: o.status,
+        avatar: "",
+        icon: "diamond",
+        rawItems: o.items || [], // Giữ lại danh sách sản phẩm gốc
+        address: o.customerAddress || ""
+    }));
+
+    return mappedOrders;
+  }
+
+  const orders = loadOrdersFromDB();
 
   const state = {
     activeStatus: "Tất cả",
@@ -155,6 +177,89 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
   }
 
+  function openViewDetailModal(order) {
+    const modal = document.createElement("div");
+    modal.className = "fixed inset-0 z-[100] bg-black/50 flex items-center justify-center p-4 backdrop-blur-sm";
+    
+    const itemsHtml = (order.rawItems && order.rawItems.length > 0) 
+      ? order.rawItems.map(item => `
+          <div class="flex items-center gap-4 py-3 border-b border-stone-100 last:border-0">
+            <img src="${item.image}" class="w-12 h-12 rounded-lg object-cover" />
+            <div class="flex-1">
+              <p class="text-sm font-bold text-stone-800">${item.name}</p>
+              <p class="text-xs text-stone-500">${item.qty} x ${item.price}</p>
+            </div>
+            <p class="text-sm font-bold text-stone-900">${item.price}</p>
+          </div>
+        `).join("")
+      : `<p class="text-sm text-stone-500 py-2">${order.product}</p>`;
+
+    modal.innerHTML = `
+      <div class="w-full max-w-xl bg-white rounded-2xl shadow-xl overflow-hidden animate-in fade-in zoom-in duration-200">
+        <div class="px-6 py-4 bg-stone-50 border-b flex items-center justify-between">
+          <div>
+            <h3 class="text-lg font-black text-stone-900">Chi tiết đơn hàng</h3>
+            <p class="text-xs text-stone-500">Mã đơn: <span class="font-bold text-primary">${order.id}</span></p>
+          </div>
+          <button type="button" data-close class="w-8 h-8 rounded-full hover:bg-stone-200 flex items-center justify-center transition-colors">
+            <span class="material-symbols-outlined text-xl">close</span>
+          </button>
+        </div>
+        
+        <div class="p-6 max-h-[70vh] overflow-y-auto">
+          <!-- Status & Info -->
+          <div class="flex justify-between items-start mb-6">
+            <div>
+              <p class="text-[10px] uppercase font-bold text-stone-400 tracking-wider mb-1">Khách hàng</p>
+              <p class="text-sm font-bold text-stone-800">${order.customerName}</p>
+              <p class="text-xs text-stone-500">${order.customerEmail}</p>
+            </div>
+            <div class="text-right">
+              <p class="text-[10px] uppercase font-bold text-stone-400 tracking-wider mb-1">Trạng thái</p>
+              <span class="px-3 py-1 rounded-full ${statusClassMap[order.status] || "bg-stone-100"} text-[10px] font-bold uppercase">${order.status}</span>
+            </div>
+          </div>
+
+          <!-- Items List -->
+          <div class="mb-6">
+            <p class="text-[10px] uppercase font-bold text-stone-400 tracking-wider mb-3">Sản phẩm đã đặt</p>
+            <div class="bg-stone-50 rounded-xl p-4">
+              ${itemsHtml}
+            </div>
+          </div>
+
+          <!-- Shipping -->
+          <div class="mb-6">
+            <p class="text-[10px] uppercase font-bold text-stone-400 tracking-wider mb-2">Địa chỉ giao hàng</p>
+            <p class="text-sm text-stone-700 leading-relaxed bg-stone-50 p-4 rounded-xl border border-dashed border-stone-200">
+              ${order.address || "Chưa có thông tin địa chỉ"}
+            </p>
+          </div>
+
+          <!-- Total -->
+          <div class="pt-4 border-t flex justify-between items-center">
+            <p class="text-base font-bold text-stone-900">Tổng cộng</p>
+            <p class="text-xl font-black text-primary">${order.total}</p>
+          </div>
+        </div>
+
+        <div class="px-6 py-4 bg-stone-50 border-t flex justify-end">
+          <button type="button" data-close class="px-6 py-2 rounded-xl bg-stone-900 text-white text-sm font-bold hover:bg-black transition-colors">Đóng</button>
+        </div>
+      </div>
+    `;
+
+    function closeModal() {
+      modal.remove();
+    }
+
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal || e.target.closest("[data-close]")) closeModal();
+    });
+
+    document.body.appendChild(modal);
+  }
+
   function openOrderModal(mode, order) {
     const isView = mode === "view";
     const isEdit = mode === "edit";
@@ -169,7 +274,7 @@ document.addEventListener("DOMContentLoaded", function () {
     modal.className =
       "fixed inset-0 z-[100] bg-black/40 flex items-center justify-center p-4";
     modal.innerHTML = `
-      <div class="w-full max-w-2xl bg-white rounded-2xl shadow-2xl p-6">
+      <div class="w-full max-w-2xl bg-white rounded-2xl p-6">
         <div class="flex items-center justify-between mb-5">
           <h3 class="text-2xl font-black">${title}</h3>
           <button type="button" data-close class="w-9 h-9 rounded-full hover:bg-stone-100">
@@ -197,6 +302,8 @@ document.addEventListener("DOMContentLoaded", function () {
               <option ${order?.status === "Đã thanh toán" ? "selected" : ""}>Đã thanh toán</option>
               <option ${order?.status === "Đang giao" ? "selected" : ""}>Đang giao</option>
               <option ${order?.status === "Chờ xử lý" ? "selected" : ""}>Chờ xử lý</option>
+              <option ${order?.status === "Yêu cầu hoàn trả" ? "selected" : ""}>Yêu cầu hoàn trả</option>
+              <option ${order?.status === "Đã hoàn trả" ? "selected" : ""}>Đã hoàn trả</option>
             </select>
           </label>
           <label class="text-sm font-semibold md:col-span-2">Icon sản phẩm
@@ -264,6 +371,10 @@ document.addEventListener("DOMContentLoaded", function () {
           const idx = orders.findIndex((item) => item.id === order.id);
           if (idx >= 0) {
             orders[idx] = { ...orders[idx], ...payload, id: order.id };
+            // Đồng bộ với AuroraDB
+            if (window.AuroraDB) {
+              window.AuroraDB.updateOrderStatus(order.id, payload.status);
+            }
           }
         }
 
@@ -327,8 +438,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const total = rows.length;
     const totalPages = Math.max(1, Math.ceil(total / state.pageSize));
 
-    if (state.page > totalPages) {
-      state.page = totalPages;
+    if (summaryLabel) {
+      const start = total === 0 ? 0 : (state.page - 1) * state.pageSize + 1;
+      const end = Math.min(total, state.page * state.pageSize);
+      summaryLabel.innerHTML = `Hiển thị <span class="font-bold">${start}-${end}</span> trên <span class="font-bold">${total}</span> đơn hàng`;
+    }
+
+    // Cập nhật "Tổng đơn hàng hôm nay"
+    const todayTotalEl = document.querySelector(".bg-tertiary-container h3");
+    if (todayTotalEl) {
+        todayTotalEl.textContent = total;
     }
 
     const startIndex = (state.page - 1) * state.pageSize;
@@ -385,7 +504,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!order) return;
 
     if (action === "view") {
-      openOrderModal("view", order);
+      openViewDetailModal(order);
       return;
     }
 
@@ -401,6 +520,12 @@ document.addEventListener("DOMContentLoaded", function () {
       const index = orders.findIndex((item) => item.id === order.id);
       if (index >= 0) {
         orders.splice(index, 1);
+        // Đồng bộ xóa trong AuroraDB
+        if (window.AuroraDB) {
+          const data = window.AuroraDB.getAll();
+          data.orders = data.orders.filter(o => String(o.id) !== String(order.id));
+          window.AuroraDB.save(data);
+        }
       }
       render();
     }

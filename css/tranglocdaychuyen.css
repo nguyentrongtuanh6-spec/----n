@@ -1,19 +1,49 @@
 body {
-  background: #efefef;
+  background: #ffffff;
 }
 
-.container.male-catalog-page,
-.container.catalog-page {
-  width: min(1500px, calc(100% - 48px));
-  max-width: min(1500px, calc(100% - 48px));
-}
-
-.male-catalog-page,
-.catalog-page {
+.male-catalog-page {
   display: grid;
   grid-template-columns: 260px 1fr;
-  gap: 22px;
-  padding: 26px 0 40px;
+  row-gap: 4px !important;
+  gap: 32px;
+  padding: 10px 0 40px !important;
+}
+
+.male-filter-sidebar,
+.male-product-panel {
+  padding-top: 18px !important;
+}
+
+.male-breadcrumb {
+  grid-column: 1 / -1;
+  font-size: 11px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin: 0 0 4px;
+}
+
+.male-breadcrumb a {
+  color: #727272;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.male-breadcrumb a:hover {
+  color: #1f1f1f;
+  font-weight: 700;
+}
+
+.male-breadcrumb .sep {
+  margin: 0 6px;
+  color: #666;
+}
+
+.male-breadcrumb .current {
+  color: #1f1f1f;
+  font-weight: 700;
 }
 
 .male-filter-sidebar,
@@ -224,7 +254,7 @@ body {
 }
 
 .male-product-panel {
-  padding: 14px;
+  padding: 24px;
 }
 
 .panel-head {
@@ -262,16 +292,18 @@ body {
 .catalog-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  gap: 30px;
 }
 
 .catalog-card {
-  border: 1px solid #ececec;
-  border-radius: 8px;
+  border: none;
+  border-radius: 12px;
   overflow: hidden;
   background: #fff;
-  display: block;
-  transition: 0.25s;
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%;
 }
 
 .catalog-card:hover {
@@ -281,8 +313,10 @@ body {
 
 .catalog-thumb {
   position: relative;
-  height: 220px;
-  background: #f5f5f5;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  background: #fff;
+  overflow: hidden;
 }
 
 .catalog-thumb img {
@@ -325,19 +359,27 @@ body {
 
 .catalog-info {
   text-align: center;
-  padding: 8px 10px 10px;
+  padding: 16px 12px;
+  background: #f7f7f7;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .catalog-name {
-  font-size: 12px;
-  line-height: 1.4;
-  min-height: 36px;
+  font-size: 13px;
+  line-height: 1.5;
+  min-height: 40px;
+  color: #333;
+  margin-bottom: 6px;
+  font-weight: 500;
 }
 
 .catalog-price {
-  margin-top: 4px;
-  color: #ef6b7d;
-  font-size: 18px;
+  margin-top: auto;
+  color: #d63d3d;
+  font-size: 16px;
   font-weight: 700;
 }
 

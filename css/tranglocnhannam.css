@@ -1,1 +1,46 @@
 @import url('./tranglocdaychuyen.css');
+
+.male-catalog-page {
+  row-gap: 4px !important;
+  padding-top: 10px !important;
+}
+
+.male-filter-sidebar,
+.male-product-panel {
+  padding-top: 18px !important;
+}
+
+body {
+  background: #ffffff;
+}
+
+.male-breadcrumb {
+  grid-column: 1 / -1;
+  font-size: 11px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin: 0 0 4px;
+}
+
+.male-breadcrumb a {
+  color: #727272;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.male-breadcrumb a:hover {
+  color: #1f1f1f;
+  font-weight: 700;
+}
+
+.male-breadcrumb .sep {
+  margin: 0 6px;
+  color: #666;
+}
+
+.male-breadcrumb .current {
+  color: #1f1f1f;
+  font-weight: 700;
+}

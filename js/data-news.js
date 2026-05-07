@@ -1,10 +1,10 @@
 const newsData = [
   {
     id: 1,
-    title: "Xu hướng Trang sức 2026: Giao thoa di sản & hiện đại",
+    title: "Xu hướng kim cương 2026: Sự trỗi dậy của những giác cắt cổ điển",
     date: "25 THÁNG 12, 2025",
-    desc: "Khám phá sự giao thoa giữa nghệ thuật thủ công truyền thống và ngôn ngữ thiết kế đương đại trong bộ sưu tập mới nhất của Aurora.",
-    image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=2000&auto=format&fit=crop",
+    desc: "Khám phá sự trở lại đầy ngoạn mục của các giác cắt Emerald và Cushion trong năm nay. Xu hướng không chỉ dừng lại ở sự lấp lánh mà còn là câu chuyện về di sản và giá trị vượt thời gian được tái hiện qua bàn tay nghệ nhân Aurora..",
+    image: "../ảnh/Ảnh chụp màn hình/79.png",
     category: "BỘ SƯU TẬP",
     isFeatured: true
   },

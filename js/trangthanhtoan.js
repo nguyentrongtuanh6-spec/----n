@@ -71,7 +71,28 @@ window.addEventListener('DOMContentLoaded', () => {
             // 2. Lưu đơn hàng vào database (giả lập)
             if (window.AuroraDB) {
                 const cart = window.AuroraDB.getCart();
-                // window.AuroraDB.saveOrder(cart); // Nếu có hàm này
+                const subtotal = cart.reduce((sum, item) => sum + parsePrice(item.price) * item.qty, 0);
+                
+                // Lưu đơn hàng thực tế
+                const newOrder = window.AuroraDB.saveOrder({
+                    items: cart,
+                    total: subtotal,
+                    customerName: document.getElementById('customerName')?.value || "Khách hàng",
+                    customerPhone: document.getElementById('customerPhone')?.value || "",
+                    customerAddress: document.getElementById('customerAddress')?.value || "",
+                    paymentMethod: document.querySelector('.checkout-section:nth-of-type(3) .option-box.active h4')?.textContent || "Thanh toán khi nhận hàng"
+                });
+
+                if (newOrder) {
+                    const idEl = document.getElementById('newOrderId');
+                    if (idEl) idEl.textContent = '#' + newOrder.id;
+                    const trackingBtn = document.getElementById('btnGoToTracking');
+                    if (trackingBtn) {
+                        trackingBtn.onclick = () => {
+                            window.location.href = `./theodoidonhang.html?id=${newOrder.id}`;
+                        };
+                    }
+                }
                 
                 // 3. Xóa giỏ hàng
                 window.AuroraDB.clearCart();

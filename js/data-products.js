@@ -1,15 +1,16 @@
-﻿const products = [
+const products = [
   {
     id: 1,
     category: "couple",
-    name: "Nhẫn cặp đôi bạc đính đá phong cách hiện đại AURORA",
-    price: "1.641.000đ",
+    name: "Nhẫn cặp đôi bạc đính kim cương Moissanite Layla AURORA",
+    price: "2.741.000đ",
     image: "../ảnh/Ảnh chụp màn hình/2.png",
     description: "Nhẫn cặp đôi bạc đính đá phong cách hiện đại AURORA mang đến sự kết nối tinh tế.",
-    images: ["../ảnh/Ảnh chụp màn hình/2.png", "../ảnh/Ảnh chụp màn hình/3.png"],
+    images: ["../ảnh/Ảnh chụp màn hình/3.png", "../ảnh/Ảnh chụp màn hình/3.png"],
     type: "Nhẫn",
     color: "Bạc",
     material: "Bạc 925",
+
     stone: "Moissanite",
     gender: "Couple (Đôi)",
     finish: "Xuất sắc"
@@ -18,7 +19,7 @@
     id: 2,
     category: "couple",
     name: "Lắc tay bạc cặp đôi thời thượng Love Forever",
-    price: "1.582.000đ",
+    price: "1.520.000đ",
     image: "../ảnh/Ảnh chụp màn hình/3.png",
     description: "Lắc tay bạc cặp đôi thời thượng Love Forever với họa tiết độc đáo.",
     images: ["../ảnh/Ảnh chụp màn hình/3.png", "../ảnh/Ảnh chụp màn hình/4.png"]
@@ -26,7 +27,7 @@
   {
     id: 3,
     category: "couple",
-    name: "Dây chuyền bạc đôi đính đá tròn cao cấp AURORA",
+    name: "Dây chuyền bạc đôi đính đá cá voi và biển Lance AURORA",
     price: "2.060.000đ",
     image: "../ảnh/Ảnh chụp màn hình/4.png",
     description: "Mẫu dây chuyền đôi bán chạy nhất năm với sự tinh xảo trong từng đường nét.",
@@ -35,8 +36,8 @@
   {
     id: 4,
     category: "couple",
-    name: "Dây chuyền đôi bạc phối charm thời trang trẻ trung",
-    price: "2.419.000đ",
+    name: "Dây chuyền bạc đôi đính đá cá voi và biển Lance AURORA",
+    price: "2.449.000đ",
     image: "../ảnh/Ảnh chụp màn hình/5.png",
     description: "Mẫu dây chuyền đôi trẻ trung, phù hợp phong cách năng động.",
     images: ["../ảnh/Ảnh chụp màn hình/5.png", "../ảnh/Ảnh chụp màn hình/4.png"]
@@ -80,8 +81,9 @@
   {
     id: 9,
     category: "favorite",
-    name: "Bộ trang sức đính đá đồng bộ hoa tuyết cá tính",
-    price: "1.255.000đ",
+    name: "Bộ trang sức đính đá hình bông tuyết Zoe AURORA",
+    price: "3.225.000đ",
+    discount: "-6%",
     image: "../ảnh/Ảnh chụp màn hình/10.png",
     description: "Bộ trang sức đồng bộ nổi bật với họa tiết hoa tuyết.",
     images: ["../ảnh/Ảnh chụp màn hình/10.png"]
@@ -99,7 +101,7 @@
     id: 11,
     category: "favorite",
     name: "Dây chuyền bạc nữ đính đá hình thiên nga AURORA",
-    price: "1.030.000đ",
+    price: "1.120.000đ",
     image: "../ảnh/Ảnh chụp màn hình/12.png",
     description: "Mặt dây chuyền thiên nga biểu tượng của vẻ đẹp duyên dáng.",
     images: ["../ảnh/Ảnh chụp màn hình/12.png"]
@@ -111,6 +113,25 @@
     price: "850.000đ",
     image: "../ảnh/Ảnh chụp màn hình/13.png",
     description: "Thiết kế bông tai thanh mảnh, dễ phối đồ hằng ngày.",
+    images: ["../ảnh/Ảnh chụp màn hình/13.png"]
+  },
+
+  {
+    id: 30,
+    category: "favorite",
+    name: "Dây chuyền bạc mặt chữ V thanh lịch",
+    price: "760.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/11.png",
+    description: "Thiết kế chữ V tinh tế, tôn vinh vùng cổ quyến rũ.",
+    images: ["../ảnh/Ảnh chụp màn hình/11.png"]
+  },
+  {
+    id: 31,
+    category: "favorite",
+    name: "Bông tai bạc trơn hình học phong cách tối giản",
+    price: "550.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/13.png",
+    description: "Bông tai hình học tối giản, dễ phối đồ hàng ngày.",
     images: ["../ảnh/Ảnh chụp màn hình/13.png"]
   },
   {
@@ -161,7 +182,7 @@
   {
     id: 18,
     category: "charm",
-    name: "Charm bạc nữ tinh tế cao cấp",
+    name: "Charm ME Bạc Cánh Thiên Thần Ôm Trái Tim Hồng  AURORA",
     price: "660.000đ",
     image: "../ảnh/Ảnh chụp màn hình/1.png",
     description: "Charm bạc nữ tinh tế cao cấp với thiết kế hiện đại, tỉ mỉ.",
@@ -170,7 +191,7 @@
   {
     id: 19,
     category: "charm",
-    name: "Charm trái tim nhỏ đính đá",
+    name: "Hạt charm bạc nữ đính đá hình chiếc nơ Sienna AURORA",
     price: "450.000đ",
     image: "../ảnh/Ảnh chụp màn hình/54.png",
     description: "Charm trái tim nhỏ đính đá mang thông điệp tình yêu ngọt ngào.",
@@ -179,8 +200,8 @@
   {
     id: 20,
     category: "charm",
-    name: "Charm trăng sao phối đá màu",
-    price: "220.000đ",
+    name: "Hạt charm bạc nữ đính đá hình ngôi sao băng Astrid AURORA",
+    price: "777.000đ",
     image: "../ảnh/Ảnh chụp màn hình/55.png",
     description: "Charm trăng sao phối đá màu tạo điểm nhấn huyền bí.",
     images: ["../ảnh/Ảnh chụp màn hình/55.png"]
@@ -188,8 +209,8 @@
   {
     id: 21,
     category: "charm",
-    name: "Charm bạc kiểu hiện đại AURORA",
-    price: "880.000đ",
+    name: "Hạt charm bạc nữ đính đá hình tiên cá AURORA",
+    price: "580.000đ",
     image: "../ảnh/Ảnh chụp màn hình/56.png",
     description: "Charm bạc kiểu hiện đại AURORA tôn vinh vẻ đẹp cá nhân.",
     images: ["../ảnh/Ảnh chụp màn hình/56.png"]
@@ -197,8 +218,8 @@
   {
     id: 22,
     category: "charm",
-    name: "Charm bướm dịu dàng nữ tính",
-    price: "650.000đ",
+    name: "Charm Bạc Moments Khế Ước Vô Cực AURORA",
+    price: "918.000đ",
     image: "../ảnh/Ảnh chụp màn hình/14.png",
     description: "Charm bướm dịu dàng nữ tính cho sự uyển chuyển tự nhiên.",
     images: ["../ảnh/Ảnh chụp màn hình/14.png"]
@@ -207,7 +228,7 @@
     id: 23,
     category: "charm",
     name: "Charm hoa tuyết lấp lánh AURORA",
-    price: "1.243.000đ",
+    price: "1.423.000đ",
     image: "../ảnh/Ảnh chụp màn hình/15.png",
     description: "Charm hoa tuyết lấp lánh AURORA cho mùa đông thêm rạng rỡ.",
     images: ["../ảnh/Ảnh chụp màn hình/15.png"]
@@ -219,42 +240,199 @@ window.productData = products;
 
 // --- NEW CHARMS (101-120) ---
 products.push(
-  { id: 101, category: "charm", name: "Charm Cỏ 4 Lá May Mắn", price: "250.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm cỏ 4 lá mang lại may mắn." },
-  { id: 102, category: "charm", name: "Charm Ngôi Sao Hy Vọng", price: "200.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm ngôi sao sáng lấp lánh." },
-  { id: 103, category: "charm", name: "Charm Bướm Xinh", price: "300.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm hình bướm tinh xảo." },
-  { id: 104, category: "charm", name: "Charm Trái Tim Kim Cương", price: "450.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm trái tim đính đá lấp lánh." },
-  { id: 105, category: "charm", name: "Charm Hoa Hướng Dương", price: "280.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm hoa hướng dương rực rỡ." },
-  { id: 106, category: "charm", name: "Charm Đôi Cánh Thiên Thần", price: "350.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm đôi cánh thiên thần bình an." },
-  { id: 107, category: "charm", name: "Charm Vương Miện", price: "400.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm vương miện quyền quý." },
-  { id: 108, category: "charm", name: "Charm Chìa Khóa Tình Yêu", price: "320.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm chìa khóa mở cửa trái tim." },
-  { id: 109, category: "charm", name: "Charm Thỏ Trắng", price: "270.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm thỏ trắng dễ thương." },
-  { id: 110, category: "charm", name: "Charm Mặt Trăng Khuyết", price: "240.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm mặt trăng huyền bí." },
-  { id: 111, category: "charm", name: "Charm Gấu Bông", price: "290.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm gấu bông đáng yêu." },
-  { id: 112, category: "charm", name: "Charm Hoa Hồng Ân", price: "310.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm hoa hồng lãng mạn." },
-  { id: 113, category: "charm", name: "Charm Mũi Tên Tình Yêu", price: "260.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm mũi tên Cupid." },
-  { id: 114, category: "charm", name: "Charm Quả Cầu Tuyết", price: "380.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm quả cầu pha lê." },
-  { id: 115, category: "charm", name: "Charm Chuông Gió", price: "330.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm chuông ngân vang." },
-  { id: 116, category: "charm", name: "Charm Cá Heo", price: "280.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm cá heo thông minh." },
-  { id: 117, category: "charm", name: "Charm Pháo Hoa", price: "340.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm pháo hoa rực rỡ." },
-  { id: 118, category: "charm", name: "Charm Ánh Dương", price: "370.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm mặt trời tỏa nắng." },
-  { id: 119, category: "charm", name: "Charm Lá Phong", price: "230.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm lá phong mùa thu." },
-  { id: 120, category: "charm", name: "Charm Nơ Xinh", price: "250.000đ", image: "../ảnh/charm-gen/charm-collection.png", description: "Charm chiếc nơ điệu đà." }
+  {
+    id: 101, category: "charm",
+    name: "Hạt charm bạc nữ đính đá hình trái tim đóng mở gắn ảnh AURORA",
+    price: "2.222.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/18.png",
+    description: "Hạt charm bạc nữ đính đá hình trái tim đóng mở gắn ảnh AURORA."
+  },
+
+  {
+    id: 102, category: "charm",
+    name: "Hạt charm bạc nữ đính đ hình giấc mơ trời sao Harow AURORA",
+    price: "1.450.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/20.png",
+    description: "Hạt charm bạc nữ đính đá hình giấc mơ trời sao Harow AURORA."
+  },
+
+  {
+    id: 103, category: "charm",
+    name: "Hạt charm bạc nữ đính đá hình hồ điệp AURORA",
+    price: "1.107.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/23.png",
+    description: "Hạt charm bạc nữ đính đá hình hồ điệp AURORA."
+  },
+
+  {
+    id: 104,
+    category: "charm",
+    name: "Hạt charm bạc nữ đính đá tròn Florence AURORA",
+    price: "950.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/21.png",
+    description: "Hạt charm bạc nữ đính đá tròn Florence AURORA."
+  },
+
+  {
+    id: 105, category: "charm",
+    name: "Hạt charm bạc nữ đính đá hình hoa mặt trời Elsie AURORA",
+    price: "1.515.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/22.png",
+    description: "Hạt charm bạc nữ đính đá hình hoa mặt trời Elsie AURORA."
+  },
+
+  {
+    id: 108, category: "charm",
+    name: "Hạt charm bạc nữ đính đá Alayna AURORA",
+    price: "890.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/67.png",
+    description: "Hạt charm bạc nữ đính đá Alayna AURORA."
+  },
+
+  {
+    id: 109, category: "charm",
+    name: "Hạt charm bạc nữ đính đá Milani AURORA", price: "965.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/68.png",
+    description: "Hạt charm bạc nữ đính đá Milani AURORA."
+  },
+
+  {
+    id: 110, category: "charm",
+    name: "Hạt charm bạc nữ đính đá Amira AURORA", price: "810.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/69.png",
+    description: "Hạt charm bạc nữ đính đá Amira AURORA."
+  },
+
+  {
+    id: 111, category: "charm",
+    name: "Hạt charm bạc nữ đính đá Everleigh AURORA", price: "979.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/70.png",
+    description: "Hạt charm bạc nữ đính đá Everleigh AURORA."
+  },
+
+  {
+    id: 112, category: "charm",
+    name: "Hạt charm bạc nữ đính đá hình đôi cánh thiên thần Mariana", price: "855.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/71.png",
+    description: "Hạt charm bạc nữ đính đá hình đôi cánh thiên thần Mariana."
+  },
+
+  {
+    id: 113, category: "charm",
+    name: "Hạt charm bạc nữ đính đá hình hồ điệp AURORA", price: "520.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/72.png",
+    description: "Hạt charm bạc nữ đính đá hình hồ điệp AURORA."
+  },
+
+  {
+    id: 116, category: "charm",
+    name: "Hạt charm bạc nữ đính đá hình hoa tuyết AURORA", price: "990.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/73.png",
+    description: "Hạt charm bạc nữ đính đá hình hoa tuyết AURORA."
+  },
+
+  {
+    id: 117, category: "charm",
+    name: "Hạt charm bạc nữ đính đá phù thủy xứ OZ Mila AURORA", price: "999.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/74.png",
+    description: "Hạt charm bạc nữ đính đá phù thủy xứ OZ Mila AURORA."
+  },
+  {
+    id: 118, category: "charm",
+    name: "Hạt charm bạc nữ DIY đính đá hình hồ điệp Jenesis AURORA", price: "1.080.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/75.png",
+    description: "Hạt charm bạc nữ DIY đính đá hình hồ điệp Jenesis AURORA."
+  },
+
+  {
+    id: 119, category: "charm",
+    name: "Hạt charm bạc nữ đính đá giấc mơ vũ trụ Monica AURORA", price: "892.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/76.png",
+    description: "Hạt charm bạc nữ đính đá giấc mơ vũ trụ Monica AURORA."
+  },
+
+  {
+    id: 120, category: "charm",
+    name: "Hạt charm bạc nữ DIY đính đá hình động vật AURORA", price: "1.150.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/77.png",
+    description: "Hạt charm bạc nữ DIY đính đá hình động vật AURORA."
+  }
 );
 
 // --- NEW BASES (201-212) ---
 products.push(
-  { id: 201, category: "base", name: "Vòng Tay Bạc Trơn Cơ Bản", price: "500.000đ", image: "../ảnh/charm-gen/base-collection.png", description: "Vòng bạc 925 trơn thanh lịch." },
-  { id: 202, category: "base", name: "Vòng Tay Bạc Mắt Xích", price: "600.000đ", image: "../ảnh/charm-gen/base-collection.png", description: "Vòng mắt xích cá tính." },
-  { id: 203, category: "base", name: "Vòng Tay Bạc Cứng", price: "550.000đ", image: "../ảnh/charm-gen/base-collection.png", description: "Vòng kiềng bạc cứng cáp." },
-  { id: 204, category: "base", name: "Vòng Tay Bạc Dây Xoắn", price: "650.000đ", image: "../ảnh/charm-gen/base-collection.png", description: "Vòng dây xoắn độc đáo." },
-  { id: 205, category: "base", name: "Vòng Tay Bạc Nam Châm", price: "700.000đ", image: "../ảnh/charm-gen/base-collection.png", description: "Vòng khóa nam châm tiện lợi." },
-  { id: 206, category: "base", name: "Vòng Tay Vàng Trắng", price: "1.200.000đ", image: "../ảnh/charm-gen/base-collection.png", description: "Vòng mạ vàng trắng cao cấp." },
-  { id: 207, category: "base", name: "Dây Chuyền Bạc Sợi Mảnh", price: "400.000đ", image: "../ảnh/charm-gen/base-collection.png", description: "Dây chuyền mảnh nữ tính." },
-  { id: 208, category: "base", name: "Dây Chuyền Bạc Xích Tròn", price: "450.000đ", image: "../ảnh/charm-gen/base-collection.png", description: "Dây xích tròn thời trang." },
-  { id: 209, category: "base", name: "Dây Chuyền Bạc Ý", price: "500.000đ", image: "../ảnh/charm-gen/base-collection.png", description: "Dây chuyền bạc Ý 925." },
-  { id: 210, category: "base", name: "Dây Chuyền Bạc Chữ V", price: "550.000đ", image: "../ảnh/charm-gen/base-collection.png", description: "Dây thiết kế chữ V." },
-  { id: 211, category: "base", name: "Dây Chuyền Bạc Đính Bi", price: "600.000đ", image: "../ảnh/charm-gen/base-collection.png", description: "Dây chuyền điểm bi bạc." },
-  { id: 212, category: "base", name: "Dây Chuyền Mạ Vàng 14K", price: "900.000đ", image: "../ảnh/charm-gen/base-collection.png", description: "Dây mạ vàng 14K sang trọng." }
+  {
+    id: 201, category: "base",
+    name: "Vòng cổ bạc trơn AURORA", price: "350.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/32.png",
+    description: "Vòng cổ bạc trơn AURORA."
+  },
+
+  {
+    id: 202, category: "base",
+    name: "Lắc tay bạc nữ trơn AURORA",
+    price: "410.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/78.png",
+    description: "Lắc tay bạc nữ trơn AURORA."
+  },
+
+  {
+    id: 203, category: "base",
+    name: "Vòng bạc nữ DIY dạng chuỗi xoắn Sabrina AURORA", price: "420.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/59.png",
+    description: "Vòng bạc nữ DIY dạng chuỗi xoắn Sabrina AURORA."
+  },
+
+  {
+    id: 204, category: "base",
+    name: "Vòng Cổ Bạc Thái AURORA", price: "450.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/34.png",
+    description: "Vòng Cổ Bạc Thái AURORA."
+  },
+
+  {
+    id: 205, category: "base",
+    name: "Vòng Tay Bạc Nam Châm", price: "700.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/77.png",
+    description: "Vòng khóa nam châm tiện lợi."
+  },
+
+  {
+    id: 206, category: "base",
+    name: "Vòng Tay Vàng Trắng", price: "1.200.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/77.png",
+    description: "Vòng mạ vàng trắng cao cấp."
+  },
+
+  {
+    id: 207, category: "base",
+    name: "Dây Chuyền Bạc Sợi Mảnh", price: "400.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/77.png",
+    description: "Dây chuyền mảnh nữ tính."
+  },
+
+  {
+    id: 208, category: "base",
+    name: "Dây Chuyền Bạc Xích Tròn", price: "450.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/77.png",
+    description: "Dây xích tròn thời trang."
+  },
+
+  {
+    id: 209, category: "base",
+    name: "Dây Chuyền Bạc Ý", price: "500.000đ",
+    image: "../ảnh/Ảnh chụp màn hình/77.png",
+    description: "Dây chuyền bạc Ý 925."
+  },
+
+  {
+    id: 210, category: "base",
+    name: "Dây Chuyền Bạc Chữ V",
+    price: "550.000đ",
+    image: "../ảnh/charm-gen/base-collection.png",
+    description: "Dây thiết kế chữ V."
+  },
+
 );
 
 if (window.AuroraDB) {

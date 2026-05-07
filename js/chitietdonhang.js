@@ -183,6 +183,29 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 1500);
   });
 
+  // --- PHẦN KẾT NỐI DỮ LIỆU THẬT ---
+  if (window.AuroraDB) {
+      const realOrder = window.AuroraDB.getOrderById(orderId);
+      if (realOrder) {
+          // Ghi đè dữ liệu mock nếu tìm thấy đơn hàng thật
+          const formattedDate = new Date(realOrder.date).toLocaleDateString('vi-VN');
+          renderOrderDetail(realOrder.id, {
+              date: formattedDate,
+              status: realOrder.status === "Chờ xử lý" ? "pending" : realOrder.status === "Đang giao" ? "shipping" : "completed",
+              statusText: realOrder.status,
+              subtotal: new Intl.NumberFormat("vi-VN").format(realOrder.total) + "đ",
+              discount: "0đ",
+              total: new Intl.NumberFormat("vi-VN").format(realOrder.total) + "đ",
+              items: realOrder.items
+          });
+      }
+  }
+
+  const trackOrderBtn = document.getElementById("trackOrderBtn");
+  trackOrderBtn?.addEventListener("click", function() {
+      window.location.href = `./theodoidonhang.html?id=${orderId.replace('#', '')}`;
+  });
+
   // Đóng modal khi click ra ngoài
   cancelOrderModal?.addEventListener("click", (e) => {
     if (e.target === cancelOrderModal) {

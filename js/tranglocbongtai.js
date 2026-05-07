@@ -12,30 +12,109 @@ window.addEventListener("DOMContentLoaded", function () {
   const filterTitle = document.getElementById("filterTitle");
   const paginationWrap = document.getElementById("paginationWrap");
 
-  const pageRoutes = { ring: "./tranglocnhannam.html", necklace: "./tranglocdaychuyen.html", earring: "./tranglocbongtai.html", bracelet: "./tranglocvongtay.html", charm: "./trangloccharm.html" };
+  const pageRoutes = {
+    ring: "./tranglocnhannam.html",
+    necklace: "./tranglocdaychuyen.html",
+    earring: "./tranglocbongtai.html",
+    bracelet: "./tranglocvongtay.html",
+    charm: "./trangloccharm.html",
+    set: "./trangsucbo.html",
+    couple: "./trangsucdoi.html"
+  };
 
-  const products = [
-    { id: 901, detailId: 1, name: "Bông tai bạc nữ đính đá ánh kim AURORA", image: "../ảnh/Ảnh chụp màn hình/8.png", price: "520.000đ", gender: "Nữ", rating: 4.6, inStock: true, order: 1 },
-    { id: 902, detailId: 2, name: "Bông tai nam bản nhỏ tối giản", image: "../ảnh/Ảnh chụp màn hình/11.png", price: "420.000đ", gender: "Nam", rating: 4.2, inStock: true, order: 2 },
-    { id: 903, detailId: 3, name: "Bông tai nữ hình giọt nước", image: "../ảnh/Ảnh chụp màn hình/3.png", price: "680.000đ", gender: "Nữ", rating: 4.5, inStock: true, order: 3 },
-    { id: 904, detailId: 4, name: "Bông tai nam đen bạc cá tính", image: "../ảnh/Ảnh chụp màn hình/10.png", price: "590.000đ", gender: "Nam", rating: 4.3, inStock: true, discount: "-2%", order: 4 },
-    { id: 905, detailId: 5, name: "Bông tai nữ nơ đá trắng", image: "../ảnh/Ảnh chụp màn hình/9.png", price: "730.000đ", gender: "Nữ", rating: 4.7, inStock: true, order: 5 },
-    { id: 906, detailId: 6, name: "Bông tai nam vòng tròn nhỏ", image: "../ảnh/Ảnh chụp màn hình/59.png", price: "340.000đ", gender: "Nam", rating: 4.0, inStock: true, order: 6 },
-    { id: 907, detailId: 7, name: "Bông tai nữ bông tuyết", image: "../ảnh/Ảnh chụp màn hình/4.png", price: "810.000đ", gender: "Nữ", rating: 4.8, inStock: true, order: 7 },
-    { id: 908, detailId: 1, name: "Bông tai nam đính đá vuông", image: "../ảnh/Ảnh chụp màn hình/7.png", price: "560.000đ", gender: "Nam", rating: 4.4, inStock: true, order: 8 },
-    { id: 909, detailId: 2, name: "Bông tai nữ hình sao", image: "../ảnh/Ảnh chụp màn hình/2.png", price: "470.000đ", gender: "Nữ", rating: 4.1, inStock: true, order: 9 },
-    { id: 910, detailId: 3, name: "Bông tai nam phối ngọc xanh", image: "../ảnh/Ảnh chụp màn hình/58.png", price: "920.000đ", gender: "Nam", rating: 4.6, inStock: true, discount: "-6%", order: 10 },
-    { id: 911, detailId: 4, name: "Bông tai nữ thanh mảnh", image: "../ảnh/Ảnh chụp màn hình/57.png", price: "510.000đ", gender: "Nữ", rating: 4.2, inStock: true, order: 11 },
-    { id: 912, detailId: 5, name: "Bông tai nam trơn cổ điển", image: "../ảnh/Ảnh chụp màn hình/60.png", price: "390.000đ", gender: "Nam", rating: 4.0, inStock: true, order: 12 }
+  // DỮ LIỆU BÔNG TAI NỮ
+  const femaleEarringsData = [
+    {
+      id: 701, detailId: 1, name: "Bông tai bạc nữ đính đá Ruby Pink",
+      image: "../ảnh/Ảnh chụp màn hình/5.png", price: "450.000đ", gender: "Nữ",
+      rating: 4.8, inStock: true, order: 1
+    },
+    {
+      id: 702, detailId: 2, name: "Bông tai bạc nữ Pearl White sang trọng",
+      image: "../ảnh/Ảnh chụp màn hình/6.png", price: "590.000đ", gender: "Nữ",
+      rating: 4.5, inStock: true, order: 2
+    },
+    {
+      id: 703, detailId: 3, name: "Bông tai bạc nữ Heart Shape lãng mạn",
+      image: "../ảnh/Ảnh chụp màn hình/7.png", price: "350.000đ", gender: "Nữ",
+      rating: 4.7, inStock: true, order: 3
+    },
+    {
+      id: 713, detailId: 1, name: "Bông tai bạc nữ đính kim cương",
+      image: "../ảnh/Ảnh chụp màn hình/8.png", price: "850.000đ", gender: "Nữ",
+      rating: 4.9, inStock: true, order: 4
+    },
+    {
+      id: 715, detailId: 3, name: "Bông tai nữ bạc Ý cao cấp",
+      image: "../ảnh/Ảnh chụp màn hình/2.png", price: "550.000đ", gender: "Nữ",
+      rating: 4.9, inStock: true, order: 5
+    },
+    {
+      id: 717, detailId: 1, name: "Bông tai bạc nữ ngọc trai",
+      image: "../ảnh/Ảnh chụp màn hình/57.png", price: "850.000đ", gender: "Nữ",
+      rating: 4.8, inStock: true, order: 6
+    },
+    {
+      id: 718, detailId: 2, name: "Bông tai bạc nữ hình ngôi sao",
+      image: "../ảnh/Ảnh chụp màn hình/58.png", price: "350.000đ", gender: "Nữ",
+      rating: 4.4, inStock: true, order: 7
+    },
+    {
+      id: 720, detailId: 4, name: "Bông tai bạc nữ dáng dài",
+      image: "../ảnh/Ảnh chụp màn hình/60.png", price: "1.100.000đ", gender: "Nữ",
+      rating: 4.9, inStock: true, order: 8
+    },
+    {
+      id: 721, detailId: 1, name: "Bông tai bạc nữ trái tim",
+      image: "../ảnh/Ảnh chụp màn hình/61.png", price: "290.000đ", gender: "Nữ",
+      rating: 4.7, inStock: true, order: 9
+    }
   ];
 
-  const state = { maxPrice: Number(priceRange?.value || 100000000), minRating: 0, inStockOnly: inStockOnlyInput?.checked ?? true, selectedGender: null, searchKeyword: "", sort: sortSelect?.value || "popular", page: 1, pageSize: 12 };
+  // DỮ LIỆU BÔNG TAI NAM
+  const maleEarringsData = [
+    {
+      id: 704, detailId: 4, name: "Bông tai nam đính đá Zircon cao cấp",
+      image: "../ảnh/Ảnh chụp màn hình/8.png", price: "250.000đ", gender: "Nam",
+      rating: 4.3, inStock: true, order: 10
+    },
+    {
+      id: 714, detailId: 2, name: "Bông tai bạc nam mặt rồng",
+      image: "../ảnh/Ảnh chụp màn hình/81.png", price: "380.000đ", gender: "Nam",
+      rating: 4.8, inStock: true, order: 11
+    },
+    {
+      id: 716, detailId: 4, name: "Bông tai nam phong cách Rock",
+      image: "../ảnh/Ảnh chụp màn hình/92.png", price: "490.000đ", gender: "Nam",
+      rating: 4.5, inStock: true, order: 12
+    },
+    {
+      id: 719, detailId: 3, name: "Bông tai bạc nam đính đá đen",
+      image: "../ảnh/Ảnh chụp màn hình/59.png", price: "420.000đ", gender: "Nam",
+      rating: 4.6, inStock: true, order: 13
+    }
+  ];
+
+  const products = [...femaleEarringsData, ...maleEarringsData];
+
+  const state = { maxPrice: Number(priceRange?.value || 100000000), minRating: 0, inStockOnly: inStockOnlyInput?.checked ?? true, selectedGender: null, searchKeyword: "", sort: sortSelect?.value || "popular", page: 1, pageSize: 15 };
 
   function parsePrice(priceText) { return Number(String(priceText).replace(/[^\d]/g, "")); }
   function formatPrice(value) { return new Intl.NumberFormat("vi-VN").format(value) + "đ"; }
-  function syncGenderSelection(activeValue) { genderInputs.forEach(function (input) { input.checked = input.value === activeValue; }); state.selectedGender = activeValue || null; }
+  function syncGenderSelection(activeValue) { if (genderInputs.length) { genderInputs.forEach(function (input) { input.checked = input.value === activeValue; }); } state.selectedGender = activeValue || null; }
   function isWishlisted(productId) { return window.AuroraDB ? window.AuroraDB.isWishlisted(productId) : false; }
-  function initCategoryButtons() { (categoryList?.querySelectorAll(".male-category-btn") || []).forEach(function (button) { button.addEventListener("click", function () { const target = pageRoutes[this.dataset.category || "earring"]; if (target) window.location.href = target; }); }); }
+
+  function initCategoryButtons() {
+    const buttons = categoryList?.querySelectorAll(".male-category-btn") || [];
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        const target = pageRoutes[this.dataset.category];
+        if (target) {
+          window.location.href = target;
+        }
+      });
+    });
+  }
 
   function applyFilterAndSort() {
     let filtered = products.filter(function (product) {
@@ -67,44 +146,27 @@ window.addEventListener("DOMContentLoaded", function () {
     if (!grid) return;
     grid.querySelectorAll(".wishlist-mini").forEach(function (button) {
       button.addEventListener("click", function (event) {
-        event.preventDefault();
-        event.stopPropagation();
+        event.preventDefault(); e.stopPropagation();
         if (!window.AuroraDB) return;
         const added = window.AuroraDB.toggleWishlist(this.dataset.id);
         this.classList.toggle("active", added);
         const icon = this.querySelector("i");
-        if (!icon) return;
-        icon.classList.toggle("fa-solid", added);
-        icon.classList.toggle("fa-regular", !added);
+        if (icon) { icon.classList.toggle("fa-solid", added); icon.classList.toggle("fa-regular", !added); }
       });
     });
-  }
-
-  function ensureMinimumDisplayItems(items) {
-    if (!items.length || items.length >= 9) return items;
-
-    const displayItems = [...items];
-    let index = 0;
-
-    while (displayItems.length < 9) {
-      displayItems.push(items[index % items.length]);
-      index += 1;
-    }
-
-    return displayItems;
   }
 
   function render() {
     const filtered = applyFilterAndSort();
     const start = (state.page - 1) * state.pageSize;
     const currentItems = filtered.slice(start, start + state.pageSize);
-    const displayItems = ensureMinimumDisplayItems(currentItems);
-    if (filterTitle) filterTitle.textContent = "Sản phẩm Bông tai";
+
     if (resultCount) resultCount.textContent = filtered.length + " sản phẩm";
+
     if (grid) {
       if (currentItems.length === 0) grid.innerHTML = "<p>Không tìm thấy sản phẩm phù hợp.</p>";
       else {
-        grid.innerHTML = displayItems.map(function (product) {
+        grid.innerHTML = currentItems.map(function (product) {
           const wishlisted = isWishlisted(product.id);
           return `
           <a href="./trangchitiet.html?id=${product.detailId}" class="catalog-card">
@@ -113,7 +175,10 @@ window.addEventListener("DOMContentLoaded", function () {
               <span class="wishlist-mini ${wishlisted ? "active" : ""}" data-id="${product.id}"><i class="${wishlisted ? "fa-solid" : "fa-regular"} fa-heart"></i></span>
               <img src="${product.image}" alt="${product.name}" />
             </div>
-            <div class="catalog-info"><div class="catalog-name">${product.name}</div><div class="catalog-price">${product.price}</div></div>
+            <div class="catalog-info">
+              <div class="catalog-name">${product.name}</div>
+              <div class="catalog-price">${product.price}</div>
+            </div>
           </a>`;
         }).join("");
         bindWishlistButtons();
@@ -125,6 +190,7 @@ window.addEventListener("DOMContentLoaded", function () {
   syncGenderSelection();
   initCategoryButtons();
   render();
+
   priceRange?.addEventListener("input", function () { state.maxPrice = Number(this.value); maxPriceLabel.textContent = formatPrice(state.maxPrice); state.page = 1; render(); });
   ratingButtons.forEach(function (button) { button.addEventListener("click", function () { ratingButtons.forEach(function (btn) { btn.classList.remove("active"); }); this.classList.add("active"); state.minRating = Number(this.dataset.rating || 0); state.page = 1; render(); }); });
   genderInputs.forEach(function (input) { input.addEventListener("change", function () { syncGenderSelection(this.value); state.page = 1; render(); }); });
