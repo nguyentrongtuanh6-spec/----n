@@ -143,12 +143,16 @@ window.addEventListener("DOMContentLoaded", function () {
     if (!grid) return;
     grid.querySelectorAll(".wishlist-mini").forEach(function (button) {
       button.addEventListener("click", function (event) {
-        event.preventDefault(); e.stopPropagation();
+        event.preventDefault();
+        event.stopPropagation();
         if (!window.AuroraDB) return;
         const added = window.AuroraDB.toggleWishlist(this.dataset.id);
         this.classList.toggle("active", added);
         const icon = this.querySelector("i");
-        if (icon) { icon.classList.toggle("fa-solid", added); icon.classList.toggle("fa-regular", !added); }
+        if (icon) {
+          icon.classList.toggle("fa-solid", added);
+          icon.classList.toggle("fa-regular", !added);
+        }
       });
     });
   }
@@ -194,4 +198,7 @@ window.addEventListener("DOMContentLoaded", function () {
   inStockOnlyInput?.addEventListener("change", function () { state.inStockOnly = this.checked; state.page = 1; render(); });
   searchInput?.addEventListener("input", function () { state.searchKeyword = this.value; state.page = 1; render(); });
   sortSelect?.addEventListener("change", function () { state.sort = this.value; state.page = 1; render(); });
+  if (window.AuroraDB) {
+    window.AuroraDB.init(products);
+  }
 });

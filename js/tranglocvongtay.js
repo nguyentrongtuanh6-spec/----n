@@ -21,17 +21,14 @@ window.addEventListener("DOMContentLoaded", function () {
     set: "./trangsucbo.html",
     couple: "./trangsucdoi.html"
   };
-
-  // ============================================================
   // DỮ LIỆU VÒNG TAY NỮ
-  // ============================================================
   const femaleBraceletsData = [
     { 
       id: 1001, 
       detailId: 1, 
-      name: "Vòng tay bạc nữ AURORA charm trái tim", 
-      image: "../ảnh/Ảnh chụp màn hình/20.png", 
-      price: "750.000đ", 
+      name: "Lắc tay bạc nữ mạ bạch kim đính đá CZ cỏ 4 lá AURORA", 
+      image: "../ảnh/Ảnh chụp màn hình/144.png", 
+      price: "820.000đ", 
       gender: "Nữ", 
       rating: 4.8, 
       inStock: true, 
@@ -40,20 +37,20 @@ window.addEventListener("DOMContentLoaded", function () {
     { 
       id: 1002, 
       detailId: 2, 
-      name: "Lắc tay bạc nữ đính đá lấp lánh", 
-      image: "../ảnh/Ảnh chụp màn hình/21.png", 
-      price: "520.000đ", 
+      name: "Vòng tay bạc nữ dạng kiềng đính đá pha lê Eye of the muse AURORA", 
+      image: "../ảnh/Ảnh chụp màn hình/145.png", 
+      price: "3.120.000đ", 
       gender: "Nữ", 
       rating: 4.5, 
-      inStock: true, 
+      inStock: true,  discount: "-2 %",
       order: 2 
     },
     { 
       id: 1003, 
       detailId: 3, 
-      name: "Vòng tay bạc nữ phong cách Minimalist", 
-      image: "../ảnh/Ảnh chụp màn hình/22.png", 
-      price: "450.000đ", 
+      name: "Lắc tay bạc nữ đính đá CZ bầu trời sao Brianna AURORA", 
+      image: "../ảnh/Ảnh chụp màn hình/146.png", 
+      price: "855.000đ", 
       gender: "Nữ", 
       rating: 4.7, 
       inStock: true, 
@@ -62,9 +59,9 @@ window.addEventListener("DOMContentLoaded", function () {
     { 
       id: 1013, 
       detailId: 1, 
-      name: "Vòng tay nữ bạc 925 đính đá", 
-      image: "../ảnh/Ảnh chụp màn hình/8.png", 
-      price: "680.000đ", 
+      name: "Lắc tay bạc nữ đính kim cương Moissanite Luciana AURORA", 
+      image: "../ảnh/Ảnh chụp màn hình/147.png", 
+      price: "3.800.000đ", 
       gender: "Nữ", 
       rating: 4.5, 
       inStock: true, 
@@ -73,9 +70,9 @@ window.addEventListener("DOMContentLoaded", function () {
     { 
       id: 1015, 
       detailId: 3, 
-      name: "Lắc tay nữ chuông nhỏ xinh", 
-      image: "../ảnh/Ảnh chụp màn hình/28.png", 
-      price: "350.000đ", 
+      name: "Lắc tay bạc nữ trơn Gracelynn AURORA", 
+      image: "../ảnh/Ảnh chụp màn hình/148.png", 
+      price: "430.000đ", 
       gender: "Nữ", 
       rating: 4.4, 
       inStock: true, 
@@ -84,20 +81,20 @@ window.addEventListener("DOMContentLoaded", function () {
     { 
       id: 1017, 
       detailId: 1, 
-      name: "Lắc tay bạc nữ dây mềm", 
-      image: "../ảnh/Ảnh chụp màn hình/62.png", 
-      price: "450.000đ", 
+      name: "Vòng tay bạc nữ dạng kiềng trơn hình trái tim Jewel AURORA", 
+      image: "../ảnh/Ảnh chụp màn hình/149.png", 
+      price: "555.000đ", 
       gender: "Nữ", 
       rating: 4.6, 
       inStock: true, 
       order: 6 
     },
     { 
-      id: 1019, 
+      id: 1019,  
       detailId: 3, 
-      name: "Lắc tay bạc nữ đính đá Ruby", 
-      image: "../ảnh/Ảnh chụp màn hình/64.png", 
-      price: "1.250.000đ", 
+      name: "Lắc tay bạc nữ đính đá CZ Guardian Of Love AURORA", 
+      image: "../ảnh/Ảnh chụp màn hình/150.png", 
+      price: "888.000đ", 
       gender: "Nữ", 
       rating: 4.7, 
       inStock: true, 
@@ -106,9 +103,9 @@ window.addEventListener("DOMContentLoaded", function () {
     { 
       id: 1021, 
       detailId: 1, 
-      name: "Lắc tay bạc nữ phong cách tối giản", 
-      image: "../ảnh/Ảnh chụp màn hình/66.png", 
-      price: "380.000đ", 
+      name: "Lắc tay bạc nữ đính đá CZ hình cáo hồ ly Catherine AURORA", 
+      image: "../ảnh/Ảnh chụp màn hình/151.png", 
+      price: "1.350.000đ", 
       gender: "Nữ", 
       rating: 4.5, 
       inStock: true, 
@@ -116,27 +113,25 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   ];
 
-  // ============================================================
   // DỮ LIỆU VÒNG TAY NAM
-  // ============================================================
   const maleBraceletsData = [
     { 
       id: 1004, 
       detailId: 4, 
-      name: "Vòng tay bạc nam kiểu dáng mạnh mẽ", 
-      image: "../ảnh/Ảnh chụp màn hình/23.png", 
-      price: "1.250.000đ", 
+      name: "Lắc tay bạc nam mắt xích đơn giản AURORA", 
+      image: "../ảnh/Ảnh chụp màn hình/47.png",  
+      price: "6.250.000đ", 
       gender: "Nam", 
       rating: 4.9, 
-      inStock: true, 
+      inStock: true, discount: "-2 %",
       order: 9 
     },
     { 
       id: 1014, 
       detailId: 2, 
-      name: "Vòng tay nam da phối bạc", 
-      image: "../ảnh/Ảnh chụp màn hình/81.png", 
-      price: "450.000đ", 
+      name: "Lắc tay bạc nam dây bện dù sáp Colin AURORA", 
+      image: "../ảnh/Ảnh chụp màn hình/152.png", 
+      price: "850.000đ", 
       gender: "Nam", 
       rating: 4.2, 
       inStock: true, 
@@ -145,9 +140,9 @@ window.addEventListener("DOMContentLoaded", function () {
     { 
       id: 1016, 
       detailId: 4, 
-      name: "Vòng tay nam mắt xích Cuban", 
-      image: "../ảnh/Ảnh chụp màn hình/92.png", 
-      price: "1.150.000đ", 
+      name: "Vòng tay bạc nam hình mũi tên Jasper AURORA", 
+      image: "../ảnh/Ảnh chụp màn hình/153.png", 
+      price: "5.150.000đ", 
       gender: "Nam", 
       rating: 4.9, 
       inStock: true, 
@@ -156,8 +151,8 @@ window.addEventListener("DOMContentLoaded", function () {
     { 
       id: 1018, 
       detailId: 2, 
-      name: "Vòng tay bạc nam kiểu dáng cứng", 
-      image: "../ảnh/Ảnh chụp màn hình/63.png", 
+      name: "Lắc tay bạc nam/nữ dạng chuỗi xoắn 6 ký tự chú Arturo AURRORA", 
+      image: "../ảnh/Ảnh chụp màn hình/154.png", 
       price: "1.800.000đ", 
       gender: "Nam", 
       rating: 4.8, 
@@ -165,17 +160,14 @@ window.addEventListener("DOMContentLoaded", function () {
       order: 12 
     }
   ];
-
-  // ============================================================
   // DỮ LIỆU VÒNG TAY CẶP ĐÔI
-  // ============================================================
   const coupleBraceletsData = [
     { 
       id: 1020, 
       detailId: 4, 
-      name: "Vòng tay đôi Forever Silver", 
-      image: "../ảnh/Ảnh chụp màn hình/65.png", 
-      price: "2.400.000đ", 
+      name: "Lắc tay bạc cặp đôi tình yêu Forever Love", 
+      image: "../ảnh/Ảnh chụp màn hình/3.png", 
+      price: "1.520.000đ", 
       gender: "Cặp đôi", 
       rating: 5.0, 
       inStock: true, 
@@ -184,9 +176,9 @@ window.addEventListener("DOMContentLoaded", function () {
     { 
       id: 1031, 
       detailId: 5, 
-      name: "Vòng tay đôi Destiny Bonds", 
-      image: "../ảnh/Ảnh chụp màn hình/34.png", 
-      price: "1.850.000đ", 
+      name: "Lắc tay cặp đôi bạc đính đá CZ trái tim của biển Erasmus", 
+      image: "../ảnh/Ảnh chụp màn hình/49.png", 
+      price: "2.440.000đ", 
       gender: "Cặp đôi", 
       rating: 4.9, 
       inStock: true, 
@@ -195,8 +187,8 @@ window.addEventListener("DOMContentLoaded", function () {
     { 
       id: 1032, 
       detailId: 6, 
-      name: "Lắc tay đôi Endless Love", 
-      image: "../ảnh/Ảnh chụp màn hình/35.png", 
+      name: "Vòng tay bạc đặc cặp đôi tình yêu Sun And Moon", 
+      image: "../ảnh/Ảnh chụp màn hình/155.png", 
       price: "2.100.000đ", 
       gender: "Cặp đôi", 
       rating: 4.8, 
@@ -206,9 +198,9 @@ window.addEventListener("DOMContentLoaded", function () {
     { 
       id: 1033, 
       detailId: 7, 
-      name: "Vòng tay đôi Soul Connection", 
-      image: "../ảnh/Ảnh chụp màn hình/36.png", 
-      price: "1.650.000đ", 
+      name: "Lắc tay bạc cặp đôi đính đá CZ hoàng tử và công chúa Leslie AURORA", 
+      image: "../ảnh/Ảnh chụp màn hình/156.png", 
+      price: "2.140.000đ", 
       gender: "Cặp đôi", 
       rating: 4.7, 
       inStock: true, 
@@ -267,12 +259,16 @@ window.addEventListener("DOMContentLoaded", function () {
     if (!grid) return;
     grid.querySelectorAll(".wishlist-mini").forEach(function (button) {
       button.addEventListener("click", function (event) {
-        event.preventDefault(); e.stopPropagation();
+        event.preventDefault();
+        event.stopPropagation();
         if (!window.AuroraDB) return;
         const added = window.AuroraDB.toggleWishlist(this.dataset.id);
         this.classList.toggle("active", added);
         const icon = this.querySelector("i");
-        if (icon) { icon.classList.toggle("fa-solid", added); icon.classList.toggle("fa-regular", !added); }
+        if (icon) {
+          icon.classList.toggle("fa-solid", added);
+          icon.classList.toggle("fa-regular", !added);
+        }
       });
     });
   }
@@ -318,4 +314,7 @@ window.addEventListener("DOMContentLoaded", function () {
   inStockOnlyInput?.addEventListener("change", function () { state.inStockOnly = this.checked; state.page = 1; render(); });
   searchInput?.addEventListener("input", function () { state.searchKeyword = this.value; state.page = 1; render(); });
   sortSelect?.addEventListener("change", function () { state.sort = this.value; state.page = 1; render(); });
+  if (window.AuroraDB) {
+    window.AuroraDB.init(products);
+  }
 });

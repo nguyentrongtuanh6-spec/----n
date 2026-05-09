@@ -25,48 +25,48 @@ window.addEventListener("DOMContentLoaded", function () {
   // DỮ LIỆU BÔNG TAI NỮ
   const femaleEarringsData = [
     {
-      id: 701, detailId: 1, name: "Bông tai bạc nữ đính đá Ruby Pink",
-      image: "../ảnh/Ảnh chụp màn hình/5.png", price: "450.000đ", gender: "Nữ",
+      id: 701, detailId: 1, name: "BBông tai Bạc đính đá  AURORA",
+      image: "../ảnh/Ảnh chụp màn hình/109.png", price: "565.000đ", gender: "Nữ",
       rating: 4.8, inStock: true, order: 1
     },
     {
-      id: 702, detailId: 2, name: "Bông tai bạc nữ Pearl White sang trọng",
-      image: "../ảnh/Ảnh chụp màn hình/6.png", price: "590.000đ", gender: "Nữ",
-      rating: 4.5, inStock: true, order: 2
+      id: 702, detailId: 2, name: "Hoa Tai Bạc Moments Hình Bướm Xanh AURORA",
+      image: "../ảnh/Ảnh chụp màn hình/113.png", price: "810.000đ", gender: "Nữ",
+      rating: 4.5, inStock: true, order: 2, discount: "-2%"
     },
     {
-      id: 703, detailId: 3, name: "Bông tai bạc nữ Heart Shape lãng mạn",
-      image: "../ảnh/Ảnh chụp màn hình/7.png", price: "350.000đ", gender: "Nữ",
+      id: 703, detailId: 3, name: "Bông tai bạc nữ đính đá hình chiếc nơ sang trọng AURORA",
+      image: "../ảnh/Ảnh chụp màn hình/112.png", price: "705.000đ", gender: "Nữ",
       rating: 4.7, inStock: true, order: 3
     },
     {
-      id: 713, detailId: 1, name: "Bông tai bạc nữ đính kim cương",
-      image: "../ảnh/Ảnh chụp màn hình/8.png", price: "850.000đ", gender: "Nữ",
+      id: 713, detailId: 1, name: "Hoa Tai Timeless Hình Nơ Lấp Lánh Dạng Rơi AURORA",
+      image: "../ảnh/Ảnh chụp màn hình/111.png", price: "620.000đ", gender: "Nữ",
       rating: 4.9, inStock: true, order: 4
     },
     {
       id: 715, detailId: 3, name: "Bông tai nữ bạc Ý cao cấp",
-      image: "../ảnh/Ảnh chụp màn hình/2.png", price: "550.000đ", gender: "Nữ",
-      rating: 4.9, inStock: true, order: 5
+      image: "../ảnh/Ảnh chụp màn hình/114.png", price: "947.000đ", gender: "Nữ",
+      rating: 4.9, inStock: true, order: 5, discount: "-2%"
     },
     {
-      id: 717, detailId: 1, name: "Bông tai bạc nữ ngọc trai",
-      image: "../ảnh/Ảnh chụp màn hình/57.png", price: "850.000đ", gender: "Nữ",
+      id: 717, detailId: 1, name: "Bông tai bạc nữ đính đá mèo và mặt trăng Kara AURORA",
+      image: "../ảnh/Ảnh chụp màn hình/115.png", price: "300.000đ", gender: "Nữ",
       rating: 4.8, inStock: true, order: 6
     },
     {
-      id: 718, detailId: 2, name: "Bông tai bạc nữ hình ngôi sao",
-      image: "../ảnh/Ảnh chụp màn hình/58.png", price: "350.000đ", gender: "Nữ",
+      id: 718, detailId: 2, name: "Bông tai bạc nữ đính đá hình hồ điệp AURORA",
+      image: "../ảnh/Ảnh chụp màn hình/116.png", price: "335.000đ", gender: "Nữ",
       rating: 4.4, inStock: true, order: 7
     },
     {
-      id: 720, detailId: 4, name: "Bông tai bạc nữ dáng dài",
-      image: "../ảnh/Ảnh chụp màn hình/60.png", price: "1.100.000đ", gender: "Nữ",
+      id: 720, detailId: 4, name: "Bông tai bạc nữ đính đá ngôi sao 5 cánh AURORA",
+      image: "../ảnh/Ảnh chụp màn hình/117.png", price: "995.00đ", gender: "Nữ",
       rating: 4.9, inStock: true, order: 8
     },
     {
-      id: 721, detailId: 1, name: "Bông tai bạc nữ trái tim",
-      image: "../ảnh/Ảnh chụp màn hình/61.png", price: "290.000đ", gender: "Nữ",
+      id: 721, detailId: 1, name: "Bông tai bạc nữ đính kim cương hoa hướng dương AURORA",
+      image: "../ảnh/Ảnh chụp màn hình/118.png", price: "3.489.000đ", gender: "Nữ",
       rating: 4.7, inStock: true, order: 9
     }
   ];
@@ -74,28 +74,47 @@ window.addEventListener("DOMContentLoaded", function () {
   // DỮ LIỆU BÔNG TAI NAM
   const maleEarringsData = [
     {
-      id: 704, detailId: 4, name: "Bông tai nam đính đá Zircon cao cấp",
-      image: "../ảnh/Ảnh chụp màn hình/8.png", price: "250.000đ", gender: "Nam",
+      id: 704, detailId: 4, name: "Bông tai bạc nam tròn trơn đen ngầu bầu trời sao AURORA",
+      image: "../ảnh/Ảnh chụp màn hình/137.png", price: "780.000đ", gender: "Nam",
       rating: 4.3, inStock: true, order: 10
     },
     {
-      id: 714, detailId: 2, name: "Bông tai bạc nam mặt rồng",
-      image: "../ảnh/Ảnh chụp màn hình/81.png", price: "380.000đ", gender: "Nam",
+      id: 714, detailId: 2, name: "Khuyên tai bạc nam tròn xoắn Cuban AURORA",
+      image: "../ảnh/Ảnh chụp màn hình/138.png", price: "410.000đ", gender: "Nam",
       rating: 4.8, inStock: true, order: 11
     },
     {
-      id: 716, detailId: 4, name: "Bông tai nam phong cách Rock",
-      image: "../ảnh/Ảnh chụp màn hình/92.png", price: "490.000đ", gender: "Nam",
+      id: 716, detailId: 4, name: "Khuyên tai bạc nam đính đá CZ thánh giá, chữ thập Shepherd AURORA",
+      image: "../ảnh/Ảnh chụp màn hình/139.png", price: "360.000đ", gender: "Nam",
       rating: 4.5, inStock: true, order: 12
     },
     {
-      id: 719, detailId: 3, name: "Bông tai bạc nam đính đá đen",
-      image: "../ảnh/Ảnh chụp màn hình/59.png", price: "420.000đ", gender: "Nam",
+      id: 719, detailId: 3, name: "Khuyên tai bạc nam tròn hình zigzag cá tính AURORA",
+      image: "../ảnh/Ảnh chụp màn hình/140.png", price: "466.000đ", gender: "Nam",
       rating: 4.6, inStock: true, order: 13
     }
   ];
 
-  const products = [...femaleEarringsData, ...maleEarringsData];
+  // DỮ LIỆU BÔNG TAI CẶP ĐÔI
+  const coupleEarringsData = [
+    {
+      id: 750, detailId: 1, name: "Bông tai bạc nữ/nam đính kim cương Moissanite vuông tròn cách điệu AURORA",
+      image: "../ảnh/Ảnh chụp màn hình/141.png", price: "3.987.000đ", gender: "Cặp đôi",
+      rating: 4.9, inStock: true, order: 14, discount: "-2%"
+    },
+    {
+      id: 751, detailId: 2, name: "Bông tai bạc nữ/nam đính đá AURORA",
+      image: "../ảnh/Ảnh chụp màn hình/142.png", price: "920.000đ", gender: "Cặp đôi",
+      rating: 4.7, inStock: true, order: 15
+    },
+    {
+      id: 752, detailId: 3, name: "Bông tai bạc nữ/nam đính đá CZ kẹp vành chữ C August  AURORA",
+      image: "../ảnh/Ảnh chụp màn hình/143.png", price: "820.000đ", gender: "Cặp đôi",
+      rating: 5.0, inStock: true, order: 16
+    }
+  ];
+
+  const products = [...femaleEarringsData, ...maleEarringsData, ...coupleEarringsData];
 
   const state = { maxPrice: Number(priceRange?.value || 100000000), minRating: 0, inStockOnly: inStockOnlyInput?.checked ?? true, selectedGender: null, searchKeyword: "", sort: sortSelect?.value || "popular", page: 1, pageSize: 15 };
 
@@ -146,12 +165,16 @@ window.addEventListener("DOMContentLoaded", function () {
     if (!grid) return;
     grid.querySelectorAll(".wishlist-mini").forEach(function (button) {
       button.addEventListener("click", function (event) {
-        event.preventDefault(); e.stopPropagation();
+        event.preventDefault();
+        event.stopPropagation();
         if (!window.AuroraDB) return;
         const added = window.AuroraDB.toggleWishlist(this.dataset.id);
         this.classList.toggle("active", added);
         const icon = this.querySelector("i");
-        if (icon) { icon.classList.toggle("fa-solid", added); icon.classList.toggle("fa-regular", !added); }
+        if (icon) {
+          icon.classList.toggle("fa-solid", added);
+          icon.classList.toggle("fa-regular", !added);
+        }
       });
     });
   }
@@ -197,4 +220,7 @@ window.addEventListener("DOMContentLoaded", function () {
   inStockOnlyInput?.addEventListener("change", function () { state.inStockOnly = this.checked; state.page = 1; render(); });
   searchInput?.addEventListener("input", function () { state.searchKeyword = this.value; state.page = 1; render(); });
   sortSelect?.addEventListener("change", function () { state.sort = this.value; state.page = 1; render(); });
+  if (window.AuroraDB) {
+    window.AuroraDB.init(products);
+  }
 });

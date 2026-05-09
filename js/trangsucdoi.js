@@ -150,4 +150,7 @@ window.addEventListener("DOMContentLoaded", function () {
   inStockOnlyInput?.addEventListener("change", function () { state.inStockOnly = this.checked; state.page = 1; render(); });
   searchInput?.addEventListener("input", function () { state.searchKeyword = this.value; state.page = 1; render(); });
   sortSelect?.addEventListener("change", function () { state.sort = this.value; state.page = 1; render(); });
+  if (window.AuroraDB) {
+    window.AuroraDB.init(products);
+  }
 });
