@@ -48,7 +48,7 @@
           <li><a href="#">Bộ sưu tập mới</a></li>
           <li><a href="./trangsucbo.html">Trang sức bộ</a></li>
           <li><a href="./trangsucdoi.html">Trang sức đôi</a></li>
-          <li><a href="#">Khuyến mãi</a></li>
+
           <li><a href="./tranglocnhannam.html">Nhẫn</a></li>
           <li><a href="./tranglocdaychuyen.html">Dây chuyền</a></li>
           <li><a href="./tranglocbongtai.html">Bông tai</a></li>
@@ -150,7 +150,7 @@
           <div class="content-section">
             <div class="section-header">
               <h2 class="section-title">Tất cả đơn hàng</h2>
-              <a href="#" class="view-all">XEM TẤT CẢ</a>
+              <button id="btnViewAllOrders" class="view-all">XEM TẤT CẢ</button>
             </div>
             <div class="table-responsive">
               <table class="orders-table">
@@ -271,6 +271,56 @@
       </div>
     </div>
   </footer>
+
+  <!-- POPUP: TẤT CẢ ĐƠN HÀNG -->
+  <div class="orders-modal-overlay" id="ordersModalOverlay" role="dialog" aria-modal="true" aria-label="Tất cả đơn hàng">
+    <div class="orders-modal">
+      <div class="orders-modal-header">
+        <div class="orders-modal-title">
+          <i class="fa-solid fa-box-open"></i>
+          Tất cả đơn hàng
+          <span class="orders-modal-count" id="ordersModalCount"></span>
+        </div>
+        <div class="orders-modal-actions">
+          <div class="orders-modal-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="ordersModalSearch" placeholder="Tìm mã đơn, sản phẩm..." />
+          </div>
+          <div class="orders-modal-filter">
+            <select id="ordersModalFilter">
+              <option value="all">Tất cả trạng thái</option>
+              <option value="pending">Chờ xác nhận</option>
+              <option value="shipping">Đang giao</option>
+              <option value="completed">Hoàn thành</option>
+              <option value="cancelled">Đã hủy</option>
+            </select>
+          </div>
+          <button class="orders-modal-close" id="ordersModalClose" aria-label="Đóng">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+      <div class="orders-modal-body">
+        <table class="orders-modal-table">
+          <thead>
+            <tr>
+              <th>MÃ ĐƠN HÀNG</th>
+              <th>NGÀY ĐẶT</th>
+              <th>SẢN PHẨM</th>
+              <th>TỔNG TIỀN</th>
+              <th>TRẠNG THÁI</th>
+              <th>THAO TÁC</th>
+            </tr>
+          </thead>
+          <tbody id="ordersModalBody"></tbody>
+        </table>
+        <div class="orders-modal-empty" id="ordersModalEmpty" style="display:none;">
+          <i class="fa-regular fa-folder-open"></i>
+          <p>Không tìm thấy đơn hàng nào.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="../js/db.js"></script>
   <script src="../js/data-products.js"></script>

@@ -96,7 +96,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
   function bindWishlistButtons() {
     if (!grid) return;
-    grid.querySelectorAll(".wishlist-mini").forEach(function (button) {
+    grid.querySelectorAll(".wishlist-btn").forEach(function (button) {
       button.addEventListener("click", function (event) {
         event.preventDefault(); event.stopPropagation();
         if (!window.AuroraDB) return;
@@ -104,6 +104,31 @@ window.addEventListener("DOMContentLoaded", function () {
         this.classList.toggle("active", added);
         const icon = this.querySelector("i");
         if (icon) { icon.classList.toggle("fa-solid", added); icon.classList.toggle("fa-regular", !added); }
+      });
+    });
+  }
+
+  function bindAddToCartButtons() {
+    if (!grid) return;
+    grid.querySelectorAll(".add-to-cart-btn").forEach(function (button) {
+      button.addEventListener("click", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        const productId = this.dataset.id;
+        const product = products.find(function (p) { return String(p.id) === String(productId); });
+        if (!product || !window.AuroraDB) return;
+        window.AuroraDB.addToCart(product, 1);
+        this.innerHTML = '<i class="fa-solid fa-check"></i>';
+        this.style.background = '#f28f9f';
+        this.style.borderColor = '#f28f9f';
+        this.style.color = '#fff';
+        var btn = this;
+        setTimeout(function () {
+          btn.innerHTML = '<i class="fa-solid fa-bag-shopping"></i>';
+          btn.style.background = '';
+          btn.style.borderColor = '';
+          btn.style.color = '';
+        }, 1200);
       });
     });
   }
@@ -122,19 +147,21 @@ window.addEventListener("DOMContentLoaded", function () {
         grid.innerHTML = currentItems.map(function (product) {
           const wishlisted = isWishlisted(product.id);
           return `
-          <a href="./trangchitiet.html?id=${product.detailId}" class="catalog-card">
-            <div class="catalog-thumb">
+          <a href="./trangchitiet.html?id=${product.detailId}" class="product-card">
+            <div class="product-thumb">
               ${product.discount ? `<span class="discount-badge">${product.discount}</span>` : ""}
-              <span class="wishlist-mini ${wishlisted ? "active" : ""}" data-id="${product.id}"><i class="${wishlisted ? "fa-solid" : "fa-regular"} fa-heart"></i></span>
+              <button class="wishlist-btn ${wishlisted ? "active" : ""}" data-id="${product.id}"><i class="${wishlisted ? "fa-solid" : "fa-regular"} fa-heart"></i></button>
+              <button class="add-to-cart-btn" data-id="${product.id}"><i class="fa-solid fa-bag-shopping"></i></button>
               <img src="${product.image}" alt="${product.name}" />
             </div>
-            <div class="catalog-info">
-              <div class="catalog-name">${product.name}</div>
-              <div class="catalog-price">${product.price}</div>
+            <div class="product-info">
+              <div class="product-name">${product.name}</div>
+              <div class="price">${product.price}</div>
             </div>
           </a>`;
         }).join("");
         bindWishlistButtons();
+        bindAddToCartButtons();
       }
     }
     renderPagination(filtered.length);

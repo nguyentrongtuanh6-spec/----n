@@ -225,4 +225,151 @@ document.addEventListener("DOMContentLoaded", function () {
 
   renderWishlist();
   renderOrderHistory();
+
+  // --- 6. POPUP: XEM TẤT CẢ ĐƠN HÀNG ---
+  (function initOrdersModal() {
+    var btnOpen   = document.getElementById("btnViewAllOrders");
+    var overlay   = document.getElementById("ordersModalOverlay");
+    var btnClose  = document.getElementById("ordersModalClose");
+    var searchEl  = document.getElementById("ordersModalSearch");
+    var filterEl  = document.getElementById("ordersModalFilter");
+    var tbody     = document.getElementById("ordersModalBody");
+    var emptyEl   = document.getElementById("ordersModalEmpty");
+    var countEl   = document.getElementById("ordersModalCount");
+
+    if (!btnOpen || !overlay) return;
+
+    // Thu thập đơn hàng: ưu tiên AuroraDB, fallback sang hardcoded rows trong bảng
+    function getAllOrders() {
+      if (window.AuroraDB) {
+        var dbOrders = window.AuroraDB.getOrders();
+        if (Array.isArray(dbOrders) && dbOrders.length > 0) return dbOrders;
+      }
+      // Fallback: parse từ bảng hiện có
+      var rows = document.querySelectorAll(".orders-table tbody tr");
+      var result = [];
+      rows.forEach(function (row) {
+        var cells = row.querySelectorAll("td");
+        if (cells.length < 5) return;
+        result.push({
+          id: (cells[0].textContent || "").replace("#", "").trim(),
+          date: (cells[1].textContent || "").trim(),
+          productsText: (cells[2].textContent || "").trim(),
+          total: (cells[3].textContent || "").trim(),
+          status: (cells[4].querySelector(".status-tag") || cells[4]).textContent.trim(),
+          statusClass: cells[4].querySelector(".status-tag")
+            ? cells[4].querySelector(".status-tag").className.replace("status-tag", "").trim()
+            : "pending",
+          canCancel: !!(cells[5] && cells[5].querySelector("button"))
+        });
+      });
+      return result;
+    }
+
+    // Lấy status class
+    function getStatusClass(order) {
+      if (order.statusClass) return order.statusClass;
+      var s = (order.status || "").toLowerCase();
+      if (s.includes("đang giao") || s.includes("shipping")) return "shipping";
+      if (s.includes("hoàn thành") || s.includes("đã giao") || s.includes("completed")) return "completed";
+      if (s.includes("hủy") || s.includes("cancel")) return "cancelled";
+      return "pending";
+    }
+
+    // Format date
+    function formatDate(raw) {
+      if (!raw) return "—";
+      if (/^\d{2}\/\d{2}\/\d{4}$/.test(raw)) return raw; // already vi format
+      var d = new Date(raw);
+      if (isNaN(d)) return raw;
+      return d.toLocaleDateString("vi-VN");
+    }
+
+    // Render bảng modal
+    function renderModal(orders) {
+      var search = searchEl ? searchEl.value.trim().toLowerCase() : "";
+      var filter = filterEl ? filterEl.value : "all";
+
+      var filtered = orders.filter(function (o) {
+        var statusCls = getStatusClass(o);
+        var matchFilter = filter === "all" || statusCls === filter;
+        var searchStr = ((o.id || "") + " " + (o.productsText || o.items
+          ? (o.items ? o.items.map(function(i){return i.name;}).join(" ") : "") : "")).toLowerCase();
+        var matchSearch = !search || searchStr.includes(search);
+        return matchFilter && matchSearch;
+      });
+
+      // Cập nhật badge số
+      if (countEl) countEl.textContent = orders.length;
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = "";
+        if (emptyEl) emptyEl.style.display = "";
+        return;
+      }
+      if (emptyEl) emptyEl.style.display = "none";
+
+      tbody.innerHTML = filtered.map(function (o) {
+        var statusCls = getStatusClass(o);
+        var statusLabel = (o.status || "").toUpperCase();
+        var date = formatDate(o.date);
+        var total = typeof o.total === "number"
+          ? o.total.toLocaleString("vi-VN") + "đ"
+          : (o.total || "—");
+        var products = o.productsText || (o.items ? o.items.map(function(i){return i.name;}).join(", ") : "Sản phẩm");
+        var canCancel = o.canCancel !== undefined ? o.canCancel
+          : (o.status === "Đang xử lý" || o.status === "Chờ xác nhận" || o.status === "Chờ xử lý");
+        var cancelBtn = canCancel
+          ? '<button class="btn-table-cancel" onclick="event.stopPropagation();window.location.href=\'./chitietdonhang.html?id=' + o.id + '&action=cancel\'">Hủy đơn</button>'
+          : "";
+
+        return '<tr onclick="window.location.href=\'./chitietdonhang.html?id=' + o.id + '\'">'
+          + '<td>#' + o.id + '</td>'
+          + '<td>' + date + '</td>'
+          + '<td class="product-name-cell">' + products + '</td>'
+          + '<td>' + total + '</td>'
+          + '<td><span class="status-tag ' + statusCls + '">' + statusLabel + '</span></td>'
+          + '<td>' + cancelBtn + '</td>'
+          + '</tr>';
+      }).join("");
+    }
+
+    // Mở modal
+    function openModal() {
+      var orders = getAllOrders();
+      renderModal(orders);
+      overlay.classList.add("active");
+      document.body.style.overflow = "hidden";
+
+      // Gắn live search & filter
+      if (searchEl) {
+        searchEl.oninput = function () { renderModal(orders); };
+      }
+      if (filterEl) {
+        filterEl.onchange = function () { renderModal(orders); };
+      }
+    }
+
+    // Đóng modal
+    function closeModal() {
+      overlay.classList.remove("active");
+      document.body.style.overflow = "";
+      if (searchEl) searchEl.value = "";
+      if (filterEl) filterEl.value = "all";
+    }
+
+    btnOpen.addEventListener("click", openModal);
+    if (btnClose) btnClose.addEventListener("click", closeModal);
+
+    // Click vào overlay (ngoài modal) → đóng
+    overlay.addEventListener("click", function (e) {
+      if (e.target === overlay) closeModal();
+    });
+
+    // ESC → đóng
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && overlay.classList.contains("active")) closeModal();
+    });
+  })();
+
 });

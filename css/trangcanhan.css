@@ -531,3 +531,279 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ====================================================
+   POPUP: TẤT CẢ ĐƠN HÀNG
+   ==================================================== */
+
+/* Nút XEM TẤT CẢ */
+#btnViewAllOrders {
+  background: none;
+  border: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #222;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+#btnViewAllOrders:hover {
+  color: #f28f9f;
+}
+
+/* Overlay */
+.orders-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 15, 0.55);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.orders-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Modal box */
+.orders-modal {
+  background: #fff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 920px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: none;
+  transform: translateY(28px) scale(0.97);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+}
+
+.orders-modal-overlay.active .orders-modal {
+  transform: translateY(0) scale(1);
+}
+
+/* Modal header */
+.orders-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 28px 18px;
+  border-bottom: 1px solid #f0f0f0;
+  gap: 14px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.orders-modal-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.orders-modal-title i {
+  color: #f28f9f;
+}
+
+.orders-modal-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #f28f9f;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  min-width: 22px;
+  height: 22px;
+  border-radius: 50px;
+  padding: 0 6px;
+}
+
+/* Actions: search + filter + close */
+.orders-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.orders-modal-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.orders-modal-search i {
+  position: absolute;
+  left: 11px;
+  color: #bbb;
+  font-size: 12px;
+  pointer-events: none;
+}
+
+.orders-modal-search input {
+  height: 36px;
+  padding: 0 12px 0 32px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  font-size: 12px;
+  font-family: "Montserrat", sans-serif;
+  background: #fafafa;
+  width: 200px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.orders-modal-search input:focus {
+  border-color: #f28f9f;
+  background: #fff;
+}
+
+.orders-modal-filter select {
+  height: 36px;
+  padding: 0 30px 0 11px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  font-size: 12px;
+  font-family: "Montserrat", sans-serif;
+  background: #fafafa;
+  color: #444;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23aaa' stroke-width='2'%3e%3cpolyline points='6,9 12,15 18,9'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.orders-modal-filter select:focus {
+  border-color: #f28f9f;
+}
+
+.orders-modal-close {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #eee;
+  border-radius: 50%;
+  background: #fff;
+  color: #888;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.orders-modal-close:hover {
+  background: #f28f9f;
+  border-color: #f28f9f;
+  color: #fff;
+  transform: rotate(90deg);
+}
+
+/* Modal body — scrollable */
+.orders-modal-body {
+  overflow-y: auto;
+  flex: 1;
+  padding: 0 28px 24px;
+  scrollbar-width: thin;
+  scrollbar-color: #f0c8d0 transparent;
+}
+
+.orders-modal-body::-webkit-scrollbar { width: 5px; }
+.orders-modal-body::-webkit-scrollbar-track { background: transparent; }
+.orders-modal-body::-webkit-scrollbar-thumb { background: #f0c8d0; border-radius: 4px; }
+
+/* Modal table */
+.orders-modal-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 6px;
+}
+
+.orders-modal-table thead {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 2;
+}
+
+.orders-modal-table th {
+  text-align: left;
+  font-size: 10px;
+  font-weight: 700;
+  color: #bbb;
+  letter-spacing: 0.8px;
+  padding: 14px 0 12px;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.orders-modal-table td {
+  padding: 16px 12px 16px 0;
+  border-bottom: 1px solid #f8f8f8;
+  font-size: 13px;
+  color: #444;
+  vertical-align: middle;
+}
+
+.orders-modal-table tbody tr {
+  cursor: pointer;
+  transition: background 0.18s;
+}
+
+.orders-modal-table tbody tr:hover {
+  background: #fff8f9;
+}
+
+.orders-modal-table .product-name-cell {
+  max-width: 240px;
+  line-height: 1.5;
+  padding-right: 16px !important;
+}
+
+/* Empty state */
+.orders-modal-empty {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.orders-modal-empty i {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 14px;
+  color: #e8d0d4;
+}
+
+.orders-modal-empty p {
+  font-size: 14px;
+  color: #bbb;
+}
+
+@media (max-width: 640px) {
+  .orders-modal { border-radius: 14px; }
+  .orders-modal-header { padding: 16px 16px 12px; flex-direction: column; align-items: flex-start; }
+  .orders-modal-search input { width: 140px; }
+  .orders-modal-body { padding: 0 14px 18px; }
+}
