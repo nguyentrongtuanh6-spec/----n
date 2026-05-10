@@ -4,12 +4,24 @@ window.addEventListener("DOMContentLoaded", function () {
     var isLogged = localStorage.getItem("auroraUser");
     userIconLink.setAttribute(
       "href",
-      isLogged ? "./trangcanhan.html" : "./trangdangnhap.html"
+      isLogged ? "./trangcanhan.html" : "./trangdangnhap.html",
     );
   }
 
   var navLinks = Array.from(document.querySelectorAll(".nav-menu a"));
   if (!navLinks.length) return;
+
+  var collectionLink = navLinks.find(function (link) {
+    var label = (link.textContent || "").trim().toLowerCase();
+    return label === "bộ sưu tập mới";
+  });
+
+  if (collectionLink) {
+    var collectionHref = (collectionLink.getAttribute("href") || "").trim();
+    if (!collectionHref || collectionHref === "#") {
+      collectionLink.setAttribute("href", "./bosuutapmoi.html");
+    }
+  }
 
   var currentPath = window.location.pathname.replace(/\\/g, "/").toLowerCase();
   var currentFile = currentPath.split("/").pop() || "";
@@ -29,6 +41,7 @@ window.addEventListener("DOMContentLoaded", function () {
   }
 
   var pageToMenu = {
+    "bosuutapmoi.html": "bộ sưu tập mới",
     "tranglocnhannam.html": "nhẫn",
     "tranglocnhannu.html": "nhẫn",
     "tranglocdaychuyen.html": "dây chuyền",
@@ -37,7 +50,7 @@ window.addEventListener("DOMContentLoaded", function () {
     "trangloccharm.html": "charm",
     "tranggioithieu.html": "giới thiệu",
     "trangsucbo.html": "trang sức bộ",
-    "trangsucdoi.html": "trang sức đôi"
+    "trangsucdoi.html": "trang sức đôi",
   };
 
   var targetMenuText = pageToMenu[currentFile];

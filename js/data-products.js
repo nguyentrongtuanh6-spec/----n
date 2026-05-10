@@ -435,7 +435,66 @@ products.push(
 
 );
 
+// --- BỘ SƯU TẬP MỚI (301-308) ---
+products.push(
+  {
+    id: 301, category: "new",
+    name: "Nhẫn Kim Cương Ánh Sao", price: "15.000.000đ",
+    image: "https://images.unsplash.com/photo-1605100804763-247f66156eb4?w=500&q=80",
+    description: "Nhẫn Kim Cương Ánh Sao sang trọng, tinh tế.",
+    images: ["https://images.unsplash.com/photo-1605100804763-247f66156eb4?w=500&q=80"]
+  },
+  {
+    id: 302, category: "new",
+    name: "Dây Chuyền Mặt Trăng", price: "8.500.000đ",
+    image: "https://images.unsplash.com/photo-1599643478524-fb66f70d00f8?w=500&q=80",
+    description: "Dây Chuyền Mặt Trăng cuốn hút.",
+    images: ["https://images.unsplash.com/photo-1599643478524-fb66f70d00f8?w=500&q=80"]
+  },
+  {
+    id: 303, category: "new",
+    name: "Bông Tai Ngôi Sao Nhỏ", price: "4.500.000đ",
+    image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=500&q=80",
+    description: "Bông Tai Ngôi Sao Nhỏ lấp lánh.",
+    images: ["https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=500&q=80"]
+  },
+  {
+    id: 304, category: "new",
+    name: "Lắc Tay Dạ Quang", price: "6.200.000đ",
+    image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=500&q=80",
+    description: "Lắc Tay Dạ Quang nổi bật trong đêm.",
+    images: ["https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=500&q=80"]
+  },
+  {
+    id: 305, category: "new",
+    name: "Nhẫn Đôi Thiên Hà", price: "18.000.000đ",
+    image: "https://images.unsplash.com/photo-1603561596112-0a132b757442?w=500&q=80",
+    description: "Nhẫn Đôi Thiên Hà gắn kết tình yêu.",
+    images: ["https://images.unsplash.com/photo-1603561596112-0a132b757442?w=500&q=80"]
+  },
+  {
+    id: 306, category: "new",
+    name: "Dây Chuyền Ngọc Trai Đen", price: "12.000.000đ",
+    image: "https://images.unsplash.com/photo-1599643477874-befaf88288eb?w=500&q=80",
+    description: "Dây Chuyền Ngọc Trai Đen quý phái.",
+    images: ["https://images.unsplash.com/photo-1599643477874-befaf88288eb?w=500&q=80"]
+  },
+  {
+    id: 307, category: "new",
+    name: "Bông Tai Giọt Lệ", price: "5.200.000đ",
+    image: "https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?w=500&q=80",
+    description: "Bông Tai Giọt Lệ thanh khiết.",
+    images: ["https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?w=500&q=80"]
+  },
+  {
+    id: 308, category: "new",
+    name: "Vòng Cổ Ánh Chớp", price: "9.900.000đ",
+    image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=500&q=80",
+    description: "Vòng Cổ Ánh Chớp cá tính.",
+    images: ["https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=500&q=80"]
+  }
+);
+
 if (window.AuroraDB) {
   window.AuroraDB.init(products);
 }
-
