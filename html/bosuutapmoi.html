@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AURORA - Bộ sưu tập mới</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/trangchu.css" />
+    <link rel="stylesheet" href="../css/tranglocdaychuyen.css" />
+    <link rel="stylesheet" href="../css/bosuutapmoi.css" />
+  </head>
+
+  <body>
+    <div class="topbar">Ưu đãi thành viên mới: giảm 20% cho đơn đầu tiên</div>
+
+    <header>
+      <div class="container header-main">
+        <a href="./trangchu.html" class="logo" aria-label="AURORA Home"
+          ><img src="../ảnh/Ảnh chụp màn hình/logo.png" alt="AURORA"
+        /></a>
+
+        <div class="search-box">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Bạn muốn tìm gì?"
+            autocomplete="off"
+          />
+          <span class="search-icon" id="searchIcon"
+            ><i class="fa-solid fa-magnifying-glass"></i
+          ></span>
+          <div id="searchSuggestions" class="search-suggestions"></div>
+        </div>
+
+        <div class="header-icons">
+          <a href="./trangyeuthich.html" title="Yêu thích"
+            ><i class="fa-regular fa-heart"></i
+          ></a>
+          <a href="#" title="Cửa hàng"
+            ><i class="fa-solid fa-location-dot"></i
+          ></a>
+          <a href="./trangdangnhap.html" title="Tài khoản"
+            ><i class="fa-regular fa-user"></i
+          ></a>
+          <a href="./tranggiohang.html" title="Giỏ hàng" class="cart-icon-link">
+            <i class="fa-solid fa-bag-shopping"></i>
+          </a>
+        </div>
+      </div>
+
+      <nav>
+        <div class="container">
+          <ul class="nav-menu">
+            <li>
+              <a href="./bosuutapmoi.html" class="active">Bộ sưu tập mới</a>
+            </li>
+            <li><a href="./trangsucbo.html">Trang sức bộ</a></li>
+            <li><a href="./trangsucdoi.html">Trang sức đôi</a></li>
+
+            <li><a href="./tranglocnhannam.html">Nhẫn</a></li>
+            <li><a href="./tranglocdaychuyen.html">Dây chuyền</a></li>
+            <li><a href="./tranglocbongtai.html">Bông tai</a></li>
+            <li><a href="./tranglocvongtay.html">Vòng tay</a></li>
+            <li><a href="./trangloccharm.html">Charm</a></li>
+            <li><a href="./tintuc.html">Tin tức</a></li>
+            <li><a href="./tranggioithieu.html">Giới thiệu</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container male-catalog-page">
+      <div class="male-breadcrumb">
+        <a href="./trangchu.html">TRANG CHỦ</a>
+        <span class="sep">›</span>
+        <span class="current">BỘ SƯU TẬP MỚI</span>
+      </div>
+
+      <aside class="male-filter-sidebar">
+        <section class="male-filter-block collection-summary">
+          <h3>BST Ánh Sao Đêm</h3>
+          <p>
+            Lấy cảm hứng từ bầu trời đêm huyền ảo, bộ sưu tập mang đến các thiết
+            kế tinh tế và sang trọng.
+          </p>
+          <div class="collection-meta">
+            <div class="meta-item">
+              <span class="label">Ra mắt</span>
+              <span class="value">05/2026</span>
+            </div>
+            <div class="meta-item">
+              <span class="label">Chất liệu</span>
+              <span class="value">Vàng trắng 18K</span>
+            </div>
+            <div class="meta-item">
+              <span class="label">Điểm nhấn</span>
+              <span class="value">Kim cương thiên nhiên</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="male-filter-block">
+          <h3>Danh mục nổi bật</h3>
+          <ul class="male-category-list">
+            <li>
+              <button class="male-category-btn active" type="button">
+                <span>Nhẫn</span><span class="count">12</span>
+              </button>
+            </li>
+            <li>
+              <button class="male-category-btn" type="button">
+                <span>Dây chuyền</span><span class="count">9</span>
+              </button>
+            </li>
+            <li>
+              <button class="male-category-btn" type="button">
+                <span>Bông tai</span><span class="count">7</span>
+              </button>
+            </li>
+            <li>
+              <button class="male-category-btn" type="button">
+                <span>Vòng tay</span><span class="count">6</span>
+              </button>
+            </li>
+          </ul>
+        </section>
+
+        <section class="male-filter-block">
+          <h3>Phong cách</h3>
+          <label class="checkbox-line"
+            ><input type="checkbox" checked /> Thanh lịch</label
+          >
+          <label class="checkbox-line"><input type="checkbox" /> Cổ điển</label>
+          <label class="checkbox-line"
+            ><input type="checkbox" /> Tối giản</label
+          >
+        </section>
+
+        <section class="male-filter-block">
+          <h3>Khoảng giá</h3>
+          <div class="price-slider-container">
+            <input
+              type="range"
+              id="priceRange"
+              min="0"
+              max="20000000"
+              value="20000000"
+              step="100000"
+            />
+            <div class="range-row-bottom">
+              <span>0đ</span>
+              <span id="maxPriceLabel">20.000.000đ</span>
+            </div>
+          </div>
+        </section>
+      </aside>
+
+      <section class="male-product-panel">
+        <div class="collection-hero">
+          <img
+            src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1200&q=80"
+            alt="Bộ sưu tập mùa hè"
+          />
+          <div class="collection-hero-text">
+            <h1>BST Ánh Sao Đêm</h1>
+            <p>
+              Tỏa sáng như bầu trời đêm: các thiết kế được hoàn thiện với tỉ lệ
+              đá tinh xảo và phom dáng thanh lịch.
+            </p>
+            <div class="collection-tags">
+              <span class="collection-tag">Thiết kế giới hạn</span>
+              <span class="collection-tag">Vàng trắng</span>
+              <span class="collection-tag">Đính đá tự nhiên</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-head">
+          <h1>BỘ SƯU TẬP MỚI</h1>
+          <div class="head-right">
+            <span id="resultCount">0 sản phẩm</span>
+            <select id="sortSelect">
+              <option value="newest">Mới nhất</option>
+              <option value="priceAsc">Giá tăng dần</option>
+              <option value="priceDesc">Giá giảm dần</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="catalog-grid" id="productGrid"></div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="footer-logo">
+              <img src="../ảnh/Ảnh chụp màn hình/logo.png" alt="AURORA" />
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-phone"></i>1900 8888
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-location-dot"></i>Biệt thự 10A, Vinhomes
+              Ocean Park, Gia Lâm, Hà Nội
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Dịch vụ khách hàng</h4>
+            <ul>
+              <li><a href="./trangdieukhoan.html">Điều khoản và điều kiện</a></li>
+              <li><a href="./trangchinhsach.html">Chính sách đổi trả và bảo hành</a></li>
+              <li><a href="./trangchinhsach.html">Chính sách vận chuyển</a></li>
+              <li><a href="./tranghuongdanbaoquan.html">Hướng dẫn bảo quản trang sức</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Thông tin chung</h4>
+            <ul>
+              <li><a href="./lienhe.html">Liên hệ</a></li>
+              <li><a href="./tintuc.html">Tin tức</a></li>
+              <li><a href="./tranggioithieu.html">Về chúng tôi</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col newsletter">
+            <h4>Đăng ký để nhận thông báo</h4>
+            <p>
+              Đăng ký để nhận thông báo mới nhất về các bộ sưu tập và ưu đãi.
+            </p>
+            <input type="email" placeholder="Nhập email của bạn" />
+            <button>Đăng ký ngay</button>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <img class="bct-logo" src="../ảnh/Ảnh chụp màn hình/logo-congthuong.png"
+            alt="Đã thông báo Bộ Công Thương" />
+          <div class="about-us">
+            <h5>Về chúng tôi</h5>
+            <div class="socials">
+              <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+              <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+              <a href="#" aria-label="Youtube"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/bosuutapmoi.js"></script>
+    <script src="../js/nav-active.js"></script>
+  </body>
+</html>
