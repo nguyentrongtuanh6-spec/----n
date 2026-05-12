@@ -23,28 +23,62 @@ window.addEventListener("DOMContentLoaded", function () {
   };
 
   const products = [
-    { id: 1201, detailId: 1, name: "Bộ trang sức bạc đính đá xanh Sapphire", image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop", price: "2.850.000đ", gender: "Nữ", rating: 4.9, inStock: true, order: 1 },
-    { id: 1202, detailId: 2, name: "Bộ trang sức ngọc trai cao cấp AURORA", image: "https://images.unsplash.com/photo-1535102223803-f1662660d1ba?q=80&w=800&auto=format&fit=crop", price: "3.500.000đ", gender: "Nữ", rating: 5.0, inStock: true, order: 2 },
-    { id: 1203, detailId: 3, name: "Bộ trang sức hoa tuyết ánh bạc hiện đại", image: "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=800&auto=format&fit=crop", price: "1.780.000đ", gender: "Nữ", rating: 4.7, inStock: true, order: 3 },
-    { id: 1204, detailId: 4, name: "Bộ trang sức zircon thiết kế sang trọng", image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop", price: "2.250.000đ", gender: "Nữ", rating: 4.8, inStock: true, order: 4 },
-    { id: 1205, detailId: 5, name: "Bộ trang sức bản mảnh phong cách tối giản", image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=800&auto=format&fit=crop", price: "1.440.000đ", gender: "Nữ", rating: 4.5, inStock: true, order: 5 },
-    { id: 1206, detailId: 6, name: "Bộ trang sức ngọc trai phối đá cao cấp", image: "https://images.unsplash.com/photo-1518131394553-8b94103126f4?q=80&w=800&auto=format&fit=crop", price: "1.930.000đ", gender: "Nữ", rating: 4.6, inStock: true, order: 6 },
-    { id: 1207, detailId: 7, name: "Bộ trang sức đính charm tinh tế dịu dàng", image: "https://images.unsplash.com/photo-1611085583191-a3b1a308c021?q=80&w=800&auto=format&fit=crop", price: "1.570.000đ", gender: "Nữ", rating: 4.4, inStock: true, order: 7 },
-    { id: 1208, detailId: 8, name: "Bộ trang sức dáng hoa cho dịp tặng quà", image: "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=800&auto=format&fit=crop", price: "2.180.000đ", gender: "Nữ", rating: 4.3, inStock: true, order: 8 },
-    { id: 1209, detailId: 1, name: "Bộ trang sức Diamond Elegance", image: "https://images.unsplash.com/photo-1599643477877-537ef5278533?q=80&w=800&auto=format&fit=crop", price: "5.800.000đ", gender: "Nữ", rating: 5.0, inStock: true, order: 9 },
-    { id: 1210, detailId: 2, name: "Bộ trang sức Ruby Heart", image: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?q=80&w=800&auto=format&fit=crop", price: "4.200.000đ", gender: "Nữ", rating: 4.9, inStock: true, order: 10 },
-    { id: 1211, detailId: 3, name: "Bộ trang sức Emerald Green", image: "https://images.unsplash.com/photo-1617038220319-276d3cfab638?q=80&w=800&auto=format&fit=crop", price: "3.900.000đ", gender: "Nữ", rating: 4.8, inStock: true, order: 11 },
-    { id: 1212, detailId: 4, name: "Bộ trang sức Gold Luxury", image: "https://images.unsplash.com/photo-1630030538557-182a8ee7d1a5?q=80&w=800&auto=format&fit=crop", price: "8.500.000đ", gender: "Nữ", rating: 5.0, inStock: true, order: 12 },
-    { id: 1213, detailId: 5, name: "Bộ trang sức Silver Moon", image: "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=800&auto=format&fit=crop", price: "1.200.000đ", gender: "Nữ", rating: 4.4, inStock: true, order: 13 },
-    { id: 1214, detailId: 6, name: "Bộ trang sức Rose Gold", image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=800&auto=format&fit=crop", price: "2.600.000đ", gender: "Nữ", rating: 4.7, inStock: true, order: 14 },
-    { id: 1215, detailId: 7, name: "Bộ trang sức Vintage Style", image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop", price: "1.950.000đ", gender: "Nữ", rating: 4.5, inStock: true, order: 15 },
-    { id: 1216, detailId: 8, name: "Bộ trang sức Modern Art", image: "https://images.unsplash.com/photo-1518131394553-8b94103126f4?q=80&w=800&auto=format&fit=crop", price: "2.300.000đ", gender: "Nữ", rating: 4.6, inStock: true, order: 16 },
-    { id: 1217, detailId: 1, name: "Bộ trang sức Ruby Star", image: "../ảnh/Ảnh chụp màn hình/2.png", price: "3.500.000đ", gender: "Nữ", rating: 4.9, inStock: true, order: 17 },
-    { id: 1218, detailId: 2, name: "Bộ trang sức Emerald Green", image: "../ảnh/Ảnh chụp màn hình/3.png", price: "4.200.000đ", gender: "Nữ", rating: 4.8, inStock: true, order: 18 },
-    { id: 1219, detailId: 3, name: "Bộ trang sức Sapphire Blue", image: "../ảnh/Ảnh chụp màn hình/4.png", price: "3.800.000đ", gender: "Nữ", rating: 4.7, inStock: true, order: 19 },
-    { id: 1220, detailId: 4, name: "Bộ trang sức Diamond Queen", image: "../ảnh/Ảnh chụp màn hình/5.png", price: "9.900.000đ", gender: "Nữ", rating: 5.0, inStock: true, order: 20 },
-    { id: 1221, detailId: 5, name: "Bộ trang sức Silver Moon", image: "../ảnh/Ảnh chụp màn hình/6.png", price: "1.500.000đ", gender: "Nữ", rating: 4.5, inStock: true, order: 21 },
-    { id: 1222, detailId: 6, name: "Bộ trang sức Golden Sun", image: "../ảnh/Ảnh chụp màn hình/7.png", price: "5.600.000đ", gender: "Nữ", rating: 4.6, inStock: true, order: 22 }
+    {
+      id: 1201, detailId: 1, name: "Bộ trang sức bạc nữ hoa cúc họa mi AURORA",
+      image: "../ảnh/Ảnh chụp màn hình/179.png", price: "5.850.000đ", gender: "Nữ",
+      rating: 4.9, inStock: true, order: 1
+    },
+    {
+      id: 1202, detailId: 2, name: "Bộ trang sức bạc nữ đính đá pha lê hình trái tim AURORA",
+      image: "../ảnh/Ảnh chụp màn hình/180.png", price: "5.500.000đ", gender: "Nữ",
+      rating: 5.0, inStock: true, order: 2
+    },
+    {
+      id: 1203, detailId: 3, name: "Bộ trang sức bạc nữ đính đá Spinel, CZ hình bông tuyết AURORA ",
+      image: "../ảnh/Ảnh chụp màn hình/181.png", price: "6.780.000đ", gender: "Nữ",
+      rating: 4.7, inStock: true, discount: "-2 %", order: 3
+    },
+    {
+      id: 1206, detailId: 6, name: "Bộ trang sức bạc nữ mạ vàng đính đá CZ đa sắc",
+      image: "../ảnh/Ảnh chụp màn hình/184.png", price: "9.170.000đ", gender: "Nữ",
+      rating: 4.6, inStock: true, order: 6
+    },
+    {
+      id: 1215, detailId: 7, name: "Bộ trang sức bạc nữ mạ vàng đính đá CZ Red",
+      image: "../ảnh/Ảnh chụp màn hình/182.png", price: "4.950.000đ", gender: "Nữ",
+      rating: 4.5, inStock: true, order: 15
+    },
+    {
+      id: 1216, detailId: 8, name: "Bộ trang sức bạc nữ mạ vàng đính đá CZ, Malachite khổng tước",
+      image: "../ảnh/Ảnh chụp màn hình/183.png", price: "2.750.000đ", gender: "Nữ",
+      rating: 4.6, inStock: true, order: 16
+    },
+    {
+      id: 1217, detailId: 1, name: "Bộ trang sức bạc nữ mặt vuông mạ vàng đính đá CZ, mã não công chúa",
+      image: "../ảnh/Ảnh chụp màn hình/185.png", price: "7.120.000đ", gender: "Nữ",
+      rating: 4.9, inStock: true, order: 17
+    },
+    {
+      id: 1218, detailId: 2, name: "Bộ trang sức bạc nữ mạ vàng đính đá Citrine hình chú ong vàng",
+      image: "../ảnh/Ảnh chụp màn hình/186.png", price: "8.200.000đ", gender: "Nữ",
+      rating: 4.8, inStock: true, order: 18
+    },
+    {
+      id: 1219, detailId: 3, name: "Bộ trang sức bạc nữ mạ vàng đính đá Opal, CZ đại dương xanh",
+      image: "../ảnh/Ảnh chụp màn hình/187.png", price: "8.800.000đ", gender: "Nữ",
+      rating: 4.7, inStock: true, order: 19
+    },
+    {
+      id: 1220, detailId: 4, name: "Bộ trang sức bạc nữ đính đá Garnet, CZ hoa hồng tình yêu",
+      image: "../ảnh/Ảnh chụp màn hình/188.png", price: "5.620.000đ", gender: "Nữ",
+      rating: 5.0, inStock: true, order: 20
+    },
+    {
+      id: 1221, detailId: 5, name: "Bộ trang sức bạc nữ mạ vàng đính đá CZ, Opal hình quả trứng thời trang",
+      image: "../ảnh/Ảnh chụp màn hình/189.png", price: "5.619.000đ", gender: "Nữ",
+      rating: 4.5, inStock: true, order: 21
+    },
+
   ];
 
   const state = { maxPrice: Number(priceRange?.value || 100000000), minRating: 0, inStockOnly: inStockOnlyInput?.checked ?? true, selectedGender: null, searchKeyword: "", sort: sortSelect?.value || "popular", page: 1, pageSize: 15 };
@@ -139,10 +173,10 @@ window.addEventListener("DOMContentLoaded", function () {
     const filtered = applyFilterAndSort();
     const start = (state.page - 1) * state.pageSize;
     const currentItems = filtered.slice(start, start + state.pageSize);
-    
+
     if (filterTitle) filterTitle.textContent = "Bộ sưu tập Trang sức bộ";
     if (resultCount) resultCount.textContent = filtered.length + " bộ sản phẩm";
-    
+
     if (grid) {
       if (currentItems.length === 0) grid.innerHTML = "<p>Không tìm thấy sản phẩm phù hợp.</p>";
       else {
