@@ -1,269 +1,331 @@
 <!doctype html>
 <html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AURORA - Trang chủ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/trangchu.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AURORA - Trang chủ</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="../css/global.css" />
-  <link rel="stylesheet" href="../css/trangchu.css" />
-</head>
+  <body>
+    <div class="topbar">Ưu đãi thành viên mới: giảm 20% cho đơn đầu tiên</div>
 
-<body>
-  <div class="topbar">Ưu đãi thành viên mới: giảm 20% cho đơn đầu tiên</div>
+    <header>
+      <div class="container header-main">
+        <a href="./trangchu.html" class="logo" aria-label="AURORA Home"
+          ><img src="../ảnh/Ảnh chụp màn hình/logo.png" alt="AURORA"
+        /></a>
 
-  <header>
-    <div class="container header-main">
-      <a href="./trangchu.html" class="logo" aria-label="AURORA Home"><img src="../ảnh/Ảnh chụp màn hình/logo.png"
-          alt="AURORA" /></a>
-
-      <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Bạn muốn tìm gì?" autocomplete="off" />
-        <span class="search-icon" id="searchIcon"><i class="fa-solid fa-magnifying-glass"></i></span>
-        <div id="searchSuggestions" class="search-suggestions"></div>
-      </div>
-
-      <div class="header-icons">
-        <a href="./trangyeuthich.html" title="Yêu thích"><i class="fa-regular fa-heart"></i></a>
-        <a href="#" title="Cửa hàng"><i class="fa-solid fa-location-dot"></i></a>
-        <a href="./trangdangnhap.html" title="Tài khoản"><i class="fa-regular fa-user"></i></a>
-        <a href="./tranggiohang.html" title="Giỏ hàng" class="cart-icon-link">
-          <i class="fa-solid fa-bag-shopping"></i>
-        </a>
-      </div>
-    </div>
-
-    <nav>
-      <div class="container">
-        <ul class="nav-menu">
-          <li><a href="#">Bộ sưu tập mới</a></li>
-          <li><a href="./trangsucbo.html">Trang sức bộ</a></li>
-          <li><a href="./trangsucdoi.html">Trang sức đôi</a></li>
-
-          <li><a href="./tranglocnhannam.html">Nhẫn</a></li>
-          <li><a href="./tranglocdaychuyen.html">Dây chuyền</a></li>
-          <li><a href="./tranglocbongtai.html">Bông tai</a></li>
-          <li><a href="./tranglocvongtay.html">Vòng tay</a></li>
-          <li><a href="./trangloccharm.html">Charm</a></li>
-          <li><a href="./tintuc.html">Tin tức</a></li>
-          <li><a href="./tranggioithieu.html">Giới thiệu</a></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <div class="container hero-wrap">
-      <div class="hero-image">
-        <img src="../ảnh/Ảnh chụp màn hình/banner_revise.jpg" alt="Bộ vòng chuẩn Style - Tiết kiệm đến 20%" />
-      </div>
-    </div>
-  </section>
-
-  <main class="container">
-    <section class="section section-box">
-      <div class="mini-label">Sản phẩm dành cho cặp đôi</div>
-
-      <div class="product-grid-4" id="coupleProductGrid">
-        <!-- Rendered by JS -->
-      </div>
-
-      <div class="view-wrap">
-        <a href="#" class="view-more" data-category="couple">Xem thêm</a>
-      </div>
-    </section>
-
-    <section class="section section-box">
-      <h2 class="section-title">Danh mục sản phẩm</h2>
-
-      <div class="product-grid-6">
-        <div class="category-card">
-          <div class="category-thumb">
-            <img src="../ảnh/Ảnh chụp màn hình/49.png" alt="" />
-          </div>
-          <div class="category-name">Vòng lắc</div>
+        <div class="search-box">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Bạn muốn tìm gì?"
+            autocomplete="off"
+          />
+          <span class="search-icon" id="searchIcon"
+            ><i class="fa-solid fa-magnifying-glass"></i
+          ></span>
+          <div id="searchSuggestions" class="search-suggestions"></div>
         </div>
 
-        <div class="category-card">
-          <div class="category-thumb">
-            <img src="../ảnh/Ảnh chụp màn hình/50.png" alt="" />
-          </div>
-          <div class="category-name">Charm</div>
-        </div>
-
-        <div class="category-card">
-          <div class="category-thumb">
-            <img src="../ảnh/Ảnh chụp màn hình/51.png" alt="" />
-          </div>
-          <div class="category-name">Vòng tay</div>
-        </div>
-
-        <div class="category-card">
-          <div class="category-thumb">
-            <img src="../ảnh/Ảnh chụp màn hình/52.png" alt="" />
-          </div>
-          <div class="category-name">Nhẫn</div>
-        </div>
-
-        <div class="category-card">
-          <div class="category-thumb">
-            <img src="../ảnh/Ảnh chụp màn hình/35.png" alt="" />
-          </div>
-          <div class="category-name">Dây chuyền</div>
-        </div>
-
-        <div class="category-card">
-          <div class="category-thumb">
-            <img src="../ảnh/Ảnh chụp màn hình/53.png" alt="" />
-          </div>
-          <div class="category-name">Khuyên tai</div>
+        <div class="header-icons">
+          <a href="./trangyeuthich.html" title="Yêu thích"
+            ><i class="fa-regular fa-heart"></i
+          ></a>
+          <a href="#" title="Cửa hàng"
+            ><i class="fa-solid fa-location-dot"></i
+          ></a>
+          <a href="./trangdangnhap.html" title="Tài khoản"
+            ><i class="fa-regular fa-user"></i
+          ></a>
+          <a href="./tranggiohang.html" title="Giỏ hàng" class="cart-icon-link">
+            <i class="fa-solid fa-bag-shopping"></i>
+          </a>
         </div>
       </div>
-    </section>
 
-    <section class="section section-box">
-      <h2 class="section-title">Sản phẩm được yêu thích nhất</h2>
+      <nav>
+        <div class="container">
+          <ul class="nav-menu">
+            <li><a href="#">Bộ sưu tập mới</a></li>
+            <li><a href="./trangsucbo.html">Trang sức bộ</a></li>
+            <li><a href="./trangsucdoi.html">Trang sức đôi</a></li>
 
-      <div class="product-grid-4" id="favoriteProductGrid">
-        <!-- Rendered by JS -->
-      </div>
-
-      <div class="view-wrap">
-        <a href="#" class="view-more" data-category="favorite">Xem thêm</a>
-      </div>
-    </section>
-
-    <!-- CHARM CREATIVE SECTION -->
-    <section class="section section-box charm-creative-section">
-      <h2 class="section-title">Sáng tạo theo cách của bạn</h2>
-      <div class="charm-creative-layout">
-        <!-- LEFT: Preview + Base selection -->
-        <div class="charm-left-col">
-          <div class="charm-main-preview">
-            <img src="../ảnh/charm-gen/charm-hero.png" alt="Preview" id="charmMainPreviewImg" />
-          </div>
-          <div class="charm-base-section">
-            <p class="charm-base-label"><i class="fa-solid fa-link"></i> Chọn vòng / dây chuyền:</p>
-            <div class="charm-base-grid" id="charmBaseGrid">
-              <!-- Rendered by JS -->
-            </div>
-          </div>
-        </div>
-
-        <!-- RIGHT: Charm library with checkboxes -->
-        <div class="charm-right-col">
-          <div class="charm-right-header">
-            <h3 class="charm-right-title">Bộ sưu tập Charm</h3>
-            <span class="charm-selected-badge" id="charmSelectedCount">0 đã chọn</span>
-          </div>
-
-          <div class="charm-scroll-area">
-            <div class="charm-card-grid" id="charmCardGrid">
-              <!-- Rendered by JS -->
-            </div>
-          </div>
-
-          <div class="charm-action-bar">
-            <div class="charm-total-price" id="charmTotalPrice">Tổng cộng: <strong>0đ</strong></div>
-            <div class="charm-btn-group">
-              <button class="charm-btn-cart" id="charmAddToCartBtn">
-                <i class="fa-solid fa-cart-shopping"></i> Thêm giỏ hàng
-              </button>
-              <button class="charm-btn-buy" id="charmBuyNowBtn">
-                Mua ngay
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-box">
-      <h2 class="section-title">Tin tức mới nhất</h2>
-      <div class="news-grid-modern">
-        <!-- Tin tức được tải động từ js/data-news.js -->
-      </div>
-    </section>
-  </main>
-
-  <section class="brand-banner">
-    <div class="content container">
-      <img src="../ảnh/Ảnh chụp màn hình/Group 43.png" alt="AURORA - Trang sức cao cấp" />
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <div class="footer-logo">
-            <img src="../ảnh/Ảnh chụp màn hình/logo.png" alt="AURORA" />
-          </div>
-          <div class="contact-item">
-            <i class="fa-solid fa-phone"></i>1900 8888
-          </div>
-          <div class="contact-item">
-            <i class="fa-solid fa-location-dot"></i>Biệt thự 10A, Vinhomes
-            Ocean Park, Gia Lâm, Hà Nội
-          </div>
-        </div>
-
-        <div class="footer-col">
-          <h4>Dịch vụ khách hàng</h4>
-          <ul>
-            <li><a href="./trangdieukhoan.html">Điều khoản và điều kiện</a></li>
-            <li><a href="./trangchinhsach.html">Chính sách đổi trả và bảo hành</a></li>
-            <li><a href="./trangchinhsach.html">Chính sách vận chuyển</a></li>
-            <li><a href="./tranghuongdanbaoquan.html">Hướng dẫn bảo quản trang sức</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Thông tin chung</h4>
-          <ul>
-            <li><a href="./lienhe.html">Liên hệ</a></li>
+            <li><a href="./tranglocnhannam.html">Nhẫn</a></li>
+            <li><a href="./tranglocdaychuyen.html">Dây chuyền</a></li>
+            <li><a href="./tranglocbongtai.html">Bông tai</a></li>
+            <li><a href="./tranglocvongtay.html">Vòng tay</a></li>
+            <li><a href="./trangloccharm.html">Charm</a></li>
             <li><a href="./tintuc.html">Tin tức</a></li>
-            <li><a href="./tranggioithieu.html">Về chúng tôi</a></li>
+            <li><a href="./tranggioithieu.html">Giới thiệu</a></li>
           </ul>
         </div>
+      </nav>
+    </header>
 
-        <div class="footer-col newsletter">
-          <h4>Đăng ký để nhận thông báo</h4>
-          <p>
-            Đăng ký để nhận thông báo mới nhất về các bộ sưu tập và ưu đãi.
-          </p>
-          <input type="email" placeholder="Nhập email của bạn" />
-          <button>Đăng ký ngay</button>
+    <section class="hero">
+      <div class="container hero-wrap">
+        <div class="hero-image">
+          <img
+            src="../ảnh/Ảnh chụp màn hình/banner_revise.jpg"
+            alt="Bộ vòng chuẩn Style - Tiết kiệm đến 20%"
+          />
         </div>
       </div>
+    </section>
 
-      <div class="footer-bottom">
-        <img class="bct-logo" src="../ảnh/Ảnh chụp màn hình/logo-congthuong.png"
-          alt="Đã thông báo Bộ Công Thương" />
-        <div class="about-us">
-          <h5>Về chúng tôi</h5>
-          <div class="socials">
-            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-            <a href="#" aria-label="Youtube"><i class="fa-brands fa-youtube"></i></a>
+    <main class="container">
+      <section class="section section-box">
+        <div class="mini-label">Sản phẩm dành cho cặp đôi</div>
+
+        <div class="product-grid-4" id="coupleProductGrid">
+          <!-- Rendered by JS -->
+        </div>
+
+        <div class="view-wrap">
+          <a href="#" class="view-more" data-category="couple">Xem thêm</a>
+        </div>
+      </section>
+
+      <section class="section section-box">
+        <h2 class="section-title">Danh mục sản phẩm</h2>
+
+        <div class="product-grid-6">
+          <div class="category-card">
+            <div class="category-thumb">
+              <img src="../ảnh/Ảnh chụp màn hình/49.png" alt="" />
+            </div>
+            <div class="category-name">Vòng lắc</div>
+          </div>
+
+          <div class="category-card">
+            <div class="category-thumb">
+              <img src="../ảnh/Ảnh chụp màn hình/50.png" alt="" />
+            </div>
+            <div class="category-name">Charm</div>
+          </div>
+
+          <div class="category-card">
+            <div class="category-thumb">
+              <img src="../ảnh/Ảnh chụp màn hình/51.png" alt="" />
+            </div>
+            <div class="category-name">Vòng tay</div>
+          </div>
+
+          <div class="category-card">
+            <div class="category-thumb">
+              <img src="../ảnh/Ảnh chụp màn hình/52.png" alt="" />
+            </div>
+            <div class="category-name">Nhẫn</div>
+          </div>
+
+          <div class="category-card">
+            <div class="category-thumb">
+              <img src="../ảnh/Ảnh chụp màn hình/35.png" alt="" />
+            </div>
+            <div class="category-name">Dây chuyền</div>
+          </div>
+
+          <div class="category-card">
+            <div class="category-thumb">
+              <img src="../ảnh/Ảnh chụp màn hình/53.png" alt="" />
+            </div>
+            <div class="category-name">Khuyên tai</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-box">
+        <h2 class="section-title">Sản phẩm được yêu thích nhất</h2>
+
+        <div class="product-grid-4" id="favoriteProductGrid">
+          <!-- Rendered by JS -->
+        </div>
+
+        <div class="view-wrap">
+          <a href="#" class="view-more" data-category="favorite">Xem thêm</a>
+        </div>
+      </section>
+
+      <!-- CHARM CREATIVE SECTION -->
+      <section class="section section-box charm-creative-section">
+        <h2 class="section-title">Sáng tạo theo cách của bạn</h2>
+        <div class="charm-creative-layout">
+          <!-- LEFT: Preview + Base selection -->
+          <div class="charm-left-col">
+            <div class="charm-main-preview">
+              <img
+                src="../ảnh/charm-gen/charm-hero.png"
+                alt="Preview"
+                id="charmMainPreviewImg"
+              />
+            </div>
+            <div class="charm-base-section">
+              <p class="charm-base-label">
+                <i class="fa-solid fa-link"></i> Chọn vòng / dây chuyền:
+              </p>
+              <div class="charm-base-grid" id="charmBaseGrid">
+                <!-- Rendered by JS -->
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: Charm library with checkboxes -->
+          <div class="charm-right-col">
+            <div class="charm-right-header">
+              <h3 class="charm-right-title">Bộ sưu tập Charm</h3>
+              <span class="charm-selected-badge" id="charmSelectedCount"
+                >0 đã chọn</span
+              >
+            </div>
+
+            <div class="charm-scroll-area">
+              <div class="charm-card-grid" id="charmCardGrid">
+                <!-- Rendered by JS -->
+              </div>
+            </div>
+
+            <div class="charm-action-bar">
+              <div class="charm-total-price" id="charmTotalPrice">
+                Tổng cộng: <strong>0đ</strong>
+              </div>
+              <div class="charm-btn-group">
+                <button class="charm-btn-cart" id="charmAddToCartBtn">
+                  <i class="fa-solid fa-cart-shopping"></i> Thêm giỏ hàng
+                </button>
+                <button class="charm-btn-buy" id="charmBuyNowBtn">
+                  Mua ngay
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-box">
+        <h2 class="section-title">Tin tức mới nhất</h2>
+        <div class="news-grid-modern">
+          <!-- Tin tức được tải động từ js/data-news.js -->
+        </div>
+      </section>
+    </main>
+
+    <section class="brand-banner">
+      <div class="content container">
+        <div class="brand-banner-media">
+          <img
+            src="../ảnh/charm-gen/Rectangle 77.png"
+            alt="AURORA - Trang sức cao cấp"
+          />
+          <div class="brand-banner-text">
+            <h2>AURORA - Trang Sức Cao Cấp</h2>
+            <p>
+              Đến với Aurora, trang sức không chỉ là một phụ kiện - đó là hiện
+              thân của niềm đam mê, tình yêu của chúng tôi, và cuối cùng, là món
+              quà của Aurora dành cho bạn.
+            </p>
           </div>
         </div>
       </div>
-    </div>
-  </footer>
+    </section>
 
-  <script src="../js/db.js"></script>
-  <script src="../js/data-news.js"></script>
-  <script src="../js/data-products.js"></script>
-  <script src="../js/data-special.js"></script>
-  <script src="../js/nav-active.js"></script>
-  <script src="../js/utils.js"></script>
-  <script src="../js/trangchu.js"></script>
-</body>
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="footer-logo">
+              <img src="../ảnh/Ảnh chụp màn hình/logo.png" alt="AURORA" />
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-phone"></i>1900 8888
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-location-dot"></i>Biệt thự 10A, Vinhomes
+              Ocean Park, Gia Lâm, Hà Nội
+            </div>
+          </div>
 
+          <div class="footer-col">
+            <h4>Dịch vụ khách hàng</h4>
+            <ul>
+              <li>
+                <a href="./trangdieukhoan.html">Điều khoản và điều kiện</a>
+              </li>
+              <li>
+                <a href="./trangchinhsach.html"
+                  >Chính sách đổi trả và bảo hành</a
+                >
+              </li>
+              <li><a href="./trangchinhsach.html">Chính sách vận chuyển</a></li>
+              <li>
+                <a href="./tranghuongdanbaoquan.html"
+                  >Hướng dẫn bảo quản trang sức</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Thông tin chung</h4>
+            <ul>
+              <li><a href="./lienhe.html">Liên hệ</a></li>
+              <li><a href="./tintuc.html">Tin tức</a></li>
+              <li><a href="./tranggioithieu.html">Về chúng tôi</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col newsletter">
+            <h4>Đăng ký để nhận thông báo</h4>
+            <p>
+              Đăng ký để nhận thông báo mới nhất về các bộ sưu tập và ưu đãi.
+            </p>
+            <input type="email" placeholder="Nhập email của bạn" />
+            <button>Đăng ký ngay</button>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <img
+            class="bct-logo"
+            src="../ảnh/Ảnh chụp màn hình/logo-congthuong.png"
+            alt="Đã thông báo Bộ Công Thương"
+          />
+          <div class="about-us">
+            <h5>Về chúng tôi</h5>
+            <div class="socials">
+              <a href="#" aria-label="Facebook"
+                ><i class="fa-brands fa-facebook"></i
+              ></a>
+              <a href="#" aria-label="TikTok"
+                ><i class="fa-brands fa-tiktok"></i
+              ></a>
+              <a href="#" aria-label="Youtube"
+                ><i class="fa-brands fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/db.js"></script>
+    <script src="../js/data-news.js"></script>
+    <script src="../js/data-products.js"></script>
+    <script src="../js/data-special.js"></script>
+    <script src="../js/nav-active.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/trangchu.js"></script>
+  </body>
 </html>
