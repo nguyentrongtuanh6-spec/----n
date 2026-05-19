@@ -407,14 +407,18 @@ window.addEventListener("DOMContentLoaded", function () {
       if(e.key === 'Enter') {
         const query = this.value.trim();
         if(query) {
-           window.location.href = `./trangsucbo.html?search=${encodeURIComponent(query)}`;
+           if (window.AuroraHeaderSearch) window.AuroraHeaderSearch.go(query);
+           else window.location.href = `./tranglocnhannam.html?search=${encodeURIComponent(query)}`;
         }
       }
     });
     
     searchIcon?.addEventListener("click", () => {
         const query = searchInput.value.trim();
-        if(query) window.location.href = `./trangsucbo.html?search=${encodeURIComponent(query)}`;
+        if(query) {
+          if (window.AuroraHeaderSearch) window.AuroraHeaderSearch.go(query);
+          else window.location.href = `./tranglocnhannam.html?search=${encodeURIComponent(query)}`;
+        }
     });
   }
 
